@@ -1,0 +1,25 @@
+{
+  "name": "bobcad-post",
+  "displayName": "BobCAD-CAM Post Processor Utility",
+  "description": "Tool for BobCAD Post Processors",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "bcpst",
+      "aliases": ["BobCAD-CAM Post Processor", "bcpst"],
+      "extensions": [".bcpst",".edmpst",".lathepst",".millpst"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "bcpst",
+      "scopeName": "source.bcpst",
+      "path": "./syntaxes/bcpst.tmLanguage.json"
+    }]
+  }
+}
