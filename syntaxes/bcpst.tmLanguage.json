@@ -11,10 +11,13 @@
             "name": "keyword.operator"
         },
 		{
-			"include": "#comments"
+			"include": "#variableLanguage"
 		},
 		{
-			"include": "#keywords"
+			"include": "#keywordDeclaration"
+		},
+		{
+			"include": "#comments"
 		},
 		{
 			"include": "#strings"
@@ -30,10 +33,16 @@
         }
 	],
 	"repository": {
-		"keywords": {
+		"variableLanguage": {
 			"patterns": [{
-				"name": "keyword.control.bcpst",
-				"match": "\\b(if|while|for|return)\\b"
+				"name": "variable.language.bcpst",
+				"match": "\\b(BcPost|Bcc)\\b"
+			}]
+		},
+		"keywordDeclaration": {
+			"patterns": [{
+				"name": "storage.lua",
+				"match": "\\b(local)\\b"
 			}]
 		},
 		"comments": {
@@ -109,6 +118,12 @@
 							"include": "#comments-inline"
 						},
 						{
+							"include": "#variableLanguage"
+						},
+						{
+							"include": "#keywordDeclaration"
+						},
+						{
 							"include": "source.lua"
 						}
 					]
@@ -163,4 +178,5 @@
         }
 	},
 	"scopeName": "source.bcpst"
+	
 }
