@@ -3,23 +3,61 @@
   "displayName": "BobCAD-CAM Post Processor Utility",
   "description": "Tool for BobCAD Post Processors",
   "version": "0.0.1",
+  "icon": "res/icons/logo.png",
+  "author": {
+    "name": "BobCAD-CAM",
+    "email": "support@bobcad.com",
+    "url": "http://www.bobcadsupport.com"
+  },
+  "publisher": "BobCAD-CAM",
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Other"
   ],
+  "activationEvents": [
+    "onLanguage:bcpst"
+  ],
+  "main": "./extension",
   "contributes": {
-    "languages": [{
+    "languages": [
+      {
       "id": "bcpst",
       "aliases": ["BobCAD-CAM Post Processor", "bcpst"],
       "extensions": [".bcpst",".edmpst",".lathepst",".millpst"],
       "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
+      },
+      {
+				"id": "nccode",
+				"aliases": [
+					"nccode",
+					"gcode"
+				],
+				"extensions": [
+					".nc",
+					".tap",
+					".cnc",
+					".gc",
+					".mpf",
+					".spf",
+					".h"
+				],
+				"configuration": "./language-configuration.json"
+			}
+  ],
+    "grammars": [
+      {
       "language": "bcpst",
       "scopeName": "source.bcpst",
       "path": "./syntaxes/bcpst.tmLanguage.json"
-    }]
+      },
+      {
+				"language": "nccode",
+				"scopeName": "source.nccode",
+				"path": "./syntaxes/nccode.tmLanguage.json"
+			}
+  ]
   }
 }

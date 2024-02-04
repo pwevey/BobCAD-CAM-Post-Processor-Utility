@@ -1,16 +1,34 @@
 const vscode = require('vscode');
 
 function activate(context) {
-    let provider = vscode.languages.registerHoverProvider('lua', {
+    // console.log('Congratulations, your extension "bobcad-post" is now active!');
+    
+    // Implement hover provider for 'lua'
+    const luaHoverProvider = vscode.languages.registerHoverProvider('lua', {
         provideHover(document, position, token) {
-            const word = document.getText(document.getWordRangeAtPosition(position));
-            if (word === 'Hello') {
-                return new vscode.Hover('World');
-            }
+            const hoverText = new vscode.MarkdownString("This is hover information for the lua symbol.");
+            return new vscode.Hover(hoverText);
         }
     });
 
-    context.subscriptions.push(provider);
+    // Implement hover provider for 'bcpst'
+    const bcpstHoverProvider = vscode.languages.registerHoverProvider('bcpst', {
+        provideHover(document, position, token) {
+            const hoverText = new vscode.MarkdownString("This is hover information for the bcpst symbol.");
+            return new vscode.Hover(hoverText);
+        }
+    });
+
+    // Register the hover providers
+    context.subscriptions.push(luaHoverProvider);
+    context.subscriptions.push(bcpstHoverProvider);
 }
 
-exports.activate = activate;
+function deactivate() {
+    // Cleanup logic when the extension is deactivated
+}
+
+module.exports = {
+    activate,
+    deactivate
+};
