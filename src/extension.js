@@ -14,7 +14,7 @@ function getJsonFilePath() {
 
 function activate(context) {
   // Register hover provider for .bcpst documents
-  const hoverProvider = vscode.languages.registerHoverProvider('bcpst', {
+  const hoverProvider = vscode.languages.registerHoverProvider(['bcpst','source.bcpst'], {
     provideHover(document, position) {
       // Check if the line starts with a post block number
       const postBlocks = readPostBlocks();
