@@ -28,7 +28,7 @@
     {
       "number": 2,
       "name": "Block 2. Start of File Standard",
-      "description": "This postblock is used to output the 1st tool and any startup commands that may be desired at the beginning of an NC program. This block is only ever called 1 time at the beginning of an NC program. This block where the following should happen:\n\n\n\n\n\n\n\n"
+      "description": "This postblock is used to output the 1st tool and any startup commands that may be desired at the beginning of an NC program. This block is only ever called 1 time at the beginning of an NC program. This block where the following should happen:\n"
     },
     {
       "number": 3,
