@@ -5,6 +5,18 @@
       "name": "0. File header",
       "description": "This is the first block called at the very beginning of a program. This block is used to output any file starting characters, along with things like program numbers and starting comments. If you need to output a tool list using the \"output_tool_list\" command variable, it should be done in this block.",
       "jobTypes": ["Mill", "Lathe", "Mill Turn"]
+    },
+    {
+      "number": 1000,
+      "name": "1000. Post Version Number",
+      "description": "This block is a special block found at the beginning of all post processors. It is out of numeric sequence because of it's purpose. This block is read by the post processing engine and determines the logic version the posting engine should use to read and interpret the post processor file.",
+      "jobTypes": ["Mill", "Lathe", "Mill Turn"]
+    },
+    {
+      "number": 2,
+      "name": "2. Start of File Standard",
+      "description": "This postblock is used to output the 1st tool and any startup commands that may be desired at the beginning of an NC program. This block is only ever called 1 time at the beginning of an NC program. This block where the following should happen:",
+      "jobTypes": ["Mill", "Mill Turn"]
     }
   ]
 }
