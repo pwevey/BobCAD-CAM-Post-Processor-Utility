@@ -1,0 +1,11 @@
+{
+  "blocks": [
+    {
+      "number": 0,
+      "name": "0. File header",
+      "description": "This is the first block called at the very beginning of a program. This block is used to output any file starting characters, along with things like program numbers and starting comments. If you need to output a tool list using the \"output_tool_list\" command variable, it should be done in this block.",
+      "jobTypes": ["Mill", "Lathe", "Mill Turn"]
+    }
+  ]
+}
+

@@ -20,7 +20,10 @@
   "activationEvents": [
     "onLanguage:bcpst"
   ],
-  "main": "./extension",
+  "extensionKind": [
+    "ui"
+  ],
+  "main": "./src/extension",
   "contributes": {
     "languages": [
       {
