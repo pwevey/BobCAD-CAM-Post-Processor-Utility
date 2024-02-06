@@ -1,15 +1,18 @@
 const vscode = require('vscode');
 
 class PostBlockTreeItem extends vscode.TreeItem {
-  constructor(label, lineNumber) {
-    super(label, vscode.TreeItemCollapsibleState.None);
+  constructor(label, lineNumber, collapsibleState, contextValue, command) {
+    super(label, collapsibleState);
     this.lineNumber = lineNumber;
-    this.contextValue = 'postBlock'; // Unique identifier for post block items
-    this.command = {
-      command: 'postBlocks.navigateToLine',
-      title: '',
-      arguments: [this.lineNumber],
-    };
+    this.contextValue = contextValue || 'postBlock';
+    this.command = command;
+  }
+}
+
+class PostBlockFolderTreeItem extends PostBlockTreeItem {
+  constructor(label, collapsibleState, children) {
+    super(label, undefined, collapsibleState);
+    this.children = children || [];
   }
 }
 
@@ -33,25 +36,44 @@ class PostBlockDataProvider {
     return element;
   }
 
-  getChildren() {
-    const postBlockRegex = /^(\d+)\.\s+/;
-    const document = vscode.window.activeTextEditor.document;
+  getChildren(element) {
+    if (!element) {
+      // Top-level elements
+      const postBlockRegex = /^(\d+)\.\s+/;
+      const document = vscode.window.activeTextEditor.document;
+      const postBlocks = [];
 
-    const postBlocks = new Set(); // Use a Set to ensure unique post block numbers
+      for (let index = 0; index < document.lineCount; index++) {
+        const lineNumber = index + 1;
+        const line = document.lineAt(index);
+        const match = line.text.match(postBlockRegex);
 
-    for (let index = 0; index < document.lineCount; index++) {
-      const lineNumber = index + 1;
-      const line = document.lineAt(index);
-
-      const match = line.text.match(postBlockRegex);
-      if (match) {
-        const postBlockNumber = parseInt(match[1]);
-        const label = `${postBlockNumber}. ${line.text.replace(postBlockRegex, '').trim()}`; // Include the post block number in front
-        postBlocks.add(new PostBlockTreeItem(label, lineNumber));
+        if (match) {
+          const postBlockNumber = parseInt(match[1]);
+          const label = `${postBlockNumber}. ${line.text.replace(postBlockRegex, '').trim()}`;
+          const command = {
+            command: 'postBlocks.navigateToLine',
+            title: '',
+            arguments: [lineNumber],
+          };
+          postBlocks.push(new PostBlockTreeItem(label, lineNumber, undefined, undefined, command));
+        }
       }
+
+      // Add folders with different initial states
+      const parentFolders = [
+        new PostBlockFolderTreeItem('Folder A', vscode.TreeItemCollapsibleState.Expanded, postBlocks.slice(0, 2)),
+        new PostBlockFolderTreeItem('Folder B', vscode.TreeItemCollapsibleState.Collapsed, postBlocks.slice(2, 4)),
+        new PostBlockFolderTreeItem('Folder C', vscode.TreeItemCollapsibleState.Expanded, postBlocks.slice(4)),
+      ];
+
+      return parentFolders;
+    } else if (element instanceof PostBlockFolderTreeItem) {
+      // Subfolders
+      return element.children;
     }
 
-    return Array.from(postBlocks);
+    return [];
   }
 }
 
