@@ -1,237 +1,239 @@
 {
-    "Debug Block": [26],
-    "Program Blocks": {
-      "Custom MDI Blocks": ["2600 - 2699"],
-      "VBScript Blocks": ["2001 - 2102", 2103],
-      "Lua Blocks": ["2701 - 2799"]
-    },
-    "Start Blocks": {
-      "Mill": [1000, 0, 1, 2, 15, 40],
-      "Lathe": [1002, 1058]
-    },
-    "Tool Change / End of Op Blocks": {
-      "Mill": [3, 4, 16, 19, 197, 198, 41, 71],
-      "Lathe": [1003, 1004, 1006, 1007, 1009, 1019, 1059, 1091, 1197, 1198]
-    },
-    "End of Program Blocks": [5, 199, 24, 1199],
-    "Move Blocks": {
-        "Mill": {
-            "Standard Move Blocks": [27, 28, "50 - 57", "64 - 66"],
-            "When Wrapping Blocks": ["152 - 157", 164]
+    "root": {
+        "Debug Block": [26],
+        "Program Blocks": {
+        "Custom MDI Blocks": ["2600 - 2699"],
+        "VBScript Blocks": ["2001 - 2102", 2103],
+        "Lua Blocks": ["2701 - 2799"]
         },
-        "Lathe": [1020, 1021, 1022, 1025]
-    },
-    "Canned Cycle Blocks": {
-      "Mill Canned Cycles": {
-        "Standard Canned Cycles": [22, 23, 73, 74, 76, 80, "81 - 99", 113, 114, 116],
-        "When Wrapping": ["170 - 195"]
-      },
-      "Lathe Canned Cycles": {
-        "Start Of Canned": [1027, 1060, 1062, 1066, 1070, 1074, 1078, 1086, 1087, "1096 - 1098", 1121, 1122, 1123, "1124 - 1132"],
-        "End Of / Cancel Canned": [1028, 1063, 1067, 1071, 1075, 1079, 1088, 1120]
-      },
-      "Lathe Seperate Moves Blocks": {
-        "Start Of Seperate Moves": [1082, 1086, 1089, 1092, 1094, 1095, 1100, 1104, 1108],
-        "End Of Seperate Moves": [1064, 1068, 1080, 1083, 1084, 1090, 1093, 1101, 1105, 1109]
-      }
-    },
-    "LPW Specific Blocks": [58, 59],
-    "Post Questions": {
-      "Mill Questions": ["200 - 223", "227 - 243", 258, 262, 267, "272 - 274", 280, 281, "313 - 315", "319 - 324", 414, 415, "425 - 433", "440 - 446", 511, 512, 513, 515, 516, 526, 527, 531, "533 - 536", 540, "550 - 560"],
-      "Lathe Questions": ["1247 - 1258", 1259, 1268, 1269, 1280, 1281, 1283, 1284, "1305 - 1307", "1411 - 1413", 1512, 1513, "1517 - 1526", 1544, "1612 - 1615"],
-      "Mill-Turn Questions": ["3500 - 3513", "3527 - 3529", 3559, "3592 - 3597", "3600 - 3603"]
-    },
-    "Additional Configuration Blocks": {
-      "Sub-Program Blocks": ["7 - 9", 100, 101],
-      "Compensation Blocks": ["11 - 14", 1026],
-      "Other": [20, 21, 25, 39]
-    },
-    "Multi-Axis Blocks": {
-      "Rotary Blocks": [10, 17, 18, 111],
-      "Tranform Plane Blocks": ["30 - 33"],
-      "5-Axis Specific Blocks": [45]
-    },
-    "Formatting Blocks": [108, 109, 110, 1110, 1111],
-    "Prefix Blocks": {
-      "Coolant Blocks": ["840 - 859"],
-      "Work Shift Blocks": ["900 - 999"],
-      "Mill Prefix Blocks": ["605 - 607", 609, 610, 613, 614, 615, "620 - 622", "625 - 631", "639 - 643", "645 - 656", 658, 659, "670 - 708", "710 - 731", 733, 734, "750 - 753", "760 - 769", "780 - 786", "800 - 807", "808 - 811", "820 - 827", "828 - 831"],
-      "Lathe Prefix Blocks": ["1705 - 1708", 1712, 1713, 1763, 1764, "1765 - 1768", 1780, 1781, 1785, 1786, "1790 - 1799", 1804, "1807 - 1817", "1820 - 1827", "1830 - 1847", "1849 - 1858", "1860 - 1868", "1870 - 1878", "1880 - 1888"],
-      "Mill-Turn Prefix Blocks": ["3514 - 3526", "3530 - 3553", 3561, 3562, "3564 - 3582", 3590, 3591]
-    },
-    "Mill-Turn Specific Blocks": ["2200 - 2299", "2300 - 2399", "2400 - 2499", "2500 - 2599", "3000 - 3006", "3020 - 3047"],
-    "Absolute Prefix Mill-Turn Blocks": ["5000 - 5049"],
-    "Incremental Prefix Mill-Turn Blocks": ["5050 - 5099"],
-    "Axis Scaling Mill-Turn Blocks": ["5100 - 5149"],
-    "Axis Shift Mill-Turn Blocks": ["5150 - 5199"],
-    "Tool Orientation Mapping Blocks": ["5200 - 5208"],
-    "Zone Blocks": {
-      "Zone 1": ["6000 - 6024"],
-      "Zone 2": ["6025 - 6049"],
-      "Zone 3": ["6050 - 6074"],
-      "Zone 4": ["6075 - 6099"],
-      "Zone 5": ["6100 - 6124"],
-      "Zone 6": ["6125 - 6149"],
-      "Zone 7": ["6150 - 6174"],
-      "Zone 8": ["6175 - 6199"],
-      "Zone 9": ["6200 - 6224"],
-      "Zone 10": ["6225 - 6249"],
-      "Zone 11": ["6250 - 6274"],
-      "Zone 12": ["6275 - 6299"],
-      "Zone 13": ["6300 - 6324"],
-      "Zone 14": ["6325 - 6349"],
-      "Zone 15": ["6350 - 6374"],
-      "Zone 16": ["6375 - 6399"],
-      "Zone 17": ["6400 - 6424"],
-      "Zone 18": ["6425 - 6449"],
-      "Zone 19": ["6450 - 6474"],
-      "Zone 20": ["6475 - 6499"],
-      "Zone 21": ["6500 - 6524"],
-      "Zone 22": ["6525 - 6549"],
-      "Zone 23": ["6550 - 6574"],
-      "Zone 24": ["6575 - 6599"],
-      "Zone 25": ["6600 - 6624"],
-      "Zone 26": ["6625 - 6649"],
-      "Zone 27": ["6650 - 6674"],
-      "Zone 28": ["6675 - 6699"],
-      "Zone 29": ["6700 - 6724"],
-      "Zone 30": ["6725 - 6749"],
-      "Zone 31": ["6750 - 6774"],
-      "Zone 32": ["6775 - 6799"],
-      "Zone 33": ["6800 - 6824"],
-      "Zone 34": ["6825 - 6849"],
-      "Zone 35": ["6850 - 6874"],
-      "Zone 36": ["6875 - 6899"],
-      "Zone 37": ["6900 - 6924"],
-      "Zone 38": ["6925 - 6949"],
-      "Zone 39": ["6950 - 6974"],
-      "Zone 40": ["6975 - 6999"],
-      "Zone 41": ["7000 - 7024"],
-      "Zone 42": ["7025 - 7049"],
-      "Zone 43": ["7050 - 7074"],
-      "Zone 44": ["7075 - 7099"],
-      "Zone 45": ["7100 - 7124"],
-      "Zone 46": ["7125 - 7149"],
-      "Zone 47": ["7150 - 7174"],
-      "Zone 48": ["7175 - 7199"],
-      "Zone 49": ["7200 - 7224"],
-      "Zone 50": ["7225 - 7249"],
-      "Zone 51": ["7250 - 7274"],
-      "Zone 52": ["7275 - 7299"],
-      "Zone 53": ["7300 - 7324"],
-      "Zone 54": ["7325 - 7349"],
-      "Zone 55": ["7350 - 7374"],
-      "Zone 56": ["7375 - 7399"],
-      "Zone 57": ["7400 - 7424"],
-      "Zone 58": ["7425 - 7449"],
-      "Zone 59": ["7450 - 7474"],
-      "Zone 60": ["7475 - 7499"],
-      "Zone 61": ["7500 - 7524"],
-      "Zone 62": ["7525 - 7549"],
-      "Zone 63": ["7550 - 7574"],
-      "Zone 64": ["7575 - 7599"],
-      "Zone 65": ["7600 - 7624"],
-      "Zone 66": ["7625 - 7649"],
-      "Zone 67": ["7650 - 7674"],
-      "Zone 68": ["7675 - 7699"],
-      "Zone 69": ["7700 - 7724"],
-      "Zone 70": ["7725 - 7749"],
-      "Zone 71": ["7750 - 7774"],
-      "Zone 72": ["7775 - 7799"],
-      "Zone 73": ["7800 - 7824"],
-      "Zone 74": ["7825 - 7849"],
-      "Zone 75": ["7850 - 7874"],
-      "Zone 76": ["7875 - 7899"],
-      "Zone 77": ["7900 - 7924"],
-      "Zone 78": ["7925 - 7949"],
-      "Zone 79": ["7950 - 7974"],
-      "Zone 80": ["7975 - 7999"],
-      "Zone 81": ["8000 - 8024"],
-      "Zone 82": ["8025 - 8049"],
-      "Zone 83": ["8050 - 8074"],
-      "Zone 84": ["8075 - 8099"],
-      "Zone 85": ["8100 - 8124"],
-      "Zone 86": ["8125 - 8149"],
-      "Zone 87": ["8150 - 8174"],
-      "Zone 88": ["8175 - 8199"],
-      "Zone 89": ["8200 - 8224"],
-      "Zone 90": ["8225 - 8249"],
-      "Zone 91": ["8250 - 8274"],
-      "Zone 92": ["8275 - 8299"],
-      "Zone 93": ["8300 - 8324"],
-      "Zone 94": ["8325 - 8349"],
-      "Zone 95": ["8350 - 8374"],
-      "Zone 96": ["8375 - 8399"],
-      "Zone 97": ["8400 - 8424"],
-      "Zone 98": ["8425 - 8449"],
-      "Zone 99": ["8450 - 8474"],
-      "Zone 100": ["8475 - 8499"]
-    },
-    "Workpiece Mill-Turn Blocks": {
-      "Workpiece Device 1": ["10000 - 10099"],
-      "Workpiece Device 2": ["10100 - 10199"],
-      "Workpiece Device 3": ["10200 - 10299"],
-      "Workpiece Device 4": ["10300 - 10399"]
-    },
-    "Tool Device Mill-Turn Blocks": {
-      "Tool Device 1": ["20000 - 20099"],
-      "Tool Device 2": ["20100 - 20199"],
-      "Tool Device 3": ["20200 - 20299"],
-      "Tool Device 4": ["20300 - 20399"]
-    },
-    "Tailstock Device Mill-Turn Blocks": {
-      "Tailstock Device 1": ["30000 - 30099"],
-      "Tailstock Device 2": ["30101 - 30199"],
-      "Tailstock Device 3": ["30201 - 30299"],
-      "Tailstock Device 4": ["30301 - 30399"],
-      "Tailstock Device 5": ["30401 - 30499"],
-      "Tailstock Device 6": ["30501 - 30599"],
-      "Tailstock Device 7": ["30601 - 30699"],
-      "Tailstock Device 8": ["30701 - 30799"],
-      "Tailstock Device 9": ["30801 - 30899"],
-      "Tailstock Device 10": ["30901 - 30999"]
-    },
-    "Steady Rest Device Mill-Turn Blocks": {
-      "Steady Rest Device 1": ["40001 - 40099"],
-      "Steady Rest Device 2": ["40101 - 40199"],
-      "Steady Rest Device 3": ["40201 - 40299"],
-      "Steady Rest Device 4": ["40301 - 40399"],
-      "Steady Rest Device 5": ["40401 - 40499"],
-      "Steady Rest Device 6": ["40501 - 40599"],
-      "Steady Rest Device 7": ["40601 - 40699"],
-      "Steady Rest Device 8": ["40701 - 40799"],
-      "Steady Rest Device 9": ["40801 - 40899"],
-      "Steady Rest Device 10": ["40901 - 40999"]
-    },
-    "Parts Catcher Device Blocks": {
-      "Part Catcher Device 1": ["50001 - 50099"],
-      "Part Catcher Device 2": ["50101 - 50199"],
-      "Part Catcher Device 3": ["50201 - 50299"],
-      "Part Catcher Device 4": ["50301 - 50399"],
-      "Part Catcher Device 5": ["50401 - 50499"],
-      "Part Catcher Device 6": ["50501 - 50599"],
-      "Part Catcher Device 7": ["50601 - 50699"],
-      "Part Catcher Device 8": ["50701 - 50799"],
-      "Part Catcher Device 9": ["50801 - 50899"],
-      "Part Catcher Device 10": ["50901 - 50999"]
-    },
-    "Probe Blocks": {
-      "Start Of / Tool Change Probe Blocks": ["3997 - 3999"],
-      "Probe Measurement Blocks": {
-        "Probe Move Blocks": [4002, 4003],
-        "Probe On / Off": [4000, 4001],
-        "Probe Measurement Cycles": ["4004 - 4026", 4031, 4032],
-        "Probe Configuration": ["4027 - 4030"]
-      },
-      "Contact Tool Setter Blocks": ["4997 - 4107"],
-      "Non-Contact Tool Setter Blocks": ["4150 - 4161"],
-      "Probe Prefixes": {
-        "General Probe Prefixes": ["4200 - 4225", "4250 - 4289"],
-        "Contact Tool Setter Probe Prefixes": ["4400 - 4407", "4420 - 4440"],
-        "Non Contact Tool Setter Probe Prefixes": ["4500 - 4511", "4550 - 4581"] 
-      },
-      "Probe Post Questions": [4700, "4800 - 4899"]
-    },
-    "Uncategorized Blocks": []
+        "Start Blocks": {
+        "Mill": [1000, 0, 1, 2, 15, 40],
+        "Lathe": [1002, 1058]
+        },
+        "Tool Change / End of Op Blocks": {
+        "Mill": [3, 4, 16, 19, 197, 198, 41, 71],
+        "Lathe": [1003, 1004, 1006, 1007, 1009, 1019, 1059, 1091, 1197, 1198]
+        },
+        "End of Program Blocks": [5, 199, 24, 1199],
+        "Move Blocks": {
+            "Mill": {
+                "Standard Move Blocks": [27, 28, "50 - 57", "64 - 66"],
+                "When Wrapping Blocks": ["152 - 157", 164]
+            },
+            "Lathe": [1020, 1021, 1022, 1025]
+        },
+        "Canned Cycle Blocks": {
+        "Mill Canned Cycles": {
+            "Standard Canned Cycles": [22, 23, 73, 74, 76, 80, "81 - 99", 113, 114, 116],
+            "When Wrapping": ["170 - 195"]
+        },
+        "Lathe Canned Cycles": {
+            "Start Of Canned": [1027, 1060, 1062, 1066, 1070, 1074, 1078, 1086, 1087, "1096 - 1098", 1121, 1122, 1123, "1124 - 1132"],
+            "End Of / Cancel Canned": [1028, 1063, 1067, 1071, 1075, 1079, 1088, 1120]
+        },
+        "Lathe Seperate Moves Blocks": {
+            "Start Of Seperate Moves": [1082, 1086, 1089, 1092, 1094, 1095, 1100, 1104, 1108],
+            "End Of Seperate Moves": [1064, 1068, 1080, 1083, 1084, 1090, 1093, 1101, 1105, 1109]
+        }
+        },
+        "LPW Specific Blocks": [58, 59],
+        "Post Questions": {
+        "Mill Questions": ["200 - 223", "227 - 243", 258, 262, 267, "272 - 274", 280, 281, "313 - 315", "319 - 324", 414, 415, "425 - 433", "440 - 446", 511, 512, 513, 515, 516, 526, 527, 531, "533 - 536", 540, "550 - 560"],
+        "Lathe Questions": ["1247 - 1258", 1259, 1268, 1269, 1280, 1281, 1283, 1284, "1305 - 1307", "1411 - 1413", 1512, 1513, "1517 - 1526", 1544, "1612 - 1615"],
+        "Mill-Turn Questions": ["3500 - 3513", "3527 - 3529", 3559, "3592 - 3597", "3600 - 3603"]
+        },
+        "Additional Configuration Blocks": {
+        "Sub-Program Blocks": ["7 - 9", 100, 101],
+        "Compensation Blocks": ["11 - 14", 1026],
+        "Other": [20, 21, 25, 39]
+        },
+        "Multi-Axis Blocks": {
+        "Rotary Blocks": [10, 17, 18, 111],
+        "Tranform Plane Blocks": ["30 - 33"],
+        "5-Axis Specific Blocks": [45]
+        },
+        "Formatting Blocks": [108, 109, 110, 1110, 1111],
+        "Prefix Blocks": {
+        "Coolant Blocks": ["840 - 859"],
+        "Work Shift Blocks": ["900 - 999"],
+        "Mill Prefix Blocks": ["605 - 607", 609, 610, 613, 614, 615, "620 - 622", "625 - 631", "639 - 643", "645 - 656", 658, 659, "670 - 708", "710 - 731", 733, 734, "750 - 753", "760 - 769", "780 - 786", "800 - 807", "808 - 811", "820 - 827", "828 - 831"],
+        "Lathe Prefix Blocks": ["1705 - 1708", 1712, 1713, 1763, 1764, "1765 - 1768", 1780, 1781, 1785, 1786, "1790 - 1799", 1804, "1807 - 1817", "1820 - 1827", "1830 - 1847", "1849 - 1858", "1860 - 1868", "1870 - 1878", "1880 - 1888"],
+        "Mill-Turn Prefix Blocks": ["3514 - 3526", "3530 - 3553", 3561, 3562, "3564 - 3582", 3590, 3591]
+        },
+        "Mill-Turn Specific Blocks": ["2200 - 2299", "2300 - 2399", "2400 - 2499", "2500 - 2599", "3000 - 3006", "3020 - 3047"],
+        "Absolute Prefix Mill-Turn Blocks": ["5000 - 5049"],
+        "Incremental Prefix Mill-Turn Blocks": ["5050 - 5099"],
+        "Axis Scaling Mill-Turn Blocks": ["5100 - 5149"],
+        "Axis Shift Mill-Turn Blocks": ["5150 - 5199"],
+        "Tool Orientation Mapping Blocks": ["5200 - 5208"],
+        "Zone Blocks": {
+        "Zone 1": ["6000 - 6024"],
+        "Zone 2": ["6025 - 6049"],
+        "Zone 3": ["6050 - 6074"],
+        "Zone 4": ["6075 - 6099"],
+        "Zone 5": ["6100 - 6124"],
+        "Zone 6": ["6125 - 6149"],
+        "Zone 7": ["6150 - 6174"],
+        "Zone 8": ["6175 - 6199"],
+        "Zone 9": ["6200 - 6224"],
+        "Zone 10": ["6225 - 6249"],
+        "Zone 11": ["6250 - 6274"],
+        "Zone 12": ["6275 - 6299"],
+        "Zone 13": ["6300 - 6324"],
+        "Zone 14": ["6325 - 6349"],
+        "Zone 15": ["6350 - 6374"],
+        "Zone 16": ["6375 - 6399"],
+        "Zone 17": ["6400 - 6424"],
+        "Zone 18": ["6425 - 6449"],
+        "Zone 19": ["6450 - 6474"],
+        "Zone 20": ["6475 - 6499"],
+        "Zone 21": ["6500 - 6524"],
+        "Zone 22": ["6525 - 6549"],
+        "Zone 23": ["6550 - 6574"],
+        "Zone 24": ["6575 - 6599"],
+        "Zone 25": ["6600 - 6624"],
+        "Zone 26": ["6625 - 6649"],
+        "Zone 27": ["6650 - 6674"],
+        "Zone 28": ["6675 - 6699"],
+        "Zone 29": ["6700 - 6724"],
+        "Zone 30": ["6725 - 6749"],
+        "Zone 31": ["6750 - 6774"],
+        "Zone 32": ["6775 - 6799"],
+        "Zone 33": ["6800 - 6824"],
+        "Zone 34": ["6825 - 6849"],
+        "Zone 35": ["6850 - 6874"],
+        "Zone 36": ["6875 - 6899"],
+        "Zone 37": ["6900 - 6924"],
+        "Zone 38": ["6925 - 6949"],
+        "Zone 39": ["6950 - 6974"],
+        "Zone 40": ["6975 - 6999"],
+        "Zone 41": ["7000 - 7024"],
+        "Zone 42": ["7025 - 7049"],
+        "Zone 43": ["7050 - 7074"],
+        "Zone 44": ["7075 - 7099"],
+        "Zone 45": ["7100 - 7124"],
+        "Zone 46": ["7125 - 7149"],
+        "Zone 47": ["7150 - 7174"],
+        "Zone 48": ["7175 - 7199"],
+        "Zone 49": ["7200 - 7224"],
+        "Zone 50": ["7225 - 7249"],
+        "Zone 51": ["7250 - 7274"],
+        "Zone 52": ["7275 - 7299"],
+        "Zone 53": ["7300 - 7324"],
+        "Zone 54": ["7325 - 7349"],
+        "Zone 55": ["7350 - 7374"],
+        "Zone 56": ["7375 - 7399"],
+        "Zone 57": ["7400 - 7424"],
+        "Zone 58": ["7425 - 7449"],
+        "Zone 59": ["7450 - 7474"],
+        "Zone 60": ["7475 - 7499"],
+        "Zone 61": ["7500 - 7524"],
+        "Zone 62": ["7525 - 7549"],
+        "Zone 63": ["7550 - 7574"],
+        "Zone 64": ["7575 - 7599"],
+        "Zone 65": ["7600 - 7624"],
+        "Zone 66": ["7625 - 7649"],
+        "Zone 67": ["7650 - 7674"],
+        "Zone 68": ["7675 - 7699"],
+        "Zone 69": ["7700 - 7724"],
+        "Zone 70": ["7725 - 7749"],
+        "Zone 71": ["7750 - 7774"],
+        "Zone 72": ["7775 - 7799"],
+        "Zone 73": ["7800 - 7824"],
+        "Zone 74": ["7825 - 7849"],
+        "Zone 75": ["7850 - 7874"],
+        "Zone 76": ["7875 - 7899"],
+        "Zone 77": ["7900 - 7924"],
+        "Zone 78": ["7925 - 7949"],
+        "Zone 79": ["7950 - 7974"],
+        "Zone 80": ["7975 - 7999"],
+        "Zone 81": ["8000 - 8024"],
+        "Zone 82": ["8025 - 8049"],
+        "Zone 83": ["8050 - 8074"],
+        "Zone 84": ["8075 - 8099"],
+        "Zone 85": ["8100 - 8124"],
+        "Zone 86": ["8125 - 8149"],
+        "Zone 87": ["8150 - 8174"],
+        "Zone 88": ["8175 - 8199"],
+        "Zone 89": ["8200 - 8224"],
+        "Zone 90": ["8225 - 8249"],
+        "Zone 91": ["8250 - 8274"],
+        "Zone 92": ["8275 - 8299"],
+        "Zone 93": ["8300 - 8324"],
+        "Zone 94": ["8325 - 8349"],
+        "Zone 95": ["8350 - 8374"],
+        "Zone 96": ["8375 - 8399"],
+        "Zone 97": ["8400 - 8424"],
+        "Zone 98": ["8425 - 8449"],
+        "Zone 99": ["8450 - 8474"],
+        "Zone 100": ["8475 - 8499"]
+        },
+        "Workpiece Mill-Turn Blocks": {
+        "Workpiece Device 1": ["10000 - 10099"],
+        "Workpiece Device 2": ["10100 - 10199"],
+        "Workpiece Device 3": ["10200 - 10299"],
+        "Workpiece Device 4": ["10300 - 10399"]
+        },
+        "Tool Device Mill-Turn Blocks": {
+        "Tool Device 1": ["20000 - 20099"],
+        "Tool Device 2": ["20100 - 20199"],
+        "Tool Device 3": ["20200 - 20299"],
+        "Tool Device 4": ["20300 - 20399"]
+        },
+        "Tailstock Device Mill-Turn Blocks": {
+        "Tailstock Device 1": ["30000 - 30099"],
+        "Tailstock Device 2": ["30101 - 30199"],
+        "Tailstock Device 3": ["30201 - 30299"],
+        "Tailstock Device 4": ["30301 - 30399"],
+        "Tailstock Device 5": ["30401 - 30499"],
+        "Tailstock Device 6": ["30501 - 30599"],
+        "Tailstock Device 7": ["30601 - 30699"],
+        "Tailstock Device 8": ["30701 - 30799"],
+        "Tailstock Device 9": ["30801 - 30899"],
+        "Tailstock Device 10": ["30901 - 30999"]
+        },
+        "Steady Rest Device Mill-Turn Blocks": {
+        "Steady Rest Device 1": ["40001 - 40099"],
+        "Steady Rest Device 2": ["40101 - 40199"],
+        "Steady Rest Device 3": ["40201 - 40299"],
+        "Steady Rest Device 4": ["40301 - 40399"],
+        "Steady Rest Device 5": ["40401 - 40499"],
+        "Steady Rest Device 6": ["40501 - 40599"],
+        "Steady Rest Device 7": ["40601 - 40699"],
+        "Steady Rest Device 8": ["40701 - 40799"],
+        "Steady Rest Device 9": ["40801 - 40899"],
+        "Steady Rest Device 10": ["40901 - 40999"]
+        },
+        "Parts Catcher Device Blocks": {
+        "Part Catcher Device 1": ["50001 - 50099"],
+        "Part Catcher Device 2": ["50101 - 50199"],
+        "Part Catcher Device 3": ["50201 - 50299"],
+        "Part Catcher Device 4": ["50301 - 50399"],
+        "Part Catcher Device 5": ["50401 - 50499"],
+        "Part Catcher Device 6": ["50501 - 50599"],
+        "Part Catcher Device 7": ["50601 - 50699"],
+        "Part Catcher Device 8": ["50701 - 50799"],
+        "Part Catcher Device 9": ["50801 - 50899"],
+        "Part Catcher Device 10": ["50901 - 50999"]
+        },
+        "Probe Blocks": {
+        "Start Of / Tool Change Probe Blocks": ["3997 - 3999"],
+        "Probe Measurement Blocks": {
+            "Probe Move Blocks": [4002, 4003],
+            "Probe On / Off": [4000, 4001],
+            "Probe Measurement Cycles": ["4004 - 4026", 4031, 4032],
+            "Probe Configuration": ["4027 - 4030"]
+        },
+        "Contact Tool Setter Blocks": ["4997 - 4107"],
+        "Non-Contact Tool Setter Blocks": ["4150 - 4161"],
+        "Probe Prefixes": {
+            "General Probe Prefixes": ["4200 - 4225", "4250 - 4289"],
+            "Contact Tool Setter Probe Prefixes": ["4400 - 4407", "4420 - 4440"],
+            "Non Contact Tool Setter Probe Prefixes": ["4500 - 4511", "4550 - 4581"] 
+        },
+        "Probe Post Questions": [4700, "4800 - 4899"]
+        },
+        "Uncategorized Blocks": []
+    }
   }
   
