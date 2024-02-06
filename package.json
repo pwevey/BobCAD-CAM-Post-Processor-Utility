@@ -25,6 +25,24 @@
   ],
   "main": "./src/extension",
   "contributes": {
+    "commands": [
+      {
+        "command": "postBlocks.refresh",
+        "title": "Refresh Post Blocks"
+      },
+      {
+        "command": "postBlocks.navigateToLine",
+        "title": "Navigate to Post Block"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "postBlocks",
+          "name": "Post Blocks"
+        }
+      ]
+    },
     "languages": [
       {
       "id": "bcpst",

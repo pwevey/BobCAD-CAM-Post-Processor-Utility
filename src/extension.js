@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const vscode = require('vscode');
+const { PostBlockDataProvider } = require('./postBlocksTreeView'); // Adjust the path accordingly
+
+let postBlockDataProvider; // Declare a global variable to hold the instance
 
 function getExtensionRoot() {
   const extensionPath = vscode.extensions.getExtension('BobCAD-CAM.bobcad-post').extensionPath;
@@ -44,6 +47,33 @@ function activate(context) {
 
   context.subscriptions.push(hoverProvider);
 
+ // Initialize the PostBlockDataProvider
+ postBlockDataProvider = new PostBlockDataProvider();
+
+ // Register the "Refresh Post Blocks" command
+ const refreshCommand = vscode.commands.registerCommand('postBlocks.refresh', () => {
+   postBlockDataProvider.manualRefresh();
+ });
+
+ context.subscriptions.push(refreshCommand);
+
+ // Register the command handler for navigating to a line
+ const navigateToLineCommand = vscode.commands.registerCommand('postBlocks.navigateToLine', (lineNumber) => {
+   if (vscode.window.activeTextEditor) {
+     const position = new vscode.Position(lineNumber - 1, 0);
+     const selection = new vscode.Selection(position, position);
+     vscode.window.activeTextEditor.selection = selection;
+     vscode.window.activeTextEditor.revealRange(selection, vscode.TextEditorRevealType.InCenter);
+   }
+ });
+
+ context.subscriptions.push(navigateToLineCommand);
+
+ // Register the Post Blocks tree view
+ const postBlockTreeView = vscode.window.createTreeView('postBlocks', { treeDataProvider: postBlockDataProvider });
+
+ context.subscriptions.push(postBlockTreeView);
+ 
   // Additional activation logic...
 }
 
