@@ -92,14 +92,14 @@ class PostBlockDataProvider {
             };
 
             // Log post block information for debugging
-            console.log(`Found post block - Line: ${lineNumber}, Number: ${postBlockNumber}, Name: ${postBlockName}`);
+            //console.log(`Found post block - Line: ${lineNumber}, Number: ${postBlockNumber}, Name: ${postBlockName}`);
 
             // Update the mapping object
             lineNumberMap[lineNumber] = true;
 
             postBlocks.push(new PostBlockTreeItem(label, postBlockNumber, vscode.TreeItemCollapsibleState.None, undefined, command));
         } else {
-            console.log(`No match for line ${lineNumber}: ${line.text}`);
+            //console.log(`No match for line ${lineNumber}: ${line.text}`);
         }
     }
 
@@ -159,10 +159,10 @@ class PostBlockDataProvider {
                 if (typeof blockIdentifier === 'number') {
                     const foundBlock = postBlocks.find((block) => block.lineNumber === blockIdentifier);
                     if (foundBlock) {
-                        console.log(`Mapping - Folder: ${folderName}, Expected Block: ${blockIdentifier}, Actual Block: ${foundBlock.lineNumber}`);
+                        //console.log(`Mapping - Folder: ${folderName}, Expected Block: ${blockIdentifier}, Actual Block: ${foundBlock.lineNumber}`);
                         return new PostBlockTreeItem(`${foundBlock.label}`, foundBlock.lineNumber, vscode.TreeItemCollapsibleState.None);
                     } else {
-                        console.log(`No matching block found for - Folder: ${folderName}, Expected Block: ${blockIdentifier}`);
+                        //console.log(`No matching block found for - Folder: ${folderName}, Expected Block: ${blockIdentifier}`);
                         return null;
                     }
                 } else if (typeof blockIdentifier === 'string') {
@@ -174,21 +174,21 @@ class PostBlockDataProvider {
 
                         const foundBlocks = postBlocks.filter((block) => block.lineNumber >= start && block.lineNumber <= end);
                         return foundBlocks.map((foundBlock) => {
-                            console.log(`Mapping - Folder: ${folderName}, Expected Block: ${start} - ${end}, Actual Block: ${foundBlock.lineNumber}`);
+                            //console.log(`Mapping - Folder: ${folderName}, Expected Block: ${start} - ${end}, Actual Block: ${foundBlock.lineNumber}`);
                             return new PostBlockTreeItem(`${foundBlock.label}`, foundBlock.lineNumber, vscode.TreeItemCollapsibleState.None);
                         });
                     } else {
-                        console.log(`Invalid block range format for folder: ${folderName}`);
+                        //console.log(`Invalid block range format for folder: ${folderName}`);
                         return null;
                     }
                 } else if (typeof blockIdentifier === 'object' && 'start' in blockIdentifier && 'end' in blockIdentifier) {
                     const foundBlocks = postBlocks.filter((block) => block.lineNumber >= blockIdentifier.start && block.lineNumber <= blockIdentifier.end);
                     return foundBlocks.map((foundBlock) => {
-                        console.log(`Mapping - Folder: ${folderName}, Expected Block: ${blockIdentifier.start} - ${blockIdentifier.end}, Actual Block: ${foundBlock.lineNumber}`);
+                        //console.log(`Mapping - Folder: ${folderName}, Expected Block: ${blockIdentifier.start} - ${blockIdentifier.end}, Actual Block: ${foundBlock.lineNumber}`);
                         return new PostBlockTreeItem(`${foundBlock.label}`, foundBlock.lineNumber, vscode.TreeItemCollapsibleState.None);
                     });
                 } else {
-                    console.log(`Invalid block identifier format for folder: ${folderName}`);
+                    //console.log(`Invalid block identifier format for folder: ${folderName}`);
                     return null;
                 }
             }).flat().filter(Boolean) // Filter out undefined (not found) blocks
@@ -198,7 +198,7 @@ class PostBlockDataProvider {
               // Use vscode.TreeItemCollapsibleState.Collapsed for default collapsed state
               mappedFolders.push(new PostBlockFolderTreeItem(folderName, vscode.TreeItemCollapsibleState.Collapsed, mappedContents));
             } else {
-              console.log(`No blocks found for folder: ${folderName}`);
+              //console.log(`No blocks found for folder: ${folderName}`);
             }
           }
 
