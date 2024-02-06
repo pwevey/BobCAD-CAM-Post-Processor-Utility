@@ -194,6 +194,20 @@ class PostBlockDataProvider {
             }).flat().filter(Boolean) // Filter out undefined (not found) blocks
             : this.mapPostBlocksToFolders(postBlocks, folderContents);
 
+            let collapsibleState = vscode.TreeItemCollapsibleState.Collapsed;
+
+            // Add specific folders that should be opened by default
+            const defaultOpenFolders = [
+              'Debug Block',
+              'Start Blocks',
+              'Tool Change / End of Op Blocks',
+              'End of Program Blocks',
+            ];
+        
+            if (defaultOpenFolders.includes(folderName)) {
+              collapsibleState = vscode.TreeItemCollapsibleState.Expanded;
+            }
+
             if (mappedContents.length > 0) {
               // Use vscode.TreeItemCollapsibleState.Collapsed for default collapsed state
               mappedFolders.push(new PostBlockFolderTreeItem(folderName, vscode.TreeItemCollapsibleState.Collapsed, mappedContents));
