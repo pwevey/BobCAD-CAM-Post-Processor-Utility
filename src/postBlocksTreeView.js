@@ -14,8 +14,16 @@ class PostBlockTreeItem extends vscode.TreeItem {
       title: '',
       arguments: [lineNumber], // Keep the original line number
     };
+
+    // Update the command directly with postBlockNumber
+    this.command = {
+      command: 'postBlocks.navigateToLine',
+      title: '',
+      arguments: [lineNumber], // Use the post block number as the line number
+    };
   }
 }
+
 
 
 
@@ -58,6 +66,7 @@ class PostBlockDataProvider {
     this.manualRefresh();
   }
 
+  // Parse the currently opened .bcpst file
   parseBcpstFile(document) {
     const postBlockRegex = /^(\d+)\.\s*(.*)/;
     const postBlocks = [];
@@ -81,7 +90,7 @@ class PostBlockDataProvider {
             const command = {
                 command: 'postBlocks.navigateToLine',
                 title: '',
-                arguments: [lineNumber],
+                arguments: [postBlockNumber], // Use the post block number as the line number
             };
 
             // Log post block information for debugging
@@ -97,7 +106,52 @@ class PostBlockDataProvider {
     }
 
     return postBlocks;
-}
+  }
+
+  // Function to find the line number of a post block in the document
+  findLineNumber(postBlockNumber) {
+    const editor = vscode.window.activeTextEditor;
+
+    if (editor) {
+      const document = editor.document;
+
+      for (let line = 0; line < document.lineCount; line++) {
+        const text = document.lineAt(line).text;
+        const match = text.match(new RegExp(`^${postBlockNumber}\\.`));
+
+        if (match) {
+          return line;
+        }
+      }
+    }
+
+    return undefined;
+  }
+
+  // Function to navigate to the line in the document that starts with the post block number
+  navigateToLine(postBlockNumber) {
+    const editor = vscode.window.activeTextEditor;
+
+    if (editor) {
+      const document = editor.document;
+
+      for (let line = 0; line < document.lineCount; line++) {
+        const text = document.lineAt(line).text;
+        const match = text.match(new RegExp(`^${postBlockNumber}\\.`));
+
+        if (match) {
+          const position = new vscode.Position(line, 0);
+          editor.selection = new vscode.Selection(position, position);
+          editor.revealRange(new vscode.Range(position, position), vscode.TextEditorRevealType.InCenter);
+          break;
+        }
+      }
+    }
+  }
+
+
+
+
 
   
   

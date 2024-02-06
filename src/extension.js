@@ -57,17 +57,20 @@ function activate(context) {
 
  context.subscriptions.push(refreshCommand);
 
- // Register the command handler for navigating to a line
- const navigateToLineCommand = vscode.commands.registerCommand('postBlocks.navigateToLine', (lineNumber) => {
-   if (vscode.window.activeTextEditor) {
-     const position = new vscode.Position(lineNumber - 1, 0);
-     const selection = new vscode.Selection(position, position);
-     vscode.window.activeTextEditor.selection = selection;
-     vscode.window.activeTextEditor.revealRange(selection, vscode.TextEditorRevealType.InCenter);
-   }
- });
+// Register the command handler for navigating to a line
+const navigateToLineCommand = vscode.commands.registerCommand('postBlocks.navigateToLine', (postBlockNumber) => {
+  const lineNumber = postBlockDataProvider.findLineNumber(postBlockNumber);
 
- context.subscriptions.push(navigateToLineCommand);
+  if (lineNumber !== undefined && vscode.window.activeTextEditor) {
+    const position = new vscode.Position(lineNumber, 0);
+    const selection = new vscode.Selection(position, position);
+    vscode.window.activeTextEditor.selection = selection;
+    vscode.window.activeTextEditor.revealRange(selection, vscode.TextEditorRevealType.InCenter);
+  }
+});
+
+context.subscriptions.push(navigateToLineCommand);
+
 
  // Register the Post Blocks tree view
  const postBlockTreeView = vscode.window.createTreeView('postBlocks', { treeDataProvider: postBlockDataProvider });
