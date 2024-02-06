@@ -25,15 +25,13 @@ class PostBlockTreeItem extends vscode.TreeItem {
 }
 
 
-
-
-
 class PostBlockFolderTreeItem extends PostBlockTreeItem {
   constructor(label, collapsibleState, children) {
     super(label, undefined, collapsibleState);
     this.children = children || [];
   }
 }
+
 
 class PostBlockDataProvider {
   constructor() {
@@ -150,20 +148,14 @@ class PostBlockDataProvider {
   }
 
 
-
-
-
-  
-  
-
   // Function to map post blocks to corresponding folders
   mapPostBlocksToFolders(postBlocks, folderStructure) {
     const mappedFolders = [];
 
     for (const folderName in folderStructure) {
-        const folderContents = folderStructure[folderName];
-        const mappedContents = Array.isArray(folderContents)
-            ? folderContents.map((blockIdentifier) => {
+      const folderContents = folderStructure[folderName];
+      const mappedContents = Array.isArray(folderContents)
+        ? folderContents.map((blockIdentifier) => {
                 if (typeof blockIdentifier === 'number') {
                     const foundBlock = postBlocks.find((block) => block.lineNumber === blockIdentifier);
                     if (foundBlock) {
@@ -202,21 +194,16 @@ class PostBlockDataProvider {
             }).flat().filter(Boolean) // Filter out undefined (not found) blocks
             : this.mapPostBlocksToFolders(postBlocks, folderContents);
 
-        if (mappedContents.length > 0) {
-            mappedFolders.push(new PostBlockFolderTreeItem(folderName, vscode.TreeItemCollapsibleState.Expanded, mappedContents));
-        } else {
-            console.log(`No blocks found for folder: ${folderName}`);
-        }
-    }
+            if (mappedContents.length > 0) {
+              // Use vscode.TreeItemCollapsibleState.Collapsed for default collapsed state
+              mappedFolders.push(new PostBlockFolderTreeItem(folderName, vscode.TreeItemCollapsibleState.Collapsed, mappedContents));
+            } else {
+              console.log(`No blocks found for folder: ${folderName}`);
+            }
+          }
 
     return mappedFolders;
   }
-
-
-
-  
-
-
 
 
   getTreeItem(element) {
@@ -249,6 +236,7 @@ class PostBlockDataProvider {
     return [];
   }
 }
+
 
 module.exports = {
   PostBlockDataProvider,
