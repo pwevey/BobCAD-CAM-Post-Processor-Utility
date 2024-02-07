@@ -33,6 +33,14 @@
       {
         "command": "postBlocks.navigateToLine",
         "title": "Navigate to Post Block"
+      },
+      {
+        "command": "postBlocks.collapseAll",
+        "title": "Collapse All Post Blocks"
+      },
+      {
+        "command": "postBlocks.expandAll",
+        "title": "Expand All Post Blocks"
       }
     ],
     "views": {

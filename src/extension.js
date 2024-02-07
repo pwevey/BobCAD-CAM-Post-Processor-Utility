@@ -3,6 +3,7 @@ const { PostBlockDataProvider } = require('./postBlocksTreeView');
 const HoverProvider = require('./hover'); // Import the HoverProvider
 
 let postBlockDataProvider;
+let postBlockTreeView;
 
 function activate(context) {
   // Register hover provider for .bcpst documents
@@ -31,8 +32,20 @@ function activate(context) {
   context.subscriptions.push(navigateToLineCommand);
 
   // Register the Post Blocks tree view
-  const postBlockTreeView = vscode.window.createTreeView('postBlocks', { treeDataProvider: postBlockDataProvider });
+  postBlockTreeView = vscode.window.createTreeView('postBlocks', { treeDataProvider: postBlockDataProvider });
   context.subscriptions.push(postBlockTreeView);
+
+  // Register the "Collapse All Folders" command
+  const collapseAllCommand = vscode.commands.registerCommand('postBlocks.collapseAll', () => {
+    postBlockDataProvider.collapseAll();
+  });
+  context.subscriptions.push(collapseAllCommand);
+
+  // Register the "Expand All Folders" command
+  const expandAllCommand = vscode.commands.registerCommand('postBlocks.expandAll', () => {
+    postBlockDataProvider.expandAll();
+  });
+  context.subscriptions.push(expandAllCommand);
 }
 
 function deactivate() {}

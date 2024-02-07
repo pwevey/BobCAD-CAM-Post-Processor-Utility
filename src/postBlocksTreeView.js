@@ -8,22 +8,13 @@ class PostBlockTreeItem extends vscode.TreeItem {
     this.lineNumber = lineNumber;
     this.contextValue = contextValue || 'postBlock';
 
-    // Remove the adjustment for 0-based line numbers
     this.command = command || {
       command: 'postBlocks.navigateToLine',
       title: '',
-      arguments: [lineNumber], // Keep the original line number
-    };
-
-    // Update the command directly with postBlockNumber
-    this.command = {
-      command: 'postBlocks.navigateToLine',
-      title: '',
-      arguments: [lineNumber], // Use the post block number as the line number
+      arguments: [lineNumber],
     };
   }
 }
-
 
 class PostBlockFolderTreeItem extends PostBlockTreeItem {
   constructor(label, collapsibleState, children) {
@@ -31,7 +22,6 @@ class PostBlockFolderTreeItem extends PostBlockTreeItem {
     this.children = children || [];
   }
 }
-
 
 class PostBlockDataProvider {
   constructor() {
@@ -64,6 +54,46 @@ class PostBlockDataProvider {
     this.manualRefresh();
   }
 
+  // Function to collapse all folders in the tree view
+  collapseAll() {
+    this.changeFolderCollapsibleState(this.postBlocksData.root, vscode.TreeItemCollapsibleState.Collapsed);
+    this._onDidChangeTreeData.fire();
+  }
+
+  // Recursive function to change collapsible state of folders
+  changeFolderCollapsibleState(folder, state) {
+    if (Array.isArray(folder)) {
+      // If it's an array, iterate through the elements
+      for (const element of folder) {
+        this.changeFolderCollapsibleState(element, state);
+      }
+    } else if (typeof folder === 'object' && folder !== null) {
+      // If it's an object, it's a folder
+      folder.collapsibleState = state;
+      this.changeFolderCollapsibleState(folder.children, state);
+    }
+  }
+
+  // Function to expand all folders in the tree view
+  expandAll() {
+    this.changeFolderCollapsibleState(this.postBlocksData.root, vscode.TreeItemCollapsibleState.Expanded);
+    this._onDidChangeTreeData.fire();
+  }
+
+  // Recursive function to expand folders
+  expandFolders(folder) {
+    if (Array.isArray(folder)) {
+      // If it's an array, iterate through the elements
+      for (const element of folder) {
+        this.expandFolders(element);
+      }
+    } else if (typeof folder === 'object' && folder !== null) {
+      // If it's an object, it's a folder
+      folder.collapsibleState = vscode.TreeItemCollapsibleState.Expanded;
+      this.expandFolders(folder.children);
+    }
+  }
+
   // Parse the currently opened .bcpst file
   parseBcpstFile(document) {
     const postBlockRegex = /^(\d+)\.\s*(.*)/;
@@ -71,36 +101,36 @@ class PostBlockDataProvider {
     const lineNumberMap = {}; // Keep track of processed line numbers
 
     for (let index = 0; index < document.lineCount; index++) {
-        const lineNumber = index + 1;
+      const lineNumber = index + 1;
 
-        // Skip lines already processed
-        if (lineNumberMap[lineNumber]) {
-            continue;
-        }
+      // Skip lines already processed
+      if (lineNumberMap[lineNumber]) {
+        continue;
+      }
 
-        const line = document.lineAt(index);
-        const match = line.text.match(postBlockRegex);
+      const line = document.lineAt(index);
+      const match = line.text.match(postBlockRegex);
 
-        if (match) {
-            const postBlockNumber = parseInt(match[1]);
-            const postBlockName = match[2].trim();
-            const label = `${postBlockNumber}. ${postBlockName}`;
-            const command = {
-                command: 'postBlocks.navigateToLine',
-                title: '',
-                arguments: [postBlockNumber], // Use the post block number as the line number
-            };
+      if (match) {
+        const postBlockNumber = parseInt(match[1]);
+        const postBlockName = match[2].trim();
+        const label = `${postBlockNumber}. ${postBlockName}`;
+        const command = {
+          command: 'postBlocks.navigateToLine',
+          title: '',
+          arguments: [postBlockNumber], // Use the post block number as the line number
+        };
 
-            // Log post block information for debugging
-            //console.log(`Found post block - Line: ${lineNumber}, Number: ${postBlockNumber}, Name: ${postBlockName}`);
+        // Log post block information for debugging
+        //console.log(`Found post block - Line: ${lineNumber}, Number: ${postBlockNumber}, Name: ${postBlockName}`);
 
-            // Update the mapping object
-            lineNumberMap[lineNumber] = true;
+        // Update the mapping object
+        lineNumberMap[lineNumber] = true;
 
-            postBlocks.push(new PostBlockTreeItem(label, postBlockNumber, vscode.TreeItemCollapsibleState.None, undefined, command));
-        } else {
-            //console.log(`No match for line ${lineNumber}: ${line.text}`);
-        }
+        postBlocks.push(new PostBlockTreeItem(label, postBlockNumber, vscode.TreeItemCollapsibleState.None, undefined, command));
+      } else {
+        //console.log(`No match for line ${lineNumber}: ${line.text}`);
+      }
     }
 
     return postBlocks;
@@ -147,7 +177,6 @@ class PostBlockDataProvider {
     }
   }
 
-
   // Function to map post blocks to corresponding folders
   mapPostBlocksToFolders(postBlocks, folderStructure) {
     const mappedFolders = [];
@@ -155,70 +184,59 @@ class PostBlockDataProvider {
     for (const folderName in folderStructure) {
       const folderContents = folderStructure[folderName];
       const mappedContents = Array.isArray(folderContents)
-        ? folderContents.map((blockIdentifier) => {
-                if (typeof blockIdentifier === 'number') {
-                    const foundBlock = postBlocks.find((block) => block.lineNumber === blockIdentifier);
-                    if (foundBlock) {
-                        //console.log(`Mapping - Folder: ${folderName}, Expected Block: ${blockIdentifier}, Actual Block: ${foundBlock.lineNumber}`);
-                        return new PostBlockTreeItem(`${foundBlock.label}`, foundBlock.lineNumber, vscode.TreeItemCollapsibleState.None);
-                    } else {
-                        //console.log(`No matching block found for - Folder: ${folderName}, Expected Block: ${blockIdentifier}`);
-                        return null;
-                    }
-                } else if (typeof blockIdentifier === 'string') {
-                    // Convert string ranges to arrays of numbers
-                    const rangeParts = blockIdentifier.split('-').map(part => parseInt(part.trim()));
-                    if (rangeParts.length === 2 && !isNaN(rangeParts[0]) && !isNaN(rangeParts[1])) {
-                        const start = Math.min(rangeParts[0], rangeParts[1]);
-                        const end = Math.max(rangeParts[0], rangeParts[1]);
+        ? folderContents.flatMap((blockIdentifier) => {
+          if (typeof blockIdentifier === 'number') {
+            const foundBlock = postBlocks.find((block) => block.lineNumber === blockIdentifier);
+            return foundBlock
+              ? new PostBlockTreeItem(`${foundBlock.label}`, foundBlock.lineNumber, vscode.TreeItemCollapsibleState.None)
+              : null;
+          } else if (typeof blockIdentifier === 'string') {
+            // Convert string ranges to arrays of numbers
+            const rangeParts = blockIdentifier.split('-').map((part) => parseInt(part.trim()));
+            if (rangeParts.length === 2 && !isNaN(rangeParts[0]) && !isNaN(rangeParts[1])) {
+              const start = Math.min(rangeParts[0], rangeParts[1]);
+              const end = Math.max(rangeParts[0], rangeParts[1]);
 
-                        const foundBlocks = postBlocks.filter((block) => block.lineNumber >= start && block.lineNumber <= end);
-                        return foundBlocks.map((foundBlock) => {
-                            //console.log(`Mapping - Folder: ${folderName}, Expected Block: ${start} - ${end}, Actual Block: ${foundBlock.lineNumber}`);
-                            return new PostBlockTreeItem(`${foundBlock.label}`, foundBlock.lineNumber, vscode.TreeItemCollapsibleState.None);
-                        });
-                    } else {
-                        //console.log(`Invalid block range format for folder: ${folderName}`);
-                        return null;
-                    }
-                } else if (typeof blockIdentifier === 'object' && 'start' in blockIdentifier && 'end' in blockIdentifier) {
-                    const foundBlocks = postBlocks.filter((block) => block.lineNumber >= blockIdentifier.start && block.lineNumber <= blockIdentifier.end);
-                    return foundBlocks.map((foundBlock) => {
-                        //console.log(`Mapping - Folder: ${folderName}, Expected Block: ${blockIdentifier.start} - ${blockIdentifier.end}, Actual Block: ${foundBlock.lineNumber}`);
-                        return new PostBlockTreeItem(`${foundBlock.label}`, foundBlock.lineNumber, vscode.TreeItemCollapsibleState.None);
-                    });
-                } else {
-                    //console.log(`Invalid block identifier format for folder: ${folderName}`);
-                    return null;
-                }
-            }).flat().filter(Boolean) // Filter out undefined (not found) blocks
-            : this.mapPostBlocksToFolders(postBlocks, folderContents);
-
-            let collapsibleState = vscode.TreeItemCollapsibleState.Collapsed;
-
-            // Add specific folders that should be opened by default
-            const defaultOpenFolders = [
-              'Debug Block',
-              'Start Blocks',
-              'Tool Change / End of Op Blocks',
-              'End of Program Blocks',
-            ];
-        
-            if (defaultOpenFolders.includes(folderName)) {
-              collapsibleState = vscode.TreeItemCollapsibleState.Expanded;
-            }
-
-            if (mappedContents.length > 0) {
-              // Use vscode.TreeItemCollapsibleState.Collapsed for default collapsed state
-              mappedFolders.push(new PostBlockFolderTreeItem(folderName, vscode.TreeItemCollapsibleState.Collapsed, mappedContents));
+              const foundBlocks = postBlocks.filter((block) => block.lineNumber >= start && block.lineNumber <= end);
+              return foundBlocks.map((foundBlock) => new PostBlockTreeItem(`${foundBlock.label}`, foundBlock.lineNumber, vscode.TreeItemCollapsibleState.None));
             } else {
-              //console.log(`No blocks found for folder: ${folderName}`);
+              // console.log(`Invalid block range format for folder: ${folderName}`);
+              return null;
             }
+          } else if (typeof blockIdentifier === 'object' && 'start' in blockIdentifier && 'end' in blockIdentifier) {
+            const foundBlocks = postBlocks.filter((block) => block.lineNumber >= blockIdentifier.start && block.lineNumber <= blockIdentifier.end);
+            return foundBlocks.map((foundBlock) => new PostBlockTreeItem(`${foundBlock.label}`, foundBlock.lineNumber, vscode.TreeItemCollapsibleState.None));
+          } else {
+            // console.log(`Invalid block identifier format for folder: ${folderName}`);
+            return null;
           }
+        })
+        .filter(Boolean) // Filter out undefined (not found) blocks
+        : this.mapPostBlocksToFolders(postBlocks, folderContents);
+
+      let collapsibleState = vscode.TreeItemCollapsibleState.Collapsed;
+
+      // Add specific folders that should be opened by default
+      const defaultOpenFolders = [
+        'Debug Block',
+        'Start Blocks',
+        'Tool Change / End of Op Blocks',
+        'End of Program Blocks',
+      ];
+
+      if (defaultOpenFolders.includes(folderName)) {
+        collapsibleState = vscode.TreeItemCollapsibleState.Expanded;
+      }
+
+      if (mappedContents.length > 0) {
+        mappedFolders.push(new PostBlockFolderTreeItem(folderName, collapsibleState, mappedContents));
+      } else {
+        // console.log(`No blocks found for folder: ${folderName}`);
+      }
+    }
 
     return mappedFolders;
   }
-
 
   getTreeItem(element) {
     return element;
@@ -250,7 +268,6 @@ class PostBlockDataProvider {
     return [];
   }
 }
-
 
 module.exports = {
   PostBlockDataProvider,
