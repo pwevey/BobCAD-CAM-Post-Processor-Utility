@@ -43,6 +43,13 @@
         "title": "Go to Post Block"
       }
     ],
+    "keybindings": [
+      {
+        "command": "postBlocks.refresh",
+        "key": "ctrl+alt+r",
+        "when": "editorTextFocus"
+      }
+    ],
     "views": {
       "explorer": [
         {
