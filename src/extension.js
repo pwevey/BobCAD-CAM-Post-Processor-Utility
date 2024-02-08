@@ -6,10 +6,23 @@ let postBlockDataProvider;
 let postBlockTreeView;
 
 function activate(context) {
+  //console.log('Post Blocks extension activated.');
   const hoverProvider = vscode.languages.registerHoverProvider(['bcpst', 'source.bcpst'], new HoverProvider());
   context.subscriptions.push(hoverProvider);
 
   postBlockDataProvider = new PostBlockDataProvider();
+
+
+
+  const navigateToPositionCommand = vscode.commands.registerCommand('postBlocks.navigateToPosition', (position) => {
+    const editor = vscode.window.activeTextEditor;
+    if (editor) {
+      const selection = new vscode.Selection(position, position);
+      editor.selection = selection;
+      editor.revealRange(selection, vscode.TextEditorRevealType.InCenter);
+    }
+  });
+  context.subscriptions.push(navigateToPositionCommand);
 
   const refreshCommand = vscode.commands.registerCommand('postBlocks.refresh', () => {
     postBlockDataProvider.manualRefresh();
@@ -17,6 +30,7 @@ function activate(context) {
   context.subscriptions.push(refreshCommand);
 
   const navigateToLineCommand = vscode.commands.registerCommand('postBlocks.navigateToLine', (postBlockNumber) => {
+    // console.log(`Navigating to line for Post Block ${postBlockNumber}`);
     const lineNumber = postBlockDataProvider.findLineNumber(postBlockNumber);
     if (lineNumber !== undefined && vscode.window.activeTextEditor) {
       const position = new vscode.Position(lineNumber, 0);
@@ -42,6 +56,8 @@ function activate(context) {
   context.subscriptions.push(navigateToLineFromPaletteCommand);
 
   postBlockTreeView = vscode.window.createTreeView('postBlocks', { treeDataProvider: postBlockDataProvider });
+  // console.log('Post Blocks Tree View created.');
+  
   context.subscriptions.push(postBlockTreeView);
 
   const collapseAllCommand = vscode.commands.registerCommand('postBlocks.collapseAll', () => {

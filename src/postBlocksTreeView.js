@@ -23,11 +23,39 @@ class PostBlockFolderTreeItem extends PostBlockTreeItem {
   }
 }
 
+class GoToPositionTreeItem extends vscode.TreeItem {
+  constructor(label, position, title = '') {
+    super(label, vscode.TreeItemCollapsibleState.None);
+    this.command = {
+      command: 'postBlocks.navigateToPosition',
+      title: title,
+      arguments: [position],
+    };
+  }
+}
+
+
 class PostBlockDataProvider {
   constructor() {
     this._onDidChangeTreeData = new vscode.EventEmitter();
     this.onDidChangeTreeData = this._onDidChangeTreeData.event;
-    this.postBlocksData = this.loadPostBlocksData(); // Load data from JSON
+    this.postBlocksData = this.loadPostBlocksData();
+    this.goToTopItem = null;
+    this.goToBottomItem = null;
+  }
+
+  // Create instances of GoToPositionTreeItem for Go to Top and Go to Bottom
+  createGoToTopItem() {
+    return new GoToPositionTreeItem('Go to Top', new vscode.Position(0, 0));
+  }
+
+  createGoToBottomItem() {
+    const editor = vscode.window.activeTextEditor;
+    if (editor) {
+      const lastLine = editor.document.lineCount - 1;
+      return new GoToPositionTreeItem('Go to Bottom', new vscode.Position(lastLine, 0));
+    }
+    return null;
   }
 
   // Load treeViewerPostStruct.json file
@@ -156,30 +184,56 @@ class PostBlockDataProvider {
     return undefined;
   }
 
-  // Function to navigate to the line in the document that starts with the post block number
+
   navigateToLine(postBlockNumber) {
-    const editor = vscode.window.activeTextEditor;
-
-    if (editor) {
-      const document = editor.document;
-
-      for (let line = 0; line < document.lineCount; line++) {
-        const text = document.lineAt(line).text;
-        const match = text.match(new RegExp(`^${postBlockNumber}\\.`));
-
-        if (match) {
-          const position = new vscode.Position(line, 0);
-          editor.selection = new vscode.Selection(position, position);
-          editor.revealRange(new vscode.Range(position, position), vscode.TextEditorRevealType.InCenter);
-          break;
-        }
+    // console.log(`Navigating to line for Post Block ${postBlockNumber}`);
+  
+    if (postBlockNumber === 1) {
+      // Special case for "Go to Top"
+      vscode.commands.executeCommand('postBlocks.goToTop');
+    } else {
+      // Normal navigation for other post block numbers
+      const lineNumber = this.findLineNumber(postBlockNumber);
+      if (lineNumber !== undefined) {
+        this.navigateToLineInternal(lineNumber);
+        // console.log(`Navigated to post block ${postBlockNumber}`);
       }
     }
   }
+  
+
+  goToTop() {
+    const editor = vscode.window.activeTextEditor;
+    if (editor) {
+      const position = new vscode.Position(0, 0);
+      editor.selection = new vscode.Selection(position, position);
+      editor.revealRange(new vscode.Range(position, position), vscode.TextEditorRevealType.InCenter);
+
+      //console.log('Navigated to Top');
+    }
+  }
+
+  navigateToLineInternal(line) {
+    const editor = vscode.window.activeTextEditor;
+    if (editor) {
+      const position = new vscode.Position(line, 0);
+      editor.selection = new vscode.Selection(position, position);
+      editor.revealRange(new vscode.Range(position, position), vscode.TextEditorRevealType.InCenter);
+    }
+  }
+
+
 
   // Function to map post blocks to corresponding folders
-  mapPostBlocksToFolders(postBlocks, folderStructure) {
+  mapPostBlocksToFolders(postBlocks, folderStructure, isTopLevel = true) {
     const mappedFolders = [];
+
+    if (isTopLevel) {
+      // Use the existing GoToTopTreeItem instance
+      mappedFolders.push(this.goToTopItem);
+      // Set isTopLevel to false to prevent further addition of "Go to Top" items
+      isTopLevel = false;
+    }
 
     for (const folderName in folderStructure) {
       const folderContents = folderStructure[folderName];
@@ -212,7 +266,7 @@ class PostBlockDataProvider {
           }
         })
         .filter(Boolean) // Filter out undefined (not found) blocks
-        : this.mapPostBlocksToFolders(postBlocks, folderContents);
+        : this.mapPostBlocksToFolders(postBlocks, folderContents, false);
 
       let collapsibleState = vscode.TreeItemCollapsibleState.Collapsed;
 
@@ -246,27 +300,39 @@ class PostBlockDataProvider {
     if (!element) {
       // Top-level elements
       const document = vscode.window.activeTextEditor.document;
-
+  
       if (!this.postBlocksData.hasOwnProperty('root')) {
         // Fallback if 'root' is not defined in the JSON
         console.error('Error: The JSON file should have a root property.');
         return [];
       }
-
+  
       // Parse the currently opened .bcpst file
       const postBlocks = this.parseBcpstFile(document);
-
+  
       // Map post blocks to corresponding folders
       const mappedFolders = this.mapPostBlocksToFolders(postBlocks, this.postBlocksData.root);
+  
+      // Instantiate GoToTopTreeItem if it hasn't been created yet
+      if (!this.goToTopItem) {
+        this.goToTopItem = this.createGoToTopItem();
+        mappedFolders.unshift(this.goToTopItem);
+      }
 
+      if (!this.goToBottomItem) {
+        this.goToBottomItem = this.createGoToBottomItem();
+        mappedFolders.push(this.goToBottomItem);
+      }
+  
       return mappedFolders;
     } else if (element instanceof PostBlockFolderTreeItem) {
       // Subfolders
       return element.children;
     }
-
+  
     return [];
   }
+  
 }
 
 module.exports = {
