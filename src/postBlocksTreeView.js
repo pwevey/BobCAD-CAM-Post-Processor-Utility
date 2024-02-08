@@ -93,12 +93,16 @@ class PostBlockDataProvider {
       this.expandFolders(folder.children);
     }
   }
+  
 
   // Parse the currently opened .bcpst file
   parseBcpstFile(document) {
     const postBlockRegex = /^(\d+)\.\s*(.*)/;
     const postBlocks = [];
     const lineNumberMap = {}; // Keep track of processed line numbers
+
+    // Load deprecated post blocks from file
+    const deprecatedPostBlocks = this.loadDeprecatedPostBlocks();
 
     for (let index = 0; index < document.lineCount; index++) {
       const lineNumber = index + 1;
@@ -114,7 +118,12 @@ class PostBlockDataProvider {
       if (match) {
         const postBlockNumber = parseInt(match[1]);
         const postBlockName = match[2].trim();
-        const label = `${postBlockNumber}. ${postBlockName}`;
+
+        // Check if post block is deprecated
+        const isDeprecated = deprecatedPostBlocks.includes(postBlockNumber);
+        const deprecatedSuffix = isDeprecated ? ' (deprecated)' : '';
+
+        const label = `${postBlockNumber}. ${postBlockName}${deprecatedSuffix}`;
         const command = {
           command: 'postBlocks.navigateToLine',
           title: '',
@@ -135,6 +144,23 @@ class PostBlockDataProvider {
 
     return postBlocks;
   }
+
+  // Load deprecated post blocks from file
+  loadDeprecatedPostBlocks() {
+    const extensionPath = vscode.extensions.getExtension('BobCAD-CAM.bobcad-post').extensionPath;
+    const jsonFilePath = path.join(extensionPath, 'res', 'post_data', 'deprecatedPostBlocks.json');
+
+    try {
+      const data = fs.readFileSync(jsonFilePath, 'utf-8');
+      const deprecatedPostBlocks = JSON.parse(data).deprecatedPostBlocks || [];
+      return deprecatedPostBlocks;
+    } catch (error) {
+      console.error('Error loading deprecatedPostBlocks.json:', error.message);
+      return [];
+    }
+  }
+
+
 
   // Function to find the line number of a post block in the document
   findLineNumber(postBlockNumber) {
