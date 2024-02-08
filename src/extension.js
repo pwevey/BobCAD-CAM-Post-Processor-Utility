@@ -13,7 +13,7 @@ function activate(context) {
   postBlockDataProvider = new PostBlockDataProvider();
 
 
-
+  
   const navigateToPositionCommand = vscode.commands.registerCommand('postBlocks.navigateToPosition', (position) => {
     const editor = vscode.window.activeTextEditor;
     if (editor) {

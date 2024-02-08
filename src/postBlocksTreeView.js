@@ -44,6 +44,8 @@ class PostBlockDataProvider {
     this.goToBottomItem = null;
   }
 
+  
+
   // Create instances of GoToPositionTreeItem for Go to Top and Go to Bottom
   createGoToTopItem() {
     return new GoToPositionTreeItem('Go to Top', new vscode.Position(0, 0));
