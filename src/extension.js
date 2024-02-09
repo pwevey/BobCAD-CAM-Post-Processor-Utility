@@ -45,6 +45,24 @@ function activate(context) {
   context.subscriptions.push(toggleDebugCommand);
 
 
+  // Register the new command to append revision log
+  const appendRevisionLogCommand = vscode.commands.registerCommand('postBlocks.appendRevisionLog', async () => {
+    const entry = await vscode.window.showInputBox({
+      placeHolder: 'Enter revision log entry',
+      prompt: 'Provide a description for the revision log entry',
+      validateInput: (text) => {
+        return text.trim() ? null : 'Description cannot be empty';
+      },
+    });
+
+    if (entry) {
+      appendRevisionLog(entry);
+    }
+  });
+
+  context.subscriptions.push(appendRevisionLogCommand);
+
+
   // Register the completion provider for both 'bcpst' and 'lua' languages
   const bcpstAndLuaCompletionProvider = vscode.languages.registerCompletionItemProvider(
     { scheme: 'file', language: 'bcpst' },
@@ -122,12 +140,87 @@ function activate(context) {
   context.subscriptions.push(expandAllCommand);
 }
 
+
+
 // Function to toggle debug mode
 function toggleDebugMode(text) {
   // Use regular expression to replace debug_on with debug_off and vice versa throughout the entire file
   return text.replace(/\b(debug_on|debug_off)\b/g, (match) => {
     return match === 'debug_on' ? 'debug_off' : 'debug_on';
   });
+}
+
+
+// Function to find the position to insert the revision log entry
+function findInsertPosition(document) {
+  const lineCount = document.lineCount;
+
+  for (let line = lineCount - 1; line >= 0; line--) {
+    const currentLine = document.lineAt(line).text.trim();
+
+    // Check if the line is a revision log entry
+    if (currentLine.startsWith('//--') && currentLine.includes('-')) {
+      return new vscode.Position(line + 1, 0);
+    }
+  }
+
+  // If no revision log entry is found, insert it at the end of the document
+  return new vscode.Position(lineCount, 0);
+}
+
+
+// Function to find the position to insert the revision log entry
+function findInsertPosition(document) {
+  const lineCount = document.lineCount;
+
+  for (let line = 0; line < lineCount; line++) {
+    const currentLine = document.lineAt(line).text.trim();
+
+    // Check if the line contains the words "REVISION LOG"
+    if (currentLine.includes('REVISION LOG')) {
+      return new vscode.Position(line + 1, 0);
+    }
+  }
+
+  // If "REVISION LOG" is not found, insert at the end of the document
+  return new vscode.Position(lineCount, 0);
+}
+
+// Function to append a revision log entry to the file
+async function appendRevisionLog(entry) {
+  const editor = vscode.window.activeTextEditor;
+  if (editor) {
+    const document = editor.document;
+
+    // Find the position to insert the revision log entry
+    const insertPosition = findInsertPosition(document);
+
+    // Insert the revision log entry and a new line
+    const newText = `//-- ${entry}\n//\n`;
+    const workspaceEdit = new vscode.WorkspaceEdit();
+    workspaceEdit.insert(document.uri, insertPosition, newText);
+
+    // Apply the edit
+    await vscode.workspace.applyEdit(workspaceEdit);
+
+    // Save the document
+    await document.save();
+  }
+}
+
+// Command to prompt for revision log entry and append it to the file
+async function appendRevisionLogCommand() {
+  const entry = await vscode.window.showInputBox({
+    placeHolder: 'Enter revision log entry',
+    prompt: 'Provide a description for the revision log entry',
+    validateInput: (text) => {
+      return text.trim() ? null : 'Description cannot be empty';
+    },
+  });
+
+  if (entry) {
+    await appendRevisionLog(entry);
+  }
 }
 
 

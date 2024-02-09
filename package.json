@@ -45,6 +45,10 @@
       {
         "command": "postBlocks.toggleDebug",
         "title": "BobCAD Post Utility: Toggle Debug Mode"
+      },
+      {
+        "command": "postBlocks.appendRevisionLog",
+        "title": "BobCAD Post Utility: Append Revision Log"
       }
     ],
     "keybindings": [
@@ -56,6 +60,11 @@
       {
         "command": "postBlocks.toggleDebug",
         "key": "ctrl+alt+d",
+        "when": "editorTextFocus && resourceLangId == 'bcpst'"
+      },
+      {
+        "command": "postBlocks.appendRevisionLog",
+        "key": "ctrl+alt+a",
         "when": "editorTextFocus && resourceLangId == 'bcpst'"
       }
     ],
