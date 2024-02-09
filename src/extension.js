@@ -47,16 +47,39 @@ function activate(context) {
 
   // Register the new command to append revision log
   const appendRevisionLogCommand = vscode.commands.registerCommand('postBlocks.appendRevisionLog', async () => {
-    const entry = await vscode.window.showInputBox({
-      placeHolder: 'Enter revision log entry',
-      prompt: 'Provide a description for the revision log entry',
-      validateInput: (text) => {
-        return text.trim() ? null : 'Description cannot be empty';
-      },
-    });
+    const entries = [];
+    let entry = '';
+    let entryCount = 1;
 
-    if (entry) {
-      appendRevisionLog(entry);
+    while (true) {
+      const userInput = await vscode.window.showInputBox({
+        placeHolder: 'Enter revision log entry (Type "done" to finish)',
+        prompt: 'Provide a description for the revision log entry',
+        validateInput: (text) => {
+          return text.trim() ? null : 'Description cannot be empty';
+        },
+      });
+
+      if (userInput === undefined) {
+        // User pressed 'Escape' or closed the input box
+        break;
+      }
+
+      if (userInput.toLowerCase() === 'done') {
+        // User typed 'done' to finish
+        if (entry !== '') {
+          entries.push(entry);
+        }
+        break;
+      } else {
+        // User entered text
+        entry += `//--   ${entryCount}. ${userInput}\n`;
+        entryCount++;
+      }
+    }
+
+    if (entries.length > 0) {
+      await appendRevisionLogs(entries);
     }
   });
 
@@ -151,6 +174,7 @@ function toggleDebugMode(text) {
 }
 
 
+
 // Function to find the position to insert the revision log entry
 function findInsertPosition(document) {
   const lineCount = document.lineCount;
@@ -168,21 +192,25 @@ function findInsertPosition(document) {
   return new vscode.Position(0, 0);
 }
 
-// Function to append a revision log entry to the file
-async function appendRevisionLog(entry) {
+
+// Function to append multiple revision log entries to the file with a date line
+async function appendRevisionLogs(entries) {
   const editor = vscode.window.activeTextEditor;
   if (editor) {
     const document = editor.document;
 
-    // Find the position to insert the revision log entry
+    // Find the position to insert the revision log entries
     const insertPosition = findInsertPosition(document);
 
-    // Insert the revision log entry and a new line
-    const newText = `//-- ${entry}\n//--\n`;
-    const workspaceEdit = new vscode.WorkspaceEdit();
-    workspaceEdit.insert(document.uri, insertPosition, newText);
+    // Get the current date
+    const currentDate = new Date().toLocaleDateString();
+
+    // Create the new text with date and all entries
+    const newText = `//-- ${currentDate}\n${entries.map(entry => `${entry}`).join('\n')}//--\n`;
 
     // Apply the edit
+    const workspaceEdit = new vscode.WorkspaceEdit();
+    workspaceEdit.insert(document.uri, insertPosition, newText);
     await vscode.workspace.applyEdit(workspaceEdit);
 
     // Save the document
@@ -190,20 +218,6 @@ async function appendRevisionLog(entry) {
   }
 }
 
-// Command to prompt for revision log entry and append it to the file
-async function appendRevisionLogCommand() {
-  const entry = await vscode.window.showInputBox({
-    placeHolder: 'Enter revision log entry',
-    prompt: 'Provide a description for the revision log entry',
-    validateInput: (text) => {
-      return text.trim() ? null : 'Description cannot be empty';
-    },
-  });
-
-  if (entry) {
-    await appendRevisionLog(entry);
-  }
-}
 
 
 
