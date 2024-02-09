@@ -32,11 +32,11 @@
       },
       {
         "command": "postBlocks.collapseAll",
-        "title": "BobCAD Post Utility: Collapse All Post Blocks"
+        "title": "BobCAD Post Utility: Collapse Tree Items"
       },
       {
         "command": "postBlocks.expandAll",
-        "title": "Expand All Post Blocks"
+        "title": "BobCAD Post Utility: Expand Tree Items"
       },
       {
         "command": "postBlocks.navigateToLineFromPalette",
