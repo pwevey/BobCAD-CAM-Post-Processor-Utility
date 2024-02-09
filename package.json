@@ -103,6 +103,25 @@
 				"scopeName": "source.nccode",
 				"path": "./syntaxes/nccode.tmLanguage.json"
 			}
+  ],
+  "snippets": [
+    {
+      "language": "bcpst",
+      "path": "./res/code_data/bobcad-code-snippets.code-snippets"
+    },
+    {
+      "language": "lua",
+      "path": "./res/code_data/bobcad-code-snippets.code-snippets"
+    },
+    {
+      "language": "vbs",
+      "path": "./res/code_data/bobcad-code-snippets.code-snippets"
+    }
   ]
-  }
+  },
+  "activationEvents": [
+    "onLanguage:bcpst",
+    "onLanguage:lua",
+    "onLanguage:vbs"
+  ]
 }

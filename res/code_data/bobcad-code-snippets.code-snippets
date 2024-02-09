@@ -1,0 +1,2101 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+
+	// Lua snippets
+	"nil Keyword (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "nil none",
+		"body": [
+			"nil"
+		],
+		"description": "nil Keyword (lua)"
+	},
+	"while loop (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "while",
+		"body": [
+			"while ${1:condition} do",
+			"\t${2:code}",
+			"end"
+		],
+		"description": "while loop (lua)"
+	},
+	"for loop (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "for",
+		"body": [
+			"for ${1:i} = ${2:start}, ${3:stop}, ${4:step} do",
+			"\t${5:code}",
+			"end"
+		],
+		"description": "for loop (lua)"
+	},
+	"generic for loop (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "for, table iteration",
+		"body": [
+			"for ${1:key}, ${2:value} in pairs(${3:myTable}) do",
+			"\t${4:code}",
+			"end"
+		],
+		"description": "generic for loop (lua)"
+	},
+	"if statement (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "if",
+		"body": [
+			"if ${1:condition} then",
+			"\t${2:code}",
+			"end"
+		],
+		"description": "if statement (lua)"
+	},
+	"if else statement (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "if else",
+		"body": [
+			"if ${1:condition} then",
+			"\t${2:code}",
+			"else",
+			"\t${3:code}",
+			"end"
+		],
+		"description": "if else statement (lua)"
+	},
+	"if elseif else statement (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "if elseif else",
+		"body": [
+			"if ${1:condition1} then",
+			"\t${2:code}",
+			"elseif ${3:condition2} then",
+			"\t${4:code}",
+			"else",
+			"\t${5:code}",
+			"end"
+		],
+		"description": "if elseif else statement (lua)"
+	},
+	"function (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "function",
+		"body": [
+			"function ${1:myFunction}(${2:args})",
+			"\t${3:code}",
+			"end"
+		],
+		"description": "function (lua)"
+	},
+	"local function (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "function",
+		"body": [
+			"local function ${1:myLocalFunc}(${2:args})",
+			"\t${3:code}",
+			"end"
+		],
+		"description": "local function (lua)"
+	},
+	"local variable (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "local, variable",
+		"body": [
+			"local ${1:myLocalVar} = ${2:\"string\"}"
+		],
+		"description": "local variable (lua)"
+	},
+	"variable (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "variable",
+		"body": [
+			"${1:myVariable} = ${2:\"string\"}"
+		],
+		"description": "variable (lua)"
+	},
+	"string concat (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "concat",
+		"body": [
+			"${1:\"string1\"} .. ${2:\"string2\"}"
+		],
+		"description": "string concatenation (lua)"
+	},
+	"string length (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "len string",
+		"body": [
+			"string.len(${1:\"myString\"})"
+		],
+		"description": "Get the length of a string (lua)"
+	},
+	"sub string extract (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "string extract",
+		"body": [
+			"${1:substring} = string.sub(${2:\"Hello, World!\"}, ${3:7}, ${4:12})  -- Extracts ${5:\"World\"}"
+		],
+		"description": "Extract a substring from a string (lua)"
+	},
+	"local table (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "local, table",
+		"body": [
+			"local ${1:myLocalTable} = {",
+			"\t${2:key1} = ${3:value1},",
+			"\t${4:key2} = ${5:value2}",
+			"}"
+		],
+		"description": "local table (lua)"
+	},
+	"string to lowercase (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "string to lowercase",
+		"body": [
+			"string.lower(${1:\"myString\"})"
+		],
+		"description": "Convert a string to lowercase (lua)"
+	},
+	"string to uppercase (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "string to uppercase",
+		"body": [
+			"string.upper(${1:\"myString\"})"
+		],
+		"description": "Convert a string to uppercase (lua)"
+	},
+	"table (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "table",
+		"body": [
+			"${1:myTable} = {",
+			"\t${2:key1} = ${3:value1},",
+			"\t${4:key2} = ${5:value2}",
+			"}"
+		],
+		"description": "table (lua)"
+	},
+	"empty table (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "table empty",
+		"body": [
+			"${1:myTable} = {$2}"
+		],
+		"description": "empty table (lua)"
+	},
+	"table mixed (Lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "table mixed",
+		"body": [
+			"${1:mixedTable} = {${2:10}, ${3:20}, name = \"${4:Alice}\", age = ${5:30}}",
+			"pullFrom1 = ${1:mixedTable}[1]      -- ${2:10}",
+			"pullFrom2 = ${1:mixedTable}.name    -- ${4:Alice}"
+		],
+		"description": "Mixed Table Array/Dictionary Index Starts at 1 (Lua)"
+	},
+	"table insert (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "table insert",
+		"body": [
+			"table.insert(${1:myTable}, ${2:value})"
+		],
+		"description": "Insert a value into a table (lua)"
+	},
+	"table remove (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "table remove",
+		"body": [
+			"table.remove(${1:myTable}, ${2:index})"
+		],
+		"description": "Remove an element from a table at a specific index (lua)"
+	},
+	"table concat (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "table concat",
+		"body": [
+			"table.concat(${1:myTable}, \", \")"
+		],
+		"description": "Concatenate the elements of a table into a string (lua)"
+	},
+	"table sort (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "table sort",
+		"body": [
+			"table.sort(${1:myTable})"
+		],
+		"description": "Sort the elements of a table in ascending order (lua)"
+	},
+	"repeat until loop (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "repeat",
+		"body": [
+			"repeat",
+			"\t${1:code}",
+			"until ${2:condition}"
+		],
+		"description": "repeat until loop (lua)"
+	},
+	"comment (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "comment",
+		"body": [
+			"-- ${1:comment}"
+		],
+		"description": "comment (lua)"
+	},
+	"multi-line comment (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "multiline comment",
+		"body": [
+			"--[[",
+			"${1:comment}",
+			"]]"
+		],
+		"description": "multi-line comment (lua)"
+	},
+	"conditional operator (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "conditional operator",
+		"body": [
+			"${1:value1} and ${2:value2} or ${3:value3}"
+		],
+		"description": "conditional operator (lua)"
+	},
+	"math sqrt (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math sqrt",
+		"body": [
+			"math.sqrt(${1:25})"
+		],
+		"description": "Calculate the square root of a number (lua)"
+	},
+	"math random within range (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math random range",
+		"body": [
+			"math.random(${1:1}, ${2:10})"
+		],
+		"description": "Generate a random number within a range (lua)"
+	},
+	"math random (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math random",
+		"body": [
+			"math.random()"
+		],
+		"description": "Generate a random number between 1 and 0 (lua)"
+	},
+	"math abs (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math abs",
+		"body": [
+			"math.abs(${1:-5})"
+		],
+		"description": "Calculate the absolute value of a number (lua)"
+	},
+	"math pow (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math pow",
+		"body": [
+			"math.pow(${1:2}, ${2:3})"
+		],
+		"description": "Calculate the power of a number (lua)"
+	},
+	"math floor (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math floor",
+		"body": [
+			"math.floor(${1:4.7} + ${2:0.5})"
+		],
+		"description": "Round down a number to the nearest integer (lua)"
+	},
+	"math ceil (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math ceil",
+		"body": [
+			"math.ceil(${1:4.3 + 0.5})"
+		],
+		"description": "Round up a number to the nearest integer (lua)"
+	},
+	"random seed (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math random seed",
+		"body": [
+			"math.randomseed(os.time())"
+		],
+		"description": "Set the random seed based on the current time (lua)"
+	},
+	"degrees to radians (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math degrees to radians",
+		"body": [
+			"${1:radians} = math.rad(${2:degrees})"
+		],
+		"description": "Convert degrees to radians (lua)"
+	},
+	"radians to degrees (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math radians to degrees",
+		"body": [
+			"${1:degrees} = math.deg(${2:radians})"
+		],
+		"description": "Convert radians to degrees (lua)"
+	},
+	"pi value (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "pi value",
+		"body": [
+			"math.pi"
+		],
+		"description": "Get the value of Pi (lua)"
+	},
+	"math huge (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math huge",
+		"body": [
+			"math.huge"
+		],
+		"description": "Get the value of positive infinity (lua)"
+	},
+	"sine of angle (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math sine of angle",
+		"body": [
+			"${1:sineValue} = math.sin(math.rad(${2:30}))  -- Sine of $2 degrees"
+		],
+		"description": "Calculate the sine of an angle in degrees (lua)"
+	},
+	"sine of angle (short) (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math sine of angle (short)",
+		"body": [
+			"math.sin(math.rad(${1:30}))"
+		],
+		"description": "Calculate the sine of an angle in degrees (lua)"
+	},
+	"cosine of angle (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math cosine of angle",
+		"body": [
+			"${1:CosineValue} = math.cos(math.rad(${2:45}))  -- Cosine of $2 degrees"
+		],
+		"description": "Calculate the Cosine of an angle in degrees (lua)"
+	},
+	"cosine of angle (short) (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math cosine of angle (short)",
+		"body": [
+			"math.cos(math.rad(${1:45}))"
+		],
+		"description": "Calculate the Cosine of an angle in degrees (lua)"
+	},
+	"Tangent of angle (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math tangent of angle",
+		"body": [
+			"${1:tangentValue} = math.tan(math.rad(${2:60}))  -- Tangent of $2 degrees"
+		],
+		"description": "Calculate the tangent of an angle in degrees (lua)"
+	},
+	"Tangent of angle (Short) (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math tangent of angle (Short)",
+		"body": [
+			"math.tan(math.rad(${1:60}))"
+		],
+		"description": "Calculate the tangent of an angle in degrees (lua)"
+	},
+	"arcsine of value (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math arcsine of value",
+		"body": [
+			"${1:arcsineValue} = math.deg(math.asin(${2:sineValue}))"
+		],
+		"description": "Calculate the arcsine of a value and convert the result to degrees (lua)"
+	},
+	"arccosine of value (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math arccosine of value",
+		"body": [
+			"${1:arccosineValue} = math.deg(math.acos(${2:cosineValue}))"
+		],
+		"description": "Calculate the arccosine of a value and convert the result to degrees (lua)"
+	},
+	"arctangent of value (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "math arctangent of value",
+		"body": [
+			"${1:arctangentValue} = math.deg(math.atan(${2:tangentValue}))"
+		],
+		"description": "Calculate the arctangent of a value and convert the result to degrees (lua)"
+	},
+	"os time (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "os time",
+		"body": [
+			"${1:timestamp} = os.time()"
+		],
+		"description": "Get the current time in seconds since the Unix epoch (lua)"
+	},
+	"os date (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "os date",
+		"body": [
+			"${1:formattedDate} = os.date(\"%Y-%m-%d %H:%M:%S\", ${2:timestamp})"
+		],
+		"description": "Format a timestamp into a date string (lua)"
+	},
+	"file I/O (lua/bcpst)": {
+		"scope": "bcpst, lua",
+		"prefix": "file I/O",
+		"body": [
+			"local file = io.open(\"${1:filename.txt}\", \"${2:r}\")",
+			"if file then",
+			"\tlocal content = file:read(\"*a\")",
+			"\tfile:close()",
+			"\t${3:code}",
+			"else",
+			"\tBcc.ShowMessageBox(\"Error opening file\")",
+			"end"
+		],
+		"description": "file I/O (lua)"
+	},
+	"require lua file (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "file import require",
+		"body": [
+			"local ${1:myModule} = require(\"${2:myFolder.myFile}\")"
+		],
+		"description": "Import another Lua file (lua)"
+	},
+	"bitwise and (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "bitwise and",
+		"body": [
+			"local bitwiseAnd = bit32.band(${1:5}, ${2:3})"
+		],
+		"description": "Bitwise AND operation (lua)"
+	},
+	"bitwise or (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "bitwise or",
+		"body": [
+			"local bitwiseOr = bit32.bor(${1:5}, ${2:3})"
+		],
+		"description": "Bitwise OR operation (lua)"
+	},
+	"bitwise xor (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "bitwise xor",
+		"body": [
+			"local bitwiseXor = bit32.bxor(${1:5}, ${2:3})"
+		],
+		"description": "Bitwise XOR operation (lua)"
+	},
+	"string format (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "string format",
+		"body": [
+			"string.format(\"${3:Name: %s, Age: %d}\", ${1:name}, ${2:age})"
+		],
+		"description": "Format a string (lua)"
+	},
+	"get table data bracket notation (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "get table data",
+		"body": [
+			"${1:myTable}[${2:key}]"
+		],
+		"description": "Get data from a table (lua)"
+	},
+	"get table data dot notation (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "get table data",
+		"body": [
+			"${1:myTable}.${2:key}"
+		],
+		"description": "Get data from a table (lua)"
+	},
+	"unpack table (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "table unpack",
+		"body": [
+			"table.unpack(${1:myTable})"
+		],
+		"description": "Unpack a table into individual variables (lua)"
+	},
+	"pack table (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "table pack",
+		"body": [
+			"table.pack(${1:myTable})"
+		],
+		"description": "Pack individual variables into a table (lua)"
+	},
+	"concatenate tables (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "concatenate tables",
+		"body": [
+			"${1:concatenatedTable} = {table.unpack(${2:myTable1}), table.unpack(${3:myTable2})}"
+		],
+		"description": "Concatenate two tables into one (lua)"
+	},
+	"metatable and metamethods (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "metatable",
+		"body": [
+			"-- Metatable and metamethods",
+			"local ${1:myTable} = {}",
+			"",
+			"local metatable = {",
+			"\t-- __index is called when table[key] is read and key does not exist",
+			"\t__index = function(table, key)",
+			"\t\t${2:-- code}",
+			"\tend,",
+			"\t-- __newindex is called when table[key] = value is updated and key does not exist",
+			"\t__newindex = function(table, key, value)",
+			"\t\t${3:-- code}",
+			"\tend,",
+			"\t-- __tostring is called when the table needs to be represented as a string",
+			"\t__tostring = function(table)",
+			"\t\t${4:-- code}",
+			"\tend,",
+			"\t-- Add other metamethods as needed",
+			"}",
+			"",
+			"setmetatable($1, metatable)"
+		],
+		"description": "metatable and metamethods (lua)"
+	},
+	"basic coroutine function (lua/bcpst)": {
+		"scope": "bcpst, lua",
+		"prefix": "coroutine func (basic)",
+		"body": [
+			"local function ${1:basicCoroutine}()",
+			"\tBcc.ShowMessageBox(\"Coroutine started\")",
+			"\tcoroutine.yield()  -- Pause and yield control",
+			"\tBcc.ShowMessageBox(\"Coroutine resumed\")",
+			"end",
+			"",
+			"local ${2:myCoroutine} = coroutine.create(${1:basicCoroutine})"
+		],
+		"description": "basic coroutine (lua)"
+	},
+	"resume coroutine (lua)": {
+		"scope": "bcpst, lua",
+		"prefix": "coroutine resume",
+		"body": [
+			"coroutine.resume(${1:myCoroutine})"
+		],
+		"description": "resume coroutine (lua)"
+	},
+	"producer-consumer coroutine (lua/bcpst)": {
+		"scope": "bcpst, lua",
+		"prefix": "coroutine producer-consumer",
+		"body": [
+			"-- Producer Coroutine",
+			"local function ${1:producerCoroutine}()",
+			"\tfor i = 1, 5 do",
+			"\t\tBcc.ShowMessageBox(\"Producing value:\", i)",
+			"\t\tcoroutine.yield(i)  -- Yield a value",
+			"\tend",
+			"end",
+			"",
+			"-- Consumer Coroutine",
+			"local function ${2:consumerCoroutine}()",
+			"\twhile true do",
+			"\t\tlocal success, value = coroutine.resume(${1:producerCoroutine})",
+			"\t\tif not success or not value then",
+			"\t\t\tbreak  -- Coroutine finished",
+			"\t\tend",
+			"\t\tBcc.ShowMessageBox(\"Consumed value:\", value)",
+			"\tend",
+			"end",
+			"",
+			"-- Create coroutines",
+			"local ${3:producer} = coroutine.create(${1:producerCoroutine})",
+			"local ${4:consumer} = coroutine.create(${2:consumerCoroutine})",
+			"",
+			"-- Start consumer coroutine",
+			"coroutine.resume($4)"
+		],
+		"description": "producer-consumer coroutine (lua)"
+	},
+	"asymmetric coroutine (lua/bcpst)": {
+		"scope": "bcpst, lua",
+		"prefix": "coroutine asymmetric",
+		"body": [
+			"-- Coroutine A",
+			"local function ${1:coroutineA}()",
+			"\tBcc.ShowMessageBox(\"A: Step 1\")",
+			"\tcoroutine.yield()",
+			"\tBcc.ShowMessageBox(\"A: Step 2\")",
+			"\tcoroutine.yield()",
+			"\tBcc.ShowMessageBox(\"A: Step 3\")",
+			"end",
+			"",
+			"-- Coroutine B",
+			"local function ${2:coroutineB}()",
+			"\tBcc.ShowMessageBox(\"B: Step 1\")",
+			"\tcoroutine.yield()",
+			"\tBcc.ShowMessageBox(\"B: Step 2\")",
+			"\tcoroutine.yield()",
+			"\tBcc.ShowMessageBox(\"B: Step 3\")",
+			"end",
+			"",
+			"-- Create coroutines",
+			"local ${3:coA} = coroutine.create(${1:coroutineA})",
+			"local ${4:coB} = coroutine.create(${2:coroutineB})",
+			"",
+			"-- Run coroutines in an alternating fashion",
+			"for i = 1, 3 do",
+			"\tcoroutine.resume($3)",
+			"\tcoroutine.resume($4)",
+			"end"
+		],
+		"description": "asymmetric coroutine (lua/bcpst)"
+	},
+	// VBScript snippets
+	"If Statement (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "If",
+		"body": [
+			"If ${1:condition} Then",
+			"\t${2:code}",
+			"End If"
+		],
+		"description": "If statement (VBScript)"
+	},
+	"If Else Statement (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "If Else",
+		"body": [
+			"If ${1:condition} Then",
+			"\t${2:code}",
+			"Else",
+			"\t${3:code}",
+			"End If"
+		],
+		"description": "If Else statement (VBScript)"
+	},
+	"If ElseIf Else Statement (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "If ElseIf Else",
+		"body": [
+			"If ${1:condition} Then",
+			"\t${2:code}",
+			"ElseIf ${3:condition} Then",
+			"\t${4:code}",
+			"Else",
+			"\t${5:code}",
+			"End If"
+		],
+		"description": "If ElseIf Else statement (VBScript)"
+	},
+	"Select Case Statement (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Select Case",
+		"body": [
+			"Select Case ${1:expression}",
+			"\tCase ${2:value1}",
+			"\t\t${3:code}",
+			"\tCase ${4:value2}",
+			"\t\t${5:code}",
+			"\tCase Else",
+			"\t\t${6:code}",
+			"End Select"
+		],
+		"description": "Select Case statement (VBScript)"
+	},
+	"Variable Statement (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim",
+		"body": [
+			"Dim ${1:myVariable}: $1 = ${2:value}"
+		],
+		"description": "Dim Variable (VBScript)"
+	},
+	"String Concatenation (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Concat",
+		"body": [
+			"${1:\"string1\"} & ${2:\"string2\"}"
+		],
+		"description": "String Concatenation (VBScript)"
+	},
+	"String Length (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Len String",
+		"body": [
+			"Len(${1:\"myString\"})"
+		],
+		"description": "Get the length of a string (VBScript)"
+	},
+	"Extract from String (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "String Extract",
+		"body": [
+			"${1:substring} = Mid(${2:\"Hello, World!\"}, ${3:7}, ${4:5})  ' Extracts ${5:\"World\"}"
+		],
+		"description": "Extract a substring from a string (VBScript)"
+	},
+	"String to Lowercase (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "String to Lowercase",
+		"body": [
+			"LCase(${1:\"myString\"})"
+		],
+		"description": "Convert a string to lowercase (VBScript)"
+	},
+	"String to Uppercase (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "String to Uppercase",
+		"body": [
+			"UCase(${1:\"myString\"})"
+		],
+		"description": "Convert a string to uppercase (VBScript)"
+	},
+	"Option Explicit (explicit declaration) (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Option Explicit",
+		"body": [
+			"Option Explicit"
+		],
+		"description": "Option Explicit declaration of all variables. Place at the top of your script (VBScript)"
+	},
+	"Null Keyword (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Null None",
+		"body": [
+			"Null"
+		],
+		"description": "Null Keyword (VBScript)"
+	},
+	"Empty Keyword (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Empty",
+		"body": [
+			"Empty"
+		],
+		"description": "Empty Keyword (VBScript)"
+	},
+	"False Boolean (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "False",
+		"body": [
+			"False"
+		],
+		"description": "False Boolean (VBScript)"
+	},
+	"True Boolean (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "True",
+		"body": [
+			"True"
+		],
+		"description": "True Boolean (VBScript)"
+	},
+	"Nothing Keyword (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Nothing",
+		"body": [
+			"Nothing"
+		],
+		"description": "Nothing Keyword (VBScript)"
+	},
+	"Set MyObject to Nothing (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Nothing Set",
+		"body": [
+		  "Set MyObject = Nothing"
+		],
+		"description": "When Nothing is assigned to an object variable, that variable no longer refers to any actual object. (VBScript)"
+	  },
+	"Dim as Integer (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim As Int",
+		"body": [
+			"Dim ${1:myVariable} As Integer"
+		],
+		"description": "Dim as Integer (VBScript)"
+	},
+	"Dim as String (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim As Str",
+		"body": [
+			"Dim ${1:myVariable} As String"
+		],
+		"description": "Dim as String (VBScript)"
+	},
+	"Dim as Boolean (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim As Bool",
+		"body": [
+			"Dim ${1:myVariable} As Boolean"
+		],
+		"description": "Dim as Boolean (VBScript)"
+	},
+	"Dim as Object (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim As Obj",
+		"body": [
+			"Dim ${1:myVariable} As Object"
+		],
+		"description": "Dim as Object (VBScript)"
+	},
+	"Dim as Date (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim As Date",
+		"body": [
+			"Dim ${1:myVariable} As Date"
+		],
+		"description": "Dim as Date (VBScript)"
+	},
+	"Dim as Double (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim As Double",
+		"body": [
+			"Dim ${1:myVariable} As Double"
+		],
+		"description": "Dim as Double (VBScript)"
+	},
+	"Dim as Long (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim As Long",
+		"body": [
+			"Dim ${1:myVariable} As Long"
+		],
+		"description": "Dim as Long (VBScript)"
+	},
+	"Dim as Single (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim As Single",
+		"body": [
+			"Dim ${1:myVariable} As Single"
+		],
+		"description": "Dim as Single (VBScript)"
+	},
+	"Dim as Variant (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim as Variant",
+		"body": [
+			"Dim ${1:myVariable} As Variant"
+		],
+		"description": "Dim as Variant (VBScript)"
+	},
+	"Dim as Array (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim as Array",
+		"body": [
+			"Dim ${1:myVariable}() As Array"
+		],
+		"description": "Dim as Array (VBScript)"
+	},
+	"Dim Array Fixed Init (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim Array (Fixed)",
+		"body": [
+			"Dim ${1:myArray}(3)",
+			"${1:myArray}(0) = ${2:\"First Index\"}",
+			"${1:myArray}(1) = ${3:\"Second Index\"}",
+			"${1:myArray}(2) = ${4:\"Third Index\"}",
+			"${1:myArray}(3) = ${5:\"Fourth Index\"}"
+		],
+		"description": "Dim Array Initialization (VBScript)"
+	},
+	"Get Array Length (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Array Get Length",
+		"body": [
+			"UBound(${1:myArray})"
+		],
+		"description": "Get the length of an array (VBScript)"
+	},
+	"Get Element from Array (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Array Get Element",
+		"body": [
+			"${1:myArray}(${2:index})"
+		],
+		"description": "Get an element from an array (VBScript)"
+	},
+	"Set Element in Array (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Array Set Element",
+		"body": [
+			"${1:myArray}(${2:index}) = ${3:value}"
+		],
+		"description": "Set an element in an array (VBScript)"
+	},
+	"Insert Element in Array (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Array Insert Element",
+		"body": [
+			"ReDim Preserve ${1:myArray}(UBound(${1:myArray}) + 1)",
+			"${1:myArray}(UBound(${1:myArray})) = ${2:value}"
+		],
+		"description": "Insert an element at the end of an array (VBScript)"
+	},
+	"Remove Last Element from Array (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Array Remove Element",
+		"body": [
+		  "Sub RemoveLastElement(ByRef arrayPassed)",
+		  "    ' Check if the array is not empty",
+		  "    If UBound(arrayPassed) >= 0 Then",
+		  "        ' Resize the array to exclude the last element",
+		  "        ReDim Preserve arrayPassed(UBound(arrayPassed) - 1)",
+		  "    Else",
+		  "        WScript.Echo \"Array is empty\"",
+		  "    End If",
+		  "End Sub",
+		  "",
+		  "RemoveLastElement ${1:myArray}"
+		],
+		"description": "Remove the last element from an array (VBScript)"
+	  },
+	  "Remove Element Array (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Array Remove Element by Index",
+		"body": [
+		  "Sub RemoveElementByIndex(ByRef arrayPassed, index)",
+		  "    ' Check if the array is not empty",
+		  "    If UBound(arrayPassed) >= 0 Then",
+		  "        ' Check if the index is within the valid range",
+		  "        If index >= 0 And index <= UBound(arrayPassed) Then",
+		  "            ' Remove the element at the specified index",
+		  "            For i = index To UBound(arrayPassed) - 1",
+		  "                arrayPassed(i) = arrayPassed(i + 1)",
+		  "            Next",
+		  "            ' Resize the array to exclude the last element",
+		  "            ReDim Preserve arrayPassed(UBound(arrayPassed) - 1)",
+		  "        Else",
+		  "            WScript.Echo \"Invalid index\"",
+		  "        End If",
+		  "    Else",
+		  "        WScript.Echo \"Array is empty\"",
+		  "    End If",
+		  "End Sub",
+		  "",
+		  "RemoveElementByIndex ${1:myArray}, ${2:indexNumber}"
+		],
+		"description": "Remove an element at a specific index from an array (VBScript)"
+	  },
+	  "Concatenate Array Elements (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Array Concatenate Elements",
+		"body": [
+		  "Sub ConcatenateArray(ByRef arrayPassed, separator)",
+		  "    ' Check if the array is not empty",
+		  "    If UBound(arrayPassed) >= 0 Then",
+		  "        ' Create an empty string to store the result",
+		  "        Dim ${1:resultString}",
+		  "        ${1} = \"\"",
+		  "",
+		  "        ' Concatenate elements with the specified separator",
+		  "        For i = LBound(arrayPassed) To UBound(arrayPassed)",
+		  "            ' Append the current element to the result string",
+		  "            ${1:resultString} = ${1:resultString} & arrayPassed(i)",
+		  "",
+		  "            ' Append the separator if not the last element",
+		  "            If i < UBound(arrayPassed) Then",
+		  "                ${1:resultString} = ${1:resultString} & separator",
+		  "            End If",
+		  "        Next",
+		  "",
+		  "        ' Display the result",
+		  "        WScript.Echo ${1:resultString}",
+		  "    Else",
+		  "        ' Display a message if the array is empty",
+		  "        WScript.Echo \"Array is empty\"",
+		  "    End If",
+		  "End Sub",
+		  "",
+		  "ConcatenateArray ${2:myArray}, \"${3:, }\"    ' \"${3:, }\" separates the strings"
+		],
+		"description": "Concatenate array elements with a specified separator (VBScript)"
+	  },
+	  "Bubble Sort Array (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Array Bubble Sort",
+		"body": [
+		  "Sub BubbleSort(ByRef arrayPassed)",
+		  "    ' Check if the array is not empty",
+		  "    If UBound(arrayPassed) >= 0 Then",
+		  "        Dim i, j, temp",
+		  "",
+		  "        ' Perform Bubble Sort",
+		  "        For i = LBound(arrayPassed) To UBound(arrayPassed) - 1",
+		  "            For j = LBound(arrayPassed) To UBound(arrayPassed) - 1 - i",
+		  "                ' Swap if the current element is greater than the next element",
+		  "                If arrayPassed(j) > arrayPassed(j + 1) Then",
+		  "                    temp = arrayPassed(j)",
+		  "                    arrayPassed(j) = arrayPassed(j + 1)",
+		  "                    arrayPassed(j + 1) = temp",
+		  "                End If",
+		  "            Next",
+		  "        Next",
+		  "    Else",
+		  "        ' Display a message if the array is empty",
+		  "        WScript.Echo \"Array is empty\"",
+		  "    End If",
+		  "End Sub",
+		  "",
+		  "BubbleSort ${2:myArray}"
+		],
+		"description": "Can sort any array with any data type. (eg. 7, 15, 42, Apple, Banana, Orange) (VBScript)"
+	  },
+	"Dim Array Dynamic Init (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dim Array (Dynamic)",
+		"body": [
+			"Dim ${1:myArray}()",
+			"${1:myArray} = Array(${2:\"First Index\"}, ${3:\"Second Index\"}, ${4:\"Third Index\"})"
+		],
+		"description": "Dim Array Initialization (VBScript)"
+	},
+	"Dim Dictionary Init (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Dim Init",
+		"body": [
+			"Dim ${1:myDictionary}",
+			"Set ${1:myDictionary} = CreateObject(\"Scripting.Dictionary\")",
+			"${1:myDictionary}.Add ${2:key1}, ${3:value1}",
+			"${1:myDictionary}.Add ${4:key2}, ${5:value1}"
+		],
+		"description": "Dim Dictionary Initialization (VBScript)"
+	},
+	"Set Dictionary Value (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Set Value",
+		"body": [
+			"${1:myDictionary}.Item(${2:key}) = ${3:value}"
+		],
+		"description": "Set a value in a dictionary (VBScript)"
+	},
+	"Get Dictionary Value (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Get Value",
+		"body": [
+			"${1:value} = ${2:myDictionary}.Item(${3:key})"
+		],
+		"description": "Get a value from a dictionary (VBScript)"
+	},
+	"Search for Key (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Get Key by Value",
+		"body": [
+		  "Function GetKeyByValue(dictionaryPassed, searchValue)",
+		  "    Dim key",
+		  "    For Each key In dictionaryPassed.Keys",
+		  "        If dictionaryPassed(key) = searchValue Then",
+		  "            GetKeyByValue = key",
+		  "            Exit Function",
+		  "        End If",
+		  "    Next",
+		  "    GetKeyByValue = Null ' Return Null if the value is not found",
+		  "End Function",
+		  "",
+		  "${1:foundKey} = GetKeyByValue(${2:myDictionary}, ${3:searchValue})"
+		],
+		"description": "Get a key by its value from a dictionary (VBScript)"
+	  },
+	"Remove Dictionary Item (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Remove Item",
+		"body": [
+			"${1:myDictionary}.Remove ${2:key}"
+		],
+		"description": "Remove an item from a dictionary (VBScript)"
+	},
+	"Dictionary Key Exists (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Key Exists",
+		"body": [
+			"${1:doesExist} = ${2:myDictionary}.Exists(${3:key})"
+		],
+		"description": "Check if a key exists in a dictionary (VBScript)"
+	},
+	"Dictionary Key Count (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Key Count",
+		"body": [
+			"${1:count} = ${2:myDictionary}.Count"
+		],
+		"description": "Get the number of keys in a dictionary (VBScript)"
+	},
+	" Get Dictionary Keys (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Get Keys",
+		"body": [
+			"${1:myKeys} = ${2:myDictionary}.Keys"
+		],
+		"description": "Get the keys of a dictionary. Converts to an Array (VBScript)"
+	},
+	"Get Dictionary Values (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Get Values",
+		"body": [
+			"${1:myValues} = ${2:myDictionary}.Items"
+		],
+		"description": "Get the items of a dictionary. Converts to an Array (VBScript)"
+	},
+	"Dictionary Clear (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Clear",
+		"body": [
+			"${1:myDictionary}.RemoveAll"
+		],
+		"description": "Clear all items from a dictionary (VBScript)"
+	},
+	"Dictionary Destroy (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Destroy",
+		"body": [
+			"Set ${1:myDictionary} = Nothing"
+		],
+		"description": "Destroy a dictionary (VBScript)"
+	},
+	"Dictionary Loop (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Dictionary Loop",
+		"body": [
+		  "For Each key In ${2:myDictionary}.Keys",
+		  "    WScript.Echo \"Key: \" & key & \", Value: \" & ${2:myDictionary}(key)",
+		  "Next"
+		],
+		"description": "Loop through a dictionary and print key-value pairs (VBScript)"
+	  },
+	"For Loop (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "For",
+		"body": [
+			"For ${1:i} = ${2:startValue} To ${3:endValue}",
+			"\t${4:code}",
+			"Next"
+		],
+		"description": "For loop (VBScript)"
+	},
+	"For Loop with Step (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "For  Step",
+		"body": [
+			"For ${1:i} = ${2:startValue} To ${3:endValue} Step ${4:integer}",
+			"\t${5:code}",
+			"Next"
+		],
+		"description": "For loop with Step (VBScript)"
+	},
+	"For Each Loop (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "For Each",
+		"body": [
+			"For Each ${1:fruit} In ${2:fruits}",
+			"\t${3:code}",
+			"Next"
+		],
+		"description": "For Each loop (VBScript)"
+	},
+	"Do While Loop is true (same as While Loop) (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Do While",
+		"body": [
+			"Do While ${1:condition}",
+			"\t${2:code}",
+			"Loop"
+		],
+		"description": "Do While loop (VBScript)"
+	},
+	"While Loop (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "While",
+		"body": [
+			"While ${1:condition}",
+			"\t${2:code}",
+			"End While"
+		],
+		"description": "While loop (VBScript)"
+	},
+	"Do Loop While at least once (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Do...Loop While",
+		"body": [
+			"Do",
+			"\t${1:code}",
+			"Loop While ${2:condition}"
+		],
+		"description": "Do Loop While (VBScript)"
+	},
+	"Do Until Loop \"do-while-not\" loop (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Do Until",
+		"body": [
+			"Do Until ${1:condition}",
+			"\t${2:code}",
+			"Loop"
+		],
+		"description": "Do Until loop (VBScript)"
+	},
+	"vbCr Carriage Return (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "vbCr",
+		"body": [
+			"vbCr"
+		],
+		"description": "vbCr Carriage Return (Move to next line) (VBScript)"
+	},
+	"vbLf Line Feed (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "vbLf",
+		"body": [
+			"vbLf"
+		],
+		"description": "vbCr Line Feed (VBScript)"
+	},
+	"vbCr Carriage Return Line Feed (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "vbCrLf",
+		"body": [
+			"vbCrLf"
+		],
+		"description": "vbCr Carriage Return Line Feed (VBScript)"
+	},
+	"And Concat Operator (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "and (&)",
+		"body": [
+			"&"
+		],
+		"description": "And Concatenation Operator (VBScript)"
+	},
+	"Modulus Operator (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Mod",
+		"body": [
+			"Mod"
+		],
+		"description": "Modulus Operator (VBScript)"
+	},
+	"Exponentiation Operator (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Exponentiation",
+		"body": [
+			"^"
+		],
+		"description": "Exponentiation Operator (VBScript)"
+	},
+	"Integer Division Operator (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Integer Division",
+		"body": [
+			"\\"
+		],
+		"description": "Divides two numbers and returns an integer result. (VBScript)"
+	},
+	"Not Equal To Operator (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Not Equal To",
+		"body": [
+		  "<>"
+		],
+		"description": "Compares two values for inequality (VBScript)"
+	  },
+	"WScript.Echo (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "WScript.Echo",
+		"body": [
+			"WScript.Echo ${1:myMessage}"
+		],
+		"description": "Method in VBScript used for displaying output to the console (VBScript)"
+	},
+	"MsgBox (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "MsgBox",
+		"body": [
+			"MsgBox(${1:myMessage})"
+		],
+		"description": "MsgBox (VBScript)"
+	},
+	"MsgBox with Concatenation (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "MsgBox Concat",
+		"body": [
+			"MsgBox(\"${1:myName:} \" & ${2:myVariable})"
+		],
+		"description": "MsgBox with Concatenation (VBScript)"
+	},
+	"MsgBox with carriage return (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "MsgBox with vbCrLf",
+		"body": [
+			"MsgBox(\"${1:myName1}: \" & ${2:myVariable1} & vbCrLf & \"${3:myName2}: \" & ${4:myVariable2})"
+		],
+		"description": "MsgBox with mulit concats and carriage return line feed to move text to second line (VBScript)"
+	},
+	"Get Current Date (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Date Current",
+		"body": [
+		  "Dim ${1:currentDate}: $1 = Date()",
+		  "MsgBox(\"Current Date: \" & $1)"
+		],
+		"description": "Get the current date (VBScript)"
+	  },
+	  "Get Current Time (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Time Current",
+		"body": [
+		  "Dim ${1:currentTime}: $1 = Time()",
+		  "MsgBox(\"Current Time: \" & $1)"
+		],
+		"description": "Get the current time (VBScript)"
+	  },
+	  "Format Date (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Date Format",
+		"body": [
+		  "Dim ${1:myDate}: $1 = Date()",
+		  "MsgBox(\"Formatted Date: \" & FormatDateTime($1, ${2|0,1,2,3,4|}))"
+		],
+		"description": "Format a date 0: vbGeneralDate, 1: vbLongDate, 2: vbShortDate, 3: vbLongTime, 4: vbShortTime (VBScript)"
+	  },
+	  "# Date / Time Literal (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Date (#) Time Literal",
+		"body": [
+		  "#${1:myDateTime}#",
+		],
+		"description": "Date / Time Literal (VBScript)"
+	  },
+	  "Basic Function (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Function",
+		"body": [
+		  "Function ${1:myFunction}()",
+		  "  ${2:code}",
+		  "  ${1:myFunction} = ${3:result}",
+		  "End Function"
+		],
+		"description": "return a value with a Basic Function no arguments (VBScript)"
+	  },
+	  "Function with 2 Args (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Function (2 Args)",
+		"body": [
+		  "Function ${1:myFunction}(${2:arg1}, ${3:arg2})",
+		  "  ${4:code}",
+		  "  ${1:myFunction} = ${5:${2:arg1} + ${3:arg2}}",
+		  "End Function"
+		],
+		"description": "Function with 2 arguments (VBScript)"
+	  },
+	  "Call Function (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Call Function",
+		"body": [
+		  "Call ${1:myFunction}(${2:passArg})"
+		],
+		"description": "Call a function and pass in an argument (VBScript)"
+	  },
+	  "Basic Subroutine (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Sub",
+		"body": [
+		  "Sub ${1:mySubroutine}()",
+		  "  ${2:code}",
+		  "End Sub"
+		],
+		"description": "perform a series of actions or tasks with a Basic Subroutine no arguments (VBScript)"
+	  },
+	  "Subroutine with 1 Arg (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Sub (1 Arg)",
+		"body": [
+		  "Sub ${1:mySubroutine}(${2:arg1})",
+		  "  ${3:code}",
+		  "End Sub"
+		],
+		"description": "perform a series of actions or tasks with a Subroutine with 1 argument (VBScript)"
+	  },
+	  "Call Subroutine (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Call Subroutine",
+		"body": [
+		  "Call ${1:mySubroutine}(${2:passArg})"
+		],
+		"description": "Call a subroutine and pass in an argument (VBScript)"
+	  },
+	  "Basic Class (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Class (create)",
+		"body": [
+		  "Class ${1:myClassName}",
+		  "    ' Properties",
+		  "    Public ${2:myProperty1}",
+		  "    Public ${3:myProperty2}",
+		  "",
+		  "    ' Constructors",
+		  "    Private Sub Class_Initialize()",
+		  "        ${2:myProperty1} = \"\"",
+		  "        ${3:myProperty2} = 0",
+		  "    End Sub",
+		  "",
+		  "    ' Methods",
+		  "    Public Sub ${4:myMethod}()",
+		  "        ${5:code}",
+		  "    End Sub",
+		  "End Class"
+		],
+		"description": "Basic Class (VBScript)"
+	  },
+	  "Create Class Instance (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Class (create instance)",
+		"body": [
+		  "Dim ${1:myObject}",
+		  "Set ${1:myObject} = New ${2:myClassName}"
+		],
+		"description": "Create Class Instance (VBScript)"
+	  },
+	  "Set Class Properties (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Class (set properties)",
+		"body": [
+		  "${1:myObject}.${2:myProperty1} = ${3:\"Value1\"}"
+		],
+		"description": "Set Class Properties (VBScript)"
+	  },
+	  "Call Method of Class (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Class (call method)",
+		"body": [
+		  "${1:myObject}.${2:myMethod}()"
+		],
+		"description": "Call Method of Class (VBScript)"
+	  },
+	  "Class Example (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Class (basic EXAMPLE)", 
+		"body": [
+		  "' Define a simple class",
+		  "Class ${1:Car}",
+		  "    ' Properties",
+		  "    Public ${2:Make}",
+		  "    Public ${3:Model}",
+		  "    Public ${4:Year}",
+		  "",
+		  "    ' Constructor",
+		  "    Private Sub Class_Initialize()",
+		  "        ${2:Make} = \"\"",
+		  "        ${3:Model} = \"\"",
+		  "        ${4:Year} = 0",
+		  "    End Sub",
+		  "",
+		  "    ' Method to display information about the car",
+		  "    Public Sub DisplayInfo()",
+		  "        WScript.Echo \"${1:Car} Information:\"",
+		  "        WScript.Echo \"${2:Make}: \" & ${2:Make}",
+		  "        WScript.Echo \"${3:Model}: \" & ${3:Model}",
+		  "        WScript.Echo \"${4:Year}: \" & ${4:Year}",
+		  "    End Sub",
+		  "End Class",
+		  "",
+		  "' Create an instance of the class",
+		  "Dim my${1:Car}",
+		  "Set my${1:Car} = New ${1:Car}",
+		  "",
+		  "' Set properties",
+		  "my${1:Car}.${2:Make} = \"Toyota\"",
+		  "my${1:Car}.${3:Model} = \"Camry\"",
+		  "my${1:Car}.${4:Year} = 2022",
+		  "",
+		  "' Display information",
+		  "my${1:Car}.DisplayInfo()"
+		],
+		"description": "Basic Class Example (VBScript)"
+	  },
+	  "Basic Error Handling (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Error Handling",
+		"body": [
+		  "On Error Resume Next",
+		  "' Code that might cause an error",
+		  "${1:code}",
+		  " ",
+		  "If Err.Number <> 0 Then",
+		  "    WScript.Echo \"An error occurred: \" & Err.Description",
+		  "    Err.Clear",
+		  "End If"
+		],
+		"description": "Catch an error within segment of code (VBScript)"
+	  },
+	  "Err Number Property (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Err.Number",
+		"body": [
+			"Err.Number"
+		],
+		"description": "Represents a numeric value that indicates the error code. (VBScript)"
+	},
+	"Err Description Property (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Err.Description",
+		"body": [
+			"Err.Description"
+		],
+		"description": "Contains a textual description of the error. (VBScript)"
+	},
+	"Err Source Property (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Err.Source",
+		"body": [
+			"Err.Source"
+		],
+		"description": "Indicates the name of the object or application that generated the error. (VBScript)"
+	},
+	"Err HelpFile Property (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Err.HelpFile",
+		"body": [
+			"Err.HelpFile"
+		],
+		"description": "Sets or returns a fully qualified path to a Help File. (VBScript)"
+	},
+	"Err HelpContext Property (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Err.HelpContext",
+		"body": [
+			"Err.HelpContext"
+		],
+		"description": "Sets or returns a context ID for a topic in a Help File. (VBScript)"
+	},
+	"Err Clear Method (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Err.Clear",
+		"body": [
+			"Err.Clear"
+		],
+		"description": "Clears all property settings of the Err object. (VBScript)"
+	},
+	"Raise Error (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Err.Raise",
+		"body": [
+		  "Err.Raise(${1:number}, \"${2:myScript}\", \"${3:An error occurred}\")"
+		],
+		"description": "Generates a run-time error. Arguments: number, source, description, helpfile, helocontext (VBScript)"
+	  },
+	  "Square Root (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Sqr Math",
+		"body": [
+		  "Sqr(${1:number})"
+		],
+		"description": "Calculate the square root of a number (VBScript)"
+	  },
+	  "Get Pi Value (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Pi Value Math",
+		"body": [
+		  "Const PI = 3.14159265359"
+		],
+		"description": "Get the value of Pi (VBScript)"
+	  },
+	  "Radians to Degrees (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Radians to Degrees Math",
+		"body": [
+		  "Function RadiansToDegrees(radians)",
+		  "    Const PI = 3.14159265359",
+		  "    RadiansToDegrees = radians * (180 / PI)",
+		  "End Function",
+		  "",
+		  "${1:degreesResult} = RadiansToDegrees(${2:radiansValue})"
+		],
+		"description": "Convert radians to degrees (VBScript)"
+	  },
+	  "Degrees to Radians (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Degrees to Radians Math",
+		"body": [
+		  "Function DegreesToRadians(degrees)",
+		  "    Const PI = 3.14159265359",
+		  "    DegreesToRadians = degrees * (PI / 180)",
+		  "End Function",
+		  "",
+		  "${1:radiansResult} = DegreesToRadians(${2:degreesValue})"
+		],
+		"description": "Convert degrees to radians (VBScript)"
+	  },
+	  "Absolute Value (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Abs Math",
+		"body": [
+		  "Abs(${1:number})"
+		],
+		"description": "Get the absolute value of a number (VBScript)"
+	  },
+	  "Sign of Number -1 or 1 (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Sgn Math",
+		"body": [
+		  "Sgn(${1:number})"
+		],
+		"description": "Returns -1 or 1 depending on the sign of the number (VBScript)"
+	  },
+	  "Sine Function (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Sin Math",
+		"body": [
+		  "Sin(${1:angleInRadians})"
+		],
+		"description": "Calculate the sine of an angle (VBScript)"
+	  },
+	  "Cosine Function (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Cos Math",
+		"body": [
+		  "Cos(${1:angleInRadians})"
+		],
+		"description": "Calculate the cosine of an angle (VBScript)"
+	  },
+	  "Tangent Function (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Tan Math",
+		"body": [
+		  "Tan(${1:angleInRadians})"
+		],
+		"description": "Calculate the tangent of an angle (VBScript)"
+	  },
+	  "Arcsine Function (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "ArcSin (Arcsine) Math",
+		"body": [
+		  "Function ArcSin(angle)",
+		  "    ArcSin = Atn(angle / Sqr(1 - angle^2))",
+		  "End Function",
+		  "",
+		  "${2:result} = ArcSin(${3:number})"
+		],
+		"description": "Calculate the arcsine of a number (VBScript)"
+	  },
+	  "ArcCosine Function (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "ArcCosin (Arccosine) Math",
+		"body": [
+		  "Function ArcCosin(angle)",
+		  "    ArcSin = Atn(angle / Sqr(1 - angle^2))",
+		  "End Function",
+		  "",
+		  "${2:result} = ArcCosin(${3:number})"
+		],
+		"description": "Calculate the arccosine of a number (VBScript)"
+	  },
+	  "Arctangent Function (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "ArcTan (Arctangent) Math",
+		"body": [
+		  "Atn(${1:number})"
+		],
+		"description": "Calculate the arctangent of a number (VBScript)"
+	  },
+	  "Integer Part of Number (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Int (rounds down) Math",
+		"body": [
+		  "Int(${1:number})"
+		],
+		"description": "Returns the integer part of a number (rounds down) (VBScript)"
+	  },
+	  "Fix Number (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Fix (rounds towards zero) Math",
+		"body": [
+		  "Fix(${1:number})"
+		],
+		"description": "Returns the integer part of a number (rounds towards zero) (VBScript)"
+	  },
+	  "Exponential Function (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Exp Math",
+		"body": [
+		  "Exp(${1:number})"
+		],
+		"description": "Returns e raised to the power of a specified number. (VBScript)"
+	  },
+	  "Natural Logarithm Function (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Log Math",
+		"body": [
+		  "Log(${1:number})"
+		],
+		"description": "Returns the natural logarithm (base e) of a number. (VBScript)"
+	  },
+	  // Number Formatting (VBScript)
+	  "Format Number (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Format Number",
+		"body": [
+		  "FormatNumber(${1:Number}, ${2:decimalPlaces (Optional)}, ${3|includeLeadingZero (optional),True,False,-2|}, ${4|parenthesesForNegNum (optional),True,False,-2|}, ${5|commasForThousands (optional),True,False,-2|})"
+		],
+		"description": "Format a number with a specified number. Arugments 3, 4, and 5 are Tristate constants where True = -1, False = 0, Use the setting from computer's regional settings = -2. (VBScript)"
+	  },
+	  "Format Number (Simple) (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Format Number (simple)",
+		"body": [
+		  "FormatNumber(${1:Number}, ${2:decimalPlaces (Optional)})"
+		],
+		"description": "Format a number with a specified number of decimal places (VBScript)"
+	  },
+	  "Format Currency (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Format Currency Number",
+		"body": [
+		  "FormatCurrency(${1:Number}, ${2:decimalPlaces (Optional)}, ${3|includeLeadingZero (optional),True,False,-2|}, ${4|parenthesesForNegNum (optional),True,False,-2|}, ${5|commasForThousands (optional),True,False,-2|})"
+		],
+		"description": "Format a number as currency. Arugments 3, 4, and 5 are Tristate constants where True = -1, False = 0, Use the setting from computer's regional settings = -2. (VBScript)"
+	  },
+	  "Format Currency (simple) (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Format Currency (simple) Number",
+		"body": [
+		  "FormatCurrency(${1:Number}, ${2:decimalPlaces})"
+		],
+		"description": "Format a number as currency with an optional number of decimal places (VBScript)"
+	  },
+	  "Format Percent (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Format Percent Number",
+		"body": [
+		  "FormatPercent(${1:Number}, ${2:decimalPlaces (Optional)}, ${3|includeLeadingZero (optional),True,False,-2|}, ${4|parenthesesForNegNum (optional),True,False,-2|}, ${5|commasForThousands (optional),True,False,-2|})"
+		],
+		"description": "Format a number as a percentage. Arugments 3, 4, and 5 are Tristate constants where True = -1, False = 0, Use the setting from computer's regional settings = -2. (VBScript)"
+	  },
+	  "Format Percent (simple) (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Format Percent (simple) Number",
+		"body": [
+		  "FormatPercent(${1:Number}, ${2:decimalPlaces})"
+		],
+		"description": "Format a number as a percentage with an optional number of decimal places (VBScript)"
+	  },
+	  "Round Number (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Round Number",
+		"body": [
+		  "Round(${1:Number}, ${2:decimalPlaces})"
+		],
+		"description": "Round a number to a specified number of decimal places (VBScript)"
+	  },
+	  "Convert Number to String (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "CStr (Convert Number to String)",
+		"body": [
+		  "CStr(${1:Number})"
+		],
+		"description": "Convert a number to a string (VBScript)"
+	  },
+	  "Convert String to Number (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "CInt (Convert String to Number)",
+		"body": [
+		  "CInt(${1:\"myString\"})"
+		],
+		"description": "Convert a string to an integer (VBScript)"
+	  },
+	  "Set Locale to US (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "SetLocale Number",
+		"body": [
+		  "' Set the locale to US (1033) for '.' as the decimal separator",
+		  "systemDefaultLocale = GetLocale()",
+		  "SetLocale(1033)",
+		  "",
+		  "${1:' Code that uses the US locale}",
+		  "",
+		  "' Set the locale back to the original state",
+		  "SetLocale(systemDefaultLocale)"
+		],
+		"description": "Set the locale to US and then reset it back to the system default (VBScript)"
+	  },
+	  // File Handling
+	  "Create Text File (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Create Text File (EXAMPLE)",
+		"body": [
+		  "Dim objFSO, objFile",
+		  "Set objFSO = CreateObject(\"Scripting.FileSystemObject\")",
+		  "",
+		  "' Specify the file path",
+		  "filePath = \"${1:C:\\Path\\To\\Your\\File.txt}\"",
+		  "",
+		  "' Create a new text file",
+		  "Set objFile = objFSO.CreateTextFile(filePath, True)",
+		  "",
+		  "' Write data to the file",
+		  "objFile.Write \"${2:Hello, World!}\"",
+		  "",
+		  "' Close the file",
+		  "objFile.Close",
+		  "",
+		  "Set objFile = Nothing",
+		  "Set objFSO = Nothing"
+		],
+		"description": "Create a new text file and write data to it (VBScript)"
+	  },
+	  "Read Text File (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Read Text File (EXAMPLE)",
+		"body": [
+		  "Dim objFSO, objFile, fileContent",
+		  "Set objFSO = CreateObject(\"Scripting.FileSystemObject\")",
+		  "",
+		  "' Specify the file path",
+		  "filePath = \"${1:C:\\Path\\To\\Your\\File.txt}\"",
+		  "",
+		  "' Check if the file exists",
+		  "If objFSO.FileExists(filePath) Then",
+		  "    ' Open the file for reading",
+		  "    Set objFile = objFSO.OpenTextFile(filePath)",
+		  "",
+		  "    ' Read the entire content of the file",
+		  "    fileContent = objFile.ReadAll",
+		  "",
+		  "    ' Close the file",
+		  "    objFile.Close",
+		  "",
+		  "    ' Display the content",
+		  "    WScript.Echo fileContent",
+		  "Else",
+		  "    WScript.Echo \"File not found.\"",
+		  "End If",
+		  "",
+		  "Set objFile = Nothing",
+		  "Set objFSO = Nothing"
+		],
+		"description": "Read from a text file and display its content (VBScript)"
+	  },
+	  "Append Text File (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Append Text File (EXAMPLE)",
+		"body": [
+		  "Dim objFSO, objFile",
+		  "Set objFSO = CreateObject(\"Scripting.FileSystemObject\")",
+		  "",
+		  "' Specify the file path",
+		  "filePath = \"${1:C:\\Path\\To\\Your\\File.txt}\"",
+		  "",
+		  "' Open the file for appending",
+		  "Set objFile = objFSO.OpenTextFile(filePath, 8, True)",
+		  "",
+		  "' Append data to the file",
+		  "objFile.WriteLine \"${2:Appending new line.}\"",
+		  "",
+		  "' Close the file",
+		  "objFile.Close",
+		  "",
+		  "Set objFile = Nothing",
+		  "Set objFSO = Nothing"
+		],
+		"description": "Append data to a text file (VBScript)"
+	  },
+	  "Delete File (VBScript)": {
+		"scope": "bcpst, vb, vbs",
+		"prefix": "Delete File (EXAMPLE)",
+		"body": [
+		  "Dim objFSO",
+		  "Set objFSO = CreateObject(\"Scripting.FileSystemObject\")",
+		  "",
+		  "' Specify the file path",
+		  "filePath = \"${1:C:\\Path\\To\\Your\\File.txt}\"",
+		  "",
+		  "' Check if the file exists before deleting",
+		  "If objFSO.FileExists(filePath) Then",
+		  "    ' Delete the file",
+		  "    objFSO.DeleteFile(filePath)",
+		  "",
+		  "    WScript.Echo \"File deleted successfully.\"",
+		  "Else",
+		  "    WScript.Echo \"File not found.\"",
+		  "End If",
+		  "",
+		  "Set objFSO = Nothing"
+		],
+		"description": "Delete a file (VBScript)"
+	  },
+		// BobCAD Specific VBScript Snippets
+		"Add Program Break (BobCAD / VBScript)": {
+			"scope": "bcpst, vb, vbs",
+			"prefix": "Add Program Break File (Example)",
+			"body": [
+			  "Option Explicit",
+			  "",
+			  "' Define constants for parsing blocks",
+			  "Const intForReading = 1, intForWriting = 2, intForAppending = 8",
+			  "Const intTristateUseDefault = -2, intTristateTrue = -1, intTristateFalse = 0",
+			  "",
+			  "' Create file system object to load and read NC file",
+			  "Dim objFSO: Set objFSO = CreateObject(\"Scripting.FileSystemObject\")",
+			  "",
+			  "' Get NC File Location",
+			  "Dim strFileLocation: strFileLocation = Mill_GetProgramName()",
+			  "",
+			  "' Open the NC file for reading",
+			  "Dim objNCFile: Set objNCFile = objFSO.GetFile(strFileLocation).OpenAsTextStream(intForReading, intTristateUseDefault)",
+			  "Dim outputText: outputText = objNCFile.ReadAll()",
+			  "",
+			  "Dim currentLine, previousLine, outputText",
+			  "outputText = \"\"",
+			  "",
+			  "Dim currentNumChar: currentNumChar = 0",
+			  "Dim sectionNumChar: sectionNumChar = 0",
+			  "",
+			  "Do While (objNCFile.AtEndOfStream <> True)",
+			  "    ' Store the current line",
+			  "    currentLine = objNCFile.ReadLine()",
+			  "",
+			  "    ' Calculate the number of characters in the current line",
+			  "    ' +2 for the CR and LF End of Line Char Return",
+			  "    currentNumChar = currentNumChar + Len(currentLine) + 2",
+			  "",
+			  "    ' Output a blank line after each increment of 48,128 (48,000 for buffer) characters",
+			  "    If currentNumChar >= sectionNumChar + 48000 Then",
+			  "        outputText = outputText & vbCrLf & \";(------------------Program BREAK------------------)\" & vbCrLf & vbCrLf",
+			  "        sectionNumChar = currentNumChar",
+			  "    End If",
+			  "",
+			  "    outputText = outputText & currentLine & vbCrLf",
+			  "Loop",
+			  "",
+			  "msgbox(\"Number of Characters in NC file: \" & currentNumChar)",
+			  "",
+			  "' Close reading the NC file",
+			  "objNCFile.Close",
+			  "",
+			  "' Open the NC file for writing and overwrite the original file",
+			  "Set objNCFile = objFSO.GetFile(strFileLocation).OpenAsTextStream(intForWriting, intTristateUseDefault)",
+			  "objNCFile.Write outputText",
+			  "objNCFile.Close"
+			],
+			"description": "Add inside Program Block 2101. in Post Processor. Adds a program break every 48,000 characters in an NC file (BobCAD / VBScript)"
+		  },
+		  "Add Program Break into Separate Files (BobCAD / VBScript)": {
+			"scope": "bcpst, vb, vbs",
+			"prefix": "Program Break Separate Files (Example)",
+			"body": [
+			  "Option Explicit",
+			  "",
+			  "' Define constants for parsing blocks",
+			  "Const intForReading = 1, intForWriting = 2, intForAppending = 8",
+			  "Const intTristateUseDefault = -2, intTristateTrue = -1, intTristateFalse = 0",
+			  "",
+			  "' Create file system object to load and read NC file",
+			  "Dim objFSO: Set objFSO = CreateObject(\"Scripting.FileSystemObject\")",
+			  "",
+			  "' Get NC File Location",
+			  "Dim strFileLocation: strFileLocation = Mill_GetProgramName()",
+			  "",
+			  "' Open the NC file for reading",
+			  "Dim objNCFile: Set objNCFile = objFSO.GetFile(strFileLocation).OpenAsTextStream(intForReading, intTristateUseDefault)",
+			  "",
+			  "Dim currentLine, outputText",
+			  "outputText = \"\"",
+			  "",
+			  "Dim currentNumChar: currentNumChar = 0",
+			  "Dim sectionNumChar: sectionNumChar = 0",
+			  "Dim sectionCount: sectionCount = 1",
+			  "",
+			  "Do While (objNCFile.AtEndOfStream <> True)",
+			  "    ' Store the current line",
+			  "    currentLine = objNCFile.ReadLine()",
+			  "",
+			  "    ' Calculate the number of characters in the current line",
+			  "    ' +2 for the CR and LF End of Line Char Return",
+			  "    currentNumChar = currentNumChar + Len(currentLine) + 2",
+			  "",
+			  "    ' Save new NC file for each increment of 48,000 (48,000 for buffer) characters",
+			  "    ' Reset variables for next section",
+			  "    If currentNumChar >= sectionNumChar + 48000 Then",
+			  "        ' Save the current section to a new file",
+			  "        SaveSectionToFile outputText, sectionCount, strFileLocation",
+			  "",
+			  "        ' Reset variables for the new section",
+			  "        outputText = \"\"",
+			  "        sectionNumChar = currentNumChar",
+			  "        sectionCount = sectionCount + 1",
+			  "    End If",
+			  "",
+			  "    outputText = outputText & currentLine & vbCrLf",
+			  "Loop",
+			  "",
+			  "' Test number of Characters not including CR LF of whole NC file",
+			  "'msgbox(currentNumChar)",
+			  "",
+			  "' Save the remaining content to a new file (if any)",
+			  "SaveSectionToFile outputText, sectionCount, strFileLocation",
+			  "",
+			  "' Close reading the NC file",
+			  "objNCFile.Close",
+			  "",
+			  "Sub SaveSectionToFile(content, sectionCount, originalFileName)",
+			  "    ' Create a new file name",
+			  "    Dim newFileName",
+			  "    newFileName = Replace(originalFileName, \".nc\", \"_section\" & sectionCount & \".nc\")",
+			  "",
+			  "    ' Open the new file for writing",
+			  "    Dim objNewFile: Set objNewFile = objFSO.CreateTextFile(newFileName, True)",
+			  "",
+			  "    If sectionCount > 1 Then",
+			  "        ' Add comments denoting the section of the program",
+			  "        objNewFile.WriteLine \":;(------------------ Section \" & sectionCount & \" ------------------)\"",
+			  "    Else",
+			  "        ' Add comments denoting the section of the program",
+			  "        objNewFile.WriteLine \";(------------------ Section \" & sectionCount & \" ------------------)\"",
+			  "    End If",
+			  "",
+			  "    ' Add the program break",
+			  "    objNewFile.WriteLine \";(------------------Program BREAK------------------)\"",
+			  "",
+			  "    ' Add a blank line",
+			  "    objNewFile.WriteLine \"\"",
+			  "",
+			  "    ' Write the content",
+			  "    objNewFile.Write content",
+			  "",
+			  "    ' Close the new file",
+			  "    objNewFile.Close",
+			  "End Sub"
+			],
+			"description": "Add inside Program Block 2101. in Post Processor. Adds a program break into separate files every 48,000 characters in an NC file (BobCAD / VBScript)"
+		  },
+		// BobCAD API Specific VBScript Snippets
+		"Set Memory Location (BobCAD / VBScript)": {
+			"scope": "bcpst, vb, vbs",
+			"prefix": "Set Memory Loc",
+			"body": [
+				"${1|MILL,LATHE|}_${2|SetIntMemoryLoc,SetDoubleMemoryLoc,SetStringMemoryLoc|}(${3:indexOfMemoryLoc}, ${4:setValueTo})"
+			],
+			"description": "MILL/Lathe Set Int/Double/String Memory Loc (BobCAD / VBScript)"
+		},
+		"Get Memory Location (BobCAD / VBScript)": {
+			"scope": "bcpst, vb, vbs",
+			"prefix": "Get Memory Loc",
+			"body": [
+				"${1|MILL,LATHE|}_${2|GetIntMemoryLoc,GetDoubleMemoryLoc,GetStringMemoryLoc|}(${3:indexOfMemoryLoc})"
+			],
+			"description": "MILL/Lathe Get Int/Double/String Memory Loc (BobCAD / VBScript)"
+		},
+		"Get Number of Memory Loc (BobCAD / VBScript)": {
+			"scope": "bcpst, vb, vbs",
+			"prefix": "Get Num Memory Locs",
+			"body": [
+				"MILL_${2|GetNumberOfIntMemoryLoc,GetNumberOfDoubleMemoryLoc,GetNumberOfStringMemoryLoc|}()"
+			],
+			"description": "MILL Get Int/Double/String Number of Memory Locations (BobCAD / VBScript)"
+		},
+}
