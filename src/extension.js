@@ -12,6 +12,38 @@ function activate(context) {
 
   postBlockDataProvider = new PostBlockDataProvider();
 
+
+  // Register the new command to toggle debug mode
+  const toggleDebugCommand = vscode.commands.registerCommand('postBlocks.toggleDebug', async () => {
+    const editor = vscode.window.activeTextEditor;
+
+    if (editor && editor.document.languageId === 'bcpst') {
+      // Get the document
+      const document = editor.document;
+      // Get the entire text of the document
+      const entireText = document.getText();
+      // Toggle debug mode
+      const toggledText = toggleDebugMode(entireText);
+      
+      // Replace the entire content with the modified text
+      await editor.edit(editBuilder => {
+        const start = new vscode.Position(0, 0);
+        const end = new vscode.Position(document.lineCount - 1, document.lineAt(document.lineCount - 1).text.length);
+        const range = new vscode.Range(start, end);
+        editBuilder.replace(range, toggledText);
+      });
+
+      // Save the document
+      await document.save();
+
+      // Refresh the tree view
+      postBlockDataProvider.manualRefresh();
+    }
+  });
+
+  context.subscriptions.push(toggleDebugCommand);
+
+
   const navigateToPositionCommand = vscode.commands.registerCommand('postBlocks.navigateToPosition', (position) => {
     const editor = vscode.window.activeTextEditor;
     if (editor) {
@@ -67,6 +99,15 @@ function activate(context) {
     postBlockDataProvider.expandAll();
   });
   context.subscriptions.push(expandAllCommand);
+}
+
+// Function to toggle debug mode
+function toggleDebugMode(text) {
+  // Use regular expression to replace debug_on with debug_off and vice versa
+  return text.replace(/(\d+\.\s*Set debug\s*)(debug_on|debug_off)/, (match, debugBlock, currentState) => {
+    const newState = currentState === 'debug_on' ? 'debug_off' : 'debug_on';
+    return `${debugBlock}${newState}`;
+  });
 }
 
 function deactivate() {}

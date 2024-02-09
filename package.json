@@ -28,11 +28,11 @@
     "commands": [
       {
         "command": "postBlocks.refresh",
-        "title": "Refresh Post Blocks"
+        "title": "BobCAD Post Utility: Refresh Post Blocks"
       },
       {
         "command": "postBlocks.collapseAll",
-        "title": "Collapse All Post Blocks"
+        "title": "BobCAD Post Utility: Collapse All Post Blocks"
       },
       {
         "command": "postBlocks.expandAll",
@@ -40,7 +40,11 @@
       },
       {
         "command": "postBlocks.navigateToLineFromPalette",
-        "title": "Go to Post Block"
+        "title": "BobCAD Post Utility: Go to Post Block"
+      },
+      {
+        "command": "postBlocks.toggleDebug",
+        "title": "BobCAD Post Utility: Toggle Debug Mode"
       }
     ],
     "keybindings": [
@@ -48,6 +52,11 @@
         "command": "postBlocks.refresh",
         "key": "ctrl+alt+r",
         "when": "editorTextFocus"
+      },
+      {
+        "command": "postBlocks.toggleDebug",
+        "key": "ctrl+alt+d",
+        "when": "editorTextFocus && resourceLangId == 'bcpst'"
       }
     ],
     "views": {
