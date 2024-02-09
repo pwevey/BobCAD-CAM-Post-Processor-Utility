@@ -155,24 +155,6 @@ function toggleDebugMode(text) {
 function findInsertPosition(document) {
   const lineCount = document.lineCount;
 
-  for (let line = lineCount - 1; line >= 0; line--) {
-    const currentLine = document.lineAt(line).text.trim();
-
-    // Check if the line is a revision log entry
-    if (currentLine.startsWith('//--') && currentLine.includes('-')) {
-      return new vscode.Position(line + 1, 0);
-    }
-  }
-
-  // If no revision log entry is found, insert it at the end of the document
-  return new vscode.Position(lineCount, 0);
-}
-
-
-// Function to find the position to insert the revision log entry
-function findInsertPosition(document) {
-  const lineCount = document.lineCount;
-
   for (let line = 0; line < lineCount; line++) {
     const currentLine = document.lineAt(line).text.trim();
 
@@ -183,7 +165,7 @@ function findInsertPosition(document) {
   }
 
   // If "REVISION LOG" is not found, insert at the end of the document
-  return new vscode.Position(lineCount, 0);
+  return new vscode.Position(0, 0);
 }
 
 // Function to append a revision log entry to the file
@@ -196,7 +178,7 @@ async function appendRevisionLog(entry) {
     const insertPosition = findInsertPosition(document);
 
     // Insert the revision log entry and a new line
-    const newText = `//-- ${entry}\n//\n`;
+    const newText = `//-- ${entry}\n//--\n`;
     const workspaceEdit = new vscode.WorkspaceEdit();
     workspaceEdit.insert(document.uri, insertPosition, newText);
 
