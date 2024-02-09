@@ -262,6 +262,7 @@ class PostBlockDataProvider {
         'Start Blocks',
         'Tool Change / End of Op Blocks',
         'End of Program Blocks',
+        'Program Blocks'
       ];
 
       if (defaultOpenFolders.includes(folderName)) {
