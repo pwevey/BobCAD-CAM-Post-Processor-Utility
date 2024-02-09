@@ -1,6 +1,7 @@
 const vscode = require('vscode');
 const { PostBlockDataProvider } = require('./postBlocksTreeView');
 const HoverProvider = require('./hover');
+const BcpstCompletionProvider = require('./completionProvider');
 
 let postBlockDataProvider;
 let postBlockTreeView;
@@ -42,6 +43,26 @@ function activate(context) {
   });
 
   context.subscriptions.push(toggleDebugCommand);
+
+
+  // Register the completion provider for both 'bcpst' and 'lua' languages
+  const bcpstAndLuaCompletionProvider = vscode.languages.registerCompletionItemProvider(
+    { scheme: 'file', language: 'bcpst' },
+    new BcpstCompletionProvider(), // Replace 'BcpstCompletionProvider' with your actual completion provider class
+    // Optionally specify trigger characters (if needed)
+  );
+
+  context.subscriptions.push(bcpstAndLuaCompletionProvider);
+
+  // Register the same completion provider for 'lua' language
+  const luaCompletionProvider = vscode.languages.registerCompletionItemProvider(
+    { scheme: 'file', language: 'lua' },
+    new BcpstCompletionProvider(), // Use the same instance of your completion provider
+    // Optionally specify trigger characters (if needed)
+  );
+
+  context.subscriptions.push(luaCompletionProvider);
+
 
 
   const navigateToPositionCommand = vscode.commands.registerCommand('postBlocks.navigateToPosition', (position) => {
