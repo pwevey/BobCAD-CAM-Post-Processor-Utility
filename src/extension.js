@@ -124,12 +124,13 @@ function activate(context) {
 
 // Function to toggle debug mode
 function toggleDebugMode(text) {
-  // Use regular expression to replace debug_on with debug_off and vice versa
-  return text.replace(/(\d+\.\s*Set debug\s*)(debug_on|debug_off)/, (match, debugBlock, currentState) => {
-    const newState = currentState === 'debug_on' ? 'debug_off' : 'debug_on';
-    return `${debugBlock}${newState}`;
+  // Use regular expression to replace debug_on with debug_off and vice versa throughout the entire file
+  return text.replace(/\b(debug_on|debug_off)\b/g, (match) => {
+    return match === 'debug_on' ? 'debug_off' : 'debug_on';
   });
 }
+
+
 
 function deactivate() {}
 

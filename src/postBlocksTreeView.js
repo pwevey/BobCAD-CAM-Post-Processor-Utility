@@ -22,7 +22,7 @@ class PostBlockFolderTreeItem extends PostBlockTreeItem {
   constructor(label, collapsibleState, children) {
     super(label, undefined, collapsibleState);
     this.children = children || [];
-  }
+  }onDidChangeTreeData
 }
 
 // Represents an item to navigate to a specific position in the document
@@ -85,6 +85,7 @@ class PostBlockDataProvider {
   refreshCommand() {
     this.manualRefresh();
   }
+  
 
   // Collapse all folders in the tree view
   collapseAll() {
@@ -243,7 +244,7 @@ class PostBlockDataProvider {
 
     if (isTopLevel) {
       // Insert "Go to Top" as the first item if it's a top-level mapping
-      mappedFolders.push(this.goToTopItem);
+      mappedFolders.push(this.goToTopItem, this.goToBottomItem);
       isTopLevel = false;
     }
 
