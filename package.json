@@ -116,15 +116,27 @@
   "snippets": [
     {
       "language": "bcpst",
-      "path": "./res/code_data/bobcad-code-snippets.code-snippets"
+      "path": "./res/codeData/bobcadLuaVBscript.code-snippets"
     },
     {
       "language": "lua",
-      "path": "./res/code_data/bobcad-code-snippets.code-snippets"
+      "path": "./res/codeData/bobcadLuaVBscript.code-snippets"
     },
     {
       "language": "vbs",
-      "path": "./res/code_data/bobcad-code-snippets.code-snippets"
+      "path": "./res/codeData/bobcadLuaVBscript.code-snippets"
+    },
+    {
+      "language": "bcpst",
+      "path": "./res/codeData/bobcadApi.code-snippets"
+    },
+    {
+      "language": "lua",
+      "path": "./res/codeData/bobcadApi.code-snippets"
+    },
+    {
+      "language": "vbs",
+      "path": "./res/codeData/bobcadApi.code-snippets"
     }
   ]
   },
