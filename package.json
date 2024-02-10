@@ -23,6 +23,13 @@
   "extensionKind": [
     "ui"
   ],
+  "webview": {
+    "contentSecurityPolicy": {
+      "webview.html": [
+        "https://bobcad.com/components/webhelp/PostProcessorHelpSystemFiles/*"
+      ]
+    }
+  },
   "main": "./src/extension",
   "contributes": {
     "commands": [
@@ -49,6 +56,18 @@
       {
         "command": "postBlocks.appendRevisionLog",
         "title": "BobCAD Post Utility: Append Revision Log"
+      },
+      {
+        "command": "postBlocks.openHelpSystem",
+        "title": "BobCAD Post Utility: Open Post Help System"
+      },
+      {
+        "command": "postBlocks.openLuaAPIs",
+        "title": "BobCAD Post Utility: Open BobCAD Lua APIs Help"
+      },
+      {
+        "command": "postBlocks.openSupportSite",
+        "title": "BobCAD Post Utility: BobCAD Support Site"
       }
     ],
     "keybindings": [
@@ -163,7 +182,27 @@
 				"configuration": "./language-configuration.json"
 			}
   ],
-    "grammars": [
+  "configuration": {
+    "title": "Post Blocks",
+    "properties": {
+      "postBlocks.luaAPIsUrl": {
+        "type": "string",
+        "default": "https://bobcad.com/components/webhelp/BC_Lua/Welcome.html",
+        "description": "URL for Lua APIs"
+      },
+      "postBlocks.helpSystemUrl": {
+        "type": "string",
+        "default": "https://bobcad.com/components/webhelp/PostProcessorHelpSystemFiles/Welcome.html",
+        "description": "URL for Help System"
+      },
+      "postBlocks.supportSiteUrl": {
+        "type": "string",
+        "default": "https://bobcadsupport.com/",
+        "description": "URL for the BobCAD Support Site"
+      }
+      }
+  },
+  "grammars": [
       {
       "language": "bcpst",
       "scopeName": "source.bcpst",

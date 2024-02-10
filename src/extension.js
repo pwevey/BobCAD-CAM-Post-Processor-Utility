@@ -1,4 +1,5 @@
 const vscode = require('vscode');
+const path = require('path');
 const { PostBlockDataProvider } = require('./postBlocksTreeView');
 const HoverProvider = require('./hover');
 const BcpstCompletionProvider = require('./completionProvider');
@@ -12,6 +13,50 @@ function activate(context) {
   context.subscriptions.push(hoverProvider);
 
   postBlockDataProvider = new PostBlockDataProvider();
+
+
+  // Update the openLuaAPIsCommand
+  const openLuaAPIsCommand = vscode.commands.registerCommand('postBlocks.openLuaAPIs', () => {
+    const luaAPIsUrl = vscode.workspace.getConfiguration().get('postBlocks.luaAPIsUrl');
+    if (luaAPIsUrl) {
+      openWebViewPanel('BobCAD Lua APIs', luaAPIsUrl);
+    }
+  });
+  context.subscriptions.push(openLuaAPIsCommand);
+
+  // Update the openHelpSystemCommand
+  const openHelpSystemCommand = vscode.commands.registerCommand('postBlocks.openHelpSystem', () => {
+    const helpSystemUrl = vscode.workspace.getConfiguration().get('postBlocks.helpSystemUrl');
+    if (helpSystemUrl) {
+      openWebViewPanel('Post Processor Help System', helpSystemUrl);
+    }
+  });
+  context.subscriptions.push(openHelpSystemCommand);
+
+  // Add the openWebViewPanel function
+  function openWebViewPanel(title, url) {
+    const panel = vscode.window.createWebviewPanel(
+      'customWebView', // Use a unique identifier
+      title,
+      vscode.ViewColumn.One,
+      {
+        enableScripts: true,
+        localResourceRoots: [vscode.Uri.file(path.join(context.extensionPath, 'webview'))],
+      }
+    );
+
+    // Load the HTML content into the webview
+    panel.webview.html = getWebviewContent(url);
+  }
+
+
+  // Register a new command to open the support site in a webview
+  const openSupportSiteCommand = vscode.commands.registerCommand('postBlocks.openSupportSite', () => {
+    const supportSiteUrl = vscode.workspace.getConfiguration().get('postBlocks.supportSiteUrl', 'https://bobcadsupport.com/');
+    vscode.env.openExternal(vscode.Uri.parse(supportSiteUrl));
+  });
+
+  context.subscriptions.push(openSupportSiteCommand);
 
 
   // Register the new command to toggle debug mode
@@ -216,6 +261,34 @@ async function appendRevisionLogs(entries) {
     // Save the document
     await document.save();
   }
+}
+
+
+function getWebviewContent(url) {
+  return `
+    <!DOCTYPE html>
+    <html lang="en" style="height: 100vh;">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Webview</title>
+      <style>
+        body {
+          height: 100vh;
+          margin: 0;
+        }
+        iframe {
+          width: 100%;
+          height: 100%;
+          border: 0;
+        }
+      </style>
+    </head>
+    <body>
+      <iframe src="${url}"></iframe>
+    </body>
+    </html>
+  `;
 }
 
 
