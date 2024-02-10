@@ -79,9 +79,71 @@
     "languages": [
       {
       "id": "bcpst",
-      "aliases": ["BobCAD-CAM Post Processor", "bcpst"],
+      "aliases": ["BobCAD-CAM Post Processor", "edmpst", "bcpst", "lathepst", "millpst"],
       "extensions": [".bcpst",".edmpst",".lathepst",".millpst"],
       "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "bobcadAdvPostingCustomFiles",
+        "aliases": ["bobcadAdvPostingCustomFiles", "advPostingCustomFiles", "advPosting"],
+        "extensions": [
+          ".CustomSettings",
+          ".CustomDrillCycles",
+          ".CustomMilling",
+          ".CustomCenterDrill",
+          ".CustomDrill",
+          ".CustomCounterbore",
+          ".CustomProfile",
+          ".CustomBoring",
+          ".CustomReam",
+          ".CustomTap",
+          ".CustomChamferDrill",
+          ".CustomChamferMill",
+          ".CustomPocket",
+          ".Custom2XPlungeRough",
+          ".CustomChamferMill",
+          ".CustomProfile",
+          ".Custom2XEngraving",
+          ".CustomFaceMill",
+          ".CustomThreadMill",
+          ".CustomPlanar",
+          ".CustomAdvPlanar",
+          ".Custom3XPlungeRough",
+          ".CustomRadial",
+          ".CustomSpiral",
+          ".CustomTaperedPocket",
+          ".CustomVCarve",
+          ".Custom3XEngrave",
+          ".CustomZLevelFinish",
+          ".CustomAdvZLevelFinish",
+          ".CustomZLevelRough",
+          ".CustomAdvRough",
+          ".CustomEquidistant",
+          ".CustomFlatlands",
+          ".CustomProjectCurves",
+          ".CustomPencil",
+          ".Custom4XRotary",
+          ".CustomMultiaxis",
+          ".CustomLatheDrillCycles",
+          ".CustomTurning",
+          ".CustomLatheCenterDrill",
+          ".CustomLatheDrill",
+          ".CustomLatheChamfer",
+          ".CustomLatheBore",
+          ".CustomLatheReam",
+          ".CustomLatheTap",
+          ".CustomCutoff",
+          ".CustomRough",
+          ".CustomPatternRepeat",
+          ".CustomFinish",
+          ".CustomGroove",
+          ".CustomGrooveFinish",
+          ".CustomThread",
+          ".CustomStockFeed",
+          ".Custom2Axis",
+          ".Custom4Axis"
+        ],
+        "configuration": "./language-configuration.json"
       },
       {
 				"id": "nccode",
@@ -111,7 +173,12 @@
 				"language": "nccode",
 				"scopeName": "source.nccode",
 				"path": "./syntaxes/nccode.tmLanguage.json"
-			}
+			},
+      {
+        "language": "bobcadAdvPostingCustomFiles",
+        "scopeName": "source.advPosting",
+        "path": "./syntaxes/advPosting.tmLanguage.json"
+      }
   ],
   "snippets": [
     {
@@ -137,6 +204,10 @@
     {
       "language": "vbs",
       "path": "./res/codeData/bobcadApi.code-snippets"
+    },
+    {
+      "language": "bobcadAdvPostingCustomFiles",
+      "path": "./res/codeData/bobcadAdvPostingCustomFiles.code-snippets"
     }
   ]
   },

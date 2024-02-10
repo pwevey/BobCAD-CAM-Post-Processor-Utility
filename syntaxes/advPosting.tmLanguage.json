@@ -1,0 +1,49 @@
+{
+    "$schema": "https://json.schemastore.org/tmLanguage",
+    "name": "Bobcad Advanced Posting Custom Files",
+    "scopeName": "source.advPosting",
+    "fileTypes": ["advPosting"],
+    "patterns": [
+      {
+        "include": "#comments"
+      },
+      {
+        "match": "\\b(CHECK_BOX|EDIT_BOX|COMBO_BOX|REAL|STRING|INTEGER|TEXT_LABEL|DEFAULT_REAL|DEFAULT_LABEL|DEFAULT_STRING|DEFAULT_CHECK)\\b",
+        "name": "variable.language.advPosting"
+      },
+      {
+        "match": "\\*.*$",
+        "captures": {
+          "0": {
+            "name": "comment.line.asterisk.advPosting"
+          }
+        }
+      },
+      {
+        "match": ",",
+        "name": "keyword.operator.comma.advPosting"
+      }
+    ],
+    "repository": {
+      "comments": {
+        "patterns": [
+          {
+            "begin": "/\\*",
+            "beginCaptures": {
+              "0": {
+                "name": "punctuation.definition.comment.begin.advPosting"
+              }
+            },
+            "end": "\\*/",
+            "endCaptures": {
+              "0": {
+                "name": "punctuation.definition.comment.end.advPosting"
+              }
+            },
+            "name": "comment.block.advPosting"
+          }
+        ]
+      }
+    }
+  }
+  

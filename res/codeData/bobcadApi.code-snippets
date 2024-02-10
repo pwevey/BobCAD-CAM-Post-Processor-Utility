@@ -23,5 +23,5 @@
 				"MILL_${2|GetNumberOfIntMemoryLoc,GetNumberOfDoubleMemoryLoc,GetNumberOfStringMemoryLoc|}()"
 			],
 			"description": "MILL Get Int/Double/String Number of Memory Locations (BobCAD / VBScript)"
-		},
+		}
 }

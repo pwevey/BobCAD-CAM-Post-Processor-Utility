@@ -1,0 +1,10 @@
+{
+    "TEST FOR CUSTOM ADV POSTING PAGE (BobCAD / VBScript)": {
+        "scope": "bcpst, vb, vbs",
+        "prefix": "TEST FOR CUSTOM ADV POSTING PAGE",
+        "body": [
+            "TEST FOR CUSTOM ADV POSTING PAGE MILL_${2|GetNumberOfIntMemoryLoc,GetNumberOfDoubleMemoryLoc,GetNumberOfStringMemoryLoc|}()"
+        ],
+        "description": "TEST FOR CUSTOM ADV POSTING PAGE"
+    }
+}
