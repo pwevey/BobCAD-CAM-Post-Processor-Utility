@@ -8,7 +8,7 @@
         "include": "#comments"
       },
       {
-        "match": "\\b(CHECK_BOX|EDIT_BOX|COMBO_BOX|REAL|STRING|INTEGER|TEXT_LABEL|DEFAULT_REAL|DEFAULT_LABEL|DEFAULT_STRING|DEFAULT_CHECK)\\b",
+        "match": "\\b(CHECK_BOX|EDIT_BOX|DEFAULT_COMBO_INDEX|COMBO_BOX|REAL|STRING|INTEGER|TEXT_LABEL|DEFAULT_REAL|DEFAULT_INTEGER|DEFAULT_LABEL|DEFAULT_STRING|DEFAULT_CHECK)\\b",
         "name": "variable.language.advPosting"
       },
       {
@@ -16,6 +16,14 @@
         "captures": {
           "0": {
             "name": "comment.line.asterisk.advPosting"
+          }
+        }
+      },
+      {
+        "match": "(?<=,)\\s*([+-]?\\d*\\.?\\d+)\\b",
+        "captures": {
+          "1": {
+            "name": "constant.numeric.advPosting"
           }
         }
       },
