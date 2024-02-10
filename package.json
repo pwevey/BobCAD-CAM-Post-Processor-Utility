@@ -63,11 +63,11 @@
       },
       {
         "command": "postBlocks.openLuaAPIs",
-        "title": "BobCAD Post Utility: Open BobCAD Lua APIs Help"
+        "title": "BobCAD Post Utility: Open Lua API Help System"
       },
       {
         "command": "postBlocks.openSupportSite",
-        "title": "BobCAD Post Utility: BobCAD Support Site"
+        "title": "BobCAD Post Utility: Open BobCAD Support Site"
       }
     ],
     "keybindings": [
