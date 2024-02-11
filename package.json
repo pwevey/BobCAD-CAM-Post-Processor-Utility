@@ -234,15 +234,15 @@
     },
     {
       "language": "bcpst",
-      "path": "./res/codeData/bobcadApi.code-snippets"
+      "path": "./res/codeData/bobcadSpecific.code-snippets"
     },
     {
       "language": "lua",
-      "path": "./res/codeData/bobcadApi.code-snippets"
+      "path": "./res/codeData/bobcadSpecific.code-snippets"
     },
     {
       "language": "vbs",
-      "path": "./res/codeData/bobcadApi.code-snippets"
+      "path": "./res/codeData/bobcadSpecific.code-snippets"
     },
     {
       "language": "bobcadAdvPostingCustomFiles",

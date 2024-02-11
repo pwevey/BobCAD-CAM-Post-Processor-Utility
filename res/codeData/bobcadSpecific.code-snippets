@@ -1,0 +1,68 @@
+{
+        // BobCAD API Specific VBScript Snippets
+		"Set Memory Location (BobCAD / VBScript)": {
+			"scope": "bcpst, vb, vbs",
+			"prefix": "Set Memory Loc",
+			"body": [
+				"${1|MILL,LATHE|}_${2|SetIntMemoryLoc,SetDoubleMemoryLoc,SetStringMemoryLoc|}(${3:indexOfMemoryLoc}, ${4:setValueTo})"
+			],
+			"description": "MILL/Lathe Set Int/Double/String Memory Loc (BobCAD / VBScript)"
+		},
+		"Get Memory Location (BobCAD / VBScript)": {
+			"scope": "bcpst, vb, vbs",
+			"prefix": "Get Memory Loc",
+			"body": [
+				"${1|MILL,LATHE|}_${2|GetIntMemoryLoc,GetDoubleMemoryLoc,GetStringMemoryLoc|}(${3:indexOfMemoryLoc})"
+			],
+			"description": "MILL/Lathe Get Int/Double/String Memory Loc (BobCAD / VBScript)"
+		},
+		"Get Number of Memory Loc (BobCAD / VBScript)": {
+			"scope": "bcpst, vb, vbs",
+			"prefix": "Get Num Memory Locs",
+			"body": [
+				"MILL_${2|GetNumberOfIntMemoryLoc,GetNumberOfDoubleMemoryLoc,GetNumberOfStringMemoryLoc|}()"
+			],
+			"description": "MILL Get Int/Double/String Number of Memory Locations (BobCAD / VBScript)"
+		},
+		// Formatting Post Variable Output
+		"Format 1 (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "format post var (leading trailing)",
+			"body": [
+				"'[${1:assignLeadingDigits}.${2:assignTrailingDigits}L]' ${3:postVariableName}"
+			],
+			"description": "Allows you to format the leading and trailing digits on both sides of the deciaml of a post variable. The output format of posting variables can be controlled using a special formatting string (or format specifier). The format specifier controls the number of leading and/or trailing digits to use and whether or not a decimal point is used. The format specifier is placed before the variable in the post processor. The capital letter, L, must be used to specify the first value as the leading digits used (or if using only a single number in the string). The letter is always placed at the end of the formatting string. The capital letter, T, is used to when specifying (only) the trailing digits used."
+		},
+		"Format 2 (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "format post var (leading)",
+			"body": [
+				"'[${1:assignLeadingDigits}.L]' ${2:postVariableName}"
+			],
+			"description": "Allows you to assign the leading digits keeping the trailing digits untouched of a post variable. The output format of posting variables can be controlled using a special formatting string (or format specifier). The format specifier controls the number of leading and/or trailing digits to use and whether or not a decimal point is used. The format specifier is placed before the variable in the post processor. The capital letter, L, must be used to specify the first value as the leading digits used (or if using only a single number in the string). The letter is always placed at the end of the formatting string. The capital letter, T, is used to when specifying (only) the trailing digits used."
+		},
+		"Format 3 (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "format post var (leading) (no trailing)",
+			"body": [
+				"'[${1:assignLeadingDigits}L]' ${2:postVariableName}"
+			],
+			"description": "Commonly used if you need to output a whole number (integer) of a post variable. This format will round up or down. The output format of posting variables can be controlled using a special formatting string (or format specifier). The format specifier controls the number of leading and/or trailing digits to use and whether or not a decimal point is used. The format specifier is placed before the variable in the post processor. The capital letter, L, must be used to specify the first value as the leading digits used (or if using only a single number in the string). The letter is always placed at the end of the formatting string. The capital letter, T, is used to when specifying (only) the trailing digits used."
+		},
+		"Format 4 (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "format post var (trailing)",
+			"body": [
+				"'[.${1:assignTrailingDigits}T]' ${2:postVariableName}"
+			],
+			"description": "Allows you to to assign the trailing digits and leave the leading digits untouched of a post variable. The output format of posting variables can be controlled using a special formatting string (or format specifier). The format specifier controls the number of leading and/or trailing digits to use and whether or not a decimal point is used. The format specifier is placed before the variable in the post processor. The capital letter, L, must be used to specify the first value as the leading digits used (or if using only a single number in the string). The letter is always placed at the end of the formatting string. The capital letter, T, is used to when specifying (only) the trailing digits used."
+		},
+		"Format 5 (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "format post var (trailing) (multiplier)",
+			"body": [
+				"'[${1:assignTrailing}T]' ${2:postVariableName}"
+			],
+			"description": "Commonly used as a multiplier by factors of 10 (1T: x10, 2T: x100,3T: x1,000, etc..) of a post variable. for example, take the number 9.5118. If you assign the trailing digits to 3 (eg. '[3T]'), this will move the decimal 3 places to the right, round and remove the decimal. Output = 9512  The output format of posting variables can be controlled using a special formatting string (or format specifier). The format specifier controls the number of leading and/or trailing digits to use and whether or not a decimal point is used. The format specifier is placed before the variable in the post processor. The capital letter, L, must be used to specify the first value as the leading digits used (or if using only a single number in the string). The letter is always placed at the end of the formatting string. The capital letter, T, is used to when specifying (only) the trailing digits used."
+		},
+}
