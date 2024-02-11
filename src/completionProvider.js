@@ -50,7 +50,7 @@ class BcpstCompletionProvider {
         const filteredPostVariables = parsedData.postVariables.filter(
           (postVariable) =>
             postVariable.postVariableName &&
-            postVariable.postVariableName.toLowerCase().startsWith(prefix.toLowerCase())
+            postVariable.postVariableName.toLowerCase().includes(prefix.toLowerCase())
         );
   
         // Create completion items for each filtered postVariable

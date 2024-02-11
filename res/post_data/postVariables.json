@@ -4558,46 +4558,25 @@
       "description": "Outputs the string value used to turn OFF the Y Axis mode on the machine. The outputstring is defined on post question:3591"
     },
     {
-      "postVariableName": "mdi_BeforeToolChange",
+      "postVariableName": "MDI_BeforeToolChange",
       "jobTypes": [
         "Mill Turn Job"
       ],
       "description": "This command variable specifies the location where the MDI blocks defined in theBefore Tool Change task list should be output."
     },
     {
-      "postVariableName": "mdi_WithToolChange",
+      "postVariableName": "MDI_AfterToolChange",
       "jobTypes": [
         "Mill Turn Job"
       ],
-      "description": "This command variable specifies the location where the MDI blocks defined in theWith Tool Change task list should be output."
+      "description": "This command variable specifies the location where the MDI blocks defined in the After Tool Change task list should be output."
     },
     {
-      "postVariableName": "mdi_AfterOperation",
+      "postVariableName": "MDI_AfterOperation",
       "jobTypes": [
         "Mill Turn Job"
       ],
       "description": "This command variable specifies the location where the MDI blocks defined in theAfter Operation task list should be output."
-    },
-    {
-      "postVariableName": "mdi_AfterOperation",
-      "jobTypes": [
-        "Mill Turn Job"
-      ],
-      "description": "A custom double variable that can be used inside of a custom MDI command to output a double value in the NC code. The name of the field that appears in the MDI UI is the \u00e2\u0080\u009cxxxx\u00e2\u0080\u009d which needs to be replaced with a meaningful name."
-    },
-    {
-      "postVariableName": "mdi_AfterOperation",
-      "jobTypes": [
-        "Mill Turn Job"
-      ],
-      "description": "A custom integer variable that can be used inside of a custom MDI command to output an integer value in the NC code. The name of the field that appears in the MDI UI is the \u00e2\u0080\u009cxxxx\u00e2\u0080\u009d which needs to be replaced with a meaningful name."
-    },
-    {
-      "postVariableName": "mdi_AfterOperation",
-      "jobTypes": [
-        "Mill Turn Job"
-      ],
-      "description": "A custom string variable that can be used inside of a custom MDI command to output a string in the NC code. The name of the field that appears in the MDI UI is the \u00e2\u0080\u009cxxxx\u00e2\u0080\u009d which needs to be replaced with a meaningful name."
     },
     {
       "postVariableName": "tailstock_advance_code",
@@ -7488,5 +7467,98 @@
       ],
       "description": "Returns the value entered in the edit box at the specified index in the AdvancedPosting page of the Current Settings dialog box.API:variable_name = MILL_GetUserEditStringSettingsVariable(short index)"
     }
+  ],
+  "commonPostVariables": [
+    "output_tool_list",
+    "absolute_coord",
+    "incremental_coord",
+    "t",
+    "h",
+    "work_coord",
+    "xr",
+    "yr",
+    "zr",
+    "x_f",
+    "y_f",
+    "z_f",
+    "initpos_x",
+    "initpos_y",
+    "initpos_z",
+    "p_rot",
+    "s_rot",
+    "movement_mode",
+    "n",
+    "feature_name_comment",
+    "operation_name_comment",
+    "output_note",
+    "tool_label",
+    "feed_move",
+    "rapid_move",
+    "feed_move_forced",
+    "rapid_move_forced",
+    "g_arc_move",
+    "g_arc_plane",
+    "work_plane",
+    "stop",
+    "optional_stop",
+    "spindle_on",
+    "spindle_off",
+    "coolant_on",
+    "coolant_off",
+    "dwell",
+    "s",
+    "spsp_code",
+    "t",
+    "next_tool_with_prefix",
+    "feed_rate",
+    "f",
+    "force_feed_rate_on",
+    "force_feed_rate_off",
+    "feed_mode",
+    "cancel_offset",
+    "force_cancel_offset",
+    "d_offset",
+    "length_offset",
+    "lpw_cutter_on",
+    "lpw_cutter_off",
+    "origin_tracking_on",
+    "origin_tracking_off",
+    "rtcp_code_on",
+    "rtcp_code_off",
+    "MDI_BeforeToolChange",
+    "MDI_AfterOperation",
+    "MDI_AfterToolChange",
+    "machine_coordinate_code",
+    "machine_home_code",
+    "MILL_GetOperationType",
+    "MILL_GetDrillCycleType",
+    "LATHE_GetFeatureType",
+    "LATHE_GetCycleType",
+    "MILL_GetNumberOfOperations",
+    "MILL_GetNumberOfFeatures",
+    "MILL_Get_ToolType",
+    "MILL_SetReturnString",
+    "LATHE_SetReturnString",
+    "MILL_ProcessPostLine",
+    "LATHE_ProcessPostLine",
+    "MILL_GetUserCheckBoxVariable",
+    "LATHE_GetUserCheckBoxVariable",
+    "MILL_GetUserSelectComboVariable",
+    "LATHE_GetUserSelectComboVariable",
+    "MILL_GetUserEditIntegerVariable",
+    "LATHE_GetUserEditIntegerVariable",
+    "MILL_GetUserEditRealVariable",
+    "LATHE_GetUserEditRealVariable",
+    "MILL_GetUserEditStringVariable",
+    "LATHE_GetUserEditStringVariable",
+    "LATHE_GetUserCheckBoxSettingsVariable",
+    "MILL_GetUserSelectComboSettingsVariable",
+    "LATHE_GetUserSelectComboSettingsVariable",
+    "MILL_GetUserEditIntegerSettingsVariable",
+    "LATHE_GetUserEditIntegerSettingsVariable",
+    "MILL_GetUserEditRealSettingsVariable",
+    "LATHE_GetUserEditRealSettingsVariable",
+    "MILL_GetUserEditStringSettingsVariable",
+    "LATHE_GetUserEditStringSettingsVariable"
   ]
 }
