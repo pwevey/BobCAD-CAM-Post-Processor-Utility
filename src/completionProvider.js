@@ -4,16 +4,25 @@ const fs = require('fs');
 
 class BcpstCompletionProvider {
   provideCompletionItems(document, position, token, context) {
-    const currentLinePrefix = document.lineAt(position.line).text.substr(0, position.character);
-    const wordRegex = /\b(\w+)\b/;
-    const match = currentLinePrefix.match(wordRegex);
+    // Check if the caret is on a blank line
+    if (position.line === 0 || document.lineAt(position.line - 1).isEmptyOrWhitespace) {
+      return this.findPostVariableSuggestions('');
+    }
+  
+    const currentLine = document.lineAt(position.line).text;
+    const currentLineBeforeCaret = currentLine.substr(0, position.character);
+  
+    // Use a regex to find the closest text within commas on the line above the caret
+    const regex = /,([^,]*)$/;
+    const match = currentLineBeforeCaret.match(regex);
+  
+    // If we find a match, use it as the prefix for suggestions
+    const prefix = match ? match[1].trim() : '';
 
-    if (match && match[1]) {
-      const postVariableSuggestions = this.findPostVariableSuggestions(match[1]);
+    const suggestions = this.findPostVariableSuggestions(prefix);
 
-      if (postVariableSuggestions.length > 0) {
-        return postVariableSuggestions;
-      }
+    if (suggestions.length > 0) {
+      return suggestions;
     }
 
     return [];
@@ -30,7 +39,7 @@ class BcpstCompletionProvider {
       const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
       const parsedData = JSON.parse(jsonData);
 
-      if (parsedData && parsedData.postVariables && parsedData.commonPostVariables && prefix) {
+      if (parsedData && parsedData.postVariables && parsedData.commonPostVariables) {
         const filteredPostVariables = parsedData.postVariables.filter(
           (postVariable) =>
             (postVariable.postVariableName &&
