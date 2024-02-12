@@ -65,7 +65,7 @@ class BcpstCompletionProvider {
           const commonPostVariableCompletionItems = commonPostVariableSuggestions.map((postVariable) => {
             const postVariableItem = new vscode.CompletionItem(postVariable.postVariableName || 'None');
             postVariableItem.kind = vscode.CompletionItemKind.Variable;
-            postVariableItem.detail = 'Common Post Variable';
+            postVariableItem.detail = 'Common Post Variable (BobCAD)';
             postVariableItem.documentation = `Description: ${postVariable.description || 'None'}\n\nJob Types: ${postVariable.jobTypes.join(', ')}`;
             postVariableItem.sortText = '0';
             return postVariableItem;
@@ -74,7 +74,7 @@ class BcpstCompletionProvider {
           const otherPostVariableCompletionItems = otherPostVariableSuggestions.map((postVariable) => {
             const postVariableItem = new vscode.CompletionItem(postVariable.postVariableName || 'None');
             postVariableItem.kind = vscode.CompletionItemKind.Variable;
-            postVariableItem.detail = 'Post Variable';
+            postVariableItem.detail = 'Post Variable (BobCAD)';
             postVariableItem.documentation = `Description: ${postVariable.description || 'None'}\n\nJob Types: ${postVariable.jobTypes.join(', ')}`;
             return postVariableItem;
           });
