@@ -11,13 +11,13 @@ class BcpstCompletionProvider {
   
     const currentLine = document.lineAt(position.line).text;
     const currentLineBeforeCaret = currentLine.substr(0, position.character);
-  
-    // Use a regex to find the closest text within commas on the line above the caret
-    const regex = /,([^,]*)$/;
+
+    // Use a regex to find the closest text within commas or spaces on the line above the caret
+    const regex = /,([^,]*)$|\s([^ \t]*)$/;
     const match = currentLineBeforeCaret.match(regex);
-  
+
     // If we find a match, use it as the prefix for suggestions
-    const prefix = match ? match[1].trim() : '';
+    const prefix = match ? (match[1] || match[2]).trim() : '';
 
     const suggestions = this.findPostVariableSuggestions(prefix);
 
@@ -39,11 +39,17 @@ class BcpstCompletionProvider {
 
       item.insertText = new vscode.SnippetString(snippetText);
     }
+
+    // Check if the item is a postVariable and has a specific filter
+    if (item.kind === vscode.CompletionItemKind.Variable && item.filterText === 'postVariableFilter') {
+      // If it is a postVariable with the filter, set a specific filter for suggestions
+      item.filterText = 'postVariableFilter';
+    }
     
     return item;
   }
 
-  findPostVariableSuggestions(prefix) {
+  findPostVariableSuggestions(prefix, isInsideSnippet) {
     const jsonFilePath = path.join(__dirname, '..', 'res', 'post_data', 'postVariables.json');
 
     try {
@@ -57,6 +63,19 @@ class BcpstCompletionProvider {
               postVariable.postVariableName.toLowerCase().includes(prefix.toLowerCase())) ||
             postVariable.postVariableName === null
         );
+
+        if (isInsideSnippet) {
+          // If inside a code snippet, filter post variables
+          const postVariableSuggestions = filteredPostVariables.map((postVariable) => {
+            const postVariableItem = new vscode.CompletionItem(postVariable.postVariableName || 'None');
+            postVariableItem.kind = vscode.CompletionItemKind.Variable;
+            postVariableItem.detail = 'Post Variable (BobCAD)';
+            postVariableItem.documentation = `Description: ${postVariable.description || 'None'}\n\nJob Types: ${postVariable.jobTypes.join(', ')}`;
+            return postVariableItem;
+          });
+
+          return postVariableSuggestions;
+        }
 
         if (parsedData.commonPostVariables) {
           const filteredCommonPostVariables = parsedData.commonPostVariables.filter(
