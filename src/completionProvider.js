@@ -32,7 +32,11 @@ class BcpstCompletionProvider {
     // Check if the item is a bobcadAPI
     if (item.kind === vscode.CompletionItemKind.Method && item.documentation && item.documentation.includes('BobCAD API for')) {
       // Transform the content inside parentheses into a code snippet
-      const snippetText = item.documentation.replace(/\(([^)]+)\)/g, '(${1:$1})');
+      const snippetText = item.documentation.replace(/\(([^)]+)\)/g, (match, p1) => {
+        const placeholders = p1.split(',').map((param, index) => `\${${index + 1}:${param.trim()}}`);
+        return `(${placeholders.join(', ')})`;
+      });
+
       item.insertText = new vscode.SnippetString(snippetText);
     }
     
@@ -91,7 +95,11 @@ class BcpstCompletionProvider {
           // Retrieve API suggestions for each post variable, including those with null postVariableName
           const apiSuggestions = parsedData.postVariables.flatMap((postVariable) => {
             return (postVariable.bobcadAPIs || []).map((api) => {
-              const snippetText = api.replace(/\(([^)]+)\)/g, '(${1:$1})'); // Transform content inside ()
+              const snippetText = api.replace(/\(([^)]+)\)/g, (match, p1) => {
+                const placeholders = p1.split(',').map((param, index) => `\${${index + 1}:${param.trim()}}`);
+                return `(${placeholders.join(', ')})`;
+              });
+
               const apiSuggestion = new vscode.CompletionItem(api, vscode.CompletionItemKind.Method);
               apiSuggestion.detail = `BobCAD API for ${postVariable.postVariableName || 'None'}`;
               apiSuggestion.documentation = `Associated Post Variable: ${postVariable.postVariableName || 'None'}\nLanguage: VBScript\n\nDescription:\n ${postVariable.description || 'None'}`;
