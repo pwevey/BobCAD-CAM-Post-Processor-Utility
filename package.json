@@ -68,6 +68,10 @@
       {
         "command": "postBlocks.openSupportSite",
         "title": "BobCAD Post Utility: Open BobCAD Support Site"
+      },
+      {
+        "command": "postBlocks.openWireEDMDocumentation",
+        "title": "BobCAD Post Utility: Open Wire EDM Documentation"
       }
     ],
     "keybindings": [

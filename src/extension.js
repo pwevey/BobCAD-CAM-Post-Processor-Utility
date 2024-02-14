@@ -59,6 +59,21 @@ function activate(context) {
   context.subscriptions.push(openSupportSiteCommand);
 
 
+  // Add the command to open both PDF files
+  const openPDFsCommand = vscode.commands.registerCommand('postBlocks.openWireEDMDocumentation', async () => {
+    const wireEDMPostVariablesUrl = vscode.Uri.file(path.join(context.extensionPath, 'res', 'helpDocumentation', 'Wire_EDM_Post_Variables.pdf'));
+    const wireEDMScriptingFunctionReferenceUrl = vscode.Uri.file(path.join(context.extensionPath, 'res', 'helpDocumentation', 'Wire_EDM_Scripting_Function_Reference.pdf'));
+    
+    const userResponse = await vscode.window.showInformationMessage('Wire_EDM_Scripting_Function_Reference.pdf and Wire_EDM_Post_Variables.pdf will be opened in your default web browser. Do you want to continue?', 'Yes', 'No');
+    
+    if (userResponse === 'Yes') {
+      vscode.env.openExternal(wireEDMPostVariablesUrl);
+      vscode.env.openExternal(wireEDMScriptingFunctionReferenceUrl);
+    }
+  });
+  context.subscriptions.push(openPDFsCommand);
+
+
   // Register the new command to toggle debug mode
   const toggleDebugCommand = vscode.commands.registerCommand('postBlocks.toggleDebug', async () => {
     const editor = vscode.window.activeTextEditor;
