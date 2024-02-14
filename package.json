@@ -72,6 +72,10 @@
       {
         "command": "postBlocks.openWireEDMDocumentation",
         "title": "BobCAD Post Utility: Open Wire EDM Documentation"
+      },
+      {
+        "command": "postBlocks.autoIndent",
+        "title": "BobCAD Post Utility: Reformat File"
       }
     ],
     "keybindings": [
@@ -89,6 +93,11 @@
         "command": "postBlocks.appendRevisionLog",
         "key": "ctrl+alt+a",
         "when": "editorTextFocus && resourceLangId == 'bcpst'"
+      },
+      {
+        "command": "postBlocks.autoIndent",
+        "key": "shift+alt+f",
+        "when": "editorTextFocus && editorLangId == bcspt"
       }
     ],
     "views": {

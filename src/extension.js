@@ -74,6 +74,20 @@ function activate(context) {
   context.subscriptions.push(openPDFsCommand);
 
 
+  // Register the new command to format the entire document
+  const formatCommand = vscode.commands.registerCommand('postBlocks.autoIndent', autoIndent);
+
+  context.subscriptions.push(formatCommand);
+
+  context.subscriptions.push(vscode.languages.registerDocumentFormattingEditProvider('bcpst', {
+    provideDocumentFormattingEdits(document) {
+      // Call your autoIndent function here and return the edits it makes
+      const edits = autoIndent(document);
+      return edits;
+    }
+  }));
+
+
   // Register the new command to toggle debug mode
   const toggleDebugCommand = vscode.commands.registerCommand('postBlocks.toggleDebug', async () => {
     const editor = vscode.window.activeTextEditor;
@@ -176,6 +190,7 @@ function activate(context) {
   });
   context.subscriptions.push(navigateToPositionCommand);
 
+
   const refreshCommand = vscode.commands.registerCommand('postBlocks.refresh', () => {
     postBlockDataProvider.manualRefresh();
   });
@@ -206,6 +221,7 @@ function activate(context) {
     }
   });
   context.subscriptions.push(navigateToLineFromPaletteCommand);
+
 
   postBlockTreeView = vscode.window.createTreeView('postBlocks', { treeDataProvider: postBlockDataProvider });
   // console.log('Post Blocks Tree View created.');
@@ -306,6 +322,44 @@ function getWebviewContent(url) {
   `;
 }
 
+
+function autoIndent() {
+  const editor = vscode.window.activeTextEditor;
+  if (editor) {
+    const document = editor.document;
+    const text = document.getText();
+    let formattedText = '';
+    let postBlockStarted = false;
+    let inLuaOrVBScriptBlock = false;
+    text.split('\n').forEach((line) => {
+      // If the line starts with a number, set the postBlockStarted flag to true
+      if (line.match(/^\d/)) {
+        postBlockStarted = true;
+        // If the line is the start of a Lua or VBScript block, set the inLuaOrVBScriptBlock flag to true
+        if (line.match(/^(270[1-9]|27[1-9][0-9])\.\s*Lua\s*Block\s*\d+\.\s*|^(200[1-9]|20[1-9][0-9]|210[0-3])\.\s*(Program\s*Block\s*\d+\.\s*|Read\s*Entire\s*File\s*After\s*Posting\.\s*|Read\s*each\s*Line\s*on\s*Output\.\s*|VB\s*Script\s*Line\s*by\s*Line\.\s*)/)) {
+          inLuaOrVBScriptBlock = true;
+        }
+      }
+      // If the line is the end of a Lua or VBScript block, set the inLuaOrVBScriptBlock flag to false
+      if (line.match(/(^\b\d+\.)/)) {
+        inLuaOrVBScriptBlock = false;
+      }
+      // If the line does not start with a number and does not start with a space or tab, and the postBlockStarted and inLuaOrVBScriptBlock flags are true, indent it
+      if (!line.match(/^\d|^\s/) && postBlockStarted && !inLuaOrVBScriptBlock) {
+        formattedText += '    ' + line + '\n'; // 4 spaces for indentation
+      } else {
+        formattedText += line + '\n';
+      }
+    });
+    editor.edit((editBuilder) => {
+      const fullRange = new vscode.Range(
+        document.positionAt(0),
+        document.positionAt(text.length)
+      );
+      editBuilder.replace(fullRange, formattedText);
+    });
+  }
+}
 
 
 
