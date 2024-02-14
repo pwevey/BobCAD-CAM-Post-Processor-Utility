@@ -40,7 +40,7 @@
 			],
 			"description": "Outputs a line in your g-code program using program blocks (2001 - 2099). (eg. if in block 2001, use program_block_1 in a normal post block to output it.) Input must be a string formatted exactly as a posting line using system posting variables. (Example: “n, rapid_move, xr, yr, ‘M08’”). If calling a vbscript variable inside the PostProcessLine use the following format: 'prefix\"&VBScriptVar&\"' (BobCAD / VBScript)"
 		},
-		// BobCAD Post Variable Snippets
+		// BobCAD Post Variable / Block Snippets
 		"feedrate forced (BobCAD)": {
 			"scope": "bcpst",
 			"prefix": "feedrate forced",
@@ -81,6 +81,33 @@
 			],
 			"description": "Post Variable Format: Add user comments to post block 0. File Header. User Comments are set in Current Settings > Comments in the software."
 		},
+		"Post Header Comment": {
+			"scope": "bcpst",
+			"prefix": "comment post header",
+			"body": [
+			  "//---------------------------------------------------------------------",
+			  "//---------------------------------------------------------------------",
+			  "//---BobCAD-CAM Post Processor ----------------------------------------",
+			  "//---------------------------------------------------------------------",
+			  "//-- Initial Software Version: BobCAD-CAM ${1:BCC V31}",
+			  "//-- Initial Creation Date: ${2:7/31/2018}",
+			  "//-- Author: BobCAD-CAM",
+			  "//-- Machine: ${3:BC_3x_Mill}",
+			  "//---------------------------------------------------------------------",
+			  "//---------------------------------------------------------------------",
+			  "//-- REVISION LOG -----------------------------------------------------",
+			  "//--",
+			  "//--",
+			  "//---------------------------------------------------------------------",
+			  "//---------------------------------------------------------------------",
+			  "//-- SPECIAL NOTES ABOUT THIS POST AND MACHINE ------------------------",
+			  "//---------------------------------------------------------------------",
+			  "//--",
+			  "//--",
+			  "//---------------------------------------------------------------------"
+			],
+			"description": "Post Processor Format: This snippet inserts a standard header comment at the top of the file for a BobCAD-CAM post processor."
+		  }
 		// Formatting Post Variable Output
 		"Format 1 (BobCAD)": {
 			"scope": "bcpst",
