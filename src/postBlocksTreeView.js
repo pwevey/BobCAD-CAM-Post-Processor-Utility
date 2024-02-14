@@ -45,8 +45,13 @@ class PostBlockDataProvider {
     this.postBlocksData = this.loadPostBlocksData();
     this.goToTopItem = null;
     this.goToBottomItem = null;
-    // Refresh the tree view when the active text editor changes
+    this.debounceTimeout = null; // Initialize debounceTimeout
+    // Subscribe to the onDidChangeActiveTextEditor event
     vscode.window.onDidChangeActiveTextEditor(() => this.autoRefresh());
+    // Subscribe to the onDidChangeTextDocument event
+    vscode.workspace.onDidChangeTextDocument(e => this.onDocumentChanged(e));
+    // Subscribe to the onDidChangeTextEditorSelection event
+    vscode.window.onDidChangeTextEditorSelection(e => this.onSelectionChanged(e));
   }
 
   // Create an instance of GoToPositionTreeItem for Go to Top
@@ -78,16 +83,6 @@ class PostBlockDataProvider {
     }
   }
 
-  // Trigger a manual refresh of the tree view
-  manualRefresh() {
-    this._onDidChangeTreeData.fire();
-  }
-
-  // Command to refresh the tree view
-  refreshCommand() {
-    this.manualRefresh();
-  }
-
 
   // Function to auto-refresh the tree view
   autoRefresh() {
@@ -98,6 +93,50 @@ class PostBlockDataProvider {
         this.manualRefresh();
       }
     }
+  }
+
+  // Function to handle document changes
+  onDocumentChanged(e) {
+    const fileExtension = e.document.fileName.split('.').pop().toLowerCase();
+    if (['bcpst', 'millpst', 'edmpst', 'lathepst'].includes(fileExtension)) {
+      for (const change of e.contentChanges) {
+        // Check if the change is a post block line and if it's a new line
+        if (/^\d+\./.test(change.text) && change.text.includes('\n')) {
+          this.debounceRefresh();
+          break;
+        }
+      }
+    }
+  }
+
+  // Function to handle selection changes
+  onSelectionChanged(e) {
+    const fileExtension = e.textEditor.document.fileName.split('.').pop().toLowerCase();
+    if (['bcpst', 'millpst', 'edmpst', 'lathepst'].includes(fileExtension)) {
+      const line = e.textEditor.document.lineAt(e.selections[0].start.line);
+      if (/^\d+\./.test(line.text)) {
+        this.debounceRefresh();
+      }
+    }
+  }
+
+  // Function to debounce the refresh
+  debounceRefresh() {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+    }
+    this.debounceTimeout = setTimeout(() => this.manualRefresh(), 500); // 5 seconds
+  }
+
+
+  // Trigger a manual refresh of the tree view
+  manualRefresh() {
+    this._onDidChangeTreeData.fire();
+  }
+
+  // Command to refresh the tree view
+  refreshCommand() {
+    this.manualRefresh();
   }
   
 
