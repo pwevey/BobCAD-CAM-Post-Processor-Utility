@@ -11,20 +11,20 @@ class BcpstCompletionProvider {
   
     const currentLine = document.lineAt(position.line).text;
     const currentLineBeforeCaret = currentLine.substr(0, position.character);
-
+  
     // Use a regex to find the closest text within commas or spaces on the line above the caret
-    const regex = /,([^,]*)$|\s([^ \t]*)$/;
+    const regex = /(,|\s|^)([^,\s]*)$/;
     const match = currentLineBeforeCaret.match(regex);
-
+  
     // If we find a match, use it as the prefix for suggestions
-    const prefix = match ? (match[1] || match[2]).trim() : '';
-
+    const prefix = match ? match[2].trim() : '';
+  
     const suggestions = this.findPostVariableSuggestions(prefix);
-
+  
     if (suggestions.length > 0) {
       return suggestions;
     }
-
+  
     return [];
   }
 
