@@ -45,6 +45,8 @@ class PostBlockDataProvider {
     this.postBlocksData = this.loadPostBlocksData();
     this.goToTopItem = null;
     this.goToBottomItem = null;
+    // Refresh the tree view when the active text editor changes
+    vscode.window.onDidChangeActiveTextEditor(() => this.autoRefresh());
   }
 
   // Create an instance of GoToPositionTreeItem for Go to Top
@@ -84,6 +86,18 @@ class PostBlockDataProvider {
   // Command to refresh the tree view
   refreshCommand() {
     this.manualRefresh();
+  }
+
+
+  // Function to auto-refresh the tree view
+  autoRefresh() {
+    const activeEditor = vscode.window.activeTextEditor;
+    if (activeEditor) {
+      const fileExtension = activeEditor.document.fileName.split('.').pop().toLowerCase();
+      if (['bcpst', 'millpst', 'edmpst', 'lathepst'].includes(fileExtension)) {
+        this.manualRefresh();
+      }
+    }
   }
   
 
