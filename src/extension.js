@@ -59,7 +59,7 @@ function activate(context) {
   context.subscriptions.push(openSupportSiteCommand);
 
 
-  // Add the command to open both PDF files
+  // Add the command to open both Wire EDM Post Documentation Files
   const openPDFsCommand = vscode.commands.registerCommand('postBlocks.openWireEDMDocumentation', async () => {
     const wireEDMPostVariablesUrl = vscode.Uri.file(path.join(context.extensionPath, 'res', 'helpDocumentation', 'Wire_EDM_Post_Variables.pdf'));
     const wireEDMScriptingFunctionReferenceUrl = vscode.Uri.file(path.join(context.extensionPath, 'res', 'helpDocumentation', 'Wire_EDM_Scripting_Function_Reference.pdf'));
