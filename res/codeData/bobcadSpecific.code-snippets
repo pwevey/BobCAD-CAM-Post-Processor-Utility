@@ -30,7 +30,7 @@
 			"body": [
 				"CALL ${1|MILL,LATHE|}_SetReturnString(\" ${2:prefix}\" & ${3:VBSciptStringVar})"
 			],
-			"description": "MILL/LATHE Set Return String allows you to return a string from a program block (2001 - 2099) in the post processor to a normal post block using program_block_# (eg. if in block 2001, use program_block_1 in a normal post block) (BobCAD / VBScript)"
+			"description": "MILL/LATHE Set Return String allows you to return a string from a program block (2001 - 2099) in the post processor to a normal post block using program_block_# (eg. if in block 2001, use program_block_1 in a normal post block), program_block_# can go on the same line as other post variables (eg. \"G75\",groove_x_bottom,groove_z_bottom,program_block_3,program_block_4,f) (BobCAD / VBScript)"
 		},
 		"Post Process Line (BobCAD / VBScript)": {
 			"scope": "bcpst, vb, vbs",
@@ -38,9 +38,9 @@
 			"body": [
 				"${1|MILL,LATHE|}_ProcessPostLine(\"n,g_arc_move,x_f,z_f,'I\"&${2:arcIValueVBScriptVar}&\"','K\"&${3:arcKValueVBScriptVar}&\"',feed_rate\")"
 			],
-			"description": "Outputs a line in your g-code program using program blocks (2001 - 2099). (eg. if in block 2001, use program_block_1 in a normal post block to output it.) Input must be a string formatted exactly as a posting line using system posting variables. (Example: “n, rapid_move, xr, yr, ‘M08’”). If calling a vbscript variable inside the PostProcessLine use the following format: 'prefix\"&VBScriptVar&\"' (BobCAD / VBScript)"
+			"description": "Outputs a line in your g-code program using program blocks (2001 - 2099). (eg. if in block 2001, use program_block_1 in a normal post block to output it.) program_block_# should be output on its own line in the post block. Input must be a string formatted exactly as a posting line using system posting variables. (Example: “n, rapid_move, xr, yr, ‘M08’”). If calling a vbscript variable inside the PostProcessLine use the following format: 'prefix\"&VBScriptVar&\"' (BobCAD / VBScript)"
 		},
-		// BobCAD Post Variable / Block Snippets
+		// BobCAD Post Variable / Post Block Snippets
 		"feedrate forced (BobCAD)": {
 			"scope": "bcpst",
 			"prefix": "feedrate forced",

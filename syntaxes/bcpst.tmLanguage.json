@@ -7,6 +7,10 @@
 			"name": "meta.version.bcpst"
 		},
 		{
+			"match": "'\\[.*?\\]'",
+			"name": "string.interpolated.bcpst"
+		},
+		{
             "match": ",",
             "name": "keyword.operator"
         },
