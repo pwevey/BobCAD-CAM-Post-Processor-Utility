@@ -30,7 +30,7 @@
             "CHECK_BOX,${1|setPosition,1,2,3,4,5,6,7,8,9|}, ${2:assignCheckBoxLabel}",
             "DEFAULT_CHECK,$1,${3|setDefaultToOnOff,1,0|}"
         ],
-        "description": "Define a checkbox. setPosition: the first position starts at 1. assignCheckBoxLabel: No need to add \"\" and you can add spaces in-between text. This checkbox can be found on the Adv Posting page in the software in an Operation or Current Settings Dialog. Make sure to read the C:\\BobCAD-CAM Data\\BobCAD-CAM V(Version#)\\Posts\\Documentation\\Advanced_Posting_with_Custom_Files.pdf file to assign the correct file extension and see examples."
+        "description": "Define a checkbox. setPosition: the first position starts at 1. assignCheckBoxLabel: No need to add \"\" and you can add spaces in-between text. This checkbox can be found on the Adv Posting page in the software in an Operation or Current Settings Dialog. Make sure to read through the C:\\BobCAD-CAM Data\\BobCAD-CAM V(Version#)\\Posts\\Documentation\\Advanced_Posting_with_Custom_Files.pdf file to assign the correct file extension and see examples."
     },
     "combo box (BobCAD Adv Posting)": {
         "scope": "bobcadAdvPostingCustomFiles",
