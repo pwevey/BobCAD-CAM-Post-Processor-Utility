@@ -35,7 +35,7 @@
     "commands": [
       {
         "command": "postBlocks.refresh",
-        "title": "BobCAD Post Utility: Refresh Post Blocks"
+        "title": "BobCAD Post Utility: Refresh Post Blocks Tree"
       },
       {
         "command": "postBlocks.collapseAll",
