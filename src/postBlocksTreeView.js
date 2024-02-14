@@ -63,8 +63,16 @@ class PostBlockDataProvider {
   createGoToBottomItem() {
     const editor = vscode.window.activeTextEditor;
     if (editor) {
-      const lastLine = editor.document.lineCount - 1;
-      return new GoToPositionTreeItem('Go to Bottom', new vscode.Position(lastLine, 0));
+      // Create a new position at the last line of the document
+      const position = new vscode.Position(editor.document.lineCount - 1, 0);
+      // Create a new GoToPositionTreeItem with a command that navigates to the last line
+      const goToBottomItem = new GoToPositionTreeItem('Go to Bottom', position);
+      goToBottomItem.command = {
+        command: 'vscode.open',
+        arguments: [editor.document.uri, { selection: new vscode.Selection(position, position) }],
+        title: 'Go to Bottom'
+      };
+      return goToBottomItem;
     }
     return null;
   }
@@ -132,6 +140,8 @@ class PostBlockDataProvider {
   // Trigger a manual refresh of the tree view
   manualRefresh() {
     this._onDidChangeTreeData.fire();
+    // Create a new "Go to Bottom" item based on the current active text editor
+    this.goToBottomItem = this.createGoToBottomItem();
   }
 
   // Command to refresh the tree view
@@ -389,7 +399,8 @@ class PostBlockDataProvider {
 
       if (!this.goToBottomItem) {
         this.goToBottomItem = this.createGoToBottomItem();
-        mappedFolders.push(this.goToBottomItem);
+        // Insert the "Go to Bottom" item at the second position in the array
+        mappedFolders.splice(1, 0, this.goToBottomItem);
       }
 
       return mappedFolders;
