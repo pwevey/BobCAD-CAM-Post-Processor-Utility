@@ -136,21 +136,21 @@ function activate(context) {
     const entries = [];
     let entry = '';
     let entryCount = 1;
-
+  
     while (true) {
       const userInput = await vscode.window.showInputBox({
-        placeHolder: 'Enter revision log entry (Type "done" to finish)',
-        prompt: 'Provide a description for the revision log entry',
+        placeHolder: `Enter revision log entry #${entryCount} (Type "done" to finish)`,
+        prompt: `Provide a description for the revision log entry. You can enter multiple entries.`,
         validateInput: (text) => {
           return text.trim() ? null : 'Description cannot be empty';
         },
       });
-
+  
       if (userInput === undefined) {
         // User pressed 'Escape' or closed the input box
         break;
       }
-
+  
       if (userInput.toLowerCase() === 'done') {
         // User typed 'done' to finish
         if (entry !== '') {
@@ -163,7 +163,7 @@ function activate(context) {
         entryCount++;
       }
     }
-
+  
     if (entries.length > 0) {
       await appendRevisionLogs(entries);
     }
