@@ -1,4 +1,4 @@
-# bobcad-post README
+# BobCAD-CAM Post Processor Utility
 
 This is the README for your extension "bobcad-post". After writing up a brief description, we recommend including the following sections.
 
@@ -9,6 +9,8 @@ Describe specific features of your extension including screenshots of your exten
 For example if there is an image subfolder under your extension project workspace:
 
 \!\[feature X\]\(images/feature-x.png\)
+
+[![Watch the video](res/icons/demo.png)](https://vimeo.com/913477910?share=copy)
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
