@@ -341,14 +341,19 @@ function autoIndent() {
         }
       }
       // If the line is the end of a Lua or VBScript block, set the inLuaOrVBScriptBlock flag to false
-      if (line.match(/(^\b\d+\.)/)) {
+      if (line.match(/(^\b\d+\.)/) && !line.match(/^(270[1-9]|27[1-9][0-9]|200[1-9]|20[1-9][0-9]|210[0-3])\.\s*/)) {
         inLuaOrVBScriptBlock = false;
       }
-      // If the line does not start with a number and does not start with a space or tab, and the postBlockStarted and inLuaOrVBScriptBlock flags are true, indent it
-      if (!line.match(/^\d|^\s/) && postBlockStarted && !inLuaOrVBScriptBlock) {
-        formattedText += '    ' + line + '\n'; // 4 spaces for indentation
+      // If the line does not start with a number, does not start with a space or tab, does not start with //, and the postBlockStarted and inLuaOrVBScriptBlock flags are true, indent it
+      if (!line.match(/^\d|^\s|^\/\//) && postBlockStarted && !inLuaOrVBScriptBlock) {
+        formattedText += '\t' + line + '\n'; // 1 tab for indentation
       } else {
-        formattedText += line + '\n';
+        // If the line is indented more than once, unindent it
+        if (line.startsWith('\t\t') && !inLuaOrVBScriptBlock) { // 2 tabs for double indentation
+          formattedText += line.slice(1) + '\n'; // Remove 1 tab
+        } else {
+          formattedText += line + '\n';
+        }
       }
     });
     editor.edit((editBuilder) => {
