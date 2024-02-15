@@ -149,7 +149,7 @@
 			],
 			"description": "Post Variable Format: Commonly used as a multiplier by factors of 10 (1T: x10, 2T: x100,3T: x1,000, etc..) of a post variable. for example, take the number 9.5118. If you assign the trailing digits to 3 (eg. '[3T]'), this will move the decimal 3 places to the right, round and remove the decimal. Output = 9512  The output format of posting variables can be controlled using a special formatting string (or format specifier). The format specifier controls the number of leading and/or trailing digits to use and whether or not a decimal point is used. The format specifier is placed before the variable in the post processor. The capital letter, L, must be used to specify the first value as the leading digits used (or if using only a single number in the string). The letter is always placed at the end of the formatting string. The capital letter, T, is used to when specifying (only) the trailing digits used."
 		},
-		// BobCAD API Specific Lua Snippets
+		// BobCAD API Specific Lua Snippets (Post Processors)
 		"Output Text (BobCAD / Lua)": {
 			"scope": "bcpst, lua",
 			"prefix": "BcPost.OutputText",
@@ -306,5 +306,30 @@
 				"Bcc.ShowMessageBox(\"Operation Name: \"..value, {Title=\"Operation Name\"})"							
 			],
 			"description": "BobCAD Post Lua API: This function is utilized get operation data such as the names, types, and custom posting information. Parameters: paramName – this function has a fixed set of parameter strings that you can pass to get different information related to the machining operation that is currently posting. See BobCAD Lua Help System to see the list of possible inputs for paramName Return: The value of the requested piece of operation data."
+		},
+		// BobCAD Lua API Specific Snippets (General)
+		"Message Box (basic) (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "Bcc.ShowMessageBox (basic)",
+			"body": [
+				"Bcc.ShowMessageBox(\"${1:Here is my message}\")"						
+			],
+			"description": "BobCAD Lua API: Displays a message box to the user. Go to BobCAD Lua API Help System to learn more. (CTRL+SHIFT+P > BobCAD Post Utility: Open Lua API Help System)"
+		},
+		"Message Box (Ex1) (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "Bcc.ShowMessageBox (Ex 1)",
+			"body": [
+				"Bcc.ShowMessageBox(\"${1:This went bad}\", {ButtonType=\"${2:OK}\", ImageType=\"${3:Error}\"})"						
+			],
+			"description": "BobCAD Lua API: Displays a message box to the user. Go to BobCAD Lua API Help System to learn more. (CTRL+SHIFT+P > BobCAD Post Utility: Open Lua API Help System)"
+		},
+		"Message Box (Ex2) (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "Bcc.ShowMessageBox (Ex 2)",
+			"body": [
+				"ret = Bcc.ShowMessageBox(\"${1:Error 111}\", {ButtonType=\"${2:YesNoCancel}\", ImageType=\"${3:Exclamation}\", Title = \"${4:Warning}\"})"						
+			],
+			"description": "BobCAD Lua API: Displays a message box to the user. Go to BobCAD Lua API Help System to learn more. (CTRL+SHIFT+P > BobCAD Post Utility: Open Lua API Help System)"
 		},
 }
