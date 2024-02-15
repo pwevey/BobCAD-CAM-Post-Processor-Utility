@@ -201,7 +201,7 @@
 			}
   ],
   "configuration": {
-    "title": "Post Blocks",
+    "title": "BobCAD-CAM Post Processor Utility",
     "properties": {
       "postBlocks.luaAPIsUrl": {
         "type": "string",

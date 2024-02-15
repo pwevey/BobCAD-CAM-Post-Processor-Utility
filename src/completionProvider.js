@@ -4,20 +4,24 @@ const fs = require('fs');
 
 class BcpstCompletionProvider {
   provideCompletionItems(document, position, token, context) {
-    // Check if the caret is on a blank line
-    if (position.line === 0 || document.lineAt(position.line - 1).isEmptyOrWhitespace) {
-      return this.findPostVariableSuggestions('');
-    }
-  
     const currentLine = document.lineAt(position.line).text;
     const currentLineBeforeCaret = currentLine.substr(0, position.character);
   
-    // Use a regex to find the closest text within commas or spaces on the line above the caret
+    // Use a regex to find the closest text within commas, spaces or underscores on the line above the caret
     const regex = /(,|\s|^)([^,\s]*)$/;
     const match = currentLineBeforeCaret.match(regex);
   
     // If we find a match, use it as the prefix for suggestions
     const prefix = match ? match[2].trim() : '';
+  
+    if (prefix.startsWith('lua_') || prefix.startsWith('program')) {
+      return this.provideProgramBlockSuggestions(prefix);
+    }
+  
+    // Check if the caret is on a blank line
+    if (position.line === 0 || document.lineAt(position.line - 1).isEmptyOrWhitespace) {
+      return this.findPostVariableSuggestions('');
+    }
   
     const suggestions = this.findPostVariableSuggestions(prefix);
   
@@ -27,6 +31,27 @@ class BcpstCompletionProvider {
   
     return [];
   }
+
+
+  provideProgramBlockSuggestions(prefix) {
+    const isLua = prefix.startsWith('lua');
+    const isProgram = prefix.startsWith('program');
+  
+    if (!isLua && !isProgram) {
+      return [];
+    }
+  
+    const blockPrefix = isLua ? 'lua_block_' : 'program_block_';
+    const blocks = Array.from({length: 99}, (_, i) => `${blockPrefix}${i + 1}`);
+  
+    return blocks.map((block, i) => {
+      const item = new vscode.CompletionItem(block, vscode.CompletionItemKind.Function);
+      item.sortText = String(i).padStart(2, '0'); // Pad the index with leading zeros
+      item.preselect = i === 0; // Preselect only the first item in the suggestion list
+      return item;
+    });
+  }
+
 
   resolveCompletionItem(item, token) {
     // Check if the item is a bobcadAPI
