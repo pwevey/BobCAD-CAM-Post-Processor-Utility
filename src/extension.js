@@ -208,6 +208,7 @@ function activate(context) {
   });
   context.subscriptions.push(refreshCommand);
 
+  // Used for the Tree Viewer to navigate to a specific post block
   const navigateToLineCommand = vscode.commands.registerCommand('postBlocks.navigateToLine', (postBlockNumber) => {
     // console.log(`Navigating to line for Post Block ${postBlockNumber}`);
     const lineNumber = postBlockDataProvider.findLineNumber(postBlockNumber);
@@ -220,6 +221,7 @@ function activate(context) {
   });
   context.subscriptions.push(navigateToLineCommand);
 
+  // Used for the "Navigate to Line from Palette" command to navigate to a specific post block
   const navigateToLineFromPaletteCommand = vscode.commands.registerCommand('postBlocks.navigateToLineFromPalette', async () => {
     const postBlockNumber = await vscode.window.showInputBox({ prompt: 'Enter Post Block Number' });
     if (postBlockNumber !== undefined && !isNaN(postBlockNumber)) {
@@ -229,6 +231,8 @@ function activate(context) {
         const selection = new vscode.Selection(position, position);
         vscode.window.activeTextEditor.selection = selection;
         vscode.window.activeTextEditor.revealRange(selection, vscode.TextEditorRevealType.InCenter);
+      } else {
+        vscode.window.showErrorMessage(`Post Block Number ${postBlockNumber} not found in Post Processor`);
       }
     }
   });
