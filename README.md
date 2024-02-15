@@ -10,6 +10,8 @@ For example if there is an image subfolder under your extension project workspac
 
 \!\[feature X\]\(images/feature-x.png\)
 
+
+CLICK TO WATCH!
 [![Watch the video](res/icons/demo.png)](https://vimeo.com/913477910?share=copy)
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
