@@ -4,11 +4,16 @@ This is the README for your extension "bobcad-post". After writing up a brief de
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
+* Syntax Highlighting for all BobCAD-CAM Post Processors File Extensions
+* AutoCompletion and Code Snippets
+* Formatter (SHIFT + ALT + F)
+* Post Blocks Tree Viewer
+* Shortcut for debug_on/off (CTRL + ALT + D)
+* Append Revision Log Command
+* Go to Program Block (CTRL + Click on porgam_block_# or lua_block_#)
+* Open Help Systems Directly in VSCode
+* Post Block Information on Hover
+* Go to Post Block Command
 
 
 CLICK TO WATCH!
