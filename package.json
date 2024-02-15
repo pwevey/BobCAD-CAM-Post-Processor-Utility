@@ -90,6 +90,11 @@
         "when": "editorTextFocus && resourceLangId == 'bcpst'"
       },
       {
+        "command": "postBlocks.navigateToLineFromPalette",
+        "key": "ctrl+alt+f",
+        "when": "editorTextFocus && resourceLangId == 'bcpst'"
+      },
+      {
         "command": "postBlocks.appendRevisionLog",
         "key": "ctrl+alt+a",
         "when": "editorTextFocus && resourceLangId == 'bcpst'"
