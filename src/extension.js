@@ -431,7 +431,6 @@ function provideLuaDefinition(document, position, token) {
 }
 
 
-
 function deactivate() {}
 
 module.exports = { activate, deactivate };
