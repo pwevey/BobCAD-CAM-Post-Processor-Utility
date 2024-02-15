@@ -8,7 +8,7 @@ Welcome to the BobCAD-CAM Post Processor Utility, your ultimate tool for streaml
 * Syntax Highlighting for all BobCAD-CAM Post Processors File Extensions
 * AutoCompletion and Code Snippets
 * Formatter (SHIFT + ALT + F)
-* Post Blocks Tree Viewer
+* Post Blocks Tree Viewer (For easy Post Blocks navigation)
 * Shortcut for debug_on/off (CTRL + ALT + D)
 * Append Revision Log Command
 * Go to Program Block (CTRL + Click on porgam_block_# or lua_block_#)
@@ -23,6 +23,7 @@ Welcome to the BobCAD-CAM Post Processor Utility, your ultimate tool for streaml
 CLICK TO WATCH!
 
 > Tip: Watch the demo video closely to understand the extension's features and operations. Don't hesitate to pause and replay sections for clarity. This will help you maximize the utility of the BobCAD-CAM Post Processor.
+
 
 
 ## Release Notes
