@@ -1,6 +1,6 @@
 # BobCAD-CAM Post Processor Utility
 
-This is the README for your extension "bobcad-post". After writing up a brief description, we recommend including the following sections.
+Welcome to the BobCAD-CAM Post Processor Utility, your ultimate tool for streamlining and enhancing your post processor workflow in CNC machining. This powerful extension for Visual Studio Code brings the power of BobCAD-CAM's post-processing capabilities right into your favorite editor. With features like syntax highlighting, code snippet completion, and a tree viewer for post blocks, this utility makes it easier than ever to work with .bcpst files. Whether you're a seasoned CNC programmer or just getting started, the BobCAD-CAM Post Processor Utility is an indispensable tool for your CNC programming needs.
 
 ## Features
 
@@ -16,8 +16,10 @@ This is the README for your extension "bobcad-post". After writing up a brief de
 * Go to Post Block Command
 
 
-CLICK TO WATCH!
+## Demo
+
 [![Watch the video](res/icons/demo.png)](https://vimeo.com/913477910?share=copy)
+CLICK TO WATCH!
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
