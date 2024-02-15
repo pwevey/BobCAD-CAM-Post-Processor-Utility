@@ -150,4 +150,161 @@
 			"description": "Post Variable Format: Commonly used as a multiplier by factors of 10 (1T: x10, 2T: x100,3T: x1,000, etc..) of a post variable. for example, take the number 9.5118. If you assign the trailing digits to 3 (eg. '[3T]'), this will move the decimal 3 places to the right, round and remove the decimal. Output = 9512  The output format of posting variables can be controlled using a special formatting string (or format specifier). The format specifier controls the number of leading and/or trailing digits to use and whether or not a decimal point is used. The format specifier is placed before the variable in the post processor. The capital letter, L, must be used to specify the first value as the leading digits used (or if using only a single number in the string). The letter is always placed at the end of the formatting string. The capital letter, T, is used to when specifying (only) the trailing digits used."
 		},
 		// BobCAD API Specific Lua Snippets
+		"Output Text (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.OutputText",
+			"body": [
+				"BcPost.OutputText(\"${1:HERE IS SOME TEXT IN YOUR NC PROGRAM}\")"
+			],
+			"description": "BobCAD Post Lua API: This function is utilized to output a string of text inside the NC program. Parameters: text – string value of the text to output in the NC program"
+		},
+		"ProcessPostLine (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.ProcessPostLine",
+			"body": [
+				"BcPost.ProcessPostLine(\"${1:n,rapid_move_forced, 'X\"..xValLuaVar..\"','Y\"..yValLuaVar..\"'}\")"
+			],
+			"description": "BobCAD Post Lua API: This function is utilized to process a line of standard BobCAD posting variables.  Input must be a string formatted exactly as a posting line using system posting variables. (Example: “n, rapid_move, xr, yr, ‘M08’”). The system post processes these variables as it would by using the posting engine and outputs the posted string to the posted NC file.  Parameters: postString – string value of the text to output in the NC program."
+		},
+		"Run Post Line (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.RunPostLine",
+			"body": [
+				"BcPost.RunPostLine(\"${1:n, rapid_move, xr, yr, 'M08'}\")"
+			],
+			"description": "BobCAD Post Lua API: This function is utilized to process a line of standard BobCAD posting variables.  Input must be a string formatted exactly as a posting line using system posting variables. The system post processes these variables as it would by using the posting engine and outputs the posted string to the posted NC file. A newline character will be added to the end of the output code.  Parameters: postString – string value of the text to output in the NC program."
+		},
+		"Run Block (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.RunBlock",
+			"body": [
+				"-- Call block $1. ${2:Cutter compensation left to output cutter comp on}",
+				"BcPost.RunBlock(${1:12})"
+			],
+			"description": "BobCAD Post Lua API: This function is utilized to process a line of standard BobCAD posting variables.  Input must be a string formatted exactly as a posting line using system posting variables. (Example: “n, rapid_move, xr, yr, ‘M08’”). The system post processes these variables as it would by using the posting engine and outputs the posted string to the posted NC file.  Parameters: blockNum – integer value of the posting block that should be called."
+		},
+		"Run Post Vars (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.RunPostVariables",
+			"body": [
+				"BcPost.RunPostVariables(\"${1:xr, yr}\")"
+			],
+			"description": "BobCAD Post Lua API: This function is utilized to process a line of standard BobCAD posting variables.  Input must be a string formatted exactly as a posting line using system posting variables. The system post processes these variables as it would by using the posting engine and outputs the posted string to the posted NC file.   Parameters: postString – string value of the text to output in the NC program."
+		},
+		"RunVBScript Ex (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.RunVBScript EXAMPLE",
+			"body": [
+				"-- This small example shows the need for the \\n newline characters and how to return a value",
+				"${1:test} = BcPost.RunVBScript(\"${2:a=17 \\n b=12 \\n c=a+b \\n CALL MILL_SetReturnString(c)}\")",
+				"Bcc.ShowMessageBox($1, {Title = \"${3:Lua calling VB}\"})"
+			],
+			"description": "BobCAD Post Lua API: This function allows you to pass VB scripting code via the Lua engine.  Because our posting engine has always had the VB Scripting for applications engine in it for many years, we implemented this call just in case any existing code would want to be reused. IMPORTANT:  The syntax handling for this is important, as it is actually Lua parsing by passing a string and then VB all from our C++ code base, you must be a little stringent on your characters specifically when dealing with quotes and new line characters.  Parameters: code – string containing the VBScript code that should be run.  Return: Will return the output of the VBScript code in a string format when using the MILL_SetReturnString() function that exists in our VB scripting language."
+		},
+		"Run VBScript (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.RunVBScript",
+			"body": [
+				"BcPost.RunVBScript(\"${1:MsgBox(\\\"Hi from VB Lua\\\")}\")"
+			],
+			"description": "BobCAD Post Lua API: This function allows you to pass VB scripting code via the Lua engine.  Because our posting engine has always had the VB Scripting for applications engine in it for many years, we implemented this call just in case any existing code would want to be reused. IMPORTANT:  The syntax handling for this is important, as it is actually Lua parsing by passing a string and then VB all from our C++ code base, you must be a little stringent on your characters specifically when dealing with quotes and new line characters.  Parameters: code – string containing the VBScript code that should be run.  Return: Will return the output of the VBScript code in a string format when using the MILL_SetReturnString() function that exists in our VB scripting language."
+		},
+		"Run VBApi 1 para (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.RunVBApi (1 param)",
+			"body": [
+				"-- Get the string from memory location $2",
+				"BcPost.RunVBApi(\"${1:MILL_GetStringMemoryLoc}\", ${2:10})"
+			],
+			"description": "BobCAD Post Lua API: This function can be utilized for calling an existing VB API call from the posting engine. Please refer to the Posting Variable and API Reference in the help system of the BobCAD-CAM product you are working with for a complete list of the VB APIs. IMPORTANT:  This function exists to fully support all of our VB API functions and will be the primary always working method.  With that being said it is also important to note that any VB API that we created prior to BobCAD-CAM V32 you can also simply just use BcPost.vbAPIname().   Parameters: vbApiName – any existing VB function name as a string that has been implemented to work in the BobCAD posting engine. vbInputParas - the input value to the VB function.  For almost all BobCAD posting API's they all only have a single input parameter.  For the few instances where the VB API requires multiple input parameters (eg. MILL_SetIntMemoryLocation(index, integer)) this parameter should be a table containing the various inputs."
+		},
+		"Run VBApi 2 para (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.RunVBApi (2 param)",
+			"body": [
+				"-- Get the string from memory location $2",
+				"BcPost.RunVBApi(\"${1:MILL_SetStringMemoryLoc}\", {${2:10},\"${3:Save Me}\"})"
+			],
+			"description": "BobCAD Post Lua API: This function can be utilized for calling an existing VB API call from the posting engine. Please refer to the Posting Variable and API Reference in the help system of the BobCAD-CAM product you are working with for a complete list of the VB APIs. IMPORTANT:  This function exists to fully support all of our VB API functions and will be the primary always working method.  With that being said it is also important to note that any VB API that we created prior to BobCAD-CAM V32 you can also simply just use BcPost.vbAPIname().   Parameters: vbApiName – any existing VB function name as a string that has been implemented to work in the BobCAD posting engine. vbInputParas - the input value to the VB function.  For almost all BobCAD posting API's they all only have a single input parameter.  For the few instances where the VB API requires multiple input parameters (eg. MILL_SetIntMemoryLocation(index, integer)) this parameter should be a table containing the various inputs."
+		},
+		"Get Val DataBlock (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.GetValueOfDataBlock",
+			"body": [
+				"BcPost.GetValueOfDataBlock(${1:blockNumber})"
+			],
+			"description": "BobCAD Post Lua API: This is function is utilized to get the value defined for a Post Question from the post processor. At the time of this writing we currently know that post questions in blocks 750-999 do not return any value.  This is planned to be addressed.  Parameters: blockNumber – integer value of the block number you wish to retrieve the data from. Return: The value of the requested posting variable which can be various types depending on the block number requested."
+		},
+		"Set Val DataBlock (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.SetValueOfDataBlock",
+			"body": [
+				"BcPost.SetValueOfDataBlock(${1:blockNumber}, ${2:value})"
+			],
+			"description": "BobCAD Post Lua API: This is function is utilized to set the value defined for a Post Question from the post processor. See Lua Help System for info on post questions that cannot be altered during posting as they are utilized during the CL file creation. Parameters: blockNumber – string value of the BobCAD posting variable name. value - the value to assign to the post question. Note: for the boolean post blocks which use y / n as the item in the post processor, you must use true or false in this function."
+		},
+		"Get Val PostVar (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.GetValueOfPostVariable",
+			"body": [
+				"${2:luaVarName} = BcPost.GetValueOfPostVariable(${1:postVariable})"
+			],
+			"description": "BobCAD Post Lua API: This function is utilized get the current value of existing native posting engine variable at the current time this function is called.  This API does not currently support all of the BobCAD posting engine variables, and a list of the supported variables can be found in the BobCAD Lua Help System. Please refer to the Posting Variable and API Reference in the help system of the BobCAD-CAM product you are working with for a complete description of the posting variables and VB APIs. Parmeters: postVariable – string value of the BobCAD posting variable name. Return: The value of the requested posting variable"
+		},
+		"Set Val PostVar (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.GetValueOfPostVariable",
+			"body": [
+				"BcPost.SetValueOfPostVariable(${1:postVariable}, ${2:value})"
+			],
+			"description": "CURRENTLY NOT IMPLEMENTED! BobCAD Post Lua API: This function is utilized set the current value of any existing native posting engine variable at the current time this function is called. Please refer to the Posting Variable and API Reference in the help system of the BobCAD-CAM product you are working with for a complete list of the VB APIs. Parameters: postVariable – string value of the BobCAD posting variable name. value - the value to assign to the posting variable"
+		},
+		"Get Val Op (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.GetValueOfOperation",
+			"body": [
+				"BcPost.GetValueOfOperation(${1:paramName})"
+			],
+			"description": "BobCAD Post Lua API: This function is utilized get operation data such as the names, types, and custom posting information. Parameters: paramName – this function has a fixed set of parameter strings that you can pass to get different information related to the machining operation that is currently posting. See BobCAD Lua Help System to see the list of possible inputs for paramName Return: The value of the requested piece of operation data."
+		},
+		"Get Val Op Ex1 (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.GetValueOfOperation (Ex 1)",
+			"body": [
+				"-- Get the current operations type value in the CAM Tree",
+				"value = BcPost.GetValueOfOperation(\"Type\")",
+				"Bcc.ShowMessageBox(\"Operation Type: \"..value, {Title=\"Operation Type\"})"		  
+			],
+			"description": "BobCAD Post Lua API: This function is utilized get operation data such as the names, types, and custom posting information. Parameters: paramName – this function has a fixed set of parameter strings that you can pass to get different information related to the machining operation that is currently posting. See BobCAD Lua Help System to see the list of possible inputs for paramName Return: The value of the requested piece of operation data."
+		},
+		"Get Val Op Ex2 (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.GetValueOfOperation (Ex 2)",
+			"body": [
+				"-- Get the current operations job name in the CAM Tree",
+				"value = BcPost.GetValueOfOperation(\"JobName\")",
+				"Bcc.ShowMessageBox(\"Job Name: \"..value, {Title=\"Job Name\"})"				
+			],
+			"description": "BobCAD Post Lua API: This function is utilized get operation data such as the names, types, and custom posting information. Parameters: paramName – this function has a fixed set of parameter strings that you can pass to get different information related to the machining operation that is currently posting. See BobCAD Lua Help System to see the list of possible inputs for paramName Return: The value of the requested piece of operation data."
+		},
+		"Get Val Op Ex3 (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.GetValueOfOperation (Ex 3)",
+			"body": [
+				"-- Get the current operations feature name in the CAM Tree",
+				"value = BcPost.GetValueOfOperation(\"FeatureName\")",
+				"Bcc.ShowMessageBox(\"Feature Name: \"..value, {Title=\"Feature Name\"})"						  
+			],
+			"description": "BobCAD Post Lua API: This function is utilized get operation data such as the names, types, and custom posting information. Parameters: paramName – this function has a fixed set of parameter strings that you can pass to get different information related to the machining operation that is currently posting. See BobCAD Lua Help System to see the list of possible inputs for paramName Return: The value of the requested piece of operation data."
+		},
+		"Get Val Op Ex4 (BobCAD / Lua)": {
+			"scope": "bcpst, lua",
+			"prefix": "BcPost.GetValueOfOperation (Ex 4)",
+			"body": [
+				"-- Get the current operations name in the CAM Tree",
+				"value = BcPost.GetValueOfOperation(\"OperationName\")",
+				"Bcc.ShowMessageBox(\"Operation Name: \"..value, {Title=\"Operation Name\"})"							
+			],
+			"description": "BobCAD Post Lua API: This function is utilized get operation data such as the names, types, and custom posting information. Parameters: paramName – this function has a fixed set of parameter strings that you can pass to get different information related to the machining operation that is currently posting. See BobCAD Lua Help System to see the list of possible inputs for paramName Return: The value of the requested piece of operation data."
+		},
 }
