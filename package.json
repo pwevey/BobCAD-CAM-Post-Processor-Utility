@@ -38,14 +38,6 @@
         "title": "BobCAD Post Utility: Refresh Post Blocks Tree"
       },
       {
-        "command": "postBlocks.collapseAll",
-        "title": "BobCAD Post Utility: Collapse Tree Items"
-      },
-      {
-        "command": "postBlocks.expandAll",
-        "title": "BobCAD Post Utility: Expand Tree Items"
-      },
-      {
         "command": "postBlocks.navigateToLineFromPalette",
         "title": "BobCAD Post Utility: Go to Post Block"
       },
