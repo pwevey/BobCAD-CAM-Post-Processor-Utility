@@ -25,6 +25,18 @@ CLICK TO WATCH!
 > Tip: Watch the demo video closely to understand the extension's features and operations. Don't hesitate to pause and replay sections for clarity. This will help you maximize the utility of the BobCAD-CAM Post Processor.
 
 
+## About
+
+BobCAD-CAM&trade; Post Processor Utility for VSCode 2024.
+
+Since 1985, BobCAD-CAM has been developing powerful 💪 , easy-to-use 🍰 , and affordable 💲 CAD-CAM software.
+
+We offer CNC programming solutions for Mill, Mill Turn, Lathe, Router, Waterjet, Plasma, Laser, and Wire EDM machines.
+
+BobCAD-CAM integrates CAD and CAM functionality in a single interface. This gives a seamless transition from the design process to toolpath programming, simulation and g-code processing. From aerospace engineers to home shop machinists, BobCAD-CAM helps everyone design and manufacture precision parts, regardless of experience.
+
+Privacy Policy: https://bobcad.com/privacy/
+
 
 ## Release Notes
 
