@@ -332,4 +332,77 @@
 			],
 			"description": "BobCAD Lua API: Displays a message box to the user. Go to BobCAD Lua API Help System to learn more. (CTRL+SHIFT+P > BobCAD Post Utility: Open Lua API Help System)"
 		},
+		"Full Lua Block (BobCAD / Lua)": {
+			  "scope": "bcpst, lua",
+			  "prefix": "lua block full example",
+			  "body": [
+				"-- This scripting block is called from the 1021 feed move block in order to check",
+				"-- if the cut off is at the final position of the cut off so that a dwell can",
+				"-- be output from the Advanced Posting page",
+				"",
+				"-- Simple rounding function",
+				"function round(num, numDecimalPlaces)",
+				"  local mult = 10^(numDecimalPlaces or 0)",
+				"  return math.floor(num * mult + 0.5) / mult",
+				"end",
+				"",
+				"-- Make sure the current operation is the cut off operation",
+				"if (BcPost.GetValueOfOperation(\"Type\") == 1012) then",
+				"  -- Get the current operations ID so we can get its parameters",
+				"  local opID = BcPost.GetValueOfOperation(\"ID\")",
+				"",
+				"  -- Get the cut off X value from the operation",
+				"  local ret = Bcc.GetCamObjParameters(opID, {{\"Parameters\", \"cutoff_x\"}})",
+				"",
+				"  -- Round the values to 4 decimal places so I can compare if they are the same",
+				"  curX = round(BcPost.GetValueOfPostVariable(\"x_f\"), 4)",
+				"  cutX = round(ret.Parameters.cutoff_x, 4)",
+				"",
+				"  -- Check to see if this feed move is at the final cut off x position",
+				"  if (curX == cutX) then",
+				"    -- Get the advanced posting page checkbox values in a table",
+				"    checkbox = BcPost.GetValueOfOperation(\"UserCheckBoxVariables\")",
+				"",
+				"    -- Get the double values from the adv posting page",
+				"    editValue = BcPost.GetValueOfOperation(\"UserEditRealVariables\")",
+				"",
+				"    -- Get the state of the dwell checkbox",
+				"    if checkbox[2] == 1 then",
+				"      -- Output the dwell if the checkbox is selected",
+				"      BcPost.ProcessPostLine(\"n,gdwell, 'T'\"..round(editValue[3], 4))",
+				"    end",
+				"  end",
+				"end"
+			  ],
+			  "description": "BobCAD Lua API: This shows an example of how a lua block in the post processsor is setup. (This should be inside Post Blocks: 2701 - 2799). To call these blocks in the post processor, use lua_block_# (eg. if in block 2701, use lua_block_1 in a normal post block). In this example, you would place lua_block_1 at the bottom of post block 1021. Feed Move in a Lathe Post Proccessor."
+			},
+			"Hello World (plugin) (BobCAD / Lua)": {
+				"scope": "bcpst, lua",
+				"prefix": "Hello World BobCAD Plugin",
+				"body": [
+				  "function ConnectToBCC()",
+				  "  -- Add a button the ribbon to fire the Hello World function when pressed",
+				  "  Bcc.AddCommand({ TabName=\"My Lua Plug-ins\", GroupName=\"Basic Examples\", ButtonName=\"Hello World\", CallbackFuncName=\"sayHelloWorld\", ImageNameLarge=\"light.png\", ImageNameSmall=\"light.png\", ToolTip=\"Say hello to the world!\" })",
+				  "end",
+				  "",
+				  "function sayHelloWorld()",
+				  "  -- Display a message box stating Hello World!",
+				  "  Bcc.ShowMessageBox(\"Hello World\")",
+				  "end"
+				],
+				"description": "BobCAD Lua API: This snippet creates a 'Hello World' plugin for BCC. It adds a button to the ribbon that, when pressed, displays a 'Hello World' message box."
+			  },
+			  "Hello World (post) (BobCAD / Lua)": {
+				"scope": "bcpst, lua",
+				"prefix": "Hello World (post)",
+				"body": [
+				  "function sayHelloWorld()",
+				  "  -- Display a message box stating Hello World!",
+				  "  Bcc.ShowMessageBox(\"Hello World\")",
+				  "end",
+				  "",
+				  "sayHelloWorld()"
+				],
+				"description": "BobCAD Post Lua API: This is how you can structure a simple 'Hello World' message box in a BobCAD post processor. Places in post blocks 2701 - 2799. To call these blocks in the post processor, use lua_block_# (eg. if in block 2701, use lua_block_1 in a normal post block)."
+			  },
 }
