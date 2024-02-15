@@ -15,6 +15,18 @@ function activate(context) {
   postBlockDataProvider = new PostBlockDataProvider();
 
 
+  // Go To Definition Provider for Lua program blocks
+  const goToLuaDefinitionProvider = vscode.languages.registerDefinitionProvider(['bcpst', 'source.bcpst'], { provideDefinition: provideLuaDefinition });
+
+  context.subscriptions.push(goToLuaDefinitionProvider);
+
+
+  // Go To Definition Provider for VBScript program blocks
+  const goToDefinitionProvider = vscode.languages.registerDefinitionProvider(['bcpst', 'source.bcpst'], { provideDefinition });
+
+  context.subscriptions.push(goToDefinitionProvider);
+
+
   // Update the openLuaAPIsCommand
   const openLuaAPIsCommand = vscode.commands.registerCommand('postBlocks.openLuaAPIs', () => {
     const luaAPIsUrl = vscode.workspace.getConfiguration().get('postBlocks.luaAPIsUrl');
@@ -364,6 +376,54 @@ function autoIndent() {
       editBuilder.replace(fullRange, formattedText);
     });
   }
+}
+
+
+function provideDefinition(document, position, token) {
+  const range = document.getWordRangeAtPosition(position);
+  const word = document.getText(range);
+
+  // Check if the word matches the pattern "program_block_#"
+  const match = word.match(/^program_block_(\d+)$/);
+  if (match) {
+    const blockNumber = parseInt(match[1]);
+
+    // Find the line that starts with "200#"
+    for (let i = 0; i < document.lineCount; i++) {
+      const line = document.lineAt(i);
+      if (line.text.startsWith(`200${blockNumber}`)) {
+        // Return the position of the line as the definition
+        return new vscode.Location(document.uri, line.range.start);
+      }
+    }
+  }
+
+  // If no definition was found, return null
+  return null;
+}
+
+
+function provideLuaDefinition(document, position, token) {
+  const range = document.getWordRangeAtPosition(position);
+  const word = document.getText(range);
+
+  // Check if the word matches the pattern "lua_block_#"
+  const match = word.match(/^lua_block_(\d+)$/);
+  if (match) {
+    const blockNumber = parseInt(match[1]);
+
+    // Find the line that starts with "270#"
+    for (let i = 0; i < document.lineCount; i++) {
+      const line = document.lineAt(i);
+      if (line.text.startsWith(`270${blockNumber}`)) {
+        // Return the position of the line as the definition
+        return new vscode.Location(document.uri, line.range.start);
+      }
+    }
+  }
+
+  // If no definition was found, return null
+  return null;
 }
 
 
