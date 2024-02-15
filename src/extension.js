@@ -348,9 +348,9 @@ function autoIndent() {
       if (!line.match(/^\d|^\s|^\/\//) && postBlockStarted && !inLuaOrVBScriptBlock) {
         formattedText += '\t' + line + '\n'; // 1 tab for indentation
       } else {
-        // If the line is indented more than once, unindent it
+        // If the line is indented more than once, unindent it to one tab
         if (line.startsWith('\t\t') && !inLuaOrVBScriptBlock) { // 2 tabs for double indentation
-          formattedText += line.slice(1) + '\n'; // Remove 1 tab
+          formattedText += line.replace(/^\t+/, '\t') + '\n'; // Replace all leading tabs with one tab
         } else {
           formattedText += line + '\n';
         }
