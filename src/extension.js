@@ -238,11 +238,29 @@ function activate(context) {
   });
   context.subscriptions.push(navigateToLineFromPaletteCommand);
 
-
-  postBlockTreeView = vscode.window.createTreeView('postBlocks', { treeDataProvider: postBlockDataProvider });
-  // console.log('Post Blocks Tree View created.');
   
-  context.subscriptions.push(postBlockTreeView);
+
+  // Check if a supported file is open when the extension is activated
+  const activeEditor = vscode.window.activeTextEditor;
+  if (activeEditor) {
+    const fileExtension = activeEditor.document.fileName.split('.').pop().toLowerCase();
+    if (['bcpst', 'edmpst', 'lathepst', 'millpst'].includes(fileExtension) && !postBlockTreeView) {
+      postBlockTreeView = vscode.window.createTreeView('postBlocks', { treeDataProvider: postBlockDataProvider });
+      context.subscriptions.push(postBlockTreeView);
+    }
+  }
+
+  // Listen for changes to the active editor
+  vscode.window.onDidChangeActiveTextEditor(editor => {
+    if (editor && !postBlockTreeView) {
+      const fileExtension = editor.document.fileName.split('.').pop().toLowerCase();
+      if (['bcpst', 'edmpst', 'lathepst', 'millpst'].includes(fileExtension)) {
+        postBlockTreeView = vscode.window.createTreeView('postBlocks', { treeDataProvider: postBlockDataProvider });
+        context.subscriptions.push(postBlockTreeView);
+      }
+    }
+  });
+
 
   const collapseAllCommand = vscode.commands.registerCommand('postBlocks.collapseAll', () => {
     postBlockDataProvider.collapseAll();
@@ -287,27 +305,30 @@ function findInsertPosition(document) {
 
 // Function to append multiple revision log entries to the file with a date line
 async function appendRevisionLogs(entries) {
-  const editor = vscode.window.activeTextEditor;
-  if (editor) {
-    const document = editor.document;
-
-    // Find the position to insert the revision log entries
-    const insertPosition = findInsertPosition(document);
-
-    // Get the current date
-    const currentDate = new Date().toLocaleDateString();
-
-    // Create the new text with date and all entries
-    const newText = `//-- ${currentDate}\n${entries.map(entry => `${entry}`).join('\n')}//--\n`;
-
-    // Apply the edit
-    const workspaceEdit = new vscode.WorkspaceEdit();
-    workspaceEdit.insert(document.uri, insertPosition, newText);
-    await vscode.workspace.applyEdit(workspaceEdit);
-
-    // Save the document
-    await document.save();
+  if (!vscode.window.activeTextEditor) {
+    vscode.window.showErrorMessage('No active editor!');
+    return;
   }
+
+  const editor = vscode.window.activeTextEditor;
+  const document = editor.document;
+
+  // Find the position to insert the revision log entries
+  const insertPosition = findInsertPosition(document);
+
+  // Get the current date
+  const currentDate = new Date().toLocaleDateString();
+
+  // Create the new text with date and all entries
+  const newText = `//-- ${currentDate}\n${entries.map(entry => `${entry}`).join('\n')}//--\n`;
+
+  // Apply the edit
+  const workspaceEdit = new vscode.WorkspaceEdit();
+  workspaceEdit.insert(document.uri, insertPosition, newText);
+  await vscode.workspace.applyEdit(workspaceEdit);
+
+  // Save the document
+  await document.save();
 }
 
 
