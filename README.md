@@ -5,13 +5,13 @@ Welcome to the BobCAD-CAM Post Processor Utility, your ultimate tool for streaml
 
 ## Features
 
-* Syntax Highlighting for all BobCAD-CAM Post Processors File Extensions
+* Syntax Highlighting for all BobCAD-CAM Post Processor File Extensions
 * AutoCompletion and Code Snippets
 * Formatter (SHIFT + ALT + F)
 * Post Blocks Tree Viewer (For easy Post Block navigation)
 * Shortcut for debug_on/off (CTRL + ALT + D)
 * Append Revision Log Command
-* Go to Program Block (CTRL + Click on porgam_block_# or lua_block_#)
+* Go to Program Block (CTRL + Click on program_block_# or lua_block_#)
 * Open Help Systems Directly in VSCode
 * Post Block Information on Hover
 * Go to Post Block Command
