@@ -3,7 +3,7 @@
 	"name": "BobCAD-CAM Post Processor",
 	"patterns": [
 		{
-			"match": "^\\*\\*\\*\\*Version Number MONTH DAY YEAR\\*\\*\\*\\*",
+			"match": "^[*]{4}[Vv][Ee][Rr][Ss][Ii][Oo][Nn] [Nn][Uu][Mm][Bb][Ee][Rr] [Mm][Oo][Nn][Tt][Hh] [Dd][Aa][Yy] [Yy][Ee][Aa][Rr][*]{4}",
 			"name": "meta.version.bcpst"
 		},
 		{
