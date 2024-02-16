@@ -137,7 +137,7 @@
 		"vbscriptblocks": {
             "patterns": [
                 {
-                    "begin": "\\b(200[1-9]|20[1-9][0-9]|210[0-3])\\.(\\s*Program\\s*Block\\s*\\d+\\.\\s*|\\s*Read\\s*Entire\\s*File\\s*After\\s*Posting\\.\\s*|\\s*Read\\s*each\\s*Line\\s*on\\s*Output\\.\\s*|\\s*VB\\s*Script\\s*Line\\s*by\\s*Line\\.\\s*)",
+                    "begin": "\\b(200[1-9]|20[1-9][0-9]|210[0-3])\\.(\\s*Program\\s*Block\\s*\\d+\\.?\\s*|\\s*Read\\s*Entire\\s*File\\s*After\\s*Posting\\.\\s*|\\s*Read\\s*each\\s*Line\\s*on\\s*Output\\.\\s*|\\s*VB\\s*Script\\s*Line\\s*by\\s*Line\\.\\s*)",
                     "end": "(?m)(?=^\\b\\d+\\.)",
                     "contentName": "source.asp.vb.net",
                     "patterns": [
