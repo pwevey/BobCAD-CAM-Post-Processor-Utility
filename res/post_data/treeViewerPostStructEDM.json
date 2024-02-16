@@ -1,0 +1,43 @@
+{
+    "root": {
+        "Debug Block": [22],
+        "Program Blocks": {
+            "VBScript Blocks": ["2001 - 2102", 2103]
+        },
+        "Start Blocks": {
+            "General": [1000, 0, 1, 2],
+            "Start Of": ["31 - 41", 80, 81, 93, 97, 101]
+        },
+        "Tool Change / Position Move / End of Op Blocks": {
+            "Tool Change": [3, 4],
+            "Position Move": ["27 - 30"],
+            "End Of": [71, 72, 90, 95, 96, 112, 24]
+        },
+        "End of Program Blocks": [5, 17, 190, 199, 75],
+        "Move Blocks": {
+            "Line Move": ["42 - 57", 11, 77, 78, 73, 74, 98],
+            "Arc Move": ["58 - 70"],
+            "4axis Move": ["102 - 110"]
+        },
+        "Wire EDM Configuration Blocks": {
+            "Thread / Cut Blocks": [12, 13, 10],
+            "Cutting Conditions": [19, 21],
+            "Taper / Land Blocks": [18, 20],
+            "Sub-Program Blocks": ["7 - 9", 92, 80, 89, 100, 111, 136, 137, 191, 192, 193],
+            "4axis Config Blocks": ["82 - 88", 94, 91],
+            "Quality Blocks": ["121 - 128", 155, 156],
+            "Command Blocks": ["129 - 149"],
+            "Other Blocks": [6, "14 - 16", 23, 25, 26, 76, 120, 150, 160, 194]
+        },
+        "EDM Machine Specific" : {
+            "Ona": [113],
+            "SBR Files": [170]
+        },
+        "Post Questions": ["200 - 225", 262, "270 - 275", "311 - 316", "414 - 433", "511 - 539"],
+        "Prefix Blocks": {
+            "General Prefix Blocks": ["605 - 687"],
+            "Work Offset Blocks": ["900 - 999"]
+        }
+  }
+}
+  

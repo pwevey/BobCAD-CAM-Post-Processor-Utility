@@ -77,18 +77,25 @@ class PostBlockDataProvider {
     return null;
   }
 
-  // Load treeViewerPostStruct.json file
+  // Load treeViewerPostStruct.json or treeViewerPostStructEDM.json file based on the file extension
   loadPostBlocksData() {
     const extensionPath = vscode.extensions.getExtension('BobCAD-CAM.bobcad-post').extensionPath;
-    const jsonFilePath = path.join(extensionPath, 'res', 'post_data', 'treeViewerPostStruct.json');
+    const activeEditor = vscode.window.activeTextEditor;
 
-    try {
-      const data = fs.readFileSync(jsonFilePath, 'utf-8');
-      return JSON.parse(data);
-    } catch (error) {
-      console.error('Error loading treeViewerPostStruct.json:', error.message);
-      return {};
+    if (activeEditor) {
+      const fileExtension = activeEditor.document.fileName.split('.').pop().toLowerCase();
+      const jsonFileName = fileExtension === 'edmpst' ? 'treeViewerPostStructEDM.json' : 'treeViewerPostStruct.json';
+      const jsonFilePath = path.join(extensionPath, 'res', 'post_data', jsonFileName);
+
+      try {
+        const data = fs.readFileSync(jsonFilePath, 'utf-8');
+        return JSON.parse(data);
+      } catch (error) {
+        console.error(`Error loading ${jsonFileName}:`, error.message);
+      }
     }
+
+    return {};
   }
 
 
@@ -139,6 +146,7 @@ class PostBlockDataProvider {
 
   // Trigger a manual refresh of the tree view
   manualRefresh() {
+    this.postBlocksData = this.loadPostBlocksData(); // Load Wire EDM or Milling treeViewerPostStruct.json
     this._onDidChangeTreeData.fire();
     // Create a new "Go to Bottom" item based on the current active text editor
     this.goToBottomItem = this.createGoToBottomItem();
