@@ -4,6 +4,14 @@ const fs = require('fs');
 
 class BcpstCompletionProvider {
   provideCompletionItems(document, position, token, context) {
+    // Get the current file extension
+    const fileExtension = path.extname(document.fileName).toLowerCase();
+    const allowedExtensions = ['.bcpst', '.millpst', '.lathepst'];
+  
+    if (!allowedExtensions.includes(fileExtension)) {
+      return [];
+    }
+
     const currentLine = document.lineAt(position.line).text;
     const currentLineBeforeCaret = currentLine.substr(0, position.character);
   
@@ -23,7 +31,8 @@ class BcpstCompletionProvider {
       return this.findPostVariableSuggestions('');
     }
   
-    const suggestions = this.findPostVariableSuggestions(prefix);
+    // Pass the document object to the findPostVariableSuggestions method
+    const suggestions = this.findPostVariableSuggestions(prefix, false, document);
   
     if (suggestions.length > 0) {
       return suggestions;
@@ -74,7 +83,15 @@ class BcpstCompletionProvider {
     return item;
   }
 
-  findPostVariableSuggestions(prefix, isInsideSnippet) {
+  findPostVariableSuggestions(prefix, isInsideSnippet, document) {
+    // Get the current file extension
+    const fileExtension = path.extname(document.fileName).toLowerCase();
+    const allowedExtensions = ['.bcpst', '.millpst', '.lathepst'];
+  
+    if (!allowedExtensions.includes(fileExtension)) {
+      return [];
+    }
+
     const jsonFilePath = path.join(__dirname, '..', 'res', 'post_data', 'postVariables.json');
 
     try {
