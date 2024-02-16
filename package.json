@@ -239,7 +239,7 @@
       "path": "./res/codeData/bobcadLuaVBscript.code-snippets"
     },
     {
-      "language": "vbs",
+      "language": "vb",
       "path": "./res/codeData/bobcadLuaVBscript.code-snippets"
     },
     {
@@ -251,7 +251,7 @@
       "path": "./res/codeData/bobcadSpecific.code-snippets"
     },
     {
-      "language": "vbs",
+      "language": "vb",
       "path": "./res/codeData/bobcadSpecific.code-snippets"
     },
     {
@@ -263,6 +263,6 @@
   "activationEvents": [
     "onLanguage:bcpst",
     "onLanguage:lua",
-    "onLanguage:vbs"
+    "onLanguage:vb"
   ]
 }
