@@ -6710,7 +6710,7 @@
       "bobcadAPIs": []
     },
     {
-      "postVariableName": "mdi_BeforeToolChange",
+      "postVariableName": "MDI_BeforeToolChange",
       "jobTypes": [
         "Mill Turn Job"
       ],
@@ -6718,7 +6718,7 @@
       "bobcadAPIs": []
     },
     {
-      "postVariableName": "mdi_WithToolChange",
+      "postVariableName": "MDI_AfterToolChange",
       "jobTypes": [
         "Mill Turn Job"
       ],
@@ -6726,7 +6726,7 @@
       "bobcadAPIs": []
     },
     {
-      "postVariableName": "mdi_AfterOperation",
+      "postVariableName": "MDI_AfterOperation",
       "jobTypes": [
         "Mill Turn Job"
       ],
