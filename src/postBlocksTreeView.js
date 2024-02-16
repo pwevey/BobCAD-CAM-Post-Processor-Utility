@@ -200,8 +200,13 @@ class PostBlockDataProvider {
     const postBlocks = [];
     const lineNumberMap = {};
 
-    // Load deprecated post blocks from file
-    const deprecatedPostBlocks = this.loadDeprecatedPostBlocks();
+    // Check file extension
+    const fileExtension = document.fileName.split('.').pop().toLowerCase();
+    let deprecatedPostBlocks = [];
+    if (fileExtension !== 'edmpst') {
+      // Load deprecated post blocks from file
+      deprecatedPostBlocks = this.loadDeprecatedPostBlocks();
+    }
 
     for (let index = 0; index < document.lineCount; index++) {
       const lineNumber = index + 1;
