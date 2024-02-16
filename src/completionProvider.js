@@ -11,7 +11,7 @@ class BcpstCompletionProvider {
     if (!allowedExtensions.includes(fileExtension)) {
       return [];
     }
-
+  
     const currentLine = document.lineAt(position.line).text;
     const currentLineBeforeCaret = currentLine.substr(0, position.character);
   
@@ -27,8 +27,8 @@ class BcpstCompletionProvider {
     }
   
     // Check if the caret is on a blank line
-    if (position.line === 0 || document.lineAt(position.line - 1).isEmptyOrWhitespace) {
-      return this.findPostVariableSuggestions('');
+    if (currentLine.trim() === '') {
+      return this.findPostVariableSuggestions('', false, document);
     }
   
     // Pass the document object to the findPostVariableSuggestions method
