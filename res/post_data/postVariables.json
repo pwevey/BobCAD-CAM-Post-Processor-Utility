@@ -6730,31 +6730,7 @@
       "jobTypes": [
         "Mill Turn Job"
       ],
-      "description": "This command variable specifies the location where the MDI blocks defined in theAfter Operation task list should be output.",
-      "bobcadAPIs": []
-    },
-    {
-      "postVariableName": "mdi_AfterOperation",
-      "jobTypes": [
-        "Mill Turn Job"
-      ],
-      "description": "A custom double variable that can be used inside of a custom MDI command to output a double value in the NC code. The name of the field that appears in the MDI UI is the \u00e2\u0080\u009cxxxx\u00e2\u0080\u009d which needs to be replaced with a meaningful name.",
-      "bobcadAPIs": []
-    },
-    {
-      "postVariableName": "mdi_AfterOperation",
-      "jobTypes": [
-        "Mill Turn Job"
-      ],
-      "description": "A custom integer variable that can be used inside of a custom MDI command to output an integer value in the NC code. The name of the field that appears in the MDI UI is the \u00e2\u0080\u009cxxxx\u00e2\u0080\u009d which needs to be replaced with a meaningful name.",
-      "bobcadAPIs": []
-    },
-    {
-      "postVariableName": "mdi_AfterOperation",
-      "jobTypes": [
-        "Mill Turn Job"
-      ],
-      "description": "A custom string variable that can be used inside of a custom MDI command to output a string in the NC code. The name of the field that appears in the MDI UI is the \u00e2\u0080\u009cxxxx\u00e2\u0080\u009d which needs to be replaced with a meaningful name.",
+      "description": "This command variable specifies the location where the MDI blocks defined in the After Operation task list should be output.",
       "bobcadAPIs": []
     },
     {

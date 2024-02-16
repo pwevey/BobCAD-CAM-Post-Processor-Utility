@@ -107,7 +107,51 @@
 			  "//---------------------------------------------------------------------"
 			],
 			"description": "Post Processor Format: This snippet inserts a standard header comment at the top of the file for a BobCAD-CAM post processor."
-		  }
+		  },
+		// BobCAD Post Variable / Post Block Snippets
+		"custom MDI 1 (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "MDI Custom Commands (optional_stop)",
+			"body": [
+				"26${1:00}. ${2:Optional Stop}",
+				"	${3:optional_stop}"
+			],
+			"description": "Custom MDI Commands: Create a new post block called 2600. Optional Stop. Then, place optional_stop underneath it. In the softwware, on the \"MDI\" page of a feature, expand \"Custom Commands\" and you will now see a new command called, \"Optional Stop\"."
+		},
+		"MDI generic (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "MDI Custom Command (generic)",
+			"body": [
+				"26${1:00}. ${2:Name of Custom Command}",
+				"	${3:post_variables_here}",
+				"	n,${4:more_post_variables_here}"
+			],
+			"description": "Custom MDI Commands: This is a basic setup of a custom MDI command in a post processor. Custom MDIs are setup in post blocks 2600. - 2699. In the softwware, on the \"MDI\" page of a feature, expand \"Custom Commands\" and you will now see a new command called, \"Name of Custom Command\"."
+		},
+		"mdi_custom_int (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "mdi_custom_int",
+			"body": [
+				"mdi_custom_int_${1:customVariableName}"
+			],
+			"description": "Custom MDI Commands: mdi_custom_int allows you to define a custom integer number when on the \"MDI\" page in the software. Custom MDIs are setup in post blocks 2600. - 2699. In the softwware, on the \"MDI\" page of a feature, expand \"Custom Commands\" and you will now see a new command called, \"Name of Custom Command\"."
+		},
+		"mdi_custom_double (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "mdi_custom_double",
+			"body": [
+				"mdi_custom_double_${1:customVariableName}"
+			],
+			"description": "Custom MDI Commands: mdi_custom_double allows you to define a custom decimal (double) number when on the \"MDI\" page in the software. Custom MDIs are setup in post blocks 2600. - 2699. In the softwware, on the \"MDI\" page of a feature, expand \"Custom Commands\" and you will now see a new command called, \"Name of Custom Command\"."
+		},
+		"mdi_custom_string (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "mdi_custom_string",
+			"body": [
+				"mdi_custom_string_${1:customVariableName}"
+			],
+			"description": "Custom MDI Commands: mdi_custom_string allows you to define a custom text (string) when on the \"MDI\" page in the software. Custom MDIs are setup in post blocks 2600. - 2699. In the softwware, on the \"MDI\" page of a feature, expand \"Custom Commands\" and you will now see a new command called, \"Name of Custom Command\"."
+		},
 		// Formatting Post Variable Output
 		"Format 1 (BobCAD)": {
 			"scope": "bcpst",

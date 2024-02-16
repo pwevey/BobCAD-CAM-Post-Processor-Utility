@@ -17,9 +17,6 @@
     "Programming Languages",
     "Other"
   ],
-  "activationEvents": [
-    "onLanguage:bcpst"
-  ],
   "extensionKind": [
     "ui"
   ],
