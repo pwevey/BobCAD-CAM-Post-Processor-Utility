@@ -338,6 +338,7 @@ class PostBlockDataProvider {
         'Debug Block',
         'Start Blocks',
         'Tool Change / End of Op Blocks',
+        'Tool Change / Position Move / End of Op Blocks',
         'End of Program Blocks',
         'Program Blocks'
       ];
