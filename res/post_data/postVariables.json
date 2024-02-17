@@ -6722,7 +6722,7 @@
       "jobTypes": [
         "Mill Turn Job"
       ],
-      "description": "This command variable specifies the location where the MDI blocks defined in theWith Tool Change task list should be output.",
+      "description": "This command variable specifies the location where the MDI blocks defined in the After Tool Change task list should be output.",
       "bobcadAPIs": []
     },
     {
