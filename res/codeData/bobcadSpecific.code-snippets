@@ -288,7 +288,7 @@
 				"\tn,macro_call,probe_angled_surf,x_pos,probe_dist,probe_angle,z_pos,probe_angle_tol,probe_overtravel,probe_print",
 				"",
 				"4032. Angle Measure in Y",
-				"\tn,macro_call,probe_angled_surf,y_pos,probe_dist,probe_angle,z_pos,probe_angle_tol,probe_overtravel,probe_print"
+				"\tn,macro_call,probe_angled_surf,y_pos,probe_dist,probe_angle,z_pos,probe_angle_tol,probe_overtravel,probe_print",
 				"",
 				"//*******************************",
 				"//* CONTACT TOOL SETTER BLOCKS  *",
@@ -316,7 +316,7 @@
 				"\tn,macro_call,probe_cts_manual_diam,probe_cts_tool_diameter,probe_cts_offset_typeA,probe_cts_tool_offset,probe_cts_z_measure,probe_cts_overtravel,probe_cts_broken",
 				"",
 				"4107. CTS Thermal Compensation",
-				"\tn,macro_call,probe_cts_thermal_comp,probe_cts_thermal_type,probe_cts_tool_diameter,probe_cts_thermal_x_storage,probe_cts_thermal_y_storage,probe_cts_thermal_z_storage,probe_cts_tool_tol,probe_cts_broken,probe_cts_tool_offset,probe_cts_thermal_measure"
+				"\tn,macro_call,probe_cts_thermal_comp,probe_cts_thermal_type,probe_cts_tool_diameter,probe_cts_thermal_x_storage,probe_cts_thermal_y_storage,probe_cts_thermal_z_storage,probe_cts_tool_tol,probe_cts_broken,probe_cts_tool_offset,probe_cts_thermal_measure",
 				"",
 				"//***********************************",
 				"//* NON CONTACT TOOL SETTER BLOCKS  *",
@@ -356,7 +356,7 @@
 				"\tn,macro_call,probe_nts_thermal_radial,probe_nts_tool_type,probe_nts_work_offset,probe_nts_tool_diameter,probe_nts_overtravel,probe_nts_spindle_speed",
 				"",
 				"4161. NTS Corner radius measurement",
-				"\tn,macro_call,probe_nts_corner_measure,probe_nts_tool_type,probe_nts_corner_rad,probe_nts_diam_offset,probe_nts_num_touch,probe_nts_measure_z,probe_nts_diam_exper,probe_nts_broken,probe_nts_overtravel,probe_nts_tool_diameter,probe_nts_spindle_speed,probe_nts_tool_offset,probe_nts_diam_tol,probe_nts_radial_option"
+				"\tn,macro_call,probe_nts_corner_measure,probe_nts_tool_type,probe_nts_corner_rad,probe_nts_diam_offset,probe_nts_num_touch,probe_nts_measure_z,probe_nts_diam_exper,probe_nts_broken,probe_nts_overtravel,probe_nts_tool_diameter,probe_nts_spindle_speed,probe_nts_tool_offset,probe_nts_diam_tol,probe_nts_radial_option",
 				"",
 				"//************************************",
 				"//* PROBING CYCLE AND PREFIX STRINGS *",
@@ -394,7 +394,7 @@
 				"4229. Probe update statistical process control (SPC) (undefined)? \"P9835\"",
 				"4230. Probe storing multi-stylus data (undefined)? \"NOT AVAILABLE\"",
 				"4231. Probe loading multi-stylus data (undefined)? \"NOT AVAILABLE\"",
-				"4232. Probe optimizing probe cycle (undefined)? \"NOT AVAILABLE\""
+				"4232. Probe optimizing probe cycle (undefined)? \"NOT AVAILABLE\"",
 				"",
 				"4250. Prefix for x position in probing (x_pos)? \"X\"",
 				"4251. Prefix for y position in probing (y_pos)? \"Y\"",
@@ -435,7 +435,7 @@
 				"4286. Prefix for the null band parameter in probing (probe_null_band)? \"V\"",
 				"4287. Prefix for the print parameter in probing (probe_print)? \"W\"",
 				"4288. Command for opening the print port (probe_print_open)? \"W1.\"",
-				"4289. Command for closing the print port (probe_print_close)? \"W1.\""
+				"4289. Command for closing the print port (probe_print_close)? \"W1.\"",
 				"",
 				"//***********************************************",
 				"//* NON-CONTACT TOOL SETTER CYCLES AND PREFIXES *",
@@ -475,7 +475,7 @@
 				"4567. Prefix for NTS number of cutting edges parameter (probe_nts_num_edges)? \"C\"",
 				"4568. Prefix for NTS feed per rev parameter (probe_nts_feed_rev)? \"F\"",
 				"4569. Prefix for NTS run-out tolerance parameter (probe_nts_runout_tol)? \"K\"",
-				"4570. Prefix for NTS safety plane parameter (probe_nts_safety_z)? \"Z\""
+				"4570. Prefix for NTS safety plane parameter (probe_nts_safety_z)? \"Z\"",
 				"4571. Prefix for NTS start angle for profile checking parameter (probe_nts_start_angle)? \"J\"",
 				"4572. Prefix for NTS end angle for profile checking parameter (probe_nts_end_angle)? \"Q\"",
 				"4573. Prefix for NTS profile checking height parameter (probe_nts_check_height)? \"H\"",
