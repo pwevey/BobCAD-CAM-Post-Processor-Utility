@@ -6,7 +6,8 @@ Welcome to the BobCAD-CAM Post Processor Utility, your ultimate tool for streaml
 ## Features
 
 * Syntax Highlighting for all BobCAD-CAM Post Processor File Extensions
-* AutoCompletion and Code Snippets
+* AutoCompletion (Post Variables and BobCAD APIs)
+* Code Snippets (Over 250+ related to BobCAD-CAM, Lua, and VBScript)
 * Formatter (SHIFT + ALT + F)
 * Post Blocks Tree Viewer (For easy Post Block navigation)
 * Shortcut for debug_on/off (CTRL + ALT + D)
