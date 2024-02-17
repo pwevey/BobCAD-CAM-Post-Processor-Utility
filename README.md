@@ -43,13 +43,14 @@ We offer CNC programming solutions for Mill, Mill Turn, Lathe, Router, Waterjet,
 
 BobCAD-CAM integrates CAD and CAM functionality in a single interface. This gives a seamless transition from the design process to toolpath programming, simulation and g-code processing. From aerospace engineers to home shop machinists, BobCAD-CAM helps everyone design and manufacture precision parts, regardless of experience.
 
+Repository found here: https://github.com/pwevey/BobCAD-CAM-Post-Processor-Utility 
+
 [BobCAD-CAM Offical Website](https://www.bobcad.com/)
 
 [BobCAD-CAM Support Site](https://www.bobcadsupport.com/)
 
 [Privacy Policy](https://bobcad.com/privacy/)
 
-Repository found here: https://github.com/pwevey/BobCAD-CAM-Post-Processor-Utility 
 
 
 ## Release Notes
