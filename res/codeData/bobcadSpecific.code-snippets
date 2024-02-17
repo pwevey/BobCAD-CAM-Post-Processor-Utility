@@ -596,6 +596,34 @@
 			],
 			"description": "Post Processor Format: Use prefix code snippet \"probe 0 - probe 3\" to place all probing blocks in a post processor. You can create a probe null tool change and tool setter null tool change from 3999 and 4999. Use this to output the probe null tool change and tool setter null tool change commands."
 		},
+		"Zone 3 (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "zone 3 (post blocks)",
+			"body": [
+				"// Zone 3",
+				"6050. Zone 3 (T1 - W3) - Shift - First Linear Axis? 0.000",
+				"6051. Zone 3 (T1 - W3) - Shift - Second Linear Axis? 0.000",
+				"6052. Zone 3 (T1 - W3) - Shift - Third Linear Axis ? 0.000",
+				"6053. Zone 3 (T1 - W3) - Shift - First Rotary Axis? 0.000",
+				"6054. Zone 3 (T1 - W3) - Shift - Second Rotary Axis? 0.000",
+				"6055. Zone 3 (T1 - W3) - Scale - First Linear Axis? 1.0",
+				"6056. Zone 3 (T1 - W3) - Scale - Second Linear Axis? 1.0",
+				"6057. Zone 3 (T1 - W3) - Scale - Third Linear Axis ? 1.0",
+				"6058. Zone 3 (T1 - W3) - Scale - First Rotary Axis? 1.0",
+				"6059. Zone 3 (T1 - W3) - Scale - Second Rotary Axis? 1.0",
+				"6060. Zone 3 (T1 - W3) - Prefix for Polar Interpolation C/Y Axis? \"C=\"",
+				"6061. Zone 3 (T1 - W3) - Enable Code? \" (ZONE 3 ENABLE CODE)\"",
+				"6062. Zone 3 (T1 - W3) - Disable Code? \" (ZONE 3 DISABLE CODE)\"",
+				"6063. Zone 3 Arc Definition? 0",
+				"6070. Zone 3 Command Block 1",
+				"6071. Zone 3 Command Block 2",
+				"6072. Zone 3 Command Block 3",
+				"6073. Zone 3 Command Block 4",
+				"6074. Zone 3 Command Block 5",
+				" "
+			],
+			"description": "Post Processor Format: Zone blocks are used for Mill-Turn posts. Zone Blocks that are used to set output options based on combinations of machine axis components being used together. An example of this would be using the Left Chuck/Spindle with the Upper turret. "
+		},
 		"custom MDI 1 (BobCAD)": {
 			"scope": "bcpst",
 			"prefix": "MDI Custom Commands (optional_stop)",
