@@ -19,10 +19,10 @@ class PostBlockTreeItem extends vscode.TreeItem {
 
 // Represents a folder item that can contain post block items
 class PostBlockFolderTreeItem extends PostBlockTreeItem {
-  constructor(label, collapsibleState, children) {
-    super(label, undefined, collapsibleState);
+  constructor(label, collapsibleState, children, command) {
+    super(label, undefined, collapsibleState, 'folder', command);
     this.children = children || [];
-  }onDidChangeTreeData
+  }
 }
 
 // Represents an item to navigate to a specific position in the document
@@ -317,23 +317,23 @@ class PostBlockDataProvider {
   // Map post blocks to their respective folders based on the provided folder structure
   mapPostBlocksToFolders(postBlocks, folderStructure, isTopLevel = true) {
     const mappedFolders = [];
-
+  
     if (isTopLevel) {
       // Insert "Go to Top" as the first item if it's a top-level mapping
       mappedFolders.push(this.goToTopItem, this.goToBottomItem);
       isTopLevel = false;
     }
-
+  
     // Iterate through the provided folder structure
     for (const folderName in folderStructure) {
       const folderContents = folderStructure[folderName];
       const mappedContents = Array.isArray(folderContents)
         ? folderContents.flatMap((blockIdentifier) => this.mapBlockIdentifierToItems(blockIdentifier, postBlocks))
         : this.mapPostBlocksToFolders(postBlocks, folderContents, false);
-
+  
       // Determine the collapsible state for the folder
       let collapsibleState = vscode.TreeItemCollapsibleState.Collapsed;
-
+  
       const defaultOpenFolders = [
         'Debug Block',
         'Start Blocks',
@@ -342,17 +342,30 @@ class PostBlockDataProvider {
         'End of Program Blocks',
         'Program Blocks'
       ];
-
+  
       if (defaultOpenFolders.includes(folderName)) {
         collapsibleState = vscode.TreeItemCollapsibleState.Expanded;
       }
-
+  
       // Add the folder item to the mappedFolders array
       if (mappedContents.length > 0) {
-        mappedFolders.push(new PostBlockFolderTreeItem(folderName, collapsibleState, mappedContents));
+        let firstChild = mappedContents[0];
+        // If the first child is a folder, navigate to its first child instead
+        if (firstChild instanceof PostBlockFolderTreeItem && firstChild.children.length > 0) {
+          firstChild = firstChild.children[0];
+        }
+        let command;
+        if (firstChild instanceof PostBlockTreeItem) {
+          command = {
+            command: 'postBlocks.navigateToLine',
+            title: '',
+            arguments: [firstChild.lineNumber],
+          };
+        }
+        mappedFolders.push(new PostBlockFolderTreeItem(folderName, collapsibleState, mappedContents, command));
       }
     }
-
+  
     return mappedFolders;
   }
 
