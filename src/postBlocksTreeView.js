@@ -351,7 +351,7 @@ class PostBlockDataProvider {
       if (mappedContents.length > 0) {
         let firstChild = mappedContents[0];
         // If the first child is a folder, navigate to its first child instead
-        if (firstChild instanceof PostBlockFolderTreeItem && firstChild.children.length > 0) {
+        while (firstChild instanceof PostBlockFolderTreeItem && firstChild.children.length > 0) {
           firstChild = firstChild.children[0];
         }
         let command;
