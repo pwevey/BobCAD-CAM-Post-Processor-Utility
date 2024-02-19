@@ -1,0 +1,2349 @@
+{
+    "postVariables": [
+        {
+            "postVariableName": "oldvars",
+            "description": "use old position (previous move) variables and misc. variables.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "newvars",
+            "description": "use new position (current move) variables and misc. variables.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "force_x",
+            "description": "force the X value to be output next time even if modal.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "force_y",
+            "description": "force the Y value to be output next time even if modal.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "force_z",
+            "description": "force the Z value to be output next time even if modal.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "force_xl",
+            "description": "force the X value of lower contour of 4 Axis part to be output next time even if modal. force_yl force the Y value of lower contour of 4 Axis part to be output next time even if modal. force_xu force the X value of upper contour of 4 Axis part to be output next time even if modal. force_yu force the Y value of upper contour of 4Axis part to be output next time even if modal. force_u force the U value of upper contour of 4Axis part to be output next time even if modal. force_v force the V value of upper contour of 4Axis part to be output next time even if modal. memo_xmove Memorize the current X movement for use later.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "memo_ymove",
+            "description": "Memorize the current Y movement for use later.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "memo_umove",
+            "description": "Memorize the current U movement for use later.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "memo_vmove",
+            "description": "Memorize the current V movement for use later.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "memorize_rethread_point",
+            "description": "Output code to memorize current location for auto rethread (Sodick). memorize_line_number Memorize sequence number for use later.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "memorized_line_number",
+            "description": "Use memorize sequence number.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "debug_on",
+            "description": "Turns on automatic debug comments in post output.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "debug_off",
+            "description": "Turns off automatic debug comments in post output.",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "exit_if_glue_stop",
+            "description": "Ignore the rest of the current contour if on glue stop. Used for Agie. start_add_block_delete Add block delete to all lines untilstop_add_block_delete is used stop_add_block_delete Stop adding block delete that started from using start_add_block_delete force_no_add_spaces Force no spaces even when default is set to add spaces. default_add_spaces Set add spaces back to condition before force_no_add_spaces was called. out_ctc_variables Output cutting conditions variables. Usually at the beginning of the program. pass_specific Output start of pass block (Rough block for rough cut, 1st skim block for 1st skim -etc).",
+            "variableType": "Commands",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "absolute_coord",
+            "description": "Output code to set coordinates to absolute mode (G90). Code defined in \"G -Codes/Absolute Coord:\".",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "incremental_coord",
+            "description": "Output code to set coordinates to incremental mode (G91). Code defined in -\"G Codes/Incremental Coord:\".",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "absolute_coord_no_code",
+            "description": "Set output mode to absolute, do not output G Code. incremental_coord_no_code Set output mode to incremental do no output G Code.",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "work_coord",
+            "description": "Output work coordinates when it changing work pieces. (G54 etc) Code defined in -\"G Codes/Work offsets\".",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "pattern_work_coord",
+            "description": "Output work coordinates for pattern contours. (G54 etc) Code defined in \"G -Codes/Work offsets\".",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "zero_set_xp_yp",
+            "description": "Output code to set current work coordinate to programmed zero (G92X___Y_ -__). Code defined in \"G Codes/Coord zero set:\".",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "zero_set_xr_yr",
+            "description": "Output code to set current work coordinate to current cycle start point -(G92X___Y___). Code defined in \"G Codes/Coord zero set:\".",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "zero_set",
+            "description": "Output set zero command with out XY values (G92). Code defined in \"G Codes/Coord zero set:\".",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "metric_mode",
+            "description": "Set output mode to metric.",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "inch_mode",
+            "description": "Set output mode to inch.",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "metric_mode_no_code",
+            "description": "Set output mode to metric without G code.",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "inch_mode_no_code",
+            "description": "Set output mode to inch without G code.",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "ref_plane",
+            "description": "Output reference plane value with prefix (Charmille). Prefix defined in -\"Prefixes/Reference plane\".",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "part_height",
+            "description": "Output workpiece height with prefix. Prefix defined in \"Prefixes/Part height\". machining_mode Output code for machining mode (no taper, taper, 4axis)",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "work_plane_height",
+            "description": "Output work plane height. Determined by feature settings (Primary shape or -Stock height, and use of land and taper).",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "incr_taper_height",
+            "description": "Output incremental taper height from land, or primary feature shape. taper_height Output taper height.",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "two_axis_with_taper_start",
+            "description": "Output code for two axis taper start.",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "two_axis_with_taper_end",
+            "description": "Output code for two axis taper end.",
+            "variableType": "Part Setup",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "xr",
+            "description": "Output rapid position x with prefix (X1.25) (X prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "yr",
+            "description": "Output rapid position y with prefix (Y1.25) (Y prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "x_ur",
+            "description": "Output upper guide rapid position x with prefix from post question 606.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "y_ur",
+            "description": "Output upper guide rapid position x with prefix from post question 607.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "xr_no_output",
+            "description": "X rapid value to previous move without outputing code.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "yr_no_output",
+            "description": "Y rapid value to previous move without outputing code.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "xr_upper",
+            "description": "Output rapid position x upper guide with prefix (X1.25) (X prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "yr_upper",
+            "description": "Output rapid position y upper guide with prefix (Y1.25) (Y prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "zr_upper",
+            "description": "Output rapid position z upper guide with prefix (Z1.25) (Z prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "xr_lower",
+            "description": "Output rapid position x lower guide with prefix (X1.25) (X prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "yr_lower",
+            "description": "Output rapid position y lower guide with prefix (Y1.25) (Y prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "zr_lower",
+            "description": "Output rapid position z lower guide with prefix (Z1.25) (Z prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "xh",
+            "description": "Output home position x with prefix (X1.25) (X prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "yh",
+            "description": "Output home position y with prefix (Y1.25) (Y prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "xp",
+            "description": "Output programmed zero x (X___). (X prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "yp",
+            "description": "Output programmed zero y (Y___). (Y prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "prev_x",
+            "description": "Output previous x (X___). (X prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "prev_y",
+            "description": "Output previous y (Y___). (X prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "z_position_up",
+            "description": "Output code for programmable z position up.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "z_position_down",
+            "description": "Output code for programmable z position down.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "x_f",
+            "description": "Output code for x feed value with prefix. (X prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "y_f",
+            "description": "Output code for y feed value with prefix. (Y prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "u_f",
+            "description": "Output code for u feed value with prefix. (U prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "v_f",
+            "description": "Output code for v feed value with prefix. (V prefix hard coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "u_f_incremental",
+            "description": "Output code for incremental u feed value with prefix. (U prefix hard coded). v_f_incremental Output code for incremental v feed value with prefix. (U prefix hard coded). u_f_incr_change Output code for change in incremental u feed value with prefix. (U prefix hard -coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "v_f_incr_change",
+            "description": "Output code for change in incremental v feed value with prefix. (V prefix hard -coded).",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "u_f_angle_perpend",
+            "description": "Output code for change in angle perpendicular to xy move (Pos angle to -right)",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "v_f_angle_parallel",
+            "description": "Output code for change in angle parallel to xy move (Pos angle forward)",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "x_lf",
+            "description": "Output x value with prefix for lower shape in 4 Axis entity to entity programming.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "y_lf",
+            "description": "Output y value with prefix for lower shape in 4 Axis entity to entity programming.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "x_uf",
+            "description": "Output x value with prefix for upper shape in 4 Axis entity to entity programming.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "y_uf",
+            "description": "Output y value with prefix for upper shape in 4 Axis entity to entity programming. thread_point_x Output x value with prefix for thread point.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "thread_point_y",
+            "description": "Output y value with prefix for thread point.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "x_start_hole_rapid",
+            "description": "Output x value with prefix for rapid feed to edge ofstart hole. y_start_hole_rapid Output y value with prefix for rapid feed to edge ofstart hole.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "first_rapid_x",
+            "description": "Output x value with prefix memorized first rapid point.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "first_rapid_y",
+            "description": "Output y value with prefix memorized first rapid point.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "first_rapid_z",
+            "description": "Output z value with prefix memorized first rapid point.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "x_first_cut",
+            "description": "Output x value with prefix for entrance cut when special cutting conditions are used -to enter contour.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "y_first_cut",
+            "description": "Output y value with prefix for entrance cut when special cutting conditions are used to enter contour.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "skip_next_move",
+            "description": "Skip next movement in order to output later. Used for line swapping in Agie. output_xmemo Output the x value that was memorized with memo_xmove.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_ymemo",
+            "description": "Output the y value that was memorized with memo_ymove.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_umemo",
+            "description": "Output the u value that was memorized with memo_xmove.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_vmemo",
+            "description": "Output the v value that was memorized with memo_xmove.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "u0_on_no_taper",
+            "description": "Output U0.0 on 2axis part when no taper is used.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "v0_on_no_taper",
+            "description": "Output V0.0 on 2axis part when no taper is used.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "return_to_thread_point",
+            "description": "Output block to return to thread point. Used at the end of a program.",
+            "variableType": "Positioning",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "xcenter",
+            "description": "Output x center of arc with prefix (\"Format/Arc center type\"). Prefix define \"Prefixes/Arc -x center:\".",
+            "variableType": "Arcs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "ycenter",
+            "description": "Output y center of arc with prefix (\"Format/Arc center type\"). Prefix define \"Prefixes/Arc -y center:\".",
+            "variableType": "Arcs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "rcenter",
+            "description": "Output Radius value of arc with prefix (\"Format/Arc center type\"). Prefix define -\"Prefixes/Radius value:\".",
+            "variableType": "Arcs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "arc_center",
+            "description": "Output x, and y center of arc with prefixs (\"Format/Arc center type\"). Prefix define -\"Prefixes/Arc x center:\" & \"Prefixes/Arc x center:\".",
+            "variableType": "Arcs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "xcenter_lf",
+            "description": "Output x arc center value with prefix for lower shape in 4 Axis entity to entity -programming.",
+            "variableType": "Arcs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "ycenter_lf",
+            "description": "Output y arc center value with prefix for lower shape in 4 Axis entity to entity -programming.",
+            "variableType": "Arcs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "xcenter_uf",
+            "description": "Output x arc center value with prefix for upper shape in 4 Axis entity to entity -programming.",
+            "variableType": "Arcs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "ycenter_uf",
+            "description": "Output y arc center value with prefix for upper shape in 4 Axis entity to entity programming.",
+            "variableType": "Arcs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "iso_radius",
+            "description": "Output code setting an Iso radius value with prefix. Code define in \"G Codes/Iso radius:\".",
+            "variableType": "Arcs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "n",
+            "description": "Output next sequence number with prefix. Prefix hard coded to (N).",
+            "variableType": "Line Numbers",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "n_forced",
+            "description": "Force output of next sequence number with prefix (N). Sequence number for set in -\"Format/sequence numbers:\".",
+            "variableType": "Line Numbers",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "agie_100_n",
+            "description": "Used to set the first line number prefix to : for agie 100.",
+            "variableType": "Line Numbers",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "seq_numbers_start",
+            "description": "Set the current N sequence number to the sequence number start value.",
+            "variableType": "Line Numbers",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "sub_call",
+            "description": "Output subprogram call. Prefix defined in \"Prefixes/Arc x center:\".",
+            "variableType": "Sub Programs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "sub_return",
+            "description": "Output subprogram return. Prefix defined in \"Prefixes/Arc y center:\".",
+            "variableType": "Sub Programs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "sub_num",
+            "description": "Output subprogram number without prefix.",
+            "variableType": "Sub Programs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "sub_num_no_prefix",
+            "description": "Output subprogram number without prefix.",
+            "variableType": "Sub Programs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "sub_num_with_prefix",
+            "description": "Output subprogram number with prefix. Prefix defined in \"Prefixes/Subprogram:\".",
+            "variableType": "Sub Programs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "pattern_contour_sub_start",
+            "description": "Output pattern contour code for subprogram start.",
+            "variableType": "Sub Programs",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "comment_start",
+            "description": "Output comment start. Code defined in \"Misc parameters/Comment start:\". comment_end Output comment end. Code defined in \"Misc parameters/Comment end:\". system_comment Output the automatic comment \"FEATURE 1 CNT2X ROUGH CUT -FORWARD\"",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "feature_name_comment",
+            "description": "Output Feature Name comment \"2 AXIS -CONTOUR1-RECTANGULAR DIE3\"",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "pass_name_comment",
+            "description": "Output pass name comment \"ROUGH 1\"",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "feature_pass_names_comment",
+            "description": "Output Feature and pass names \"2 AXIS -CONTOUR1-RECTANGULAR DIE3 ROUGH1\"",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "sub_comment",
+            "description": "Output subprogram description comment.",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_date",
+            "description": "Output the date in the form \"Tue. 03/05/2002\"",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_time",
+            "description": "Output the current time in the form \"11:35AM\"",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "prog_n",
+            "description": "Output program number without prefix (O0001). Hard code prefix (\"O\",prog_n) prog_name Output program name (file name ofsaved program on disk)",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "machine_make",
+            "description": "Output machine manufacturers name as string. machine_model Output machine model name as string.",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "pass_name",
+            "description": "Output pass name. (Used in comment)",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "feature_name",
+            "description": "Output feature name. (Used in comment)",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "workpiece_name",
+            "description": "Output workpiece name. (Used in comment)",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_defined_operation_pass_comment",
+            "description": "Output the user defined comment for the pass defined -in the User Comment tab of the operation dialog.",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_1",
+            "description": "Output the comment entered in part settings comment 1",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_2",
+            "description": "Output the comment entered in part settings comment 2",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_3",
+            "description": "Output the comment entered in part settings comment 3",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_4",
+            "description": "Output the comment entered in part settings comment 4",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_5",
+            "description": "Output the comment entered in part settings comment 5",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_6",
+            "description": "Output the comment entered in part settings comment 6",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_7",
+            "description": "Output the comment entered in part settings comment 7",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_8",
+            "description": "Output the comment entered in part settings comment 8",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_9",
+            "description": "Output the comment entered in part settings comment 9",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_10",
+            "description": "Output the comment entered in part settings comment 10",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_11",
+            "description": "Output the comment entered in part settings comment 11",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_12",
+            "description": "Output the comment entered in part settings comment 12",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_13",
+            "description": "Output the comment entered in part settings comment13",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_14",
+            "description": "Output the comment entered in part settings comment 14",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_15",
+            "description": "Output the comment entered in part settings comment 15",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "user_comment_16",
+            "description": "Output the comment entered in part settings comment 16",
+            "variableType": "Comments",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "feed_move",
+            "description": "Set movement to feed and output feed move command (G01). Value defined in \"G -Codes/Feed move:\".",
+            "variableType": "G Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "rapid_move",
+            "description": "Set movement to rapid and output rapid move command (G00). Value defined in \"G -Codes/Rapid move:\".",
+            "variableType": "G Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "cc",
+            "description": "Output code for Cutter compensation. Codes defined in \"G Codes\".",
+            "variableType": "G Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "measurement",
+            "description": "Output measurement mode (inch/metric). Inch defined in \"G Codes/Inch mode:\" & -\"G Codes/Metric mode:\".",
+            "variableType": "G Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "g_taper",
+            "description": "Output Code for taper cutting on. (At present hard coded to G51,G52 will add -questions).",
+            "variableType": "G Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "g_arc_move",
+            "description": "Output G code for arc moves. G02, G03 hard coded.",
+            "variableType": "G Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "g_lower",
+            "description": "Output G code for lower shape in 4 Axis entity to entity programming (G01, G02, G03). g_upper Output G code for upper shape in 4 Axis entity to entity programming (G01, G02, G03). four_axis_xyuv_start Output code to start 4 axis xyuv cutting. Code defined in \"G Codes/4axis -start\".",
+            "variableType": "G Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "four_axis_xyuv_end",
+            "description": "Output code to end 4 axis xyuv cutting. Code defined in \"G Codes/4axis -end\".",
+            "variableType": "G Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "end_of_file",
+            "description": "Output end of file code (M02). Code define in \"M Codes/End of file:\".",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stop",
+            "description": "Output stop code (M00). Code define in \"M Codes/Stop:\".",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "optional_stop",
+            "description": "Output code for Optional Stop (M01). Code define in \"M Codes/Optionalstop:\". stop_on_rough Allow a stop to output if on rough cut and no glue stop.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stop_tab_no_submerged",
+            "description": "Output stop code if contour is tab cut when not in submerged -machining.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stop_no_submerged",
+            "description": "Output stop code if in submerged machining.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stop_no_autothread",
+            "description": "Output stop code if no autothreading.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stop_for_tab_forced",
+            "description": "Force the output ofstop code on tab cut.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "optional_stop_last_skim",
+            "description": "Allow a optionalstop to output on last skim pass",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stop_for_tab",
+            "description": "Output stop code for tab cut.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "optional_stop_for_tab",
+            "description": "Output optionalstop for tab cut.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stop_die_on_rough_no_tab",
+            "description": "Output Stop code at the end of the rough cut on a Die when no tap -cut is used.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stop_on_rough_no_coreless",
+            "description": "Output Stop code at the end of the rough cut except for the rough -cut of a coreless cut.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "optional_stop_die_on_rough_no_tab",
+            "description": "Output Optional Stop code at the end of the rough cut on a -Die when no tap cut is used.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "optional_stop_on_rough_no_coreless",
+            "description": "Output Optional Stop code at the end of the rough cut except for the rough cut of a coreless cut.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "optional_stop_on_rough",
+            "description": "Output Optional Stop code at the end of all rough cuts.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stop_last_skim",
+            "description": "Output Stop code at the end of the last skim cut.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "optional_stop_for_tab_forced",
+            "description": "Output Stop code on tab cut, and force the output even if machine -is stoped.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "optional_stop_on_first_glue_stop",
+            "description": "Output Stop code on first glue stop. optional_stop_no_autothread Output Stop code when not auto threading is used. optional_stop_no_submerged Output Stop code when not using submerged machining. stop_for_tab_with_leadout_forced Output Stop code on tab cut with leadout forced. optional_stop_for_tab_with_leadout_forced Output Optional Stop code on tab cut with leadout -forced.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stop_on_first_glue_stop",
+            "description": "Output Stop code on first glue stop.",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stop_no_output",
+            "description": "Set the internalstop code varialbe to Stop, but do not output code. high_pressure_pump_on Output code to turn high pressure pump on. Code define in \"M -Codes/High pressure on:\".",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "high_pressure_pump_off",
+            "description": "Output code to turn high pressure pump off. Code define in \"M -Codes/High pressure off:\".",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "cut_wire",
+            "description": "Output code to cut wire. Code define in \"M Codes/Wire cut:\".",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "thread_wire",
+            "description": "Output code to thread wire. Code define in \"M Codes/Wire thread:\".",
+            "variableType": "M Codes",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "submerged",
+            "description": "Output code to fill tank ifsubmerged machining is available and active.",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "wire_speed",
+            "description": "Output code for wire speed if #522 is y. Prefix defined in question 611.",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "wire_tension",
+            "description": "Output code for wire tension if #522 is y. Prefix defined in question 612. generator_reg_num Generator register number for Agie.",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "offset_reg_num",
+            "description": "Offset register number.",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "flushing_reg_num",
+            "description": "Flushing register number for agie.",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "angle_reg_num",
+            "description": "Angle register number for agie.",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "wire_offset_force",
+            "description": "Force the output of the \"wire_offset\" variable.",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "wire_offset_taper",
+            "description": "Force the output of the \"offset_taper\" variable.",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "wire_offset_zero",
+            "description": "Force the output of the \"offset_zero\" varaible",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "ctc_register",
+            "description": "Output the code for the current Cutting Conditions Register.",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "ctc_value",
+            "description": "Output the Cutting Coditions value without prefix.",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "rapid_feed_rate",
+            "description": "Output the feed rate using the rapid feed rate value.",
+            "variableType": "Cutting Parameters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "cutting_cond_first_cut",
+            "description": "Output code for cutting condition for entrance cut (power setting). Prefix -define in \"Prefixes/Cutting cond:\".",
+            "variableType": "Cutting Conditions",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "cutting_cond",
+            "description": "Output code for setting cutting conditions (power setting). Prefix define in -\"Prefixes/Cutting cond:\".",
+            "variableType": "Cutting Conditions",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "feed_rate",
+            "description": "Output code for feed rate.",
+            "variableType": "Feed Rate",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "start_hole_feed_rate",
+            "description": "Output code for rapid feed rate to edge ofstart hole.",
+            "variableType": "Feed Rate",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "feed_rate_first_cut",
+            "description": "Output code for entrance cut feed rate.",
+            "variableType": "Feed Rate",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "feed_rate_force",
+            "description": "Force the output of the \"feed_rate\" variable.",
+            "variableType": "Feed Rate",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "out_offset_variables",
+            "description": "Output offsets register variables. (Used only ifset to use variables for offset -\"Misc parameters/Taper-offset\".",
+            "variableType": "Offset",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "wire_offset",
+            "description": "Output code to set wire offset. Codes defined in \"G Codes/Offset left:\", & \"G -Codes/Offset right:\".",
+            "variableType": "Offset",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "cancel_offset",
+            "description": "Output cancel wire offset in 2Axis. Code defined in \"G Codes/Cancel offset:\". cancel_offset_4axis Output cancel wire offset in 4Axis. Code defined in \"G Codes/Cancel 4axis -offset:\".",
+            "variableType": "Offset",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "agie_wire_offset",
+            "description": "Output code to set wire offset for agie machines. Prefix defined in -\"Prefixes/Wire offset:\".",
+            "variableType": "Offset",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "set_offset_register",
+            "description": "Output code calling an offset register to set wire offset.",
+            "variableType": "Offset",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "offset_register",
+            "description": "Output code for the current offset register.",
+            "variableType": "Offset",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "offset_value",
+            "description": "Output offset amount.",
+            "variableType": "Offset",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "out_taper_varaibles",
+            "description": "Output taper angles as register variables. (Used only ifset to use variables -for taper \"Misc parameters/Taper-offset\".",
+            "variableType": "Taper",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "cancel_taper",
+            "description": "Output code for cancel taper. Code defined in \"G Codes/Cancel taper:\". taper_angle Output code to set taper angle. See taper format setting in \"Misc -parameters/Taper-offset\".",
+            "variableType": "Taper",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "taper_zero",
+            "description": "Output taperzero degrees. Used to initialize taper to zero at the beginning of program.",
+            "variableType": "Taper",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "taper_register",
+            "description": "Output taper register number when taper is output using registers.",
+            "variableType": "Taper",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "taper_value",
+            "description": "Output taper angle. taper_mode Output taper mode (Left, Right, Off). taper_angle_no_prefix Output taper angle without prefix.",
+            "variableType": "Taper",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "force_taper_zero_on_taper",
+            "description": "Force the output of a taper of 0.0, When the set taper value is not -0.0.",
+            "variableType": "Taper",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "drill_sub_calls",
+            "description": "Output drillsubroutine call for making start hole.",
+            "variableType": "Start Hole (Start Hole Drilling)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "drill_end_of_file",
+            "description": "Output drill end of file for making start holes.",
+            "variableType": "Start Hole (Start Hole Drilling)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "drill_subprogram",
+            "description": "Output drillsub program with hole positions.",
+            "variableType": "Start Hole (Start Hole Drilling)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "drill_program",
+            "description": "Output drill positions without sub programs.",
+            "variableType": "Start Hole (Start Hole Drilling)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "z_drill",
+            "description": "Output Z value for drilled hole.",
+            "variableType": "Start Hole (Start Hole Drilling)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "z_clearance",
+            "description": "Output Z clearance for positioning between drilled holes.",
+            "variableType": "Start Hole (Start Hole Drilling)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "agie_123_job_xr",
+            "description": "Output X rapid block for agie 123 with jobs.",
+            "variableType": "Script File (Agie 123 with Jobs)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "agie_123_job_yr",
+            "description": "Output Y rapid block for agie 123 with jobs.",
+            "variableType": "Script File (Agie 123 with Jobs)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "iso_file_path",
+            "description": "Output the NC sub folder for the ISO file if user has selected NC files to create sub -folder.",
+            "variableType": "Script File (Agie 123 with Jobs)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "tech_file_name",
+            "description": "Output the Technology file name.",
+            "variableType": "Script File (Agie 123 with Jobs)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "tech_file_path",
+            "description": "Output the Technology file path.",
+            "variableType": "Script File (Agie 123 with Jobs)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "contour_direction",
+            "description": "Output the contour chain direction (CCW or CW).",
+            "variableType": "Script File (Agie 123 with Jobs)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "rough_pass_direction",
+            "description": "Output the Rough pass contour direction (CCW or CW). agie_123_pass_direction Output the contour direction (CCW or CW) using logic based on which -pass is being cut.",
+            "variableType": "Script File (Agie 123 with Jobs)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "file_path",
+            "description": "File path for all files when using script format.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "open_script_file",
+            "description": "Open the script file.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "close_script_file",
+            "description": "Close the script file.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "open_iso_file",
+            "description": "Open Iso file.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "close_iso_file",
+            "description": "Close Iso file.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "iso_file_name",
+            "description": "Iso file name.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "set_to_nc_file",
+            "description": "Set all writing functions to the nc file.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "set_to_iso_file",
+            "description": "Set all writing functions to the iso file.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "set_to_script_file",
+            "description": "Set all writing functions to the script file.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "set_to_sbr_file",
+            "description": "Set all writing functions to the sbr file.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "iso_file",
+            "description": "Iso file name.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "script_file",
+            "description": "Script file name.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "material_name",
+            "description": "Material name.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "wire_name",
+            "description": "Wire name",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "punch_die_open",
+            "description": "Output feature type (punch, die, open contour) for Agie Vision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "entry_mode",
+            "description": "Output leadin/leadout mode for Agie Vision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "exit_mode",
+            "description": "Output exit mode for Agie Vision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "stp_number",
+            "description": "Start point number.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "number_of_skims",
+            "description": "Output number ofskim passes.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "tab_width",
+            "description": "Output tab width.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "reverse_tabs",
+            "description": "Output setting for reverse tab cuts.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_sub_calls",
+            "description": "Output subprogram call line (\" camw1\");",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_sub_def",
+            "description": "Output subprogram define line (\"sub camw1\");",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_sub_number",
+            "description": "Output the subprogram number (\"1\").",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "zero_position_x",
+            "description": "Work piece zero X value (ID_POSX).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "zero_position_y",
+            "description": "Work piece zero Y value (ID_POSY).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "zero_position_z",
+            "description": "Work piece zero Z value.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "return_plane_distance",
+            "description": "Work piece machining return Plane (ID_VALRETP). security_plane_distance Work piece machining security Plane (ID_VALSECP).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "part_length",
+            "description": "Work piece length (ID_DIML).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "part_width",
+            "description": "Work piece length (ID_DIMB).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "priority_number",
+            "description": "Machining order priority number (ID_PRIORITY).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "quality_name1",
+            "description": "Output quality name for Normal cut and land cut for agie vision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "quality_name2",
+            "description": "Output quality name for Taper cut of land and taper for agie vision. work_condition1 Output work condition for Normal cut and land cut for agie vision. work_condition2 Output work condition for Taper cut of land and taper for agie vision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "ra_value1",
+            "description": "Output Ra value for Normal cut and land cut for agie vision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "ra_value2",
+            "description": "Output Ra value for Taper cut of land and taper for agie vision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "te_value1",
+            "description": "Output Te value for Normal cut and land cut for agie vision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "te_value2",
+            "description": "Output Te value for Taper cut of land and taper for agie vision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "tkm_value1",
+            "description": "Output Tkm value for Normal cut and land cut for agie vision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "tkm_value2",
+            "description": "Output Tkm value for Taper cut of land and taper for agie vision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "high_speed1",
+            "description": "Output high speed machining for Normal cut and land cut for agie vision. high_speed2 Output high speed machining for Taper cut of land and taper for agie vision. smooth_finish1 Output smooth finish setting for Normal cut and land cut for agie vision. smooth_finish2 Output smooth finish setting for Taper cut of land and taper for agie vision. commutation_entry_distance (ID_COMMPOINTENTRY)",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "commutation_exit_distance",
+            "description": "(ID_COMMPOINTEXIT)",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "four_axis_z_lower",
+            "description": "Four axis cutting z lower section value (ID_POSZ).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "start_hole_diameter",
+            "description": "Start hole diameter value (ID_DIAMETER)",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "set_collar_cutting_land",
+            "description": "Output the collar setting for land.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "set_collar_cutting_taper",
+            "description": "Output the collar setting for taper.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "collar_position",
+            "description": "Z value for collar/land (ID_POSZ).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "collar_taper_angle",
+            "description": "Taper value for collar/land & taper (ID_TAPER).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "collar_taper_height",
+            "description": "Output the collar taper height.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "collar_group_name",
+            "description": "Output the collar group name.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "end_point_x",
+            "description": "End point X (ID_POSX).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "end_point_y",
+            "description": "End point Y (ID_POSY).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "taper_collar_type",
+            "description": "Collar/Land type (on top, on bottom).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "die_clearance",
+            "description": "Die clearance (ID_CLEARANCE).",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "prev_iso_file_name",
+            "description": "Previous Iso file name.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "collar_type",
+            "description": "Output collar type for land and taper.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "collar_land_height",
+            "description": "Land height.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "agie_work_name",
+            "description": "Work piece name for taper in land and taper (LC1,LC2,LC3). agie_group_name Group name.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_agie_taper_z",
+            "description": "Output the taper Z value.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "punch_die",
+            "description": "Output the PUN / HOL value for punches and dies.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_quality_one",
+            "description": "Output that quality one is either quality is user defined or predefined. output_quality_two Output that quality two is either quality is user defined or predefined. output_quality_one_coreless Output that quality one for coreless is either quality is user defined -or predefined.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_quality_one_land_and_taper",
+            "description": "Output that quality one for land and taper is either quality is -user defined or predefined.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_quality_two_land_and_taper",
+            "description": "Output that quality two for land and taper is either quality is -user defined or predefined.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_die_clearance",
+            "description": "Output die clearance in Agievision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_agie_taper",
+            "description": "Output lines for taper in Agievision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "output_agie_leadout",
+            "description": "Output lines for leadout in Agievision.",
+            "variableType": "Script File (AgieVision)",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "cc_coreless_agie",
+            "description": "Output the appropriate offset (G40,G41) of coreless cut depending on if it is the 1st, 2nd, of 3rd entity.",
+            "variableType": "Agi",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "agie_start_of_file",
+            "description": "Output the agie start of file block if it has not been output yet. last_move_direction_coreless Output the X,Y of the vector of the last movement of the coreless -cut.",
+            "variableType": "Agi",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "last_move_direction",
+            "description": "Output the X,Y of the vector of the last movement of contour cut. first_move_direction Output the X,Y of the vector of the first movement of contour cut. first_move_split_arc Output the first move of the contour if it is an arc. Split the arc and output it -as two arc moves.",
+            "variableType": "Agi",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "x_f_distance_from_end",
+            "description": "Output the X move of a line moving to a point a distance back from the -actual end point.",
+            "variableType": "Agi",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "y_f_distance_from_end",
+            "description": "Output the Y move of a line moving to a point a distance back from the -actual end point.",
+            "variableType": "Agi",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "x_f_arc_distance_from_end",
+            "description": "Output the X move of a arc moving to a point a distance back along -the arc from the actual end point.",
+            "variableType": "Agi",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "y_f_arc_distance_from_end",
+            "description": "Output the Y move of a arc moving to a point a distance back along -the arc from the actual end point.",
+            "variableType": "Agi",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "arc_center_distance_from_end",
+            "description": "Output the new arc center when arc cut distance from arc end is -used.",
+            "variableType": "Agi",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "prev_v_to_zero",
+            "description": "Set the prev V movement value to 0.0.",
+            "variableType": "Agi",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "sodick_taper_height",
+            "description": "Output taper height as stock height, or land height depending on current -settings, Use in header for TP value.",
+            "variableType": "Sodick",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "sodick_taper_opposite_height",
+            "description": "Output taper opposite height as stock height, or land height -depending on current settings, Use in header for TN value.",
+            "variableType": "Sodick",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "memorize_rethread_on_stop",
+            "description": "Output the code for memorizing the rethread point when the wire breaks.",
+            "variableType": "Sodick",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "g27_on_no_taper",
+            "description": "Output a G27 code when no taper is used on 2Axis contour.",
+            "variableType": "Charmille",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "taper_zero_blum",
+            "description": "Output taper 0.0. Custom variable for Blum.",
+            "variableType": "Charmille",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "technology_file_name",
+            "description": "Output the technology file name that was entered on the ONA posting -page.",
+            "variableType": "Ona",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "xcenterup_minus_xcenterlow",
+            "description": "Output X center value for upper section arc of 4 axis part -incremental from X Center of lower section arc.",
+            "variableType": "Ona",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "ycenterup_minus_ycenterlow",
+            "description": "Output Y center value for upper section arc of 4 axis part incremental from Y Center of lower section arc.",
+            "variableType": "Ona",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "metric_upper_guide_pos",
+            "description": "Output upper wire guide position in metric regardless of inch/metric -mode.",
+            "variableType": "Wire Guides",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "upper_guide_pos",
+            "description": "Output upper wire guide position.",
+            "variableType": "Wire Guides",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "lower_guide_pos",
+            "description": "Output lower wire guide position.",
+            "variableType": "Wire Guides",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "guide_span",
+            "description": "Output the distance between upper guide, and lower guide.",
+            "variableType": "Wire Guides",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "cr_lf",
+            "description": "Output carriage return line feed characters.",
+            "variableType": "Misc Characters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "single_quote",
+            "description": "Output single quote character.",
+            "variableType": "Misc Characters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "quote",
+            "description": "Output double quote character.",
+            "variableType": "Misc Characters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "n_spaces",
+            "description": "Output spaces for the number of characters in the previous sequence numbers four_axis_delimeter Output delimeter character between upper and lower. Delimeter value -define in \"Misc parameters/4axis contour delimeter:\".",
+            "variableType": "Misc Characters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "null",
+            "description": "Output a ascii charater 0 or NULL.",
+            "variableType": "Misc Characters",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        },
+        {
+            "postVariableName": "on_error_jump",
+            "description": "Output code for on error jump. Code defined in \"M Codes/On error:\". incr_upper_plane Output incremental value from program plane to upper plane.",
+            "variableType": "Misc Variables",
+            "jobTypes": [
+                "Wire EDM Job"
+            ]
+        }
+    ],
+    "commonPostVariables": []
+}

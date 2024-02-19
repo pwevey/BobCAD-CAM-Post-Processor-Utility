@@ -1,0 +1,546 @@
+[
+    {
+        "BobCAD API": "EDM_GetZClearanceRapidMoves()",
+        "description": "Returns Z clearance value for rapid moves, used only with programmable Z"
+    },
+    {
+        "BobCAD API": "EDM_GetFirstRapidX()",
+        "description": "Return X value for the first rapid to start the program."
+    },
+    {
+        "BobCAD API": "EDM_GetFirstRapidY()",
+        "description": "Return Y value for the first rapid to start the program."
+    },
+    {
+        "BobCAD API": " EDM_GetFirstRapidZ()",
+        "description": "Return Z value for the first rapid to start the program."
+    },
+    {
+        "BobCAD API": "EDM_GetStartHoleRapidFeedRate()",
+        "description": "Returns rapid feed value used to move the wire to the edge of the start hole."
+    },
+    {
+        "BobCAD API": "EDM_GetFeedRate()",
+        "description": "Returns the current feed rate."
+    },
+    {
+        "BobCAD API": "EDM_GetZCLearanceFeedMoves()",
+        "description": "Returns Z clearance value for feed moves.Used only with programmable Z Axis"
+    },
+    {
+        "BobCAD API": "EDM_GetFirstCutFeedrate()",
+        "description": "Returns federate of the first cut."
+    },
+    {
+        "BobCAD API": "EDM_SetXFeed(double var)",
+        "description": "Sets X Feed move value used for 2 Axis Contour and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_GetXFeed()",
+        "description": "Returns X feed move value used for 2 Axis Contour and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_SetYFeed(double var)",
+        "description": "Sets Y Feed move value used for 2 Axis Contour and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_GetYFeed()",
+        "description": "Returns Y feed move value used for 2 Axis Contour and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_SetUFeed(double var)",
+        "description": "Sets U feed move value used for 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_GetUFeed()",
+        "description": "Returns the U feed move value used for 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_SetVFeed(double var)",
+        "description": "Sets V feed move value used for 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_GetVFeed()",
+        "description": "Returns the V feed move value used for 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_SetXLowerFeed(double var)",
+        "description": "Sets X lower feed move value used for 4 Axis entity to entity."
+    },
+    {
+        "BobCAD API": "EDM_GetXLowerFeed()",
+        "description": "Return X lower feed move value for 4 Axis entity to entity."
+    },
+    {
+        "BobCAD API": "EDM_SetYLowerFeed(double var)",
+        "description": "Sets Y lower feed move value used for 4 Axis entity to entity."
+    },
+    {
+        "BobCAD API": "EDM_GetYLowerFeed()",
+        "description": "Return Y lower feed move value for 4 Axis entity to entity."
+    },
+    {
+        "BobCAD API": "EDM_SetXUpperFeed(double var)",
+        "description": "Sets X upper feed move value used for 4 Axis entity to entity."
+    },
+    {
+        "BobCAD API": "EDM_GetXUpperFeed()",
+        "description": "Return X upper feed move value for 4 Axis entity to entity."
+    },
+    {
+        "BobCAD API": "EDM_SetYUpperFeed(double var)",
+        "description": "Sets Y upper feed move value used for 4 Axis entity to entity."
+    },
+    {
+        "BobCAD API": "EDM_GetYUpperFeed()",
+        "description": "Return Y upper feed move value for 4 Axis entity to entity."
+    },
+    {
+        "BobCAD API": "EDM_SetPreviousXFeed(double var)",
+        "description": "Sets previous X feed move value used for 2 Axis and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_GetPreviousXFeed()",
+        "description": "Returns previous X feed move value used for 2 Axis and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_SetPreviousYFeed(double var)",
+        "description": "Sets previous Y feed move value used for 2 Axis and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_GetPreviousYFeed()",
+        "description": "Returns previous Y feed move value used for 2 Axis and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_SetPreviousUFeed(double var)",
+        "description": "Sets previous U feed move value used for 2 Axis and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_GetPreviousUFeed()",
+        "description": "Returns previous U feed move value used for 2 Axis and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": " EDM_SetPreviousVFeed(double var)",
+        "description": "Sets previous V feed move value used for 2 Axis and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_GetPreviousVFeed()",
+        "description": "Returns previous V feed move value used for 2 Axis and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_SetPreviousUpperXFeed(double var)",
+        "description": "Sets previous upper X feed move value used for 4 Axis Contour."
+    },
+    {
+        "BobCAD API": "EDM_GetPreviousUpperXFeed()",
+        "description": "Returns previous upper X feed move value used for 4 Axis Contour."
+    },
+    {
+        "BobCAD API": "EDM_SetPreviousUpperYFeed(double var)",
+        "description": "Sets previous upper Y feed move value used for 4 Axis Contour."
+    },
+    {
+        "BobCAD API": "EDM_GetPreviousUpperYFeed()",
+        "description": "Returns previous upper Y feed move value used for 4 Axis Contour."
+    },
+    {
+        "BobCAD API": "EDM_SetPreviousLowerXFeed(double var)",
+        "description": "Sets previous lower X feed move value used for 4 Axis Contour."
+    },
+    {
+        "BobCAD API": "EDM_GetPreviousLowerXFeed()",
+        "description": "Returns previous lower X feed move value used for 4 Axis Contour."
+    },
+    {
+        "BobCAD API": "EDM_SetPreviousLowerYFeed(double var)",
+        "description": "Sets previous lower Y feed move value used for 4 Axis Contour."
+    },
+    {
+        "BobCAD API": "EDM_GetPreviousLowerYFeed()",
+        "description": "Returns previous lower Y feed move value used for 4 Axis Contour."
+    },
+    {
+        "BobCAD API": "EDM_GetArcCenterX()",
+        "description": "Returns the arc center X value. Used for 2 Axis and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_GetArcCenterY()",
+        "description": "Returns the arc center Y value. Used for 2 Axis and 4 Axis XYUV."
+    },
+    {
+        "BobCAD API": "EDM_GetLowerArcCenterX()",
+        "description": "Returns lower arc center X value. Used for 4 Axis contouring."
+    },
+    {
+        "BobCAD API": "EDM_GetLowerArcCenterY()",
+        "description": "Returns lower arc center Y value. Used for 4 Axis contouring."
+    },
+    {
+        "BobCAD API": "EDM_GetUpperArcCenterX()",
+        "description": "Returns upper arc center X value. Used for 4 Axis contouring."
+    },
+    {
+        "BobCAD API": "EDM_GetUpperArcCenterY()",
+        "description": "Returns upper arc center Y value. Used for 4 Axis contouring."
+    },
+    {
+        "BobCAD API": "EDM_GetArcRelCenterX()",
+        "description": "Returns the arc center I value."
+    },
+    {
+        "BobCAD API": "EDM_GetArcRelCenterY()",
+        "description": "Returns the arc center J value"
+    },
+    {
+        "BobCAD API": " EDM_GetArcRadius()",
+        "description": "Returns the arc radius."
+    },
+    {
+        "BobCAD API": " EDM_GetArcRadius()",
+        "description": "Returns the arc radius."
+    },
+    {
+        "BobCAD API": "EDM_GetUnits()",
+        "description": "Returns: 0 = Inch, 1 = Metric"
+    },
+    {
+        "BobCAD API": "EDM_GetFirstLineNumber()",
+        "description": "Returns the NC line number start value."
+    },
+    {
+        "BobCAD API": "EDM_GetCurrentLineNumber()",
+        "description": "Returns the current NC line number."
+    },
+    {
+        "BobCAD API": "EDM_GetLineNumberIncrement()",
+        "description": "Returns the NC line number increment value."
+    },
+    {
+        "BobCAD API": "EDM_GetPartLength()",
+        "description": "Returns the overall part length (X dimension)."
+    },
+    {
+        "BobCAD API": "EDM_GetPartWidth()",
+        "description": "Returns the overall part width (Y dimension)."
+    },
+    {
+        "BobCAD API": "EDM_GetGlobalStockHeight()",
+        "description": "Returns the actual height of the defined stock."
+    },
+    {
+        "BobCAD API": "EDM_GetNumberOfFeatures()",
+        "description": "Returns the total number of features."
+    },
+    {
+        "BobCAD API": "EDM_GetCurrentFeatureNumber()",
+        "description": "Returns the current feature number."
+    },
+    {
+        "BobCAD API": "EDM_GetNumberOfContours()",
+        "description": "Returns the total number of contours (cut passes)."
+    },
+    {
+        "BobCAD API": "EDM_GetCurrentContoursNumber()",
+        "description": "Returns current contour (cut pass) number."
+    },
+    {
+        "BobCAD API": "EDM_GetNumberOfContourEntities()",
+        "description": "Returns the total number of the geometric entities."
+    },
+    {
+        "BobCAD API": "EDM_GetCurrentContourEntityNumber()",
+        "description": "Returns the number of the current contours, current geometric entity."
+    },
+    {
+        "BobCAD API": "EDM_GetCuttingPassNumber()",
+        "description": "Returns the current pass number."
+    },
+    {
+        "BobCAD API": "EDM_GetFeatureType()",
+        "description": "Returns the feature type: 300 = Contour 2 Axis, 301 = Contour 4 Axis, 302 = Coreless Cut"
+    },
+    {
+        "BobCAD API": "EDM_GetWireDiameter()",
+        "description": "Returns the diameter of the wire."
+    },
+    {
+        "BobCAD API": "EDM_GetFirstCutX()",
+        "description": "Returns the X value for the current first cut."
+    },
+    {
+        "BobCAD API": "EDM_GetFirstCutY()",
+        "description": "Returns the Y value for the current first cut."
+    },
+    {
+        "BobCAD API": "EDM_GetProgramTwoAxisNoTaper()",
+        "description": "Returns: 0 = Program contains at least one taper cut. 1 = Program contains no cuts with taper."
+    },
+    {
+        "BobCAD API": "EDM_GetUpperPlaneZ()",
+        "description": "Returns the Z value of the upper cutting plane."
+    },
+    {
+        "BobCAD API": "EDM_GetLowerPlaneZ()",
+        "description": "Returns the Z value of the lower cutting plane."
+    },
+    {
+        "BobCAD API": "EDM_GetPassIsGlueStop()",
+        "description": "Returns: 0 = Pass is not a glue stop / tab cut pass. 1 = Pass is a glue stop / tab cut pass."
+    },
+    {
+        "BobCAD API": "EDM_GetProcessAsPunchDie()",
+        "description": "Returns the part processing defined for open features: 0 = Die, 1 = Punch"
+    },
+    {
+        "BobCAD API": "EDM_GetProcessOrder()",
+        "description": "Returns the process order defined in EDM Settings. Punch: 0 = By Complete Feature 1 = Rough & Skim / Glue Stop(Tab Cut) 2 = Rough / Skim / Glue Stop(Tab Cut). Die: 3 = By Complete Feature 4 = Rough / Glue Stop(Tab Cut) / All Skims 5 = Rough / Glue Stop(Tab Cut) / Skim Passes 6 = With Glue Stop(Tab Cuts) / Without Glue Stops(Tab Cuts)"
+    },
+    {
+        "BobCAD API": "EDM_GetOffsetSide()",
+        "description": "Returns: 0 = No Offset 1 = Offset Left 2 = Offset Right"
+    },
+    {
+        "BobCAD API": "EDM_GetIsPatternContour()",
+        "description": "Returns: 0 = Contour is not part of a pattern. 1 = Contour is part of a pattern."
+    },
+    {
+        "BobCAD API": "EDM_GetGreatestZValue()",
+        "description": "Returns the greatest Z value in the program."
+    },
+    {
+        "BobCAD API": "EDM_GetFeatureStockHeight()",
+        "description": "Returns the operations stock height"
+    },
+    {
+        "BobCAD API": "EDM_GetMinimumWorkPieceHeight()",
+        "description": "Returns the minimum allowed height of the work piece."
+    },
+    {
+        "BobCAD API": "EDM_GetLeadinType()",
+        "description": "Returns: 0 = Arc 1 = Perpendicular Blend 2 = Perpendicular 3 = Parallel 4 = Select Point 5 = Point Blend"
+    },
+    {
+        "BobCAD API": "EDM_GetLeadoutType()",
+        "description": "Returns: 0 = Arc 1 = Perpendicular Blend 2 = Perpendicular 3 = Parallel 4 = Select Point 5 = Point Blend"
+    },
+    {
+        "BobCAD API": "EDM_GetIsIncremental()",
+        "description": "Returns if the coordinate output is incremental. 0 = No 1 = Yes"
+    },
+    {
+        "BobCAD API": "EDM_GetInsideOutsideOpen()",
+        "description": "Returns the cutting shape type. -1 = Not Set 0 = Inside Cut 1 = Outside Cut 2 = Open Contour"
+    },
+    {
+        "BobCAD API": "EDM_GetReverseSkimPasses()",
+        "description": "Returns: 0 = Skims in same direction 1 = Each skim is reverse direction from previous skim"
+    },
+    {
+        "BobCAD API": "EDM_GetIsCorelessCut()",
+        "description": "Supported for 2 axis features. Returns: 0 = Not using coreless cutting. 1 = This operation uses coreless cutting."
+    },
+    {
+        "BobCAD API": "EDM_GetStopDistance()",
+        "description": "Returns the glue stop / tab cut distance."
+    },
+    {
+        "BobCAD API": "EDM_GetOffsetAmount()",
+        "description": "Returns the current offset amount."
+    },
+    {
+        "BobCAD API": "EDM_GetFirstOffset()",
+        "description": "Returns the first offset amount."
+    },
+    {
+        "BobCAD API": "EDM_GetPowerSetting()",
+        "description": "Returns the current power setting value (epack for Mitsubishi)"
+    },
+    {
+        "BobCAD API": "EDM_GetUseAutoThreader()",
+        "description": "Returns: 0 = Manual wire threading 1 = Automatic wire threading"
+    },
+    {
+        "BobCAD API": "EDM_GetIsWireThreaded()",
+        "description": "Returns: 0 = Wire is not threaded 1 = Wire is threaded."
+    },
+    {
+        "BobCAD API": "EDM_GetUseSubmergedMachining()",
+        "description": "Returns: 0 = Do not use submerged cutting. 1 = Use submerged cutting."
+    },
+    {
+        "BobCAD API": "EDM_GetOutputSubPrograms()",
+        "description": "Returns: 0 = Output program using long form. 1 = Output program using subprograms."
+    },
+    {
+        "BobCAD API": "EDM_GetPassCuttingDirection()",
+        "description": "Returns the cutting direction for skim cuts. -1 = Counter Clockwise 1 = clockwise"
+    },
+    {
+        "BobCAD API": "EDM_GetRoughPassCuttingDirection()",
+        "description": "Returns the cutting direction for rough cuts. -1 = Counter Clockwise 1 = clockwise"
+    },
+    {
+        "BobCAD API": "EDM_GetProgramFourAxis()",
+        "description": "Returns: 0 = Program contains no 4 Axis cutting. 1 = Program contains at least one 4 Axis cut."
+    },
+    {
+        "BobCAD API": "EDM_GetProgramHasTapers()",
+        "description": "Returns: 0 = Program contains no taper cuts. 1 = Program contains at least one taper cut."
+    },
+    {
+        "BobCAD API": "EDM_GetTaperAngle()",
+        "description": "Returns the current taper angle."
+    },
+    {
+        "BobCAD API": "EDM_GetLowerGuidePosition()",
+        "description": "Returns the Z Axis position of the lower wire guide."
+    },
+    {
+        "BobCAD API": "EDM_GetUpperGuidePosition()",
+        "description": "Returns the Z Axis position of the upper wire guide."
+    },
+    {
+        "BobCAD API": "EDM_GetSlideHeight()",
+        "description": "Returns the slide height.This is only for the Japax machine."
+    },
+    {
+        "BobCAD API": "EDM_GetLandHeight()",
+        "description": "Returns the height defined for the land in Land and Taper cutting."
+    },
+    {
+        "BobCAD API": "EDM_GetMaximumTaperAngle()",
+        "description": "Returns the defined maximum taper angle."
+    },
+    {
+        "BobCAD API": "EDM_GetMaximumXYUVDifference()",
+        "description": "Returns the maximum XY length between the XY values and the UV values."
+    },
+    {
+        "BobCAD API": "EDM_GetIn4AxisCutting()",
+        "description": "Returns if the current feature is using 4 Axis cutting: 0 = No 1 = Yes"
+    },
+    {
+        "BobCAD API": "EDM_GetUseLandAndTaper()",
+        "description": "Only supported with 2 Axis Contour operations. Returns: 0 = No land and taper used. 1 = Land and taper is being used."
+    },
+    {
+        "BobCAD API": "EDM_GetLandTopOrBottom()",
+        "description": "Returns if land and taper is used: 0 = Land is on Bottom 1 = land is on Top"
+    },
+    {
+        "BobCAD API": "EDM_GetLandAndTaperAngle()",
+        "description": "Returns the taper value used in land and taper."
+    },
+    {
+        "BobCAD API": "EDM_GetStartHoleDiameter()",
+        "description": "Returns the diameter of the start hole."
+    },
+    {
+        "BobCAD API": "EDM_GetNumberOfStartHoles()",
+        "description": "Returns the number of start holes in the program."
+    },
+    {
+        "BobCAD API": "EDM_GetStartHoleX()",
+        "description": "Returns the X value for the current start hole."
+    },
+    {
+        "BobCAD API": "EDM_GetStartHoleY()",
+        "description": "Returns the Y value for the current start hole."
+    },
+    {
+        "BobCAD API": "EDM_SetReturnString(ReturnString)",
+        "description": "For the case that the block will output code within an existing posting line (i.e. n,rapid_move, program_block_1,xr,yr). This would be used in Place of “EDM_OutputText”, and “EDM_ProcessPostLine”. Set: Set the return string that will used to output code with and existing post line."
+    },
+    {
+        "BobCAD API": "EDM_OutputText(OutString)",
+        "description": "Output a line of text with CR/LF to the NC text file."
+    },
+    {
+        "BobCAD API": "EDM_ProcessPostLine(OutString)",
+        "description": "Output line of variables and constants with CR/LF to the NC text file. (i.e. “n,rapid_move,xr,yr,’M08’”).  The variables and constants will be treated just as it would in normal posting blocks."
+    },
+    {
+        "BobCAD API": "MakeRealString(double RealValue)",
+        "description": "Return: String formatted according to Question: 414. for Metric 415. for Inch"
+    },
+    {
+        "BobCAD API": "MakeXString(double XValue)",
+        "description": "Returns string formatted according to Question: 414. for Metric 415. for Inch With prefix from Question: 676."
+    },
+    {
+        "BobCAD API": "MakeYString(double YValue)",
+        "description": "Returns string formatted according to Question: 414. for Metric 415. for Inch With prefix from Question: 677"
+    },
+    {
+        "BobCAD API": "MakeUString(double UValue)",
+        "description": "Returns string formatted according to Question: 414. for Metric 415. for Inch With prefix from Question: 606"
+    },
+    {
+        "BobCAD API": "MakeVString(double VValue)",
+        "description": "Returns string formatted according to Question: 414. for Metric 415. for Inch With prefix from Question: 607."
+    },
+    {
+        "BobCAD API": "EDM_GetNumberOfIntMemoryLoc()",
+        "description": "Returns the number of integer memory locations allocated for global integer storage."
+    },
+    {
+        "BobCAD API": "EDM_GetNumberOfDoubleMemoryLoc()",
+        "description": "Returns the number of real number memory locations allocated for global real number storage."
+    },
+    {
+        "BobCAD API": "EDM_GetNumberOfStringMemoryLoc()",
+        "description": "Returns the number of string memory locations allocated for global string storage."
+    },
+    {
+        "BobCAD API": "EDM_SetIntMemoryLoc(short Index, short SetInteger)",
+        "description": "Set the integer storage at Index with the value in Set  Integer."
+    },
+    {
+        "BobCAD API": "EDM_GetIntMemoryLoc(short Index)",
+        "description": "Returns the integer storage value at the defined Index."
+    },
+    {
+        "BobCAD API": "EDM_GetDoubleMemoryLoc(short Index)",
+        "description": "Returns the real number storage value at the defined index."
+    },
+    {
+        "BobCAD API": "EDM_SetDoubleMemoryLoc(short Index, double SetDouble)",
+        "description": "Sets the real number storage at Index with the value in SetDouble."
+    },
+    {
+        "BobCAD API": "EDM_GetStringMemoryLoc(short Index)",
+        "description": "Returns the string storage value as the Index."
+    },
+    {
+        "BobCAD API": "EDM_SetStringMemoryLoc(short Index, LPCTSTR SetString)",
+        "description": "Sets the string storage at Index with the value in SetString."
+    },
+    {
+        "BobCAD API": "EDM_GetAutoTaperRegNumber()",
+        "description": "Returns the automatically created taper register number."
+    },
+    {
+        "BobCAD API": "EDM_GetAutoOffsetRegNumber()",
+        "description": "Returns the automatically created offset register number."
+    },
+    {
+        "BobCAD API": "EDM_GetAutoCtcRegNumber()",
+        "description": "Returns the automatically created Ctc register number."
+    },
+    {
+        "BobCAD API": "EDM_GetManualReg1Number()",
+        "description": "Returns the manually entered register number for those machines that allow this option."
+    },
+    {
+        "BobCAD API": "EDM_GetManualReg2Number()",
+        "description": "Returns the manually entered register number for those machines that allow this option."
+    },
+    {
+        "BobCAD API": "EDM_GetManualReg3Number()",
+        "description": "Returns the manually entered register number for those machines that allow this option."
+    },
+    {
+        "BobCAD API": "EDM_GetManualReg4Number()",
+        "description": "Returns the manually entered register number for those machines that allow this option."
+    }
+]
