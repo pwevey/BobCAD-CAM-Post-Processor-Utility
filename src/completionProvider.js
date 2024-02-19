@@ -6,7 +6,7 @@ class BcpstCompletionProvider {
   provideCompletionItems(document, position, token, context) {
     // Get the current file extension
     const fileExtension = path.extname(document.fileName).toLowerCase();
-    const allowedExtensions = ['.bcpst', '.millpst', '.lathepst'];
+    const allowedExtensions = ['.bcpst', '.millpst', '.lathepst', '.edmpst'];
   
     if (!allowedExtensions.includes(fileExtension)) {
       return [];
@@ -86,13 +86,18 @@ class BcpstCompletionProvider {
   findPostVariableSuggestions(prefix, isInsideSnippet, document) {
     // Get the current file extension
     const fileExtension = path.extname(document.fileName).toLowerCase();
-    const allowedExtensions = ['.bcpst', '.millpst', '.lathepst'];
-  
+    const allowedExtensions = ['.bcpst', '.millpst', '.lathepst', '.edmpst'];
+
     if (!allowedExtensions.includes(fileExtension)) {
       return [];
     }
 
-    const jsonFilePath = path.join(__dirname, '..', 'res', 'post_data', 'postVariables.json');
+    let jsonFilePath;
+    if (fileExtension === '.edmpst') {
+      jsonFilePath = path.join(__dirname, '..', 'res', 'post_data', 'postVariablesEDM.json');
+    } else {
+      jsonFilePath = path.join(__dirname, '..', 'res', 'post_data', 'postVariables.json');
+    }
 
     try {
       const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
