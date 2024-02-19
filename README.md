@@ -20,7 +20,7 @@ Welcome to the BobCAD-CAM Post Processor Utility, your ultimate tool for streaml
 
 ## Demo
 
-[![Watch the video](res/icons/demo.png)](https://vimeo.com/913477910?share=copy)
+[![Watch the video](https://raw.githubusercontent.com/pwevey/BobCAD-CAM-Post-Processor-Utility/main/res/icons/demo.png)](https://vimeo.com/913477910?share=copy)
 CLICK TO WATCH!
 
 > Tip: Watch the demo video closely to understand the extension's features and operations. Don't hesitate to pause and replay sections for clarity. This will help you maximize the utility of the BobCAD-CAM Post Processor.
