@@ -93,8 +93,16 @@ class BcpstCompletionProvider {
     }
 
     let jsonFilePath;
+    let wireEDMAPIs = [];
     if (fileExtension === '.edmpst') {
       jsonFilePath = path.join(__dirname, '..', 'res', 'post_data', 'postVariablesEDM.json');
+      const wireEDMAPIsPath = path.join(__dirname, '..', 'res', 'post_data', 'postWireEDMAPIs.json');
+      try {
+        const wireEDMAPIsData = fs.readFileSync(wireEDMAPIsPath, 'utf8');
+        wireEDMAPIs = JSON.parse(wireEDMAPIsData).postWireEDMAPIs || [];
+      } catch (error) {
+        console.error('Error reading postWireEDMAPIs.json:', error.message);
+      }
     } else {
       jsonFilePath = path.join(__dirname, '..', 'res', 'post_data', 'postVariables.json');
     }
@@ -102,6 +110,8 @@ class BcpstCompletionProvider {
     try {
       const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
       const parsedData = JSON.parse(jsonData);
+
+      let sortedSuggestions = [];
 
       if (parsedData && parsedData.postVariables && parsedData.commonPostVariables) {
         const filteredPostVariables = parsedData.postVariables.filter(
@@ -175,10 +185,10 @@ class BcpstCompletionProvider {
           });
 
           // Append API suggestions to the final list
-          const suggestionsWithAPIs = finalSuggestions.concat(apiSuggestions);
+          sortedSuggestions = finalSuggestions.concat(apiSuggestions);
 
           // Manually sort the suggestions based on priority
-          const sortedSuggestions = suggestionsWithAPIs.sort((a, b) => {
+          sortedSuggestions.sort((a, b) => {
             const postVariableNameA = (a.label || '').toLowerCase();
             const postVariableNameB = (b.label || '').toLowerCase();
             const inCommonA = commonPostVariableSet.has(postVariableNameA);
@@ -192,14 +202,28 @@ class BcpstCompletionProvider {
               return postVariableNameA.localeCompare(postVariableNameB);
             }
           });
-
-          return sortedSuggestions;
         } else {
           console.error('Missing commonPostVariables array.');
         }
+
       } else {
         console.error('Invalid JSON format or missing postVariables array.');
       }
+
+      // Append Wire EDM API suggestions to the final list if the file is .edmpst
+      if (fileExtension === '.edmpst') {
+        const wireEDMAPIsSuggestions = wireEDMAPIs.map((api) => {
+          const apiSuggestion = new vscode.CompletionItem(api['BobCAD API'], vscode.CompletionItemKind.Method);
+          apiSuggestion.detail = `BobCAD API for Wire EDM`;
+          apiSuggestion.documentation = `Description: ${api.description || 'None'}`;
+          return apiSuggestion;
+        });
+
+        sortedSuggestions = sortedSuggestions.concat(wireEDMAPIsSuggestions);
+      }
+
+      return sortedSuggestions;
+
     } catch (error) {
       console.error('Error reading postVariables.json:', error.message);
     }
