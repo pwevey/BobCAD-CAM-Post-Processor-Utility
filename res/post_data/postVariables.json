@@ -10741,7 +10741,6 @@
       ],
       "description": "Outputs a string into the posted program with a line feed character.API:void MILL_OutputText(string var)void MILL_OutputText(\u00e2\u0080\u009cSample String\u00e2\u0080\u009d)",
       "bobcadAPIs": [
-        "MILL_OutputText(Sample String)",
         "MILL_OutputText(string var)"
       ]
     },
@@ -10753,7 +10752,6 @@
       ],
       "description": "Outputs a string into the posted program with a line feed character.API:void LATHE_OutputText(string var)void LATHE_OutputText(\u00e2\u0080\u009cSample String\u00e2\u0080\u009d)",
       "bobcadAPIs": [
-        "LATHE_OutputText(string var)",
         "LATHE_OutputText(Sample String)"
       ]
     },
@@ -10777,49 +10775,10 @@
         "Lathe Job",
         "Mill Turn Job"
       ],
-      "description": "Input must be a string formatted exactly as a posting line using system posting variables.(Example: \u00e2\u0080\u009cn, rapid_move, xr, yr, \u00e2\u0080\u0098M08\u00e2\u0080\u0099\u00e2\u0080\u009d).The system post processes these variables as it would by using the posting engineand outputs the posted string to the posted NC file.API:void MILL_ProcessPostLine(string var)",
-      "bobcadAPIs": [
-        "MILL_ProcessPostLine(string var)",
-        "LATHE_ProcessPostLine(string var)"
-      ]
-    },
-    {
-      "postVariableName": null,
-      "jobTypes": [
-        "Mill Job",
-        "Lathe Job",
-        "Mill Turn Job"
-      ],
       "description": "Returns the state of the check box at the specified index from the Advanced Postingpage inside of a machining feature.0 = Not Selected1 = SelectedAPI:variable_name = MILL_GetUserCheckBoxVariable(short index)",
       "bobcadAPIs": [
         "MILL_GetUserCheckBoxVariable(short index)",
         "LATHE_GetUserCheckBoxVariable(short Index)"
-      ]
-    },
-    {
-      "postVariableName": null,
-      "jobTypes": [
-        "Mill Job",
-        "Lathe Job",
-        "Mill Turn Job"
-      ],
-      "description": "Returns the state of the check box at the specified index from the Advanced Postingpage inside of a machining feature.0 = Not Selected1 = SelectedAPI:variable_name = MILL_GetUserCheckBoxVariable(short index)",
-      "bobcadAPIs": [
-        "MILL_GetUserCheckBoxVariable(short index)",
-        "LATHE_GetUserCheckBoxVariable(short Index)"
-      ]
-    },
-    {
-      "postVariableName": null,
-      "jobTypes": [
-        "Mill Job",
-        "Lathe Job",
-        "Mill Turn Job"
-      ],
-      "description": "Returns the selected index of the specified combo box in the Advanced Posting pageinside of a machining feature.API:variable_name = MILL_GetUserSelectComboVariable(short index)",
-      "bobcadAPIs": [
-        "MILL_GetUserSelectComboVariable(short index)",
-        "LATHE_GetUserSelectComboVariable(short index)"
       ]
     },
     {
@@ -10855,49 +10814,10 @@
         "Lathe Job",
         "Mill Turn Job"
       ],
-      "description": "Returns the value entered in the edit box at the specified index from the AdvancedPosting page inside of a machining feature.API:variable_name = MILL_GetUserEditIntegerVariable(short index)",
-      "bobcadAPIs": [
-        "MILL_GetUserEditIntegerVariable(short index)",
-        "LATHE_GetUserEditIntegerVariable(short index)"
-      ]
-    },
-    {
-      "postVariableName": null,
-      "jobTypes": [
-        "Mill Job",
-        "Lathe Job",
-        "Mill Turn Job"
-      ],
       "description": "Returns the value entered in the edit box at the specified index from the AdvancedPosting page inside of a machining feature.API:variable_name = MILL_GetUserEditRealVariable(short index)",
       "bobcadAPIs": [
         "MILL_GetUserEditRealVariable(short index)",
         "LATHE_GetUserEditRealVariable(short index)"
-      ]
-    },
-    {
-      "postVariableName": null,
-      "jobTypes": [
-        "Mill Job",
-        "Lathe Job",
-        "Mill Turn Job"
-      ],
-      "description": "Returns the value entered in the edit box at the specified index from the AdvancedPosting page inside of a machining feature.API:variable_name = MILL_GetUserEditRealVariable(short index)",
-      "bobcadAPIs": [
-        "MILL_GetUserEditRealVariable(short index)",
-        "LATHE_GetUserEditRealVariable(short index)"
-      ]
-    },
-    {
-      "postVariableName": null,
-      "jobTypes": [
-        "Mill Job",
-        "Lathe Job",
-        "Mill Turn Job"
-      ],
-      "description": "Returns the value entered in the edit box at the specified index from the AdvancedPosting page inside of a machining feature.API:variable_name = MILL_GetUserEditStringVariable(short index)",
-      "bobcadAPIs": [
-        "MILL_GetUserEditStringVariable(short index)",
-        "LATHE_GetUserEditStringVariable(short index)"
       ]
     },
     {
@@ -10933,32 +10853,6 @@
         "Lathe Job",
         "Mill Turn Job"
       ],
-      "description": "Returns the state of the check box at the specified index in the Advanced Postingpageof the Current Settings dialog box.0 = Not Selected1 = SelectedAPI:variable_name = MILL_GetUserCheckBoxSettingsVariable(short index)",
-      "bobcadAPIs": [
-        "MILL_GetUserCheckBoxSettingsVariable(short index)",
-        "LATHE_GetUserCheckBoxSettingsVariable(short index)"
-      ]
-    },
-    {
-      "postVariableName": null,
-      "jobTypes": [
-        "Mill Job",
-        "Lathe Job",
-        "Mill Turn Job"
-      ],
-      "description": "Returns the selected index of the specified combo box in the Advanced Posting pageof the Current Settings dialog box.API:variable_name = MILL_GetUserSelectComboSettingsVariable(short index)",
-      "bobcadAPIs": [
-        "MILL_GetUserSelectComboSettingsVariable(short index)",
-        "LATHE_GetUserSelectComboSettingsVariable(short index)"
-      ]
-    },
-    {
-      "postVariableName": null,
-      "jobTypes": [
-        "Mill Job",
-        "Lathe Job",
-        "Mill Turn Job"
-      ],
       "description": "Returns the selected index of the specified combo box in the Advanced Posting pageof the Current Settings dialog box.API:variable_name = MILL_GetUserSelectComboSettingsVariable(short index)",
       "bobcadAPIs": [
         "MILL_GetUserSelectComboSettingsVariable(short index)",
@@ -10985,49 +10879,10 @@
         "Lathe Job",
         "Mill Turn Job"
       ],
-      "description": "Returns the value entered in the edit box at the specified index in the AdvancedPosting page of the Current Settings dialog box.API:variable_name = MILL_GetUserEditIntegerSettingsVariable(short index)",
-      "bobcadAPIs": [
-        "MILL_GetUserEditIntegerSettingsVariable(short index)",
-        "LATHE_GetUserEditIntegerSettingsVariable(short index)"
-      ]
-    },
-    {
-      "postVariableName": null,
-      "jobTypes": [
-        "Mill Job",
-        "Lathe Job",
-        "Mill Turn Job"
-      ],
       "description": "Returns the value entered in the edit box at the specified index in the AdvancedPosting page of the Current Settings dialog box.API:variable_name = MILL_GetUserEditRealSettingsVariable(short index)",
       "bobcadAPIs": [
         "MILL_GetUserEditRealSettingsVariable(short index)",
         "LATHE_GetUserEditRealSettingsVariable(short index)"
-      ]
-    },
-    {
-      "postVariableName": null,
-      "jobTypes": [
-        "Mill Job",
-        "Lathe Job",
-        "Mill Turn Job"
-      ],
-      "description": "Returns the value entered in the edit box at the specified index in the AdvancedPosting page of the Current Settings dialog box.API:variable_name = MILL_GetUserEditRealSettingsVariable(short index)",
-      "bobcadAPIs": [
-        "MILL_GetUserEditRealSettingsVariable(short index)",
-        "LATHE_GetUserEditRealSettingsVariable(short index)"
-      ]
-    },
-    {
-      "postVariableName": null,
-      "jobTypes": [
-        "Mill Job",
-        "Lathe Job",
-        "Mill Turn Job"
-      ],
-      "description": "Returns the value entered in the edit box at the specified index in the AdvancedPosting page of the Current Settings dialog box.API:variable_name = MILL_GetUserEditStringSettingsVariable(short index)",
-      "bobcadAPIs": [
-        "MILL_GetUserEditStringSettingsVariable(short index)",
-        "LATHE_GetUserEditStringSettingsVariable(short index)"
       ]
     },
     {
