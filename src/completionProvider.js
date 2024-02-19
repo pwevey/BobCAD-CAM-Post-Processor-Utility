@@ -212,10 +212,21 @@ class BcpstCompletionProvider {
 
       // Append Wire EDM API suggestions to the final list if the file is .edmpst
       if (fileExtension === '.edmpst') {
-        const wireEDMAPIsSuggestions = wireEDMAPIs.map((api) => {
+        const wireEDMAPIsSuggestions = wireEDMAPIs.map((api, index) => {
           const apiSuggestion = new vscode.CompletionItem(api['BobCAD API'], vscode.CompletionItemKind.Method);
           apiSuggestion.detail = `BobCAD API for Wire EDM`;
           apiSuggestion.documentation = `Description: ${api.description || 'None'}`;
+
+          // Extract the parameters from the API
+          const parameters = api['BobCAD API'].match(/\(([^)]+)\)/);
+          if (parameters) {
+            // Split the parameters into an array
+            const params = parameters[1].split(',').map((param, index) => `\${${index + 1}:${param.trim()}}`);
+
+            // Set the insertText property to include the parameters as highlighted snippets
+            apiSuggestion.insertText = new vscode.SnippetString(api['BobCAD API'].replace(/\(([^)]+)\)/, `(${params.join(', ')})`));
+          }
+
           return apiSuggestion;
         });
 
