@@ -24,6 +24,17 @@
 			"include": "#comments"
 		},
 		{
+			"name": "comment.block.edmpst",
+			"begin": "^--(?!$)",
+			"end": "^\\*\\*",
+			"patterns": [
+				{
+					"name": "comment.block.line.edmpst",
+					"match": ".*"
+				}
+			]
+		},
+		{
 			"include": "#strings"
 		},
 		{
