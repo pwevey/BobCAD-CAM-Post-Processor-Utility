@@ -1728,9 +1728,6 @@
       ],
       "description": "Outputs the arc center value based on the current arc being cut using prefixes frompost questions:640through post question:643.API:double MILL_GetArcCenterX()double MILL_GetArcCenterY()double MILL_GetArcCenterZ()",
       "bobcadAPIs": [
-        "MILL_GetArcCenterX()",
-        "MILL_GetArcCenterZ()",
-        "MILL_GetArcCenterY()",
         "LATHE_GetArcCenterX()",
         "LATHE_GetArcCenterZ()"
       ]
@@ -2968,7 +2965,7 @@
       "bobcadAPIs": []
     },
     {
-      "postVariableName": "machine_make",
+      "postVariableName": "document_name",
       "jobTypes": [
         "Mill Job",
         "Lathe Job",
@@ -2978,37 +2975,37 @@
       "bobcadAPIs": []
     },
     {
-      "postVariableName": "machine_make",
+      "postVariableName": "document_name_no_ext",
       "jobTypes": [
         "Mill Job",
         "Lathe Job",
         "Mill Turn Job"
       ],
-      "description": "Outputs the document name with full file path and no file extension.NOTE  a bbcd file has to be saved first to get the document name, otherwise no name will be output in the posted code",
+      "description": "Outputs the document name with full file path and no file extension. NOTE: a bbcd file has to be saved first to get the document name, otherwise no name will be output in the posted code",
       "bobcadAPIs": []
     },
     {
-      "postVariableName": "machine_make",
+      "postVariableName": "document_name_no_ext_no_path",
       "jobTypes": [
         "Mill Job",
         "Lathe Job",
         "Mill Turn Job"
       ],
-      "description": "Outputs just the document name only.NOTE  a bbcd file has to be saved first to get the document name, otherwise no name will be output in the posted code",
+      "description": "Outputs just the document name only. NOTE: a bbcd file has to be saved first to get the document name, otherwise no name will be output in the posted code",
       "bobcadAPIs": []
     },
     {
-      "postVariableName": "machine_make",
+      "postVariableName": "document_name_full_path",
       "jobTypes": [
         "Mill Job",
         "Lathe Job",
         "Mill Turn Job"
       ],
-      "description": "Outputs the document name with extension and full file path.NOTE  a bbcd file has to be saved first to get the document name, otherwise no name will be output in the posted code",
+      "description": "Outputs the document name with extension and full file path. NOTE: a bbcd file has to be saved first to get the document name, otherwise no name will be output in the posted code",
       "bobcadAPIs": []
     },
     {
-      "postVariableName": "machine_make",
+      "postVariableName": "job_name",
       "jobTypes": [
         "Mill Job",
         "Lathe Job",
@@ -8146,17 +8143,17 @@
       "jobTypes": [
         "Mill Turn Job"
       ],
-      "description": "Outputs the code that is used to switch the machine to Machine Coordinates.Theoutput string is defined on post question:652Commonly set to G53API:string MILLTURN_GetMachineCoordinateCode()",
+      "description": "Outputs the code that is used to switch the machine to Machine Coordinates.The output string is defined on post question:652 Commonly set to G53API:string MILLTURN_GetMachineCoordinateCode()",
       "bobcadAPIs": [
         "MILLTURN_GetMachineCoordinateCode()"
       ]
     },
     {
-      "postVariableName": "machine_coordinate_code",
+      "postVariableName": "zero_set",
       "jobTypes": [
         "Mill Turn Job"
       ],
-      "description": "Outputs the code that is used to set coordinate system within the program. The output string is defined on post question:622Commonly set to G92",
+      "description": "Outputs the code that is used to set coordinate system within the program. The output string is defined on post question:622 Commonly set to G92",
       "bobcadAPIs": []
     },
     {
