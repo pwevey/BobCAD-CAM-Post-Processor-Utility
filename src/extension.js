@@ -37,10 +37,10 @@ function activate(context) {
   context.subscriptions.push(openLuaAPIsCommand);
 
   // Update the openHelpSystemCommand
-  const openHelpSystemCommand = vscode.commands.registerCommand('postBlocks.openHelpSystem', () => {
+  const openHelpSystemCommand = vscode.commands.registerCommand('postBlocks.openHelpSystem', async () => {
     const helpSystemUrl = vscode.workspace.getConfiguration().get('postBlocks.helpSystemUrl');
     if (helpSystemUrl) {
-      openWebViewPanel('Post Processor Help System', helpSystemUrl);
+      await vscode.env.openExternal(vscode.Uri.parse(helpSystemUrl));
     }
   });
   context.subscriptions.push(openHelpSystemCommand);

@@ -1,15 +1,21 @@
 # Change Log
 
-## [1.0.0]
+## [1.0.3]
 
-- Initial release
+Updated:
+
+* the Post Processor Help System now opens in an external browser since there is no CTRL + F supported in webview yet.
 
 ## [1.0.2]
 
 Fixed:
 
-* Ereased Duplicates for AutoCompletion
+* Erased Duplicates for AutoCompletion
 
 Added:
 
 * Syntax Highlighting for header of .edmpst files
+
+## [1.0.0]
+
+- Initial release
