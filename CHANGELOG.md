@@ -1,10 +1,16 @@
 # Change Log
 
+## [1.0.4]
+
+Updated:
+
+* The descriptions of Post Variables and APIs are now formatted and more human readable
+
 ## [1.0.3]
 
 Updated:
 
-* the Post Processor Help System now opens in an external browser since there is no CTRL + F supported in webview yet.
+* The Post Processor Help System now opens in an external browser since there is no CTRL + F supported in webview yet.
 
 ## [1.0.2]
 
