@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.0.5]
+
+Added:
+
+* Will now suggest user-defined variables
+
+Updated:
+
+* Formatter will now also check incorrect spaces rather than just tabs 
+
 ## [1.0.4]
 
 Updated:
