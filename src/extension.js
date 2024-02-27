@@ -388,6 +388,8 @@ function autoIndent() {
         // If the line is indented more than once, unindent it to one tab
         if (line.startsWith('\t\t') && !inLuaOrVBScriptBlock) { // 2 tabs for double indentation
           formattedText += line.replace(/^\t+/, '\t') + '\n'; // Replace all leading tabs with one tab
+        } else if (line.match(/^\t* +/) && !inLuaOrVBScriptBlock) { // If the line starts with a tab followed by spaces
+          formattedText += line.replace(/^\t* +/, '\t') + '\n'; // Replace all leading tabs and spaces with one tab
         } else {
           formattedText += line + '\n';
         }
