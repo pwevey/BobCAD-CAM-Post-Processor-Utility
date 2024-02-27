@@ -3,6 +3,23 @@ const path = require('path');
 const fs = require('fs');
 
 class BcpstCompletionProvider {
+  constructor() {
+    this.extractUserVariables = this.extractUserVariables.bind(this);
+  }
+
+  extractUserVariables(document) {
+    const text = document.getText();
+    const regex = /\b([a-zA-Z_$][0-9a-zA-Z_$]*)\s*=\s*.+/g;
+    const userVariables = new Set();
+    let match;
+  
+    while ((match = regex.exec(text)) !== null) {
+      userVariables.add(match[1]);
+    }
+  
+    return Array.from(userVariables);
+  }
+
   provideCompletionItems(document, position, token, context) {
     // Get the current file extension
     const fileExtension = path.extname(document.fileName).toLowerCase();
@@ -33,6 +50,18 @@ class BcpstCompletionProvider {
   
     // Pass the document object to the findPostVariableSuggestions method
     const suggestions = this.findPostVariableSuggestions(prefix, false, document);
+
+      // Extract user-defined variables
+    const userVariables = this.extractUserVariables(document);
+
+      // Add user-defined variables to the suggestions
+    const userVariableSuggestions = userVariables.map(variable => {
+      const item = new vscode.CompletionItem(variable, vscode.CompletionItemKind.Variable);
+      item.detail = 'User-defined Variable';
+      return item;
+    });
+
+    suggestions.push(...userVariableSuggestions);
   
     if (suggestions.length > 0) {
       return suggestions;
