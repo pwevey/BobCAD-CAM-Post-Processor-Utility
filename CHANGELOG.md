@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.6]
+
+Added:
+
+* Added inverse logic for Go to Program Block. You can now hold CTRL and click on the Program Block number and go to all instances of program_block_# and lua_block_#
+
 ## [1.0.5]
 
 Added:

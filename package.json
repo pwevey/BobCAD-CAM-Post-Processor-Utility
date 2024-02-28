@@ -2,7 +2,7 @@
   "name": "bobcad-post",
   "displayName": "BobCAD-CAM Post Processor Utility",
   "description": "Tool for BobCAD Post Processors",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "icon": "res/icons/logo.png",
   "author": {
     "name": "BobCAD-CAM",
