@@ -26,6 +26,16 @@ function activate(context) {
 
   context.subscriptions.push(goToDefinitionProvider);
 
+  // Go To Definition Provider for inverse Lua blocks
+  const goToInverseLuaDefinitionProvider = vscode.languages.registerDefinitionProvider(['bcpst', 'source.bcpst'], { provideDefinition: provideInverseLuaDefinition });
+
+  context.subscriptions.push(goToInverseLuaDefinitionProvider);
+
+  // Go To Definition Provider for inverse program blocks
+  const goToInverseDefinitionProvider = vscode.languages.registerDefinitionProvider(['bcpst', 'source.bcpst'], { provideDefinition: provideInverseDefinition });
+
+  context.subscriptions.push(goToInverseDefinitionProvider);
+
 
   // Update the openLuaAPIsCommand
   const openLuaAPIsCommand = vscode.commands.registerCommand('postBlocks.openLuaAPIs', () => {
@@ -452,6 +462,73 @@ function provideLuaDefinition(document, position, token) {
   // If no definition was found, return null
   return null;
 }
+
+
+function provideInverseDefinition(document, position, token) {
+  const range = document.getWordRangeAtPosition(position);
+  const word = document.getText(range);
+
+  // Check if the word starts with "200"
+  const match = word.match(/^200(\d+)/);
+  if (match) {
+    const blockNumber = match[1];
+    const locations = [];
+
+    // Find all instances of "program_block_#"
+    for (let i = 0; i < document.lineCount; i++) {
+      const line = document.lineAt(i);
+      if (line.text.includes(`program_block_${blockNumber}`)) {
+        // Add the position of the line to the locations array
+        locations.push(new vscode.Location(document.uri, line.range.start));
+      }
+    }
+
+    // If no definitions were found, return null
+    if (locations.length === 0) {
+      return null;
+    }
+
+    // Return the locations array
+    return locations;
+  }
+
+  // If no match was found, return null
+  return null;
+}
+
+
+function provideInverseLuaDefinition(document, position, token) {
+  const range = document.getWordRangeAtPosition(position);
+  const word = document.getText(range);
+
+  // Check if the word starts with "270"
+  const match = word.match(/^270(\d+)/);
+  if (match) {
+    const blockNumber = parseInt(match[1]);
+    const locations = [];
+
+    // Find all instances of "lua_block_#"
+    for (let i = 0; i < document.lineCount; i++) {
+      const line = document.lineAt(i);
+      if (line.text.includes(`lua_block_${blockNumber}`)) {
+        // Add the position of the line to the locations array
+        locations.push(new vscode.Location(document.uri, line.range.start));
+      }
+    }
+
+    // If no definitions were found, return null
+    if (locations.length === 0) {
+      return null;
+    }
+
+    // Return the locations array
+    return locations;
+  }
+
+  // If no match was found, return null
+  return null;
+}
+
 
 
 function deactivate() {}
