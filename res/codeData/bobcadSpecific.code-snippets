@@ -964,4 +964,41 @@
 				],
 				"description": "BobCAD Post Lua API: This is how you can structure a simple 'Hello World' message box in a BobCAD post processor. Places in post blocks 2701 - 2799. To call these blocks in the post processor, use lua_block_# (eg. if in block 2701, use lua_block_1 in a normal post block)."
 			  },
+			  "ShowOperationData (BobCAD / Lua)": {
+				"prefix": "Show Operation Data",
+				"body": [
+				  "\tfunction ShowOperationData()",
+				  "\t\t-- Get the current operations ID value in the CAM Tree",
+				  "\t\top_id = BcPost.GetValueOfOperation(\"ID\")",
+				  "",
+				  "\t\tBcc.ShowMessageBox(type(op_id) .. \" \" .. op_id) -- Should be a number",
+				  "",
+				  "\t\tretTable = Bcc.GetCamObjParameters(op_id)",
+				  "",
+				  "\t\t-- Initialize an empty string to hold the table values",
+				  "\t\ttable_values = \"\"",
+				  "",
+				  "\t\t-- Iterate through the table",
+				  "\t\tfor key, value in pairs(retTable) do",
+				  "\t\t\t-- Check if value is a table",
+				  "\t\t\tif type(value) == \"table\" then",
+				  "\t\t\t\t-- If it's a table, iterate through it and add its values to the string",
+				  "\t\t\t\tfor k, v in pairs(value) do",
+				  "\t\t\t\t\ttable_values = table_values .. \"Key: \" .. key .. \", Subkey: \" .. k .. \", Value: \" .. tostring(v) .. \"\\n\"",
+				  "\t\t\t\tend",
+				  "\t\t\telse",
+				  "\t\t\t\t-- If it's not a table, add it to the string as before",
+				  "\t\t\t\ttable_values = table_values .. \"Key: \" .. key .. \", Value: \" .. tostring(value) .. \"\\n\"",
+				  "\t\t\tend",
+				  "\t\tend",
+				  "",
+				  "\t\t-- Show the table values in a message box",
+				  "\t\tBcc.ShowMessageBox(table_values, {Title=\"ALL Operation Data\"})",
+				  "\tend",
+				  "",
+				  "\tShowOperationData()"
+				],
+				"description": "BobCAD Post Lua API: This function is utilized to get ALL operation data in a feature such as the names, types, and custom posting information."
+			  },
+			  }
 }
