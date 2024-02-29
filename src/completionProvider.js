@@ -7,6 +7,7 @@ class BcpstCompletionProvider {
     this.extractUserVariables = this.extractUserVariables.bind(this);
   }
 
+
   extractUserVariables(document) {
     const text = document.getText();
     const regex = /\b([a-zA-Z_$][0-9a-zA-Z_$]*)\s*=\s*.+/g;
@@ -19,6 +20,26 @@ class BcpstCompletionProvider {
   
     return Array.from(userVariables);
   }
+
+
+  extractUserFunctions(document) {
+    const text = document.getText();
+    const luaFuncRegex = /function\s+([a-zA-Z_$][0-9a-zA-Z_$]*)\s*\((.*?)\)/g;
+    const vbsFuncRegex = /(Sub|Function)\s+([a-zA-Z_$][0-9a-zA-Z_$]*)\s*\((.*?)\)/g;
+    const userFunctions = new Set();
+    let match;
+  
+    while ((match = luaFuncRegex.exec(text)) !== null) {
+      userFunctions.add({name: match[1], params: match[2], type: 'lua'});
+    }
+  
+    while ((match = vbsFuncRegex.exec(text)) !== null) {
+      userFunctions.add({name: match[2], params: match[3], type: 'vbs'});
+    }
+  
+    return Array.from(userFunctions);
+  }
+
 
   provideCompletionItems(document, position, token, context) {
     // Get the current file extension
@@ -50,6 +71,29 @@ class BcpstCompletionProvider {
   
     // Pass the document object to the findPostVariableSuggestions method
     const suggestions = this.findPostVariableSuggestions(prefix, false, document);
+
+    // Extract user-defined functions
+    const userFunctions = this.extractUserFunctions(document);
+
+    // Add user-defined functions to the suggestions
+    const userFunctionSuggestions = userFunctions.map((func, index) => {
+      let functionName;
+      if (func.type === 'lua') {
+        functionName = `${func.name}(${func.params.split(',').map((param, i) => `\${${i+1}:${param.trim()}}`).join(', ')})`;
+      } else {
+        if (func.params) {
+          functionName = `${func.name} ${func.params.split(',').map((param, i) => `\${${i+1}:${param.trim()}}`).join(', ')}`;
+        } else {
+          functionName = func.name;
+        }
+      }
+      const item = new vscode.CompletionItem(functionName, vscode.CompletionItemKind.Function);
+      item.insertText = new vscode.SnippetString(functionName);
+      item.detail = 'User-defined Function';
+      return item;
+    });
+
+    suggestions.push(...userFunctionSuggestions);
 
       // Extract user-defined variables
     const userVariables = this.extractUserVariables(document);

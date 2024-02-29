@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.7]
+
+Added:
+
+* Will now suggest user-defined functions (lua and VBScript)
+
 ## [1.0.6]
 
 Added:
