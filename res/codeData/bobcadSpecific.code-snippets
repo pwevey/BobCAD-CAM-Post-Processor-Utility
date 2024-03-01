@@ -113,13 +113,13 @@
 			"prefix": "lua (post blocks)",
 			"body": [
 				"2701. Lua Block 1.",
-				"	$1",
+				"\t$1",
 				"",
 				"2702. Lua Block 2.",
-				"	",
+				"\t",
 				"",
 				"2703. Lua Block 3.",
-				"	",
+				"\t",
 				""
 			],
 			"description": "Post Procoessor Format: You can create lua block numbers from 2701 - 2799. Use the lua programming language to create logic along with BobCAD Lua APIs. See BobCAD Lua Help System for more info."
@@ -129,13 +129,13 @@
 			"prefix": "vbscript (post blocks)",
 			"body": [
 				"2001. Program Block 1.",
-				"	$1",
+				"\t$1",
 				"",
 				"2002. Program Block 2.",
-				"	",
+				"\t",
 				"",
 				"2003. Program Block 3.",
-				"	",
+				"\t",
 				""
 			],
 			"description": "Post Procoessor Format: You can create vbscript block numbers from 2001 - 2099. Use the vbscript programming language to create logic along with BobCAD APIs. See the Post Processor help system for more info."
@@ -629,7 +629,7 @@
 			"prefix": "MDI Custom Commands (optional_stop)",
 			"body": [
 				"26${1:00}. ${2:Optional Stop}",
-				"	${3:optional_stop}"
+				"\t${3:optional_stop}"
 			],
 			"description": "Custom MDI Commands: Create a new post block called 2600. Optional Stop. Then, place optional_stop underneath it. In the softwware, on the \"MDI\" page of a feature, expand \"Custom Commands\" and you will now see a new command called, \"Optional Stop\"."
 		},
@@ -638,8 +638,8 @@
 			"prefix": "MDI Custom Command (generic)",
 			"body": [
 				"26${1:00}. ${2:Name of Custom Command}",
-				"	${3:post_variables_here}",
-				"	n,${4:more_post_variables_here}"
+				"\t${3:post_variables_here}",
+				"\tn,${4:more_post_variables_here}"
 			],
 			"description": "Custom MDI Commands: This is a basic setup of a custom MDI command in a post processor. Custom MDIs are setup in post blocks 2600. - 2699. In the softwware, on the \"MDI\" page of a feature, expand \"Custom Commands\" and you will now see a new command called, \"Name of Custom Command\"."
 		},
@@ -1060,5 +1060,13 @@
 				"\tend"
 				],
 				"description": "BobCAD Post Lua API: This snippet retrieves a value from the operation data in the CAM Tree."
-			}
+			},
+			"separate lua function (BobCAD / Lua)": {
+				"scope": "bcpst, lua",
+				"prefix": "lua_func_FunctionName",
+				"body": [
+					"lua_func_${1:FunctionName}"						
+				],
+				"description": "BobCAD Lua API: FunctionName: This is a separate lua function that you create in a .lua file that can be called from the post processor. create a folder in one of the following directorys Posts\\Mill, Posts\\Lathe, or Posts\\MillTurn. Then, add the following post question to your post processor: 732. Lua sub folder? \"MySubFolder\". You can then create a lua file (eg. MyLua.lua) inside \"MySubFolder\" folder with a list of all functions and call it in your normal post blocks with lua_func_FunctionName."
+			},
 }
