@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.0.8]
+
+Added:
+
+* Added more code snippets for lua functions
+
+Updated:
+
+* .BCPst syntax highlighting for lua_func_FunctionName({arg1 = 1, arg2 = false}) 
+
 ## [1.0.7]
 
 Added:
