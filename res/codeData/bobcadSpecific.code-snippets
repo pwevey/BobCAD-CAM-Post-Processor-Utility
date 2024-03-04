@@ -1007,18 +1007,18 @@
 				],
 				"description": "BobCAD Post Lua API: This function is utilized to get ALL operation data in a feature such as the names, types, and custom posting information."
 			  },
-			"GetValueFromOperation function (BobCAD / Lua)": {
+			"ShowValueFromOperation function (BobCAD / Lua)": {
 				"scope": "bcpst, lua",
-				"prefix": "GetValueFromOperation",
+				"prefix": "ShowValueFromOperation",
 				"body": [
 				"\t--[[",
-				"\t\tGetValueFromOperation function",
+				"\t\tShowValueFromOperation function",
 				"\t\tThis function takes a searchKey as an argument, retrieves the current operations ID value in the CAM Tree,",
 				"\t\titerates through the returned table and returns the value of the key or subkey that matches the searchKey.",
 				"\t\tIf the key or subkey is not found, it returns nil.",
 				"\t\tUse ShowOperationData function to find out to key you need to use",
 				"\t]]",
-				"\tfunction GetValueFromOperation(searchKey)",
+				"\tfunction ShowValueFromOperation(searchKey)",
 				"\t\t-- Get the current operations ID value in the CAM Tree",
 				"\t\top_id = BcPost.GetValueOfOperation(\"ID\")",
 				"",
@@ -1050,7 +1050,7 @@
 				"\tShowOperationData()",
 				"",
 				"\t-- Call the function with the key or subkey you want to find",
-				"\tvalue = GetValueFromOperation(\"thread_pitch\")",
+				"\tvalue = ShowValueFromOperation(\"thread_pitch\")",
 				"",
 				"\t-- Check if a value was found",
 				"\tif value then",
