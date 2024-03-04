@@ -45,7 +45,11 @@
         },
 		{
             "include": "#postblocks"
-        }
+        },
+		{
+			"match": "(-?\\b\\d+\\.?\\d*\\b)",
+			"name": "constant.numeric.bcpst"
+		}
 	],
 	"repository": {
 		"variableLanguage": {
