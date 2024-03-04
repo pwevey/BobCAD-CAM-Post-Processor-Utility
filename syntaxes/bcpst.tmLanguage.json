@@ -49,6 +49,14 @@
 		{
 			"match": "(-?\\b\\d+\\.?\\d*\\b)",
 			"name": "constant.numeric.bcpst"
+		},
+		{
+			"match": "\\b(true|false)\\b",
+			"name": "constant.language.boolean.bcpst"
+		},
+		{
+			"match": "=",
+			"name": "keyword.operator.assignment.bcpst"
 		}
 	],
 	"repository": {
