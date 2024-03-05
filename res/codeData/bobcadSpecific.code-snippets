@@ -1073,12 +1073,35 @@
 				"scope": "bcpst, lua",
 				"prefix": "Bcc.ShowMessageBox (once)",
 				"body": [
-					"MessageShown = false",
-					"if not MessageShown then",
-					"\tBcc.ShowMessageBox(${1:\"myMessage\"})",
-					"\tMessageShown = true",
-					"end"
+					"2701. Lua Block 1.",
+					"\t-- Initialize Message",
+					"\tBcPost.RunVBApi(\"MILL_SetIntMemoryLoc\", {0, 0})",
+					"\t",
+					"2702. Lua Block 2.",
+					"\tErrorMessageShown = BcPost.RunVBApi(\"MILL_GetIntMemoryLoc\", 0)",
+					"\t-- Bcc.ShowMessageBox(ErrorMessageShown)",
+					"\tif ErrorMessageShown == 0 then",
+					"\t\tBcc.ShowMessageBox(\"myMessage\")",
+					"\t\tBcPost.RunVBApi(\"MILL_SetIntMemoryLoc\", {0, 1})",
+					"\tend"
 				],
-				"description": "BobCAD Lua API: This snippet shows a message box with a specified message only once. This is useful if the NC file has multiple instances of the Post Block you are calling."
+				"description": "BobCAD Lua API: Place lua_block_1 in post block '0. File Header' and lua_block_2 in any post block where you want the message. This is useful if your post block is being called many times when posting the code so that you do not have to click 'OK' thousand times."
+			},
+			"Show Message Once (BobCAD / VBScript)": {
+				"scope": "bcpst",
+				"prefix": "MsgBox (once)",
+				"body": [
+					"2001. Program Block 1.",
+					"\t'Set Message",
+					"\tCALL MILL_SetIntMemoryLoc(0, 0)",
+					"\t",
+					"2002. Program Block 2.",
+					"\tErrorMessageShown = MILL_GetIntMemoryLoc(0)",
+					"\tIF ErrorMessageShown = 0 THEN",
+					"\t\tMsgBox(\"myMessage\")",
+					"\t\tCALL MILL_SetIntMemoryLoc(0, 1)",
+					"\tEND IF"
+				],
+				"description": "BobCAD VBScript API: Place program_block_1 in post block '0. File Header' and program_block_2 in any post block where you want the message. This is useful if your post block is being called many times when posting the code so that you do not have to click 'OK' thousand times."
 			}
 }
