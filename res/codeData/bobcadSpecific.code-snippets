@@ -1069,4 +1069,16 @@
 				],
 				"description": "BobCAD Lua API: FunctionName: This is a separate lua function that you create in a .lua file that can be called from the post processor. create a folder in one of the following directorys Posts\\Mill, Posts\\Lathe, or Posts\\MillTurn. Then, add the following post question to your post processor: 732. Lua sub folder? \"MySubFolder\". You can then create a lua file (eg. MyLua.lua) inside \"MySubFolder\" folder with a list of all functions and call it in your normal post blocks with lua_func_FunctionName."
 			},
+			"Show Message Once (BobCAD / Lua)": {
+				"scope": "bcpst, lua",
+				"prefix": "Bcc.ShowMessageBox (once)",
+				"body": [
+					"MessageShown = false",
+					"if not MessageShown then",
+					"\tBcc.ShowMessageBox(${1:\"myMessage\"})",
+					"\tMessageShown = true",
+					"end"
+				],
+				"description": "BobCAD Lua API: This snippet shows a message box with a specified message only once. This is useful if the NC file has multiple instances of the Post Block you are calling."
+			}
 }
