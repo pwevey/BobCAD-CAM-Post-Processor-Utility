@@ -423,12 +423,12 @@ function provideDefinition(document, position, token) {
   // Check if the word matches the pattern "program_block_#"
   const match = word.match(/^program_block_(\d+)$/);
   if (match) {
-    const blockNumber = parseInt(match[1]);
+    const blockNumber = match[1].padStart(2, '0'); // Pad the block number with leading zeros
 
-    // Find the line that starts with "200#"
+    // Find the line that starts with "20##"
     for (let i = 0; i < document.lineCount; i++) {
       const line = document.lineAt(i);
-      if (line.text.startsWith(`200${blockNumber}`)) {
+      if (line.text.startsWith(`20${blockNumber}`)) {
         // Return the position of the line as the definition
         return new vscode.Location(document.uri, line.range.start);
       }
@@ -440,19 +440,19 @@ function provideDefinition(document, position, token) {
 }
 
 
-function provideLuaDefinition(document, position, token) {
+function provideLuaDefinition(document, position) {
   const range = document.getWordRangeAtPosition(position);
   const word = document.getText(range);
 
   // Check if the word matches the pattern "lua_block_#"
   const match = word.match(/^lua_block_(\d+)$/);
   if (match) {
-    const blockNumber = parseInt(match[1]);
+    const blockNumber = match[1].padStart(2, '0'); // Pad the block number with leading zeros
 
-    // Find the line that starts with "270#"
+    // Find the line that starts with "27##"
     for (let i = 0; i < document.lineCount; i++) {
       const line = document.lineAt(i);
-      if (line.text.startsWith(`270${blockNumber}`)) {
+      if (line.text.startsWith(`27${blockNumber}`)) {
         // Return the position of the line as the definition
         return new vscode.Location(document.uri, line.range.start);
       }
@@ -464,20 +464,21 @@ function provideLuaDefinition(document, position, token) {
 }
 
 
-function provideInverseDefinition(document, position, token) {
+function provideInverseDefinition(document, position) {
   const range = document.getWordRangeAtPosition(position);
   const word = document.getText(range);
 
   // Check if the word starts with "200"
-  const match = word.match(/^200(\d+)/);
+  const match = word.match(/^20(\d+)/);
   if (match) {
-    const blockNumber = match[1];
+    const blockNumber = parseInt(match[1]); // Parse the block number as an integer to remove leading zeros
     const locations = [];
 
     // Find all instances of "program_block_#"
     for (let i = 0; i < document.lineCount; i++) {
       const line = document.lineAt(i);
-      if (line.text.includes(`program_block_${blockNumber}`)) {
+      const regex = new RegExp(`program_block_${blockNumber}\\b`);
+      if (regex.test(line.text)) {
         // Add the position of the line to the locations array
         locations.push(new vscode.Location(document.uri, line.range.start));
       }
@@ -497,12 +498,12 @@ function provideInverseDefinition(document, position, token) {
 }
 
 
-function provideInverseLuaDefinition(document, position, token) {
+function provideInverseLuaDefinition(document, position) {
   const range = document.getWordRangeAtPosition(position);
   const word = document.getText(range);
 
   // Check if the word starts with "270"
-  const match = word.match(/^270(\d+)/);
+  const match = word.match(/^27(\d+)/);
   if (match) {
     const blockNumber = parseInt(match[1]);
     const locations = [];
@@ -510,7 +511,8 @@ function provideInverseLuaDefinition(document, position, token) {
     // Find all instances of "lua_block_#"
     for (let i = 0; i < document.lineCount; i++) {
       const line = document.lineAt(i);
-      if (line.text.includes(`lua_block_${blockNumber}`)) {
+      const regex = new RegExp(`lua_block_${blockNumber}\\b`);
+      if (regex.test(line.text)) {
         // Add the position of the line to the locations array
         locations.push(new vscode.Location(document.uri, line.range.start));
       }
