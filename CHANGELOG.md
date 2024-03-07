@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.0.9]
+
+Fixed:
+
+* Fixed issue where CTRL + Click program blocks that did not account for program blocks that are double digits
+
 ## [1.0.8]
 
 Added:
