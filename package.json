@@ -110,7 +110,7 @@
       {
       "id": "bcpst",
       "aliases": ["BobCAD-CAM Post Processor", "edmpst", "bcpst", "lathepst", "millpst"],
-      "extensions": [".bcpst",".edmpst",".lathepst",".millpst"],
+      "extensions": [".bcpst",".edmpst",".lathepst",".millpst",".hpst"],
       "configuration": "./language-configuration.json"
       },
       {
