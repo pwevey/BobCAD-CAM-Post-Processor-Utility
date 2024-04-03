@@ -1,8 +1,14 @@
 # Change Log
 
+## [1.1.0]
+
+Added:
+
+* More Code Snippets for Mill-Turn Blocks
+
 ## [1.0.10]
 
-Added
+Added:
 
 * .hpst extension for syntax highlighting for Wire EDM Holes
 * More Code Snippets specific to Post Processors (eg. begin encrypt)
