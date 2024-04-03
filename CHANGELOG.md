@@ -5,6 +5,7 @@
 Added
 
 * .hpst extension for syntax highlighting for Wire EDM Holes
+* More Code Snippets specific to Post Processors (eg. begin encrypt)
 
 ## [1.0.9]
 

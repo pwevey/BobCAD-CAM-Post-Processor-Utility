@@ -81,6 +81,65 @@
 			],
 			"description": "Post Variable Format: Add user comments to post block 0. File Header. User Comments are set in Current Settings > Comments in the software."
 		},
+		"Add Encryption (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "encryption",
+			"body": [
+			  "<--BEGIN ENCRYPT",
+			  "",
+			  "// place all desired post scripting blocks here",
+			  "",
+			  "<--END ENCRYPT"
+			],
+			"description": "Post Block Format: Add encryption to a post block to protect your post processor code. Once added, open BobCAD, go to CAM tab > Post Encryption to encrypt the post processor. This will prevent others from viewing or editing your post processor code."
+		},
+		"Begin Encryption (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "begin encrypt",
+			"body": [
+			  "<--BEGIN ENCRYPT",
+			],
+			"description": "Post Block Format: Add encryption to a post block to protect your post processor code. Use <--END ENCRYPT to close off the encryption. Once added, open BobCAD, go to CAM tab > Post Encryption to encrypt the post processor. This will prevent others from viewing or editing your post processor code."
+		},
+		"End Encryption (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "end encrypt",
+			"body": [
+			  "<--END ENCRYPT",
+			],
+			"description": "Post Block Format: Add encryption to a post block to protect your post processor code. Use <--BEGIN ENCRYPT to start the encryption. Once added, open BobCAD, go to CAM tab > Post Encryption to encrypt the post processor. This will prevent others from viewing or editing your post processor code."
+		},
+		"Arc Def Comment (Mill-Turn BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "arc definition zone blocks comment",
+			"body": [
+			  "//---------------------------------------------------------------------",
+			  "// Zone Blocks ",
+			  "//---------------------------------------------------------------------",
+			  "//  Important notes for specific parameters",
+			  "//",
+			  "// 6013 - Zone 1 Arc Definition (Applies to all zones)",
+			  "// Value\tLathe         G17        G18        G19",
+			  "// 0        Normal        Normal     Normal     Normal",
+			  "// 1        Normal        Normal     Normal     Reverse",
+			  "// 2        Normal        Normal     Reverse    Normal",
+			  "// 3        Normal        Normal     Reverse    Reverse",
+			  "// 4        Normal        Reverse    Normal     Normal",
+			  "// 5        Normal        Reverse    Normal     Reverse",
+			  "// 6        Normal        Reverse    Reverse    Normal",
+			  "// 7        Normal        Reverse    Reverse    Reverse",
+			  "// 8        Reverse       Normal     Normal     Normal",
+			  "// 9        Reverse       Normal     Normal     Reverse",
+			  "// 10       Reverse       Normal     Reverse    Normal",
+			  "// 11       Reverse       Normal     Reverse    Reverse",
+			  "// 12       Reverse       Reverse    Normal     Normal",
+			  "// 13       Reverse       Reverse    Normal     Reverse",
+			  "// 14       Reverse       Reverse    Reverse    Normal",
+			  "// 15       Reverse       Reverse    Reverse    Reverse",
+			  "// 6000 to 8499"
+			],
+			"description": "Post Block Format: Place this comment just above the first Zone Block for a Mil-Turn post starting at 6000 to use as a reference when setting up Arc defs for each zome. This is needed to properly setup the coordinate system for each zone."
+		},
 		"Post Header Comment": {
 			"scope": "bcpst",
 			"prefix": "comment post header",
