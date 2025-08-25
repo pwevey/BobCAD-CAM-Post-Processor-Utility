@@ -10443,7 +10443,7 @@
         "Mill Job",
         "Mill Turn Job"
       ],
-      "description": "Returns the current operation type.\n\nDrilling\n100 = Center Drill\n101 = Drill\n102 = Tap\n103 = Ream\n104 = Boring\n105 = Chamfer Drill\n106 = Counterbore Drill\n204 = Chamfer Mill\n206 = Counterbore Mill\n\nMilling\n200 = Profile Rough\n201 = Profile Finish\n202 = Pocket\n203 = Facing\n204 = Chamfer Mill\n205 = 2 Axis Plunge Rough\n206 = Counterbore Mill\n208 = Tapered Pocket (V-Carve Rough)\n209 = 2 Axis Engraving\n210 = Thread Mill\n212= Drag Knife\n300 = Z Level Rough\n301 = Z Level Finish\n302 = Planar\n303 = Spiral\n304 = Radial\n305 = 3 Axis Plunge Rough\n306 = Advanced Rough\n307 = Flatlands\n308 = Equidistant\n309 = Pencil\n310 = 3 Axis Engrave Rough\n311 = 3 Axis Engrave Finish\n312 = V-Carve Finishing\n400 = 4 Axis Rotary\n500 = 5 Axis Toolpaths\n\nAPI:\nshort MILL_GetOperationType()",
+      "description": "Returns the current operation type.\n\nDrilling\n100 = Center Drill\n101 = Drill\n102 = Tap\n103 = Ream\n104 = Boring\n105 = Chamfer Drill\n106 = Counterbore Drill\n204 = Chamfer Mill\n206 = Counterbore Mill\n\nMilling\n200 = Profile Rough\n201 = Profile Finish\n202 = Pocket\n203 = Facing\n204 = Chamfer Mill\n205 = 2 Axis Plunge Rough\n206 = Counterbore Mill\n208 = Tapered Pocket (V-Carve Rough)\n209 = 2 Axis Engraving\n210 = Thread Mill\n212= Drag Knife\n300 = Z Level Rough\n301 = Z Level Finish\n302 = Planar\n303 = Spiral\n304 = Radial\n305 = 3 Axis Plunge Rough\n306 = Advanced Rough\n307 = Flatlands\n308 = Equidistant\n309 = Pencil\n310 = 3 Axis Engrave Rough\n311 = 3 Axis Engrave Finish\n312 = V-Carve Finishing\n400 = 4 Axis Rotary\n500 = 5 Axis Toolpaths\n\nMultiaxis Mill\n1102 = Surface (Nurb Based)\n1103 = Multiaxis Machining Standard\n1104 = Multiaxis Machining Premium\n1105 = Deburring\n1113 = Wireframe\n1114 = Swarf Machining\n1115 = Multiblade\n1116 = Post Machining\n1117 = Turn Milling\n\nAPI:\nshort MILL_GetOperationType()",
       "bobcadAPIs": [
         "MILL_GetOperationType()"
       ]
@@ -11339,6 +11339,15 @@
         "MILL_GetUserEditStringSettingsVariable(short index)",
         "LATHE_GetUserEditStringSettingsVariable(short index)"
       ]
+    },
+    {
+      "postVariableName": "rotaryPosition_reset_G92",
+      "jobTypes": [
+        "Mill Job",
+        "Mill Turn Job"
+      ],
+      "description": "Outputs the string with the programmable working offset code (eg. G92) and the rotary position\nfor the offset which is evenly divisible by 360 degrees from the previous rotary position.\n\nExample:\nPrevious Rotary: A8998.171\nNext Rotary: A-90\nSo,\nG92 Rotary: A-1.829\n\nNC Output: G92 A-1.829\n\nLinked Post Questions:\nEnable this variable on post question: 562\nSet the G Code (eg. G92) on post question: 563",
+      "bobcadAPIs": []
     }
   ],
   "commonPostVariables": [
