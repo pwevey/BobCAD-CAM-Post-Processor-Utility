@@ -11348,6 +11348,15 @@
       ],
       "description": "Outputs the string with the programmable working offset code (eg. G92) and the rotary position\nfor the offset which is evenly divisible by 360 degrees from the previous rotary position.\n\nExample:\nPrevious Rotary: A8998.171\nNext Rotary: A-90\nSo,\nG92 Rotary: A-1.829\n\nNC Output: G92 A-1.829\n\nLinked Post Questions:\nEnable this variable on post question: 562\nSet the G Code (eg. G92) on post question: 563",
       "bobcadAPIs": []
+    },
+    {
+      "postVariableName": "helix_num_revolutions",
+      "jobTypes": [
+        "Mill Job",
+        "Mill Turn Job"
+      ],
+      "description": "Number of revolutions in the helix segment being posted out. If the helix segment makes one complete 360 degrees revolution, the helix_num_revolutions will output D1. With “D” being the prefix setup in post question 735.\n\nLinked Post Questions:\n735",
+      "bobcadAPIs": []
     }
   ],
   "commonPostVariables": [

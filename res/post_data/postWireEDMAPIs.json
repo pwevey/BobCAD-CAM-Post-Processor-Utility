@@ -543,6 +543,10 @@
         {
             "BobCAD API": "EDM_GetManualReg4Number()",
             "description": "Returns the manually entered register number for those machines that allow this option."
+        },
+        {
+            "BobCAD API": "EDM_GetOperationType()",
+            "description": "Returns the Operation type:\n\n2000 = 2 Axis Rough Cut\n2001 = 2 Axis Tab Cut\n2002 = 2 Axis Skim Cut\n2100 = 4 Axis Rough Cut\n2101 = 4 Axis Tab Cut\n2102 = 4 Axis Skim Cut"
         }
     ]
 }

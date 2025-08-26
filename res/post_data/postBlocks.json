@@ -253,7 +253,22 @@
     {
       "number": 66,
       "name": "Block 66. Arc Move XZ (G18 Plane).",
-      "description": "These block outputs the arc move for arc motion in the standard right angle planes (G17, G18, and G19)\n\ng_arc_plane\u00a0- This variable outputs the active plane for the arc. These planes are defined on postblock 691, 692, and 693.\n\ng_arc_move - This variable outputs the arc direction string (G2/G3 for Fanuc). The direction strings are defined on postblock: 682, 683.\n\narc_center - This variable outputs the arc center values based on the setting in postblock 222. This will output IJK or R value automatically based on the setting.\n\n"
+      "description": "This block outputs the arc move for arc motion in the standard right angle planes (G17, G18, and G19)\n\ng_arc_plane\u00a0- This variable outputs the active plane for the arc. These planes are defined on postblock 691, 692, and 693.\n\ng_arc_move - This variable outputs the arc direction string (G2/G3 for Fanuc). The direction strings are defined on postblock: 682, 683.\n\narc_center - This variable outputs the arc center values based on the setting in postblock 222. This will output IJK or R value automatically based on the setting.\n\n"
+    },
+    {
+      "number": 67,
+      "name": "Block 67. Helix move XY.",
+      "description": "This block outputs the helix moves for helix motion in the standard right angle planes (G06 and G07)\n\ng_arc_plane\u00a0- This variable outputs the active plane for the arc. These planes are defined on post blocks 691, 692, and 693.\n\ng_arc_move - This variable outputs the arc direction string (G6/G7 for Prototrak). The direction strings are defined on post blocks: 736 and 737.\n\narc_center - This variable outputs the arc center values based on the setting in post block: 222. This will output IJK or R value automatically based on the setting.\n\nhelix_pitch - This variable outputs the pitch of the helix. The prefix is defined on post question 734\n\nhelix_num_revolutions - This variable controls the number of revolutions in the helix segment. If the helix segment makes one complete 360 degrees revolution, the helix_num_revolutions will output D1. With “D” being the prefix setup in post question 735.\n\n"
+    },
+    {
+      "number": 68,
+      "name": "Block 68. Helix move YZ.",
+      "description": "See Block 67"
+    },
+    {
+      "number": 69,
+      "name": "Block 69. Helix move XZ.",
+      "description": "See Block 67"
     },
     {
       "number": 71,
@@ -1096,6 +1111,16 @@
       "description": "This Post question controls whether output of a multiple revolution helical move is allowed. With this Post question, both 3D arc output and multiple revolution helical moves can be output.    (See available options below).  When set to \"n\" the system will force multiple arcs to be created for the helix.   When set to \"y\" the system will only output a helix described with a total angle and pitch. This block was added to BobCAD-CAM V36 and BobCAM\u00a0for SOLIDWORKS\u00a0V11.\n\nAvailable Options:\n\ny - This setting turns on helical output and references questions 733 and 734 for total angle and pitch data.\n\nn - This setting turns off helical output.\n"
     },
     {
+      "number": 562,
+      "name": "Block 562. Support G92 Working Offset?",
+      "description": "This post question enables and disables the post variable rotaryPosition_reset_G92. The G92 temporary work offset g-code is natively supported in the software and can easily be setup in your post processor. Simply enable post question 562 and set 563 (typically G92) based on your machine controller’s Temporary Work Offset g-code command call. Then, place rotaryPosition_reset_G92 in the Tool Change post blocks (Ex. for Mill Post Blocks 3 & 4) to output the Temporary Work Offset line between your tool changes.\n\nThe advantages of using a temporary work offset for a rotary machine is to eliminate unnecessary long rewind times where the machine is sitting in a stationary position while the rotary unit is rotating to the next rotary position. This is particularly useful when there are large differences between the last rotary move from the previous Operation and the next rotary move in the next Operation.\n\nThis block was added to BobCAD-CAM V38 and BobCAM for SOLIDWORKS V13."
+    },
+    {
+      "number": 563,
+      "name": "Block 563. G Code for G92 - programmable working offset?",
+      "description": "This post question sets the g code for the temporary work offset g-code command call (Typically, G92). It is linked together with post question 562 and is utilized in post variable rotaryPosition_reset_G92. Block 563 controls the output seen below of the g-code command.\n\nThis block was added to BobCAD-CAM V38 and BobCAM for SOLIDWORKS V13."
+    },
+    {
       "number": 605,
       "name": "Block 605. Spindle Speed Prefix?",
       "description": "\nThis block defines the string prefix value to be used with the spindle speed variables.\n\nPosting Variables Applied To:\n\n\n"
@@ -1594,6 +1619,21 @@
       "number": 734,
       "name": "Block 734. Prefix for Helix Pitch?",
       "description": "\nThis block defines the string value to be used to set the pitch of the helical move when post question 560. Allow Multiple Revolution Helical Move? is set to Y. This block was added to BobCAD-CAM V36 and BobCAM\u00a0for SOLIDWORKS\u00a0V11.\n"
+    },
+    {
+      "number": 735,
+      "name": "Block 735. Prefix for Helix Pitch?",
+      "description": "This block defines the prefix for helix_num_revolutions. Allow Multiple Revolution Helical Move? is set to Y. This block was added to BobCAD-CAM V38 and BobCAM for SOLIDWORKS V13."
+    },
+    {
+      "number": 736,
+      "name": "Block 736. Prefix for Helix Pitch?",
+      "description": "This block is used with g_arc_move to output the Helix Clockwise direction gcode. This block was added to BobCAD-CAM V38 and BobCAM for SOLIDWORKS V13."
+    },
+    {
+      "number": 737,
+      "name": "Block 737. Prefix for Helix Pitch?",
+      "description": "This block is used with g_arc_move to output the Helix Counter-Clockwise direction gcode. This block was added to BobCAD-CAM V38 and BobCAM for SOLIDWORKS V13."
     },
     {
       "number": 750,
@@ -4424,6 +4464,14 @@
       "number": 3559,
       "name": "Block 3559. Mill Turn - Output Arc Center I Values As Radius",
       "description": "\nThis post question sets the posting engine on how it should output the I values for cutting arcs using live tooling when the post question: 222 is set to an option that uses IJK output.\nThe I value represents the X axis component of the arc center. By default the I value will be output as a Diameter mode. When this question is set to \"y\" the posting engine will output the value as a Radial dimension.\n\nPosting Variables Applied To:\n\n",
+      "jobTypes": [
+        "Mill Turn"
+      ]
+    },
+    {
+      "number": 3560,
+      "name": "Block 3560. Output Lathe Tool Y-Shift in the g-code?",
+      "description": "This post question controls the Lathe Tool Y-Shift g-code output. This question is needed on some machines when utilizing a lathe dual tool holder. Since the Lathe tools are not centered on the mounting point of the station, the g-code needs to reflect that shift in Y. This Y-shift value can be controlled 2 different ways.\n\n1st Way: If this post question is enabled, if you have a tool adapter setup in the tool crib, it will automatically post out the Y-Shift based on the position of the lathe tool in the tool holder and the center point of the station.\n\n2nd Way: If this post question is enabled and you do not have a tool adapter setup. You can use the Y \"Shift\" section of the tool crib to manually input the Y-Shift.",
       "jobTypes": [
         "Mill Turn"
       ]

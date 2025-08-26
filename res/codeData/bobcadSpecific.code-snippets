@@ -1128,6 +1128,30 @@
 			],
 			"description": "Custom MDI Commands: mdi_custom_string allows you to define a custom text (string) when on the \"MDI\" page in the software. Custom MDIs are setup in post blocks 2600. - 2699. In the softwware, on the \"MDI\" page of a feature, expand \"Custom Commands\" and you will now see a new command called, \"Name of Custom Command\"."
 		},
+		"mdi_custom_int(default) (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "mdi_custom_int(default int)",
+			"body": [
+				"mdi_custom_int_${1:customVariableName}(${2:defaultInt})"
+			],
+			"description": "Custom MDI Commands: mdi_custom_int allows you to define a custom integer number when on the \"MDI\" page in the software. Custom MDIs are setup in post blocks 2600. - 2699. In the softwware, on the \"MDI\" page of a feature, expand \"Custom Commands\" and you will now see a new command called, \"Name of Custom Command\". Starting BCC V38 / BCS V13, you can now set a default value for this variable. Previously, the values would always show up as 0 in the MDI dialog and the user would need to set up the value every time. Now, you can set your own default value by adding (int var)."
+		},
+		"mdi_custom_double(default) (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "mdi_custom_double(default double)",
+			"body": [
+				"mdi_custom_double_${1:customVariableName}(${2:defaultDouble})"
+			],
+			"description": "Custom MDI Commands: mdi_custom_double allows you to define a custom decimal (double) number when on the \"MDI\" page in the software. Custom MDIs are setup in post blocks 2600. - 2699. In the softwware, on the \"MDI\" page of a feature, expand \"Custom Commands\" and you will now see a new command called, \"Name of Custom Command\". Starting BCC V38 / BCS V13, you can now set a default value for this variable. Previously, the values would always show up as 0 in the MDI dialog and the user would need to set up the value every time. Now, you can set your own default value by adding (double var)."
+		},
+		"mdi_custom_string(default) (BobCAD)": {
+			"scope": "bcpst",
+			"prefix": "mdi_custom_string(default string)",
+			"body": [
+				"mdi_custom_string_${1:customVariableName}(${2:defaultString})"
+			],
+			"description": "Custom MDI Commands: mdi_custom_string allows you to define a custom text (string) when on the \"MDI\" page in the software. Custom MDIs are setup in post blocks 2600. - 2699. In the softwware, on the \"MDI\" page of a feature, expand \"Custom Commands\" and you will now see a new command called, \"Name of Custom Command\". Starting BCC V38 / BCS V13, you can now set a default value for this variable. Previously, the values would always show up as 0 in the MDI dialog and the user would need to set up the value every time. Now, you can set your own default value by adding (string var)."
+		},
 		// Formatting Post Variable Output
 		"Format 1 (BobCAD)": {
 			"scope": "bcpst",
