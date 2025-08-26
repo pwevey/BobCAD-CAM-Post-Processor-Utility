@@ -11357,6 +11357,61 @@
       ],
       "description": "Number of revolutions in the helix segment being posted out. If the helix segment makes one complete 360 degrees revolution, the helix_num_revolutions will output D1. With “D” being the prefix setup in post question 735.\n\nLinked Post Questions:\n735",
       "bobcadAPIs": []
+    },
+    {
+      "postVariableName": "output_note",
+      "jobTypes": [
+        "Mill Job",
+        "Lathe Job",
+        "Mill Turn Job"
+      ],
+      "description": "Outputs the note from CAM tree. Variable outputs note from Job level if used in Block 0, outputs note from Machine setup when used in blocks 15 & 16., when used in other blocks will output notes from Group folder/Index system/Wrapping group/feature/operation level. This block was added to BobCAD-CAM V36 and BobCAM for SOLIDWORKS V11.",
+      "bobcadAPIs": []
+    },
+    {
+      "postVariableName": "local_sub_num_call",
+      "jobTypes": [
+        "Mill Job",
+        "Mill Turn Job"
+      ],
+      "description": "Outputs the prefix + sub program number. Example: P100\n\nLinked Post Processor Question:\nPrefix:  658",
+      "bobcadAPIs": []
+    },
+    {
+      "postVariableName": "local_sub_num_def",
+      "jobTypes": [
+        "Mill Job",
+        "Mill Turn Job"
+      ],
+      "description": "Outputs N + sub program number. Example: N100",
+      "bobcadAPIs": []
+    },
+    {
+      "postVariableName": "local_sub_num_no_prefix",
+      "jobTypes": [
+        "Mill Job",
+        "Mill Turn Job"
+      ],
+      "description": "Outputs the sub program number only. Example: 100",
+      "bobcadAPIs": []
+    },
+    {
+      "postVariableName": "helix_totalangles",
+      "jobTypes": [
+        "Mill Job",
+        "Mill Turn Job"
+      ],
+      "description": "Outputs the total helix angle for helical toolpath entity.\n\nLinked Post Question:\nPrefix: 733",
+      "bobcadAPIs": []
+    },
+    {
+      "postVariableName": "helix_pitch",
+      "jobTypes": [
+        "Mill Job",
+        "Mill Turn Job"
+      ],
+      "description": "Outputs the pitch value for helical toolpath entity.\n\nLinked Post Question:\nPrefix: 734",
+      "bobcadAPIs": []
     }
   ],
   "commonPostVariables": [

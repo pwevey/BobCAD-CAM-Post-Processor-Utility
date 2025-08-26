@@ -401,6 +401,16 @@
       "description": "This block is used to output the \"incremental_coord\" posting variable. This block is currently not in use and should be removed from the current *.BCPst post processor files.\n\n"
     },
     {
+      "number": 102,
+      "name": "Block 102. Haas Peck Tapping Cycle",
+      "description": "This block is used to output Haas-specific peck tapping cycle. It is specifically formatted to accommodate Haas controllers, which require the current position to be output with a new Z depth value for each peck depth. This method does not use a Q value but adapts to the unique requirements of Gaas format by outputting Z depth incrementally.\n\nNon-Haas specific tapping and peck tapping is done in Block 84.\n\n(Added in the 2024 cycle: BCCV37 / BCSV12)\n\n"
+    },
+        {
+      "number": 103,
+      "name": "Block 103. Haas Peck Tapping Cycle Point",
+      "description": "This block is used to output the details for each pecking point in the Haas peck tapping cycle.\n\nNon-Haas specific tapping and peck tapping is done in Block 84.\n\n(Added in the 2024 cycle: BCCV37 / BCSV12)\n\n"
+    },
+    {
       "number": 108,
       "name": "Block 108. Rectangular Stock Format",
       "description": "This block is used to output the definition of the stock when the \"output_stock_definition\" command variable is encountered on a postline in a milling job. This stock format was originally implemented for outputting the required stock definition for the Predator Editor.\n\n"
