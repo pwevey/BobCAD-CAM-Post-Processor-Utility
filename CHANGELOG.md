@@ -4,6 +4,12 @@
 
 Added:
 
+* Post Blocks from 1.38.0 added to Post Blocks tree viewer
+
+## [1.38.0]
+
+Added:
+
 * New Post Variables, APIs, and Lua APIs for the 2025 BobCAD-CAM product line (BobCAD-CAM V38, BobCAM for SolidWorks V13)
     * Post Variables Added: rotaryPosition_reset_G92, helix_num_revolutions
     * Post Variables Updated: mdi_custom_double_xxx(double var), mdi_custom_int_xxx(int var), and mdi_string_double_xxx(string var)
