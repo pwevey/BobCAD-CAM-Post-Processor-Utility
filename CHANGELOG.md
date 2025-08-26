@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.38.0]
+
+Added:
+
+* New Post Variables, APIs, and Lua APIs for the 2025 BobCAD-CAM product line (BobCAD-CAM V38, BobCAM for SolidWorks V13)
+
 ## [1.0.11]
 
 Added:
