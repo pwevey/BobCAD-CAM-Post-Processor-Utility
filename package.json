@@ -2,12 +2,12 @@
   "name": "bobcad-post",
   "displayName": "BobCAD-CAM Post Processor Utility",
   "description": "Tool for BobCAD Post Processors",
-  "version": "1.38.1",
+  "version": "1.38.2",
   "icon": "res/icons/logo.png",
   "author": {
     "name": "BobCAD-CAM",
     "email": "support@bobcad.com",
-    "url": "http://www.bobcadsupport.com"
+    "url": "https://www.bobcad.com/support"
   },
   "publisher": "BobCAD-CAM",
   "engines": {
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/username/repo"
+    "url": "https://github.com/pwevey/BobCAD-CAM-Post-Processor-Utility"
   },
   "categories": [
     "Programming Languages",
@@ -208,7 +208,7 @@
       },
       "postBlocks.supportSiteUrl": {
         "type": "string",
-        "default": "https://bobcadsupport.com/",
+        "default": "https://bobcad.com/support/",
         "description": "URL for the BobCAD Support Site"
       }
       }

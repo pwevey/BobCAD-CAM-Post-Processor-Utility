@@ -28,10 +28,10 @@ CLICK TO WATCH!
 
 ## Learn More About BobCAD-CAM Post Processors
 
-Find all Post Processor Resources: [HERE](https://bobcadsupport.com/post-processor-resources/)
+Find all Post Processor Resources: [HERE](https://bobcad.com/support/)
 
 Be sure to check-out our getting started guide if you are new to modifying post processors!
-[Ultimate Guide to Finding a Post Processor that Works for YOU!](https://bobcadsupport.com/knowledgebase/the-ultimate-guide-to-finding-a-post-processor-that-works-for-you/)
+[Ultimate Guide to Finding a Post Processor that Works for YOU!](https://bobcad.com/support/)
 
 
 ## About
@@ -48,7 +48,7 @@ Repository found here: https://github.com/pwevey/BobCAD-CAM-Post-Processor-Utili
 
 [BobCAD-CAM Offical Website](https://www.bobcad.com/)
 
-[BobCAD-CAM Support Site](https://www.bobcadsupport.com/)
+[BobCAD-CAM Support Site](https://bobcad.com/support/)
 
 [Privacy Policy](https://bobcad.com/privacy/)
 

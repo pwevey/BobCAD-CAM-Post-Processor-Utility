@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.38.2]
+
+Updated:
+
+* Updated repository URL to valid GitHub repository link
+* Updated support site URLs from bobcadsupport.com to bobcad.com/support
+
 ## [1.38.1]
 
 Added:

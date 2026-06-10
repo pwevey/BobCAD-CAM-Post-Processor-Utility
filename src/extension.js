@@ -74,7 +74,7 @@ function activate(context) {
 
   // Register a new command to open the support site in a webview
   const openSupportSiteCommand = vscode.commands.registerCommand('postBlocks.openSupportSite', () => {
-    const supportSiteUrl = vscode.workspace.getConfiguration().get('postBlocks.supportSiteUrl', 'https://bobcadsupport.com/');
+    const supportSiteUrl = vscode.workspace.getConfiguration().get('postBlocks.supportSiteUrl', 'https://bobcad.com/support/');
     vscode.env.openExternal(vscode.Uri.parse(supportSiteUrl));
   });
 
